@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .first{
+            border:1px #ccc solid;
+            width:200px;
+            height:80px;
+            font-size:14px;
+            color:#f0f;
+            text-align: center;
+        }
+        .dialog{
+            border:1px #ccc;
+        }
+        .header{
+            height:40px;
+            text-align: left;
+            padding-left: 10px;
+            font-size: 16px;
+            color:#f00;
+            border-bottom:#ccc 1px solid;
+        }
+        .content{
+            height:100px;
+            color:blue;
+        }
+        .content a{
+            text-decoration: none;
+        }
+        .content a:hover{
+            color:red;
+        }
+        .footer{
+            height:50px;
+            text-align: center;
+        }
+        .footer .btn{
+            border:1px #ccc solid;
+            border-radius: 3px;
+            padding:4px 3px;
+            display:inline-block;
+
+        }
+        table{
+            border-collapse:collapse;
+            width:300px;
+            text-align:center;
+            height:100px;
+            }
+        table th,table  td{
+            border:1px solid #ccc;
+            padding:5px;
+        }
+        table th{
+            background-color: #2aa;
+        }
+        table tr:hover{
+            background-color: #ccc;
+            color:white;
+        }
+        .wrap{
+            max-width: 900px;
+            margin: 0 auto;
+            border:1px solid red;
+        }
+    </style>
+</head>
+<body>
+<!--第一题-->
+<div class="first">这里是饥人谷</div>
+<!--第二题-->
+<div class="dialog">
+    <div class="header">
+        <h3>我是标题</h3>
+        <a class="close" title="关闭" href="#">X</a>
+    </div>
+    <div class="content">
+        <h3>欢迎来到  <a href="http://jirengu.com">饥人谷</a></h3>
+        <p> 在这个大家庭你能快乐的学到更多前端技能</p>
+    </div>
+    <div class="footer">
+        <a class="btn btn-cancel" href="#">取消</a>
+        <a class="btn btn-confirm" href="#">确认</a>
+    </div>
+</div>
+<!--第三题-->
+<table>
+    <tr>
+        <th>姓名</th>
+        <th>性别</th>
+    </tr>
+    <tr>
+        <td>小明</td>
+        <td>男</td>
+    </tr>
+    <tr>
+        <td>小花</td>
+        <td>女</td>
+    </tr>
+</table>
+<!--第四题-->
+<br/>
+<br/>
+<br/>
+<div id="header">
+    <div class="wrap">这里是标题</div>
+</div>
+<div id="content">
+    <div class="wrap">这里是内容</div>
+</div>
+<div id="footer">
+    <div class="wrap">这里是 footer</div>
+</div>
+<!--作用:当浏览器可视窗口>900+8px【body默认margin:8px，chrome、firefox浏览器下】时候，带有class="wrap"的元素会在浏览器水平居中，
+当浏览器可视窗口<900+8px时候，会出现滚动条而且宽度保持900px不变
+
+当设置为max-width:900px;时，就可以实现改变浏览器窗口大小时，三个div一直居中了。-->
+</body>
+</html>
