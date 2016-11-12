@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{margin:0;padding:0}
+        .control{
+            height:30px;
+            line-height: 30px;
+            background:url(11.png) no-repeat 0 0;
+            display:inline-block;
+            padding-left: 35px;
+            font:16px "微软雅黑";
+
+        }
+        .control:hover{
+            color:purple;
+            cursor:pointer;
+        }
+        .go{
+            background-position: 1px -3px;
+        }
+        .start{
+            background-position: 3px -46px;
+        }
+        .stop{
+            background-position: 0 -93px;
+        }
+        .go:hover{
+            background-position: 0 -138px;
+        }
+        .start:hover{
+            background-position: -2px -187px;
+        }
+        .stop:hover{
+            background-position:4px -231px;
+        }
+    </style>
+</head>
+<body>
+<div class="control go">前进</div>
+<div class="control start">开始</div>
+<div class="control stop">停止</div>
+</body>
+</html>
