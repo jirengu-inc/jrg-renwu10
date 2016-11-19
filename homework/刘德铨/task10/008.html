@@ -11,8 +11,7 @@
             font-weight: bold;
             font-size: 20px;
         }
-        div {        
-           
+        div {              
             text-align: center;
         }
         .box {
@@ -24,14 +23,14 @@
             border: 2px solid red;
         }
         .son {
-            width: 150px;
+            width: 260px;
             height: 150px;
              line-height: 150px;
             background: #45A3DB;
             float: left;
         }
         .back {
-            width: 154px;
+            width: 264px;
             height: 150px;
             line-height: 150px;
             background: #30D751;
@@ -64,12 +63,14 @@
 </head>
 <body>
     <div class="box">
+        <p>父元素高度塌陷</p>
         <div class="father">
             <div class="son">son</div>       
         </div>
         <div class="back">back</div> 
     </div> 
     <div class="box">
+        <p>添加元素再设clear: both</p>
         <div class="father one">
             <div class="son">son</div>     
             <div class="clear-div"></div>   
@@ -77,30 +78,35 @@
         <div class="back">back</div> 
     </div>  
     <div class="box">
+        <p>添加伪元素再设clear: both</p>
         <div class="father two">
             <div class="son">son</div>      
         </div>
         <div class="back">back</div> 
     </div>  
     <div class="box">
+        <p>设overflow: hidden</p>
         <div class="father three">
             <div class="son">son</div>      
         </div>
         <div class="back">back</div> 
     </div>  
     <div class="box">
+        <p>设overflow: auto</p>
         <div class="father four">
             <div class="son">son</div>      
         </div>
         <div class="back">back</div> 
     </div> 
     <div class="box">
+        <p>设display: table</p>
         <div class="father five">
             <div class="son">son</div>      
         </div>
         <div class="back">back</div> 
     </div> 
     <div class="box">
+        <p>设display: inline-block</p>
         <div class="father six">
             <div class="son">son</div>      
         </div>
