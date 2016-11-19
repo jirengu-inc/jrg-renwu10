@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+       body {
+            background: #DF883E;
+        }
+        div {
+            color: #FFF;
+        }
+        .box {
+            width: 660px;
+            margin: 50px auto;
+        }
+        .aside {
+            float: left;
+            width: 300px;
+            height: 100px;
+            background: #CCCBFF;
+        }
+        .main {
+            width: 660px;
+            background: #FDBFCA;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="aside"></div>
+        <div class="main">
+            文本流和文档流的区别：
+            文档流是相对于盒子模型讲的
+            文本流是相对于文子段落讲的
+            元素浮动之后，会让它跳出文档流，也就是说当它后面还有元素时，其他元素会无视它所占据了的区域，直接在它身下布局。但是文字却会认同浮动元素所占据的区域，围绕它布局，也就是没有拖出文本流。
+            但是绝对定位后，不仅元素盒子会拖出文档流，文字也会出文本流。那么后面元素的文本就不会在认同它的区域位置，会直接在它后面布局，不会在环绕。
+            当然也可以使用 index-z 来让底部的元素到上面来，类似于一个图层的概念。
+        </div>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+         body {
+            background: #DF883E;
+            margin: 0;
+            color: #FFF;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        div {        
+           
+            text-align: center;
+        }
+        .box {
+            border: 10px solid #CCC;
+            float: left;
+            margin:0 20px;
+        }
+        .father {
+            border: 2px solid red;
+        }
+        .son {
+            width: 150px;
+            height: 150px;
+             line-height: 150px;
+            background: #45A3DB;
+            float: left;
+        }
+        .back {
+            width: 154px;
+            height: 150px;
+            line-height: 150px;
+            background: #30D751;
+        }
+        .one .clear-div {
+           clear: both;
+        }
+        .two::after {
+            display: block;
+            content: '';
+            clear: both;
+        }
+        .two {
+            zoom: 1;
+        }
+        .three {
+            overflow: hidden;
+        }
+        .four {
+            overflow: auto;
+        }
+        .five {
+            display: table;
+        }
+        .six {
+            display: inline-block;
+            margin-bottom: -5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="father">
+            <div class="son">son</div>       
+        </div>
+        <div class="back">back</div> 
+    </div> 
+    <div class="box">
+        <div class="father one">
+            <div class="son">son</div>     
+            <div class="clear-div"></div>   
+        </div>
+        <div class="back">back</div> 
+    </div>  
+    <div class="box">
+        <div class="father two">
+            <div class="son">son</div>      
+        </div>
+        <div class="back">back</div> 
+    </div>  
+    <div class="box">
+        <div class="father three">
+            <div class="son">son</div>      
+        </div>
+        <div class="back">back</div> 
+    </div>  
+    <div class="box">
+        <div class="father four">
+            <div class="son">son</div>      
+        </div>
+        <div class="back">back</div> 
+    </div> 
+    <div class="box">
+        <div class="father five">
+            <div class="son">son</div>      
+        </div>
+        <div class="back">back</div> 
+    </div> 
+    <div class="box">
+        <div class="father six">
+            <div class="son">son</div>      
+        </div>
+        <div class="back">back</div> 
+    </div> 
+</body>
+</html>

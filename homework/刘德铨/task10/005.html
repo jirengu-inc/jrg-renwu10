@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body {
+            background: #E9905B;
+            color: #FFF;
+        }
+        div {
+            padding: 10px;
+        }
+        .a {
+            float: left;
+            width: 150px;
+            height: 300px;
+            background: #45A90D;
+            /* position: static; */
+            position: relative;
+            z-index: 0;
+        }
+        .b {
+            float: left;
+            width: 200px;
+            height: 200px;
+            background: #006EA9;
+             position: relative;
+             /* z-index: 2; */
+             z-index: 1;
+        }
+        .c {
+            width: 250px;
+            height: 250px;
+            background: #DB1A00;
+             position: relative;
+            /*  z-index: 1; */
+        }
+    </style>
+</head>
+<body>
+    <div class="a">A</div>
+    <div class="b">B</div>
+    <div class="c">C</div>
+</body>
+</html>
