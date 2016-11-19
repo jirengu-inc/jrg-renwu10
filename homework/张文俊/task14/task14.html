@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>任务3</title>
+    <style>
+        html,body{
+            margin:0;
+            padding:0;
+            font:20px "微软雅黑"
+        }
+        a{
+            text-decoration: none;
+            color:#555;
+            cursor:pointer;
+        }
+        li{
+            list-style-type: none;
+        }
+        #header{
+            background: url('img/1.jpg') 0 0 no-repeat;
+            height:960px;
+        }
+        #header .header-btn{
+            display:block;
+            width:200px;
+            height:50px;
+            line-height: 50px;
+            background: #6c7e84;
+            font-size: 24px;
+            margin:0 auto;
+
+
+        }
+        /*#header .container img{
+            width:
+        }*/
+        .container{
+            width:900px;
+            margin:0 auto;
+            /*border:1px solid red;*/
+        }
+        /*.container:after{
+            content:'';
+            display:block;
+            clear:both;
+        }*/
+        .header-content{
+            text-align: center;
+            padding-top: 400px;
+        }
+        #header>h1:nth-of-type(1){
+
+        }
+        #content{
+            text-align: center;
+        }
+        .content-desc{
+            text-align: center;
+            padding:40px;
+
+
+        }
+        .content-mid{
+            background: #337ab7;
+            height:600px;
+            text-align: center;
+            padding-top: 50px;
+        }
+        .content-mid ul{
+            margin:0 300px;
+            /*border:1px green solid;*/
+            text-align: center;
+        }
+        .content-mid ul:after{
+            content:'';
+            display:block;
+            clear:both;
+        }
+        .content-mid ul li{
+            float:left;
+            display: inline-block;
+            padding: 0 100px;
+            /*border:1px solid yellow;*/
+
+
+        }
+        .content-mid>h1{
+            display:inline-block;
+            border-bottom: 3px solid #333 ;
+            padding-bottom: 30px;
+        }
+        .content-pic{
+            background:url('img/callout.jpg') 0 0 no-repeat;
+            background-size: cover;
+            padding:200px 0;
+            color:white;
+        }
+        #content .content-picbox li{
+            float:left;
+            padding:20px;
+        }
+        .content-picbox{
+            width:1200px;
+            text-align: center;
+            padding:50px 0;
+        }
+        .content-picbox h1{
+            display:inline-block;
+            line-height: 80px;
+            border-bottom:3px solid red;
+        }
+        .content-picbox:after{
+            content:'';
+            display:block;
+            clear:both;
+        }
+        .content-picbox-btn{
+            display:block;
+            width:100px;
+            height:30px;
+            line-height: 30px;
+            text-align: center;
+            background: #999;
+            margin:0 auto;
+            clear:both;
+            color:white;
+            position:relative;
+            left:-20px;
+        }
+        /*.header-btn{
+            position:relative;
+            left:300px;
+            border:2px solid red;
+        }*/
+        .footer-btn1,.footer-btn2{
+            display:block;
+            width:170px;
+            height:60px;
+            line-height: 60px;
+            float:left;
+            margin-left:10px;
+            background:#eee;
+            text-align: center;
+            position:relative;
+            left:676px;
+            cursor:pointer;
+            color:#333;
+
+        }
+        .footer-desc{
+
+            text-align: center;
+            background: #337ab7;
+            padding:100px;
+
+
+
+        }
+        .footer-desc:after{
+            content:'';
+            display:block;
+            clear:both;
+        }
+        .footer-info{
+            text-align: center;
+            padding:100px;
+        }
+        .footer-info:after{
+            content:'';
+            display:block;
+            clear:both;
+        }
+        .footer-info ul{
+            text-align: center;
+        }
+        .footer-icon{
+            margin-left: 250px;
+        }
+        .footer-icon li{
+            float:left;
+            padding-left: 20px;
+        }
+        .footer-icon:after{
+            content:"";
+            display:block;
+            clear:both;
+        }
+    </style>
+</head>
+<body>
+<div id="header">
+    <div class="container header-content">
+    <h1>张文俊</h1>
+    <p>热爱前端开发的小白</p>
+    <a class="header-btn" href="#">查看更多</a>
+    </div>
+</div>
+<div id="content">
+    <div class="container content-desc">
+        <h1>这里是个标题</h1>
+        <p>关于我的简介 <a href="">作品</a></p>
+    </div>
+    <div class="content-mid">
+        <h1>技能</h1>
+        <ul>
+            <li>
+                <img src="img/html(1).png" alt="#"/>
+                <h4>HTML</h4>
+                <p>掌握程度*****</p>
+            </li>
+            <li>
+                <img src="img/javascript(1).png" alt="#"/>
+                <h4>JavaScript</h4>
+                <p>掌握程度*****</p>
+            </li>
+            <li>
+                <img src="img/jquery.png" alt="#"/>
+                <h4>JQuery</h4>
+                <p>掌握程度*****</p>
+            </li>
+        </ul>
+    </div>
+    <div class="content-pic">
+        <div class="container">
+            <h1>又是一段话</h1>
+        </div>
+    </div>
+    <div class="container content-picbox">
+        <h1>我的作品</h1>
+        <ul>
+            <li><a href="#"><img src="img/portfolio-1.jpg" alt=""/></a></li>
+            <li><a href="#"><img src="img/portfolio-1.jpg" alt=""/></a></li>
+            <li><a href="#"><img src="img/portfolio-1.jpg" alt=""/></a></li>
+            <li><a href="#"><img src="img/portfolio-1.jpg" alt=""/></a></li>
+        </ul>
+        <a href="#" class="content-picbox-btn">更多作品</a>
+    </div>
+</div>
+<div id="footer">
+    <div class=" footer-desc">
+        <h2>我是一个聪明勤奋的人</h2>
+        <div class="footer-btn">
+            <a class="footer-btn1" href="#">click me</a>
+            <a class="footer-btn2" href="#">look at me</a>
+        </div>
+    </div>
+    <div class="container footer-info">
+        <h3>我的信息</h3>
+        <ul>
+            <li><a href=""></a>3481 Melrose Place </li>
+            <li>Beverly Hills, CA 90210</li>
+        <li><img src="img/phone.png" alt=""/>(23) 456-7890</li>
+        <li><a href="" style="text-decoration: underline"><img src="img/email.png" alt=""/>name@example.com</a></li>
+        </ul>
+        <ul class="footer-icon">
+            <li><a href=""><img src="img/iconfont-gongnengyedoubanfanshe_副本.png" alt=""/></a></li>
+            <li><a href=""><img src="img/facebook_副本.png" alt=""/></a></li>
+            <li><a href=""><img src="img/github_副本.png" alt=""/></a></li>
+        </ul>
+        <p>Copyright © hunger 2016</p>
+    </div>
+</div>
+</body>
+</html>
