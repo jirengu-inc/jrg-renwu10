@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body {
+            font: 18px/1 "微软雅黑",sans-serif;
+            background: #FF8B37; 
+            color: #FFF; 
+            margin: 0;
+        } 
+        .box {
+            float: left;
+            width: 420px;
+            height: 300px;
+            background: #791FAF;
+            margin: 30px 10px;
+            border: 5px solid #CD3;
+            text-align: center;
+        }
+        .son {
+            width: 200px;
+            height: 200px;
+            background: #0098B1;
+            display: inline-block;
+            /* float: left; */
+        }
+        .margin {
+            margin-left: -5px;
+        }
+        .font-size {
+            font-size: 0;
+        }
+        .font-size p {
+             font: 18px/1 "微软雅黑",sans-serif;
+             color: #FFF;
+        }
+        .letter-spacing {
+            letter-spacing: -5px;
+        }
+        .letter-spacing p {
+            letter-spacing: 0;
+        }
+        .word-spacing {
+            word-spacing: -5px;
+        }
+        .word-spacing p {
+            word-spacing: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <p>inline-block间隙</p>
+        <div class="son"></div>
+        <div class="son"></div>
+    </div>
+    <div class="box">
+        <p>负margin</p>
+        <div class="son"></div>
+        <div class="son margin"></div>
+    </div>
+    <div class="box font-size">
+        <p>font-size: 0</p>
+        <div class="son"></div>
+        <div class="son"></div>
+    </div>
+    <div class="box letter-spacing">
+        <p>负letter-spacing</p>
+        <div class="son"></div>
+        <div class="son"></div>
+    </div>
+    <div class="box word-spacing">
+        <p>负word-spacing</p>
+        <div class="son"></div>
+        <div class="son"></div>
+    </div>
+</body>
+</html>
