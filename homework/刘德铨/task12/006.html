@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body {
+            background: #DF883E;
+            margin: 0;
+            color: #FFF;
+            font-weight: bold;
+            font-size: 20px;
+            min-width: 417px;
+        }
+        div {
+            text-align: center;
+        }
+        .header,.footer {
+            height: 100px;       
+            line-height: 100px;
+            background: #377EFD;
+        }
+        .box::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .main {
+            width: 100%;
+            float: left;
+        }
+        .main .wrap {
+            height: 400px;
+            line-height: 400px;
+            background: #66DB29;
+            margin-right: 200px;         
+        }
+        .right {
+            float: left;
+            width: 200px;
+            height: 400px;
+            line-height: 400px;
+            margin-left: -200px;
+            background: #45A3DB;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">头部</div>
+    <div class="box">
+        <div class="main">
+            <div class="wrap">中间</div>
+        </div>
+        <div class="right">右侧栏</div>
+    </div>
+    <div class="footer">底部</div>
+</body>
+</html>
