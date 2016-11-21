@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="fonts/font-awesome.min.css"/>
+    <style>
+        *{margin:0;padding:0}
+        a{
+            text-decoration: none;
+            color:#333;
+        }
+        a:hover{
+            color:red;
+        }
+        li{
+            list-style-type: none;
+        }
+        .layout{
+            width:1000px;
+            margin:0 auto;
+            /*border:1px solid red;*/
+        }
+        body{
+            font-size: 14px;
+        }
+        #header .navbar{
+            float:left;
+            margin-left: 20px;
+            /*height:20px;
+            line-height: 20px;*/
+
+        }
+        .clearfix:after{
+            content:"";
+            display:block;
+            clear:both;
+        }
+        #header .logo{
+            font-size:30px;
+            float:left;
+            /*line-height: 20px;*/
+
+        }
+        #header .navbar>li{
+            float:left;
+            padding:0 10px;
+            line-height: 50px;
+        }
+        .secondmenu{
+            border:1px solid #ccc;
+            position:absolute;
+            display:none;
+            background: #fff;
+
+        }
+        .secondmenu li{
+            line-height:2;
+            border:1px solid #eee;
+            padding:0 5px;
+        }
+        .navbar>li:hover .secondmenu{
+            display:block;
+
+        }
+        #header .ins{
+            background-color:#b84d45;
+            color:#fff;
+            padding:30px 0;
+        }
+        .firstpage{
+            height:30px;
+            background-color: #eee;
+            margin-top: 50px;
+            padding-left: 10px;
+            border-radius: 3px;
+            line-height: 30px;
+        }
+        #content:after{
+            content:'';
+            display: block;
+            clear:both;
+        }
+        .firstpage a{
+            color:#b84d45;
+
+        }
+        .product li img{
+            width:300px;
+            height:200px;
+        }
+        .product li{
+            float:left;
+            margin:15px;
+            border:1px solid #ccc;
+            text-align: center;
+
+        }
+        .product li>h4{
+            padding:5px 10px;
+            text-align: left;
+
+        }
+        .product li>p{
+            padding:5px 10px;
+            text-align: left;
+
+        }
+
+        .btn{
+            border:1px solid #ccc;
+            padding:5px 8px;
+            display: inline-block;
+            border-radius: 3px;
+            margin-bottom: 10px;
+        }
+        .download{
+            background-color: blue;
+            text-align: center;
+            padding:20px 0;
+            color:white;
+
+        }
+        .download .btn{
+            border:1px solid #ccc;
+            padding:2px 5px;
+            border-radius: 3px;
+            margin-top: 10px;
+        }
+        #footer{
+            text-align: center;
+            border-top: 1px solid #eee;
+            padding:50px;
+            font-size: 24px;
+        }
+
+
+
+    </style>
+</head>
+<body>
+<div id="header">
+    <div class="layout clearfix">
+        <a class="logo" href="#">
+            <i class="fa fa-rocket"></i>
+        </a>
+            <ul class="navbar">
+                <li><a href="">博客</a></li>
+                <li><a href="">项目</a></li>
+                <li><a href="">简历</a></li>
+                <li><a href="">更多 <i class="fa fa-caret-down"></i></a>
+                    <ul class="secondmenu">
+                        <li><a href="">GitHub</a></li>
+                        <li><a href="">知乎</a></li>
+                        <li><a href="">微博</a></li>
+                    </ul>
+                </li>
+            </ul>
+    </div>
+    <div class="ins">
+        <div class="layout ">
+            <h1>张文俊</h1>
+            <p>热爱前端开发的小白</p>
+            <p>技术宅</p>
+        </div>
+    </div>
+</div>
+<div id="content">
+    <div class="layout firstpage">
+        <a href="#">首页</a> / 我的作品
+        <ul class="clearfix product">
+            <li><a href=""><img src="img/15.jpg" alt="#"/></a>
+                <h4>作品标题</h4>
+                <p>作品介绍</p>
+                <a href="#" class="btn">查看</a>
+
+            </li>
+            <li><a href=""><img src="img/15.jpg" alt="#"/></a>
+                <h4>作品标题</h4>
+                <p>作品介绍</p>
+                <a href="#" class="btn">查看</a>
+
+            </li>
+            <li><a href=""><img src="img/15.jpg" alt="#"/></a>
+                <h4>作品标题</h4>
+                <p>作品介绍</p>
+                <a href="#" class="btn">查看</a>
+
+            </li>
+            <li><a href=""><img src="img/15.jpg" alt="#"/></a>
+                <h4>作品标题</h4>
+                <p>作品介绍</p>
+                <a href="#" class="btn">查看</a>
+
+            </li>
+            <li><a href=""><img src="img/15.jpg" alt="#"/></a>
+                <h4>作品标题</h4>
+                <p>作品介绍</p>
+                <a href="#" class="btn">查看</a>
+
+            </li>
+            <li><a href=""><img src="img/15.jpg" alt="#"/></a>
+                <h4>作品标题</h4>
+                <p>作品介绍</p>
+                <a href="#" class="btn">查看</a>
+
+            </li>
+        </ul>
+    </div>
+    </div>
+    <div class="download">
+        <h2>想更详细了解我？</h2>
+        <p>请下载简历</p>
+        <a href="#" class="btn">下载</a>
+    </div>
+<div id="footer" class="layout">
+    <p>@zhangwenjun</p>
+</div>
+</body>
+</html>
