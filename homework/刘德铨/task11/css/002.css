@@ -1,0 +1,55 @@
+/* CSS Reset */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* 公共 */
+body {
+    font: 18px/1 "微软雅黑",sans-serif;
+    background: #FF8B37; 
+    color: #0055DD; 
+}
+
+#header,#content,#footer {
+    width: 500px;
+    margin:0 auto;
+}
+
+/* header */
+#header {
+    background: #FF413D;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+}
+
+
+
+/* content */
+/* aside */
+.aside {
+    float: left;
+    width: 200px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    background: #CCCBFF;
+}
+
+/* .main */
+.main {
+  /*   margin-left: 200px; */
+    background: #FDBFCA;
+    /* overflow: hidden; */
+    display: table-cell;
+}
+
+
+/* footer */
+
+#footer {
+     background: #FF413D;
+    height: 100px;
+}
+

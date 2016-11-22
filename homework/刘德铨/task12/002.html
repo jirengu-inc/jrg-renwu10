@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body {
+            background: #DF883E;
+            margin: 0;
+            color: #FFF;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        div {
+            width: 150px;
+            height: 150px;        
+        }
+        .container {
+            width: 732px;
+            height: 1000px;
+            margin: 0 auto;
+        }
+        .box {
+            float: left;
+            border: 8px solid #CCC;
+            width: 150px;
+            height: 600px;
+            margin: 50px;
+            padding: 0 50px;
+        }
+        .left {
+          background: #DB3E28;       
+        }
+        .relative {
+            line-height: 150px;
+            text-align: center;
+          position: relative;
+          top: 50px;
+          left: 50px;
+        } 
+        .main {
+            background: #66DB29;             
+        }
+        .aside {
+            background: #DB6846;         
+        }
+        .margin {
+            line-height: 150px;
+            text-align: center;
+            margin-left: -50px;
+            margin-top: -50px;
+        }
+        .right {
+            background: #45A3DB;    
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <div class="left"></div>
+            <div class="main"></div>
+            <div class="aside"></div>
+            <div class="right"></div>
+        </div>
+        <div class="box">
+            <div class="left relative">relative</div>
+            <div class="main"></div>
+            <div class="aside margin">负margin</div>
+            <div class="right"></div>
+        </div>
+    </div> 
+</body>
+</html>

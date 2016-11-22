@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body {
+            font: 14px/1 "微软雅黑",sans-serif;
+            background: #FF8B37; 
+            color: #FFF; 
+            margin: 0;
+        } 
+        .box {
+            width: 350px;
+            height: 750px;
+            background: #791FAF;
+            margin: 50px auto;
+           border: 5px solid #CD3;
+        }
+        .father {
+            background: #FF3339;
+            margin: 10px 0;
+        }
+        .son {
+            text-align: center;
+            line-height: 50px;
+            width: 50px;
+            height: 50px;
+            margin: 10px;
+            background: #0098B1;
+        }
+       .father.noempty {
+            border: 5px solid #23B100;
+            /* padding: 5px; */
+       }
+       .bfc {
+          display: inline-block;
+       }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <p class="bfc">父元素未添加border或padding,子元素未创建BFC</p>
+        <div class="father">
+            <div class="son">son</div>
+            <div class="son">son</div>
+        </div>
+        <p class="bfc">父元素添加border或padding，子元素未创建BFC</p>
+        <div class="father noempty">
+            <div class="son">son</div>
+            <div class="son">son</div>
+        </div>
+        <p class="bfc">父元素未添加border或padding，子元素创建BFC</p>
+        <div class="father">
+            <div class="son noempty">son</div>
+            <div class="son bfc">son</div>
+        </div> 
+        <p class="bfc">父元素添加border或padding，子元素创建BFC</p>
+        <div class="father noempty">
+            <div class="son bfc">son</div>
+            <div class="son bfc">son</div>
+        </div>
+    </div>
+</body>
+</html>

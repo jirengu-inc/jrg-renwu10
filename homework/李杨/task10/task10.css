@@ -1,0 +1,73 @@
+@charset "UTF-8";
+/**
+ * 
+ * @authors Your Name (you@example.org)
+ * @date    2016-11-22 13:42:26
+ * @version $Id$
+ */
+body {
+	background-image: url(overwatch.jpg);
+
+}
+nav {
+ 	float: right;
+ 	width: 100%;
+ 	margin-bottom: 20px;
+ 	background-color: rgba(0,0,0,0.8);
+
+ 	clear: both;
+ }
+ .icons {
+ 	color: white;
+	text-decoration: none;
+}
+.icons:hover {
+	color: coral;
+	transition: 0.3s;
+}
+ .logo	{
+	margin-left: 100px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+ 	float: left;
+ }
+ ul {
+ 	float: right;
+ 	list-style-type: none;
+ 	margin-right:200px; 
+ 	
+ 	font-size: 20px;
+ }
+
+li {
+	float: left;
+	margin-left: 40px;
+	margin-top: 10px;
+}
+aside {
+	opacity: 0.8;
+	clear: both;
+	float: left;
+	margin-left: 200px;
+	width: 300px;
+	height: 1000px;
+	background-color: whitesmoke;
+}
+article {
+	opacity: 0.8;
+	clear: right;
+	margin-left: 550px;
+	margin-right: 200px;
+	height: 400px;
+	background-color: whitesmoke;
+}
+
+footer {
+	
+	position: fixed;
+	bottom: 0;
+	clear: left;
+	width: 100%;
+	height: 80px;
+	background-color:rgba(0,0,0,0.8);
+}
