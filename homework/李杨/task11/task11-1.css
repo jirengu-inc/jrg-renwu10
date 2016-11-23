@@ -1,0 +1,35 @@
+body {
+	font-family: "微软雅黑";
+	font-size: 18px;
+}
+.nav {
+	float: left;
+    border:1px solid lightgray;
+}
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding:0;
+  	background:white
+}
+li {
+  display: none; 
+}
+a {
+    text-align:center;
+    width:100px;
+    display:block;
+	text-decoration: none;
+    color:black;
+    background:lightgray;
+  	transition:0.3s;
+}
+a:hover {
+	background-color:gray;
+}
+a:hover li {
+  display:block;
+}
+a li:hover{
+  background: lightgray;
+}
