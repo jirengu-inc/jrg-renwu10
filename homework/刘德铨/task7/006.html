@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>表单</title>
+	<style>
+		body {
+			font-family: "微软雅黑";
+			background: #F07A46;
+			font-size: 20px;
+			margin: 0;
+		}	
+		form {
+			width: 350px;
+			margin: 20px auto;
+			padding: 30px;
+			border: 2px solid #bbb;
+			border-radius: 30px;
+			background: #46B5F0;
+			box-shadow: 5px 5px #0E74A7;
+		}
+		div {
+			margin: 10px 0;
+		}
+		input,
+		textarea {
+			outline: none;
+			padding: 10px 20px;
+			border: 2px solid #ccc;
+			border-radius: 25px;
+			font-size: 20px;
+		}
+		textarea {
+			padding: 25px ;
+			resize: none;
+			width: 230px;
+		}
+		.name label ,
+		.password label {
+			cursor: pointer;
+		}
+		input[type="radio"],
+		input[type="checkbox"] {
+			cursor: pointer;
+			width: 20px;
+			height: 20px;
+		}
+		.submit {
+			float: right;
+			padding: 5px;
+			width: 100px;
+			background: #5966F2;
+			cursor: pointer;
+		}
+		.submit:hover {
+			background: #FF0024;
+			font-weight: bold;
+		}
+		.my-car {
+			height: 38px;
+		}
+		#car {
+			width: 120px;
+			height: 35px;
+			padding: 5px;
+			font-size: 20px;
+			border-radius: 10px;
+			outline: none;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<form action="#" method="post">
+		<div class="name">
+			<label for="name">姓名：</label><input id="name" type="text" name="text" placeholder="用户名">
+		</div>
+		<div class="password">
+			<label for="password">密码：</label><input id="password" type="password" name="password" placeholder="........">
+		</div>
+		<div class="sex">
+		    <label >性别：</label>
+			<input id="male" type="radio" name="sex" value="0" checked>
+			<label for="male">男</label>
+			<input id="female" type="radio" name="sex" value="1">
+			<label for="female">女</label>
+		</div>
+		<div class="orientation">
+			<label >取向：</label>
+			<input id="man"type="radio" name="orientation" value="2">
+			<label for="man">男</label>
+			<input id="woman" type="radio" name="orientation" value="3" checked>
+			<label for="woman">女</label>
+		</div>
+		<div class="hobby">
+			<label >爱好：</label>
+			<input id="dota" type="checkbox" name="dota" >
+			<label for="dota">dota</label>
+			<input id="travel"type="checkbox" name="travel" checked>
+			<label for="travel">旅游</label>
+			<input id="pet" type="checkbox" name="pet" checked>
+			<label for="pet">宠物</label>
+		</div>
+		<div class="comment">
+			<label >评论：</label>
+			<textarea name="comment" id="comment" cols="30" rows="10"></textarea>
+		</div>
+		<div class="my-car">
+			<label >我的car：</label>
+			<select name="car" id="car">
+				<option value="萨满">萨满</option>
+				<option value="奔驰">奔驰</option>
+				<option value="宝马">宝马</option>
+			</select>
+ 			<input name="secret" type="hidden" value="123456">
+			<input class="submit" type="submit" value="提交">
+		</div>
+	</form>
+</body>
+</html>

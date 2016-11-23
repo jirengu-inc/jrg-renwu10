@@ -1,0 +1,175 @@
+/* CSS Reset */
+body,nav,ul,li {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+ul,li {
+    list-style: none;
+}
+
+/* 公共 */
+body {
+    font: 18px/1 "微软雅黑",sans-serif;
+    background: #FF8B37;  
+    min-width: 816px;
+}
+
+.clearfix:after {
+    display: block;
+    content: '';
+    clear: both;
+}
+
+.clear {
+    *zoom:1;
+}
+
+/* nav */
+.nav {
+    background: #377EFD;
+    height: 50px;
+    line-height: 50px;
+}
+
+.nav>ul {
+    margin-left: 100px;
+}
+
+.nav ul li {
+    float: left;
+    text-align: center;
+    width: 140px;
+    height: 50px;
+}
+
+.nav ul li a {
+    display: block;
+    height: 100%;
+    width: 100%;
+    color: #FFF;
+}
+
+.nav>ul>li:hover {
+    background: #065EFD;
+}
+ 
+.nav>ul>li:hover>a {
+    color: #FE5E00; 
+}
+
+.nav>ul>li:hover .second-level {
+    display: block;
+}
+
+/* 二级菜单 */
+.nav .second-level {
+    border: 2px solid #B3A2FD;
+    position: relative;
+   /*  height: 152px; */
+   display: none;
+    z-index: 10;
+}
+
+.nav .second-level:before {
+    display: block;
+    content: '';
+    position: absolute;
+    top: -9.5px;
+    left: 60px;
+    width: 14px;
+    height: 14px;
+    border-top: 2px solid #B3A2FD;
+    border-left: 2px solid #B3A2FD;
+    border-top-right-radius: 2px;
+    border-bottom-left-radius: 2px;
+    transform: rotateZ(45deg);
+    background: #377EFD;
+}
+
+
+
+.nav .second-level li:nth-of-type(1):hover:before{
+    display: block;
+    content: '';
+    position: absolute;
+    top: -9.5px;
+    left: 60px;
+    width: 14px;
+    height: 14px;
+    border-top: 2px solid #B3A2FD;
+    border-left: 2px solid #B3A2FD;
+    border-top-right-radius: 2px;
+    border-bottom-left-radius: 2px;
+    transform: rotateZ(45deg);
+    background: #065EFD;
+}
+
+.nav .second-level li {
+    background: #377EFD;   
+}
+
+.nav .second-level li:not(:last-of-type) {
+    border-bottom: 2px solid #B3A2FD;
+}
+
+
+.nav .second-level li a:before {
+    display: block;
+    content: '<';
+    position: absolute;
+    left: 5px;
+    color: #FE5E00;
+}
+
+.nav .second-level li a:after {
+    display: block;
+    content: '>';
+    position: absolute;
+    right: 5px;
+    color: #FE5E00;
+}
+
+.nav .second-level li:nth-of-type(1) a:before {
+    top:0px;
+}
+
+.nav .second-level li:nth-of-type(2) a:before {
+    top:50px;
+}
+.nav .second-level li:nth-of-type(3) a:before {
+    top:100px;
+}
+
+.nav .second-level li:nth-of-type(1) a:after {
+    top:0px;
+}
+
+.nav .second-level li:nth-of-type(2) a:after {
+    top:50px;
+}
+.nav .second-level li:nth-of-type(3) a:after {
+    top:100px;
+}
+
+
+.nav .second-level li:hover {
+    background: #065EFD;
+}
+
+
+.nav .second-level li:hover a {
+    color: #FE5E00;
+    font-size: 14px;
+}
+
+.nav .second-level li:hover a:before {
+    left: 20px;
+}
+
+.nav .second-level li:hover a:after {
+    right: 20px;
+}

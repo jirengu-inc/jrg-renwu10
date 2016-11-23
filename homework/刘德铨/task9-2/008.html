@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    body {
+       text-align: center;
+    }
+    div {
+        display: inline-block;
+        width: 0;
+        height: 0;
+        margin: 0 10px;       
+    }
+    .box {
+        width: 660px;
+        height: 60px;
+        border: 2px solid #ccc;
+        margin: 50px;
+        background: #F1694F;
+    }
+    .caret {
+        border-top: 30px solid  blue;
+        border-right: 30px solid  yellow;
+        border-bottom: 30px solid  green;
+        border-left: 30px solid  red;
+    }
+    .top{
+        border-top: 30px solid  blue;
+        border-right: 30px solid  transparent;
+        border-bottom: 30px solid  transparent;
+        border-left: 30px solid  transparent;
+    }
+    .left {
+        border-top: 30px solid  transparent;
+        border-right: 30px solid  transparent;
+        border-bottom: 30px solid  transparent;
+        border-left: 30px solid  red;
+    }
+    .right {
+        border-top: 30px solid  transparent;
+        border-right: 30px solid  yellow;
+        border-bottom: 30px solid  transparent;
+        border-left: 30px solid  transparent;
+    }
+    .bottom {
+        border-top: 30px solid  transparent;
+        border-right: 30px solid  transparent;
+        border-bottom: 30px solid  green;
+        border-left: 30px solid  transparent;
+    }
+    .left-bottom {
+        border-top: 30px solid  transparent;
+        border-right: 30px solid  transparent;
+        border-bottom: 30px solid  transparent;
+        border-left: 30px solid  red;
+        transform-origin: 15px 41px;
+        transform: rotateZ(135deg);
+    }
+    .right-bottom {
+         border-top: 30px solid  transparent;
+        border-right: 30px solid  transparent;
+        border-bottom: 30px solid  green;
+        border-left: 30px solid  transparent;
+        transform-origin: 30px 47.5px;
+        transform: rotateZ(135deg);
+    }
+   
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="caret"></div>
+        <div class="top"></div>
+        <div class="left"></div>
+        <div class="right"></div>
+        <div class="bottom"></div>
+        <div class="left-bottom"></div>
+        <div class="right-bottom"></div>
+    </div>  
+</body>
+</html>

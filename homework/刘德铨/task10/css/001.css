@@ -1,0 +1,464 @@
+/* CSS reset */
+body,ul,li,p,h1 {
+	margin: 0;
+	padding: 0;
+}
+a {
+	text-decoration: none;
+}
+ul,li {
+	list-style: none;
+}
+
+/* 公共代码 */
+body {
+	font: 14px/1.5 "微软雅黑",sans-serif;
+    background: #3ACCCC;
+}
+
+.header,.footer{
+    width: 100%;  
+}
+.content{
+    width: 960px;
+    margin: 20px auto;
+}
+
+.container{
+    width: 960px;
+    margin: 0 auto;
+}
+
+
+.clearfix:after {
+    display: block;
+    content: '';
+    clear: both;
+}
+
+.clearfix{
+    *zoom: 1;
+}
+
+/* 页面代码*/
+/* header */
+.header {
+    background: #333;
+    height: 50px;
+    position: relative;
+}
+
+.logo{
+    float: left;
+    margin-left: 50px;
+    height: 50px;
+}
+
+.logo .logo-img {
+    display: block;
+    height: 40px;
+}
+
+.logo a {
+    display: inline-block;
+    width: 230px;
+    width: 40px;
+
+}
+
+.nav {
+    height: 50px;
+    float: right;
+    margin-right: 50px;
+    line-height: 50px;
+}
+
+.nav ul li {
+    float: left;
+    width: 52px;
+    text-align: center;
+    margin: 0 10px;
+}
+
+.nav ul li:hover {
+    background: #FFF;
+}
+
+.nav ul li:hover a{
+    color: #333;
+}
+
+.nav ul li a {
+    display: block;
+    color: #FFF;
+    width: 100%;
+    height: 100%;
+    font-size: 16px;
+}
+
+/* 二级菜单 */
+.nav>ul>li:nth-of-type(1) {
+    position: relative;
+}
+
+.nav>ul>li:nth-of-type(2) {
+    position: relative;
+}
+
+.nav>ul>li:nth-of-type(3) {
+    position: relative;
+}
+
+.nav>ul>li:nth-of-type(4) {
+    position: relative;
+}
+
+
+.nav .second-level{
+    position: absolute;
+    top: 55px;
+    left: -56px;
+    border: 2px solid #CCC;
+    z-index: 10;
+    display: none;
+    border-radius: 10px;
+}
+
+.nav .second-level:before {
+    display: block;
+    content: '';
+    width: 0;
+    height: 0;
+    border-right: 80px solid transparent;
+    border-bottom: 10px solid #CCC;
+    border-left: 80px solid transparent;
+    position: absolute;
+    top: -12px;
+    left: 0px;
+}
+
+.nav .second-level li {
+    border-bottom: 1px solid #CCC;
+    width:170px;
+    margin:0;
+    text-align: center;
+    background: #C8E3F3;
+}
+
+.nav .second-level li:first-of-type {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.nav .second-level li:last-of-type {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+
+.nav .second-level li:hover {
+    background: #2A89C5;
+    font-weight: bold;
+}
+
+
+.nav .second-level li:hover a:before{
+    display: block;
+    content:'<<';
+    position: absolute;
+    left: 10px;
+    color: #333;
+}
+
+.nav .second-level li:hover a:after{
+    display: block;
+    content:'>>';
+    position: absolute;
+    right: 10px;
+    color: #333;
+}
+
+
+.nav .second-level li:nth-of-type(1):hover a:before{
+    top:0;
+}
+
+.nav .second-level li:nth-of-type(2):hover a:before{
+    top:50px;
+}
+
+.nav .second-level li:nth-of-type(3):hover a:before{
+    top:100px;
+}
+
+.nav .second-level li:nth-of-type(4):hover a:before{
+    top:150px;
+}
+
+
+.nav .second-level li:nth-of-type(1):hover a:after{
+    top:0;
+}
+
+.nav .second-level li:nth-of-type(2):hover a:after{
+    top:50px;
+}
+
+.nav .second-level li:nth-of-type(3):hover a:after{
+    top:100px;
+}
+
+.nav .second-level li:nth-of-type(4):hover a:after{
+    top:150px;
+}
+
+.nav .second-level li a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.nav ul li:nth-of-type(1):hover .second-level{
+    display: block;
+}
+
+.nav ul li:nth-of-type(2):hover .second-level{
+    display: block;
+}
+
+.nav ul li:nth-of-type(3):hover .second-level{
+    display: block;
+}
+.nav ul li:nth-of-type(4):hover .second-level{
+    display: block;
+}
+
+/* content */
+.content {
+      position: relative;
+}
+.content .aside {
+    float: left;
+    height: 500px;
+    width: 200px;  
+    background: #F9E6B3; 
+}
+
+.content .main {
+    background: #F9E6B3;
+    margin-left: 210px;
+    padding: 20px;
+    width: 650px;
+    color: #656565;
+}
+
+.content .main .title {
+    font: bold 20px/1.5 "微软雅黑",sans-serif;
+    margin: 20px 0;
+}
+
+/* 评论区 */
+.content .comment {
+    margin:10px 0 0 210px;
+    width: 690px;
+    height: 317px;
+    background: #C0FFBC;
+    position: relative;
+}
+
+.content .comment .comment-newuser {
+    position: absolute;
+    top: 10px;
+    left: 45px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #2FB3FF;
+}
+
+/* .content .comment .comment-newuser:before {
+    display: block;
+    content: '';
+    width: 0;
+    height: 0;
+    border-right: 16px solid transparent;
+    border-bottom: 16px solid #CCC;
+    border-left: 16px solid transparent;
+    position: absolute;
+    bottom: -16px;
+    left: 2px;
+}
+
+.content .comment .comment-newuser:after {
+    display: block;
+    content: '';
+    width: 0;
+    height: 0;
+    border-right: 16px solid transparent;
+    border-bottom: 16px solid #FFF;
+    border-left: 16px solid transparent;
+    position: absolute;
+    bottom: -18px;
+    left: 2px;
+    z-index: 2;
+} */
+
+.content .comment .comment-newuser:before {
+    display: block;
+    content: '';
+    position: absolute;
+    bottom: -25px;
+    left: 10px;
+    width: 20px;
+    height: 20px;
+    border-top: 2px solid #CCC;
+    border-left: 2px solid #CCC;
+    background: #FFF;
+    transform: rotateZ(45deg);
+    z-index: 2;
+}
+
+.content .comment #comment {
+    position: absolute;
+    top: 50px;
+    left: 20px;
+    width: 602px;
+    height: 48px;
+    border:2px solid #CCC;
+    border-radius: 10px;   
+    padding: 15px 20px;
+    font-size: 18px;
+    resize: none;
+    outline: none;
+}
+
+.content .comment .look {
+    position: absolute;
+    top: 140px;
+    left: 50px;
+    border: 1px solid #CCC;
+    color: #FFF;
+    background: #FF804A;
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.content .comment .look:hover .look-img{
+    display: block;
+}
+
+
+.content .comment .look-img{
+    position: absolute;
+    top: 50px;
+    left: -39px;
+    width: 176px;
+    border: 1px solid #EEBAB0;
+    z-index: 10; 
+    background: #B0D6EE;
+    display: none;
+}
+
+.content .comment .look-img:after {
+    display: block;
+    content: '';
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: -20px;
+    left: 0px;
+    border-left: 89px solid transparent;
+    border-bottom: 20px solid #EEBAB0;
+    border-right: 89px solid transparent; 
+    z-index: 10;
+}
+
+.content .comment .look-img li {
+    float: left;
+    width: 30px;
+    height: 30px;
+    border: 2px solid #EEBAB0;
+    padding: 5px;
+}
+
+.content .comment .look-img li:hover {
+    background: #2A89C5;
+}
+.content .comment .publish {
+    position: absolute;
+    top: 140px;
+    right: 50px;
+    background: #FF804A;
+    color: #FFF;
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.content .comment .comment-title {
+    position: absolute;
+    top: 178px;
+    left: 50px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #2FB3FF;
+}
+
+.content .comment .comment-list {
+    position: absolute;
+    top: 210px;
+    left: 20px;
+    width: 600px;
+    height: 75px;
+    padding: 5px 20px;
+    background: #F97C3C;
+}
+
+.content .comment .comment-list .comment-content {
+    display: inline-block;
+}
+
+.content .comment .comment-list .comment-look {
+   vertical-align: middle;
+}
+
+
+.content .comment .comment-user {
+    font-size: 18px;
+    font-weight: bold;
+    color: #F82C0E;
+}
+
+
+/* footer */
+.footer {
+    background: #333;
+    height: 50px;
+    line-height: 50px; 
+    margin-top: 20px;
+    position: relative;
+}
+
+.footer ul {
+   float: left;
+   margin-left: 20px;
+}
+
+.footer ul li {
+    float: left;
+    padding: 0 10px;
+    margin: 0 10px;
+}
+
+.footer ul li a {
+    color: #FFF;
+    text-align: center;
+    display: block;
+    width: 100%;
+    height: 100%;
+    font-size: 16px;
+}

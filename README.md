@@ -17,6 +17,7 @@
 
 # 在线预览
 
-这个 repo 里的代码可以在 http://book.jirengu.com/jirengu-inc/jrg-renwu10/
-预览。
+这个 repo 里的代码可以在 http://book.jirengu.com/jirengu-inc/jrg-renwu10/ 预览。
+
+你也可以也 https://jirengu-inc.github.io/jrg-renwu10/ +文件路径 来预览（不支持目录路径）。
 

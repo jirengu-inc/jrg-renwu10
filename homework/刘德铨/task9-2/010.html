@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+         body {
+           background: #CC8383;
+        }
+        .taiJi {
+            width: 400px;
+            height: 400px;
+            position: relative;
+            margin: 100px auto;
+            transition: all 2s;
+            cursor: pointer;
+        }
+        .taiJi:hover {
+            transform: rotateZ(360deg);
+        }
+        .circle1 {
+            width: 200px;
+            height: 400px;
+            background: #CCC;
+            border-radius: 200px 0 0 200px;    
+        }
+        .circle2 {
+            width: 200px;
+            height: 400px;
+            background: #000;
+            border-radius: 0 200px 200px 0;  
+            position: absolute;  
+            top: 0;
+            left:200px;       
+        }
+        .circle3 {
+            width: 100px;
+            height: 200px;
+            background: #CCC;
+            border-radius: 0 100px  100px 0;  
+            position: absolute;  
+            top: 0;
+            left:200px;       
+        }
+        .circle4 {
+            width: 100px;
+            height: 200px;
+            background: #000;
+            border-radius:  100px 0 0 100px;  
+            position: absolute;  
+            top: 200px;
+            left:100px;       
+        }
+        .circle5 {
+            width: 60px;
+            height: 60px;
+            background: #CCC;
+            border-radius: 50%;  
+            position: absolute;  
+            top: 285px;
+            left:170px;       
+        }
+        .circle6 {
+            width: 60px;
+            height: 60px;
+            background: #000;
+            border-radius: 50%;  
+            position: absolute;  
+            top: 85px;
+            left:170px;       
+        }
+    </style>
+</head>
+<body>
+    <div class="taiJi">
+        <div class="circle1"></div>
+        <div class="circle2"></div>
+        <div class="circle3"></div>
+        <div class="circle4"></div>
+        <div class="circle5"></div>
+        <div class="circle6"></div>
+    </div>
+</body>
+</html>

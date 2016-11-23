@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.left,
+		.top,
+		.top2,
+		.rotate {
+			position: relative;
+			width: 200px;
+			height: 80px;
+			border: 1px solid #CCC;
+			margin: 40px  auto;
+			border-radius: 5px;
+			padding: 20px;
+		}
+		.left::after {
+			display: block;
+			content: '';
+			position: absolute;
+			left: -11px;
+			top: 10px;
+			width: 0px;
+			height: 0px;
+			border-top: 10px solid transparent;
+			border-right: 10px solid #CCC;
+			border-bottom: 10px solid transparent;
+			/* border-left: 100px solid #CCC; */
+		}
+		.top::after {
+			display: block;
+			content: '';
+			position: absolute;
+			left: 80px;
+			top: -11px;
+			width: 0px;
+			height: 0px;
+			border-right: 10px solid transparent;
+			border-bottom: 10px solid #CCC;
+			border-left: 10px solid transparent;
+		}
+		.top2::before {
+			display: block;
+			content: '';
+			position: absolute;
+			left: 80px;
+			top: -11px;
+			width: 0px;
+			height: 0px;
+			border-right: 10px solid transparent;
+			border-bottom: 10px solid #CCC;
+			border-left: 10px solid transparent;
+		}
+		.top2::after{
+			display: block;
+			content: '';
+			position: absolute;
+			left: 80px;
+			top: -10px;
+			width: 0;
+			height: 0;
+			border-right: 10px solid transparent;
+			border-bottom: 10px solid #FFF;
+			border-left: 10px solid transparent;
+		}
+		.rotate::before {
+			display: block;
+			content: '';
+			position: absolute;
+			left: 80px;
+			top: -11px;
+			width: 20px;
+			height: 20px;
+			border-top: 1px solid #CCC;
+			border-left: 1px solid #CCC;
+			background: #FFF;
+			transform: rotateZ(45deg);
+
+		}
+
+	</style>
+</head>
+<body>
+	<div class="left"></div>
+	<div class="top"></div>
+	<div class="top2"></div>
+	<div class="rotate">Hello!Who are you?</div>
+</body>
+</html>

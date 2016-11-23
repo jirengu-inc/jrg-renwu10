@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<style type="text/css" media="screen">
+		div#div1 {
+			border: 	solid 1px #ccc;
+			width: 		200px;
+			height: 	80px;	
+			color: 		#f0f;
+			font-size: 	14px;
+			text-align: center;
+			line-height: 80px;
+			}	
+		.dialog {
+			border: 	solid 1px #ccc;
+		}
+		.header {
+			height: 	40px;
+			text-align: left;
+			padding-left:10px;
+			font-size: 	16px;
+			color: 		#f00;
+			border-bottom: solid #ccc 1px;
+		}
+		.content {
+			height: 	100px;
+
+		}
+		.content a {
+			text-decoration:   none;
+			color: 		blue;
+			transition: color 0.5s
+		}
+		.content a:hover {
+			color: 		red;
+		}
+		.footer {
+			height: 	50px;
+			border: 	blue solid 1px;
+			text-align: center;
+
+		}
+		.btn {
+			
+			border: 	1px solid #ccc;
+			border-radius: 3px;
+			padding: 	4px 3px;
+			line-height: 50px;	
+			
+		}
+		table {
+			width: 		100%;
+			text-align: center;
+			border-collapse: collapse;
+		}
+		td,th {
+			border: 	1px solid #ccc;
+
+		}
+		th {
+			background-color: blue;
+		}
+		td:hover {
+			background-color: #ccc;
+		}
+	</style>
+	<title>TASK 6</title>
+</head>
+<body>
+	<div id="div1">
+	
+		这里是饥人谷
+	
+	</div>
+	<p></p>
+
+	  <div class="dialog">
+    <div class="header">
+      <h3>我是标题</h3>
+      <a class="close" title="关闭" href="#">X</a>
+    </div>
+    <div class="content">
+          <h3>欢迎来到  <a href="http://jirengu.com">饥人谷</a></h3>
+          <p> 在这个大家庭你能快乐的学到更多前端技能</p>
+    </div>
+    <div class="footer">
+        <a class="btn btn-cancel" href="#">取消</a>
+        <a class="btn btn-confirm" href="#">确认</a>
+    </div>
+    <p></p>
+    <table>
+   		<tr>
+    		<th>姓名</th>
+    		<th>性别</th>
+    	</tr>
+    	<tr>
+    		<td>小明</td>
+    		<td>男</td>
+    	</tr>
+    	<tr>
+    		<td>小花</td>
+    		<td>女</td>
+    	</tr>
+    </table>
+  </div>
+</body>
+</html>
