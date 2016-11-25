@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+  .dialog{
+    border: 1px solid #ccc;
+  }
+  .header{
+    height: 40px;
+    text-align：left;
+    padding-left:10px;
+    font-size: 16px;
+    color: #f00;
+    border-bottom: 1px solid #ccc;
+  }
+  .content{
+    height: 100px;
+  }
+  .content a:hover{
+    color: red;
+  }
+  a{
+    color: blue;
+    text-decoration:none;
+  }
+  .footer{
+    height: 50px;
+    text-align: center;
+  }
+  .btn{
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding:4px 3px 4px 3px;
+    display :inline-block;
+
+
+  }
+  </style>
+</head>
+<body>
+  <div class="dialog">
+    <div class="header">
+      <h3>我是标题</h3>
+      <a class="close" title="关闭" href="#">X</a>
+    </div>
+    <div class="content">
+      <h3>欢迎来到  <a href="http://jirengu.com">饥人谷</a></h3>
+      <p> 在这个大家庭你能快乐的学到更多前端技能</p>
+    </div>
+    <div class="footer">
+      <a class="btn btn-cancel" href="#">取消</a>
+      <a class="btn btn-confirm" href="#">确认</a>
+    </div>
+  </div>
+</body>
+</html>
