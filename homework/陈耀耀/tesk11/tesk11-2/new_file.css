@@ -1,0 +1,22 @@
+#header {
+	height: 40px;
+	background-color: red;
+}
+
+
+#content .aside {
+	float: left;
+	width: 200px;
+	background-color: blue;
+	opacity: 0.2;
+}
+
+#content .main {
+	overflow: hidden;
+	background-color: pink;
+}
+
+#footer {
+	height: 40px;
+	background-color: red;
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+ <head>
+   <meta charset="utf-8">
+   <style>
+
+   </style>
+ </head>
+ <body>
+   <form name="myform" action="renwu.php" method="post">
+    <div class="use">
+     姓名：<input name="user" type="text" placeholder="用户名" maxlength="20" />
+   </div>
+   <div class="passwords">
+     密码：<input name="password" type="password" placeholder="密码" />
+   </div>
+   <div class="sex">
+     性别：<input type="radio" name="sex" value="male" /> 男
+          <input type="radio" name="sex" value="female" /> 女
+   </div>
+   <div class="target">
+     取向：<input type="radio" name="target" value="male" /> 男
+           <input type="radio" name="target" value="female" /> 女
+   </div>
+   <div class="hobby">
+     爱好：<input type="checkbox" name="hobby" value="dota" /> dota
+           <input type="checkbox" name="hobby" value="旅游" /> 旅游
+           <input type="checkbox" name="hobby" value="宠物" /> 宠物
+   </div>
+   <div class="comment">
+     评论：
+     <textarea name="comment" cols="45" rows="10" placeholder="ddd" ></textarea>
+   </div>
+   <div class="car">
+     我的car:
+     <select name="car-name">
+       <option value="萨博" selected>萨博</option>
+       <option value="宝马">宝马</option>
+       <option value="golf GII">golf GTI</option>
+    </div>
+    <input type="submit" value="提交" />
+ </body>
+</html>
