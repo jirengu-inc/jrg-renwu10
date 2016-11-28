@@ -70,6 +70,12 @@ h2,
 .content p {
   text-align: center;
 }
+#container>p>a {
+  color: #3b5998;
+}
+#container>p>a:hover {
+  text-decoration: underline;
+}
 .skill {
   background-color: #3b5998;
   text-align:center;
