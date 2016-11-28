@@ -1,0 +1,51 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+li {
+	list-style-type: none;
+}
+
+a {
+	text-decoration: none;
+	color: #000;
+}
+
+.clearfix:after{
+	content: "";
+	display: block;
+	clear: both;
+}
+
+.nav {
+	background: #CBCBCB;
+}
+
+.nav>li {
+	float: left;
+	position: relative;
+}
+
+li {
+    height: 40px;
+	line-height: 40px;
+	padding: 0 20px;
+	
+}
+
+li:hover {
+	background-color: #AAAAAA;
+}
+
+.child {
+	display: none;
+	position: absolute;
+	left: 0;
+	border: 1px solid #CBCBCB;
+	border-top: 0;
+}
+
+.nav>li:hover .child{
+	display: block;
+}
