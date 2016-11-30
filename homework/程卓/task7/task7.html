@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
-<head> 
-<meta charset="utf-8"> 
-<title>form</title> 
+<head>
+  <meta charset="utf-8">
+  <title>myform</title>
 </head>
 <body>
-<form name="myform" method="post">
- 姓名:<input type="text" name="name" placeholder="用户名"><br/>
- 密码:<input type="password" name="password" value="11111111"><br/>
+<form name="myform">
+ 姓名:<input type="text" name="name" placeholder="用户名" maxlength="10"><br/>
+ 密码:<input type="password" name="password" value="11111111" maxlength="10"><br/>
  姓名:<input type="radio" name="sex" value="male" checked="checked">男
       <input type="radio" name="sex" value="female">女<br/>
  取向:<input type="radio" name="sexual-orientation" value="male">男
@@ -21,6 +21,7 @@
  	<option value="saab" selected="selected">萨博</option>
  	<option value="benz">奔驰</option>
 </select>
+<input type="submit" value="提交">
 </form>
 </body>
 </html>
