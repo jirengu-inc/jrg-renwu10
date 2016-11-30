@@ -1,0 +1,298 @@
+/* CSS reset*/
+body,ul,li,h1,h2,h3,p {
+	margin: 0;
+	padding: 0;
+}
+a {
+	text-decoration: none;
+}
+ul,li {
+	list-style: none;
+}
+
+/* 公共 */
+html {
+	height: 100%;
+}
+
+body {
+	font: 14px/1.5  arial,"Microsoft Yahei", "微软雅黑",
+	STXihei, "华文细黑", sans-serif;
+	height: 100%;
+}
+
+h1 {
+	font-size: 40px;
+}
+
+h2 {
+	font-size: 30px;
+}
+
+h3 {
+	font-size: 14px;
+}
+
+p {
+	font-size: 24px;
+}
+
+.clearfix:after {
+	content: '';
+	display: block;
+	clear: both;
+}
+
+.clearfix {
+	*zoom: 1;
+}
+
+.container{
+      width: 960px;
+      margin: 0 auto;
+}
+
+/* header */
+#header{
+   /* width: 100%; */
+   height: 100%;
+    background:#CDECFF url(../img/header.jpg) 0 0 no-repeat;
+    background-size: cover;
+}
+    
+#header .container {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-left: -480px;
+	margin-top:-76px;
+	/* transform: translate(-50%,-50%); */
+}
+
+#header .info {
+	text-align: center;
+}
+
+#header .info>h1, 
+#header .info>p,
+#header .info>a {
+	margin: 20px auto;
+}
+
+#header .info>p {
+	color: #1D4567;
+	font-weight: bold;
+	letter-spacing: 20px;
+}
+
+#header .info .btn-more {
+	display: block;
+	width: 140px;
+	height: 50px;
+	line-height: 50px;
+	border-radius: 5px;
+	background: rgba(0,0,0,0.5);
+	color: #FFF;
+}
+
+#header .info .btn-more:hover {
+	background: rgba(0,0,0,0.8);
+}
+
+
+/* content */
+#content{
+	text-align: center;
+}
+
+/* about */
+#content .about {
+	padding: 50px 0;
+}
+
+#content .about h2,
+#content .about p {
+	margin: 20px auto;
+}
+
+#content .about p a {
+	margin-left: 15px;
+	color: #E0661E;
+}
+
+#content .about a:hover {
+	color: #E01E26;
+}
+
+
+/* skill */
+#content .skill {
+	height: 400px;
+	padding: 50px 0;
+	background: #337ab7;
+	color: #FFF;
+}
+
+#content .skill .fa {
+	font-size: 110px;
+}
+
+#content .skill hr {
+	width: 120px;
+	border: 1px solid #FFF;
+	margin: 20px auto;
+}
+
+#content .skill .skill-list>li{
+	float: left;
+	margin: 20px 10px;
+	width: 220px;
+}
+
+#content .skill .skill-list>li>p {
+	font-size: 14px;
+}
+
+#content .skill .skill-list>li .btn-work {
+	display: block;
+	margin: 20px auto;
+	background: #FFF;
+	width: 100px;
+	height: 40px;
+	line-height: 40px;
+    color: #000;
+}
+
+
+/* passage */
+#content .passage {
+	background: url(../img/view.jpg) 0 0 no-repeat;
+	padding: 200px 0;
+	color: #FFF;
+	background-size: cover;
+	letter-spacing: 30px;
+ }
+
+
+
+/* productions */
+#content .productions {
+	text-align: center;
+	margin: 20px 0;
+}
+
+
+#content .productions>h2 {
+	padding: 20px 0;
+}
+
+#content .productions hr {
+	width: 120px;
+	border: 2px solid #CCC;
+}
+
+#content .productions .pro-list {
+	margin-left: -30px;
+	margin-bottom: 10px;
+}
+
+#content .productions .pro-list>li{
+	float: left;
+	width: 465px;
+	height: 305px;
+	margin:30px 0 0 30px;
+}
+
+#content .productions .pro-list>li>a>img {
+	width: 465px;
+	height: 305px;
+}
+
+#content .productions .btn-more {
+	display: inline-block;
+	width: 160px;
+	height: 40px;
+	line-height: 40px;
+	margin: 20px 0;
+	background: rgba(0,0,0,0.3);
+	color: #FFF;
+}
+
+#content .productions .btn-more:hover {
+	background: rgba(0,0,0,0.5);
+}
+
+/* call-to-action */
+#content .call-to-action{
+	text-align: center;
+	background: #337AB7;
+	height: 150px;
+	padding: 100px 0;
+}
+
+#content .call-to-action>h2{
+	color: #FFF;
+	margin: 20px auto;
+}
+
+#content .call-to-action .click{
+	display: inline-block;
+	background: #FFF;
+	color: #000;
+	height: 50px;
+	line-height: 50px;
+	width: 160px;
+}
+
+#content .call-to-action .look {
+	display: inline-block;
+	background: rgba(0,0,0,0.3);
+	color: #FFF;
+	height: 50px;
+	line-height: 50px;
+	width: 160px;
+}
+
+#content .call-to-action .look:hover {
+	background: rgba(0,0,0,0.5);
+}
+
+
+/* footer */
+
+
+#footer .contact {
+	text-align: center;
+	height: 300px;
+	padding: 100px 0;
+}
+
+#footer .contact>h3,
+#footer .contact>p{
+	margin: 20px auto;
+}
+
+#footer .contact>ul>li>a{
+	color: #23527c;
+}
+
+#footer .contact .contact-icon {
+	width: 360px;
+	margin: 20px auto;
+}
+
+#footer .contact .contact-icon>li {
+	float: left;
+	margin: 0 20px;
+}
+
+#footer .contact .contact-icon>li>a {
+    display: inline-block;
+    font-size: 80px;
+}
+
+#footer .contact hr {
+	width: 200px;
+	border: 2px solid #CCC;
+}
+
