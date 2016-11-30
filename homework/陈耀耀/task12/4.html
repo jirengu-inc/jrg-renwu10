@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>圣杯</title>
+	<style type="text/css"> 
+		.content {
+			width: 100%;
+		}
+
+		.header {
+			height: 50px;
+			width: 100%;
+			background: #ccc;
+		}
+
+
+		.ct:after{
+			content: "";
+			display: block;
+			clear: both;
+		}
+
+		.main {
+			width: 100%;
+			float: left;
+		}
+
+		.main .child {
+			background: green;
+			height: 200px;
+			margin: 0 200px;
+		}
+
+		.leftside {
+			background: red;
+			float: left;
+			height: 200px;
+			width: 200px;
+			margin-left: -100%;
+		}
+
+		.rightside {
+			background: yellow;
+			float: left;
+			height: 200px;
+			width: 200px;
+			margin-left: -200px;
+		}
+
+		.footer {
+			height: 50px;
+			width: 100%;
+			background: #ccc
+		}
+	</style>
+</head>
+<body>
+<div class="content">
+	<div class="header">
+		头部
+	</div>
+	<div class="ct">
+		<div class="main">
+		    <div class="child">
+		    	双飞翼布局，双飞翼布局，双飞翼布局，双飞翼布局，双飞翼布局，双飞翼布局，双飞翼布局，双飞翼布局，双飞翼布局，双飞翼布局，双飞翼布局，双飞翼布局，双飞翼布局，双飞翼布局，双飞翼布局，双飞翼布局，双飞翼布局，双飞翼布局，双飞翼布局，双飞翼布局，双飞翼布局，双飞翼布局，双飞翼布局，双飞翼布局，
+		    </div>
+					
+		</div>
+		<div class="leftside">
+			左侧边栏，固定宽度
+		</div>
+		<div class="rightside">
+			右侧边栏，固定宽度
+		</div>
+		
+	</div>
+	<div class="footer">
+		尾部
+	</div>
+</div>
+	
+</body>
+</html>

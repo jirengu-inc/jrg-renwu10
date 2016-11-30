@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            list-style: none;
+        }
+        a{
+            color:#333;
+            text-decoration: none;
+        }
+        body{
+            font: 14px/1.5 "Microsoft YaHei","微软雅黑",sans-serif;
+            color: #656565;
+        }
+        .container{
+            width:900px;
+            margin:0 auto;
+        }
+        #header{
+            background-color: #333;
+            height:50px;
+        }
+        #header img{
+            height:40px;}
+        #header .nav{float: right}
+        #header .nav>li{float: left;margin-right: 15px}
+        #header .nav a{
+            display: block;
+            font-size: 16px;
+            height:50px;
+            line-height: 50px;
+            padding: 0 10px;
+            color: #fff;
+        }
+        #header .nav a:hover{
+            background-color: #fff;
+            color: #333;
+        }
+        #content{margin-top: 10px}
+        #content .aside{
+            float: left;
+            width: 200px;
+            min-height: 500px;
+            background-color: #eee;
+        }
+        #content .main{
+            background-color: #eee;
+            padding: 20px 10px;
+            margin-left: 210px;
+        }
+        #content .main h1{margin: 20px 0}
+        #content:after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+        #footer{
+            background-color: #333333;
+            padding: 10px 0;
+        }
+        #footer:after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+        #footer li{
+            float: left;
+            margin-left: 10px;
+        }
+        #footer a{
+            color: #fff;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="header">
+        <div class="container">
+            <a class="logo" href="#">
+                <img src="logo-tiny.png" alt="">
+            </a>
+            <ul class="nav">
+                <li><a href="#">技能</a></li>
+                <li><a href="#">经历</a></li>
+                <li><a href="#">作品</a></li>
+                <li><a href="#">关于</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="content">
+        <div class="container">
+            <div class="aside"></div>
+            <div class="main">
+                <h1>我的作品</h1>
+                <p>生活很美好</p>
+                <p>心情不错</p>
+                <p>代码写的很漂亮</p>
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        <div class="container">
+            <ul>
+                <li><a href="#">饥人谷</a></li>
+                <li><a href="#">JSCODE</a></li>
+                <li><a href="#">JSBIN</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

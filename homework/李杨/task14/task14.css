@@ -1,0 +1,221 @@
+body,html {
+  margin: 0px;
+  padding: 0px;
+  height: 100%;
+  width: 100%;
+  font-size: 18px;
+  font-family: "Source Sans Pro", "Helvetica Neue", 
+                Helvetica, Arial, sans-serif；
+}
+ul, li {
+  list-style-type: none;
+}
+.icon {
+   width: 1em; height: 1em;
+   vertical-align: -0.15em;
+   fill: currentColor;
+   overflow: hidden;
+}
+li>.icon {
+   color: white;
+   font-size: 80px;
+}
+a {
+  text-decoration: none;
+  border-radius: 3px;
+}
+.container {
+  width: 960px;
+  margin: 0 auto;
+}
+#header {
+  height: 100%;
+  background-image: url(bg.jpg);
+  background-size: cover;
+  text-align: center;
+
+}
+.name {
+  font-size: 1.5em;
+  line-height: 2em;
+}
+.brirf {
+  line-height: 1.5em;
+}
+.btn1 {
+  width: 140px;
+  height: 50px;
+  border: 1px solid rgba(120,120,120,.5 );
+  background-color: rgba(120,120,120,.5 );
+  line-height: 50px;
+  display: inline-block;
+  transition: 0.3s;
+}
+.topic>a {
+  color: white;
+}
+.btn1:hover {
+  background-color: rgba(0,0,0,.5 );
+}
+.topic {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  margin: auto;
+  height: 240px;
+}
+h2,
+.content p {
+  text-align: center;
+}
+#container>p>a {
+  color: #3b5998;
+}
+#container>p>a:hover {
+  text-decoration: underline;
+}
+.skill {
+  background-color: #3b5998;
+  text-align:center;
+}
+.skill>p {
+  display: inline-block;
+  width: 70px;
+  font-size: 30px;
+  color: white;
+  border-bottom:2px solid white;
+  padding: 20px;
+}
+.project1 {
+  float: left;
+  color: white;
+}
+.project {
+  overflow: hidden;
+  width: 960px;
+  margin: 0 auto;
+}
+.project1 li {
+  margin: 10px 0px;
+}
+.project1 .about {
+  width: 120px;
+  height: 40px;
+  line-height: 40px;
+  border:1px solid #3b5998;
+  background-color: white;
+  display: inline-block;
+  transition: 0.3s;
+  color: #3b5998;
+}
+.about:hover {
+  background-color: Azure;
+}
+.picture>p {
+  text-align: center;
+  color: white;
+  font-size: 60px;
+  padding: 200px 0;
+  width: 100%;
+  background-image: url(callout.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0 
+}
+.myworks {
+  text-align: center;
+  padding: 20px 0px;
+}
+.myworks>p {
+  display: inline-block;
+  width: 200px;
+  font-size: 30px;
+  border-bottom:2px solid #3b5998;
+  padding-bottom: 20px;
+}
+.myworks-1 {
+ overflow: hidden;
+ width: 1080px;
+ margin: 0px auto;
+ padding: 0px;
+}
+.myworks-1>li {
+  display: inline-block;
+  float: left;
+  margin: 20px;
+}
+.btn2 {
+  width: 140px;
+  height: 50px;
+  border: 1px solid white;
+  background-color: rgba(120,120,120,.5 );
+  line-height: 50px;
+  display: inline-block;
+  transition: 0.3s;
+  color: white;
+}
+.btn2:hover {
+  background-color: rgba(0,0,0,.5 );
+}
+.link {
+  padding: 30px 0px;
+  text-align: center;
+  background-color: #3b5998
+}
+.link>p {
+  
+  color: white;
+}
+.btn3,.btn4 {
+  width: 140px;
+  height: 50px;
+  border: 1px solid #3b5998;
+  line-height: 50px;
+  display: inline-block;
+  transition: 0.3s;
+}
+.btn3 {
+  background-color: white;
+  color: #3b5998;
+}
+.btn4 {
+  background-color: DarkSlateBlue;
+  color: white;
+}
+.btn3:hover {
+  background-color: lightgray;
+}
+.btn4:hover {
+  background-color: black;
+}
+#footer {
+  text-align: center;
+}
+.btn5 a { 
+  color: #3b5998;
+  padding: 10px;
+  font-size: 40px;
+}
+.info {
+  padding: 100px;
+}
+.info {
+  font-size: 13px;
+}
+.info p a {
+  color: #3b5998;
+}
+.info p a:hover {
+  text-decoration: underline;
+}
+.btn5 a:hover {
+  color: DarkSlateBlue;
+}
+.info hr {
+  display: inline-block;
+  margin: 30px;
+  color: lightgray;
+  width: 100px;
+}

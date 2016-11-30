@@ -1,0 +1,160 @@
+html, body, ul, li, h1, h2, h3, p {
+  margin: 0px;
+  padding: 0px;
+}
+body {
+  font-family: "Helvetica ",sans-serif;
+}
+#header, #footer {
+  width: 100%;
+}
+a {
+  text-decoration: none;
+  color: #666;
+}
+a:hover {
+  color: #000;
+}
+.container,#nav{
+  width: 1000px;
+  margin: 0px auto;
+}
+ul, li {
+  list-style-type: none;
+}
+#nav>ul>li {
+  float: left;
+  padding: 20px;
+  font-size: 14px;
+}
+#nav>ul>li:first-child {
+  padding-left: 0px;
+}
+#nav:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+#nav>ul>li:first-child {
+  font-size: 20px;
+}
+.nav-dropdowns>li {
+  position: relative;
+  right: 20px;
+  border: 1px solid #666;
+  padding: 10px 20px;
+  background-color: white;
+}
+.nav-dropdowns>li:hover {
+  background-color: lightgray;
+}
+.nav-dropdowns>li:nth-child(1),
+.nav-dropdowns>li:nth-child(2) {
+  border-bottom: none;
+}
+.nav-dropdowns>li:nth-child(2),
+.nav-dropdowns>li:nth-child(3) {
+  border-top: 1px dashed #666;
+}
+.nav-dropdowns {
+  position: absolute;
+  top: 62px;
+  display: none;
+}
+#nav>ul>li:nth-child(5) {
+  padding-bottom: 27px;
+}
+#nav>ul>li:nth-child(5):hover .nav-dropdowns {
+  display: block;
+}
+#header {
+  width: 100%;
+  background-color: #b84d45
+}
+.title {
+  color: white;
+  padding: 30px 0px;
+}
+.title>h1 {
+  padding-bottom: 5px;
+}
+#main {
+  padding: 20px;
+}
+#main>.container>p {
+  padding: 10px;
+  background-color: #eee;
+  border-radius: 2px;
+
+}
+#main>.container>p>a {
+  color: #b84d45;
+}
+.works:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.works {
+  margin-left: -20px;
+}
+
+.works img {
+  width: 300px;
+  height: 200px;
+}
+.picture {
+  display: block;
+}
+.works li {
+  float: left;
+  margin:10px 19px;
+  border:1px solid #eee;
+}
+.works h3 {
+  padding: 10px 5px;
+}
+.works p {
+  padding: 5px 5px;
+}
+.btn {
+  text-align: center;
+  margin: 10px;
+}
+.works .btn1 {
+  padding: 5px;
+  border: 1px solid #eee;
+  border-radius: 8px;
+}
+#download {
+  background-color:#b84d45;
+  text-align: center;
+  color: white; 
+  margin-bottom: 20px;
+}
+#download h2 {
+  padding-top: 20px;
+}
+#download p {
+  padding: 10px;
+}
+#download .btn2 {
+  padding: 5px;
+  border: 1px solid white;
+  border-radius: 5px;
+  color: white;
+  transition: 0.3s;
+}
+#download .btn2:hover {
+  background-color: white;
+  color: #b84d45;
+}
+#download p:nth-child(3) {
+  padding-bottom: 25px;
+}
+#footer p {
+  text-align: center;
+  padding: 40px;
+  border-top: 1px solid #eee;
+  font-size: 14px;
+}
