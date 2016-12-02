@@ -1,0 +1,206 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+a {
+	text-decoration: none;
+}
+
+li {
+	list-style: none;
+}
+
+.clearfix:after {
+	content: '';
+	display: block;
+	clear: both;
+}
+
+.container {
+	width: 1000px;
+	margin: 0 auto;
+}
+
+#header .top>li {
+	float: left;
+	position: relative;
+	height: 50px;
+	line-height: 50px;
+}
+
+#header .top>li:not(:nth-child(1)){
+	padding: 0 10px;
+}
+
+#header .top>li:nth-child(1) {
+	padding-right: 10px;
+}
+
+#header li,#header a {
+	font-size: 14px;
+	color: #666666;
+}
+
+.fire {
+	font-size: 30px;
+}
+
+#header li a:hover {
+	color: #000;
+}
+
+.droplist {
+	position: absolute;
+	top: 50px;
+	display: none;
+	border: 1px solid;	
+}
+
+.drop {
+	font-size: 14px;
+}
+
+.droplist>li {
+	padding: 0 10px;
+	height: 30px;
+	line-height: 30px;
+	background: #FFFFFF;
+}
+
+.droplist>li:hover{
+	background: #EEEEEE;	
+}
+
+.droplist .dashed {
+	border: 1px;
+	border-style: dashed none dashed none;
+}
+
+#header .top>li:hover .droplist {
+	display: block;
+}
+
+#content .head {
+	color: #fff;
+	padding: 30px 0;
+	background: #B84D45;
+}
+
+.head p {
+	font-size: 14px;
+}
+
+.breadcrumb {
+	height: 40px;
+	width: 100%;
+	background: #EEEEEE;
+	border-radius: 3px;
+	margin: 40px auto;
+}
+
+.breadcrumb ul {
+	padding-left: 10px;
+}
+
+.breadcrumb li {
+	display: inline-block;
+	line-height: 40px;
+	font-size: 14px;	
+	color: #666666;
+}
+
+.breadcrumb li a {
+	color: #B84D45;;
+}
+
+.breadcrumb li span:before{
+	content: '/ ';
+}
+
+.introduce img {
+	width: 300px;
+	height: 200px;
+}
+
+.introduce ul li {
+	float: left;
+	margin-left: 48px;
+	margin-top: 20px;
+	padding-bottom: 10px;
+	border: 1px solid #ccc;
+	text-align: center;
+}
+
+.introduce ul {
+	margin-left: -49px;
+}
+
+.introduce li h1 {
+	font-size: 16px;
+	padding: 10px;
+	text-align: left;
+}
+
+.introduce li p {
+	font-size: 16px;
+	padding: 10px;
+	text-align: left;
+}
+
+.introduce .search {
+	display: inline-block;
+	color: #666666;
+	font-size: 14px;
+	line-height: 30px;
+	border-radius: 3px;
+	height: 30px;
+	width: 50px;
+	border: 1px solid #CCCCCC;
+}
+
+.introduce .search:hover {
+	color: #EEEEEE;
+	background-color: #666666;
+	transition:0.2s 
+}
+
+.download {
+	background: #B84D45;
+	margin: 20px auto;
+	text-align: center;
+	padding: 20px 0;
+	color: #FFFFFF;
+}
+
+.download h1 {
+	font-size: 25px;
+}
+
+.download p {
+	font-size: 14px;
+}
+.download a {
+	display: inline-block;
+	color: #FFFFFF;
+	font-size: 14px;
+	line-height: 30px;
+	border-radius: 3px;
+	height: 30px;
+	width: 50px;
+	border: 1px solid #CCCCCC;
+	margin-top: 10px;
+}
+
+.download a:hover {
+	color: #B84D45;
+	background: #FFFFFF;
+	transition:0.2s 
+}
+
+#footer p{
+	text-align: center;
+	padding: 30px 0;
+	font-size: 14px;
+}
