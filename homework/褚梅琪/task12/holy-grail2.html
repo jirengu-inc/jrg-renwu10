@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style type="text/css">
+		html,body{
+			margin:0;
+			padding: 0;
+			font-size: 16px;
+		}
+		#header,#footer{
+			height: 50px;
+			background-color: #ccc;
+		}
+		#content{
+			padding-left:200px;
+			overflow: auto;
+		}
+		#content .aside{
+			width: 200px;
+			min-height: 130px;
+			float: left;
+			background-color: red;
+			margin-left: -100%;
+			position: relative;
+			left: -200px;
+		}
+		#content .main{
+			float: left;
+			width: 100%;
+			min-height: 100px;
+			background-color: green;
+		}
+	</style>
+</head>
+<body>
+	<div id="header">头部</div>
+	<div id="content">
+		<div class="main">
+			我是main 我是main 我是main 
+			我是main 我是main 我是main 
+			我是main 我是main 我是main
+		</div>
+		<div class="aside">左侧边栏，固定宽度</div>
+	</div>
+	<div id="footer">尾部</div>	
+</body>
+</html>
