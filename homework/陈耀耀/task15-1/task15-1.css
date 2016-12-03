@@ -4,6 +4,10 @@
 	box-sizing: border-box;
 }
 
+body {
+	background: #FFFFFF;
+}
+
 a {
 	text-decoration: none;
 }
@@ -134,7 +138,7 @@ li {
 }
 
 .introduce ul {
-	margin-left: -49px;
+	margin-left: -50px;
 }
 
 .introduce li h1 {
