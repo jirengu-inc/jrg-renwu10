@@ -1,0 +1,38 @@
+#header{
+  height: 20px;
+  width: 800px;
+  margin: 0 auto;
+  background: #ccc;
+}
+#footer{
+  height: 20px;
+  width: 800px;
+  margin: 0 auto;
+  background: #ccc;
+  clear:left;
+}
+.all{
+  width: 800px;
+  margin: 0 auto;
+}
+.all:after{
+  display: block;
+  content: "";
+  clear: both;
+}
+.aside{
+  background: yellow;
+  width: 200px;
+  height: 100px;
+  float: left;
+  margin-left: 0px;
+}
+.dd{
+  background: green;
+  float: left;
+  height: 100px;
+}
+.main{
+  width: 600px;
+  margin-left: auto;
+}
