@@ -1,3 +1,4 @@
+/*----------------------1-----------------------*/
 function isNumber(el){
     // todo ...
     if(typeof el == 'number') {
@@ -25,7 +26,6 @@ function isBoolean(el){
         return false;
     }
 }
-/*----------------------1-----------------------*/
 function isFunction(el){
     //todo ...
     if(typeof el == 'function') {
@@ -66,6 +66,8 @@ console.log(2+"4x");           //24x
 console.log(new Date());  //Mon Dec 04 2016 23:29:13 GMT+0800 (中国标准时间)
 console.log(+"4x");          //NaN
 console.log(0 +"4x");       //04x
+console.log(+new Date());             //1480927485889
+console.log(new Date().valueOf());    //1480927485889
 
 /*----------------------3-----------------------*/
 var a = 1;
