@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>mission10-1</title>
+	<meta charset="utf-8">
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+		}
+		#header {
+			clear: both;
+			background-color: #333;
+			height: 50px;
+			padding-right: 40px;
+		}
+		#header .logo>img {
+			display: inline-block;
+			padding-left: 10px;
+			height: 40px;
+			margin:5px 40px;
+		}
+		#header ul {
+			clear: left;
+			float: right;
+			height: 100%;
+			margin: 0;
+		}
+		#header li {
+			float: left;
+			display: inline-block;
+			list-style-type: none;
+		}
+		#header li>a {
+			font-family: "Microsoft YaHei";
+			font-size: 20px;
+			color: white;
+			text-decoration: none;
+			display: inline-block;
+			height: 50px;
+			line-height: 50px;
+			padding: 0 40px;
+		}
+		#header li>a:hover {
+			background-color: #ccc;
+			color: black;
+		}
+
+		#aside {
+			clear: both;
+		}
+		#aside>div {
+			margin: 10px;
+			padding: 10px;
+			float: left;
+			width: 180px;
+			height:580px;
+			background-color: #ddd;
+			font-size: 16px;
+			font-family: "Microsoft YaHei";
+		}
+		#aside>div a {
+			font-size: 16px;
+			font-family: "Microsoft YaHei";
+			color: black;
+		}
+		#aside>div a:hover {
+			color: red;
+		}
+		#main>div {
+			margin: 10px 10px 10px 220px;
+			padding: 10px;
+			width: 880px;
+			height: 580px;
+			background-color: #ddd;
+			font-family: "Microsoft YaHei";
+			font-size: 16px;
+		}
+		#footer {
+			height: 30px;
+			background-color: #333;
+			text-align: center;
+			vertical-align: middle;
+		}
+		#footer p {
+			margin: 7px;
+			display: inline-block;
+			color: white;
+			font-size: 14px;
+		}
+		#footer p a {
+			color: white;
+		}
+		#footer p a:hover {
+			color: #ccc;
+		}
+	</style>
+</head>
+<body>
+  <div id="header">
+  	<a class="logo" href="#">
+  	  <img src="img/logo.png">
+  	</a>
+  	<ul>
+  		<li><a href="#">我的</a></li>
+  		<li><a href="#">未来</a></li>
+  		<li><a href="#">听</a></li>
+  		<li><a href="#">我的</a></li>
+  	</ul>
+  </div>
+  <div id="aside">
+  	<div>
+  		<p>这里是侧边栏~</p>
+  		<ul>友情链接
+  		  <li>
+  		<a href="http://www.jirengu.com/">饥人谷官网</a>
+  		  </li>
+  		  <li>
+  		<a href="https://github.com/ReedSun">我的GitHub</a>
+  		  </li>
+  		</ul>  
+  	</div>
+  </div>
+  <div id="main">
+  	<div>
+  		<h1>这里是正文</h1>
+  		<p>永远相信美好的事情即将发生~</p>
+  	</div>
+  </div>
+  <div id="footer">
+  	<p>Write by <a href="https://www.zhihu.com/people/sun-hong-zhao-34-76/">@ReedSun</a></p>
+  </div>
+</body>
+</html>
