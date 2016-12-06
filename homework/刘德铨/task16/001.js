@@ -73,7 +73,8 @@ console.log(new Date().valueOf());    //1480927485889
 var a = 1;
 a+++a;
 
-typeof a+2;  //"number2" 先执行typeof a，得到"number",再+2,变成字符串连接
+typeof a+2;  
+//"number2" 先执行typeof a，得到"number",再+2,变成字符串连接
 
 
 /*----------------------4-----------------------*/
@@ -118,7 +119,7 @@ console.log(a);
 var a = 1;
 
 /*
-    1
+    undefined
 */
 
 console.log(a);
@@ -126,7 +127,7 @@ var a = 1;
 console.log(a);
 
 /*
-    1
+    undefined
     1
 */
 
