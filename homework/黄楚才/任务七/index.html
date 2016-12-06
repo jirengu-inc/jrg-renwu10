@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>form表单</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <style type="text/css">
+    label {
+        display: block;
+    }
+    </style>
+</head>
+
+<body>
+    <form action="a.php" method="get" name="trying">
+        <label for="user">姓名：
+            <input type="text" name="user" id="user" placeholder="用户名">
+        </label>
+        <label for="pwd">密码：
+            <input type="password" name="pwd" id="pwd" placeholder="密码">
+        </label>
+        <label for="sex">性别：
+            <input type="radio" name="sex" id="sex" value="male">男
+            <input type="radio" name="sex" id="sex" value="wuman">女
+        </label>
+        <label for="love">取向：
+            <input type="radio" name="love" id="love" value="male">男
+            <input type="radio" name="love" id="love" value="wuman">女
+        </label>
+        <label for="hobby">爱好：
+            <input type="checkbox" name="data">data
+            <input type="checkbox" name="travel">旅行
+            <input type="checkbox" name="pet">宠物
+        </label>
+        <label for="saying">评论:
+            <textarea id="saying" rows="10" cols="50" placeholder="请填写您的意见" name="discuss">
+            </textarea>
+        </label>
+        <label>我的car：
+        <select name="car">
+            <option>奔驰</option>
+            <option>宝马</option>
+            <option>劳斯莱斯</option>
+        </select>
+        </label>
+        <input type="submit" value="提交">
+    </form>
+</body>
+
+</html>

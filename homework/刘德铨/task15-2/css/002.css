@@ -1243,6 +1243,13 @@ body {
 }
 
 
+/* ----------- HP-seven ----------- */
+
+.HP-seven .HP-seven-img{
+    display: block;
+    width: 100%;
+}
+
 /* ----------- college ----------- */
 .college {
     padding: 150px 0;
