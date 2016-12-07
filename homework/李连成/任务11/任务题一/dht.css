@@ -1,0 +1,52 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+.zong> li{
+  list-style: none;
+  font-size: 20px;
+  font:"微软雅黑",arial,verdana;
+}
+.zong .child{
+  display: none;
+  list-style: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  border: 1px solid #ccc;
+  color: #333;
+}
+.zong> li{
+  float: left;
+  margin-left: 20px;
+  background: #ccc;
+  position: relative;
+  margin-top: 5px;
+}
+.zong{
+  background: #ccc;
+  width: 500px;
+  height: 30px;
+  cursor:pointer;
+  margin: 0 auto;
+
+
+}
+.zong >li:hover .child{
+  display: block;
+}
+/*.child >li:hover{
+  background: #ccc;
+}*/
+.child li:hover{
+  background: #ccc;
+}
+a{
+  color: #333;
+  text-decoration: none;
+  padding: 5px 10px;
+}
+/*a:hover{
+  display: block;
+  background: #ccc;
+}*/

@@ -1,0 +1,45 @@
+#header{
+  width: 800px;
+  margin: auto;
+  height: 20px;
+  background: #ccc;
+}
+#footer{
+  width: 800px;
+  margin: auto;
+  height: 20px;
+  background: #ccc;
+  clear: left;
+}
+#all{
+  width: 800px;
+  margin: 0 auto;
+}
+#all:after{
+  content: "";
+  display: block;
+  clear: both;
+}
+.zong{
+  width: 100%;
+  float: left;
+}
+.aside1{
+  height: 100px;
+  background: red;
+  width: 200px;
+  float: left;
+  margin-left: -200px;
+}
+.aside2{
+  height: 100px;
+  background: yellow;
+  width: 200px;
+  float: left;
+  margin-left: -100%;
+}
+.main{
+  width: 400px;
+  background: pink;
+  margin: auto;
+}

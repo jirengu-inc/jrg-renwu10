@@ -1,0 +1,29 @@
+#header{
+  width: 800px;
+  height: 30px;
+  margin: 0 auto;
+  background: red;
+}
+*{
+  margin: 0;
+  padding: 0;
+}
+#footer{
+  width: 800px;
+  height: 30px;
+  margin: 0 auto;
+  background: red;
+}
+#content{
+  width: 800px;
+  margin: 0 auto;
+}
+.cnt2{
+  width: 200px;
+  background-color: rgb(204, 203, 255);
+  float: left;
+}
+.cnt1{
+  overflow: auto;
+  background: pink;
+}
