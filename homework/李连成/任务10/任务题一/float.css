@@ -1,0 +1,92 @@
+#header{
+  width: 100%;
+  height: 45px;
+  background-color:rgb(51,51,51);
+  float: right;
+  clear: both;
+}
+.head1{
+  float: left;
+  width: 159px;
+  height: 50px;
+  background: url(http://cdn.jirengu.com/public/logo-tiny.png) no-repeat;
+  background-size:contain;
+  margin-left:15%;
+}
+.head2{
+  float: right;
+  margin-right: 15%;
+  clear: right;
+}
+.head2 ul{
+  margin-top: 0;
+}
+.head2 li{
+  list-style: none;
+  display: inline-block;
+  font-family: 微软雅黑;
+  color: white;
+  float: left;
+  cursor: pointer;
+  margin: 0 6px;
+  padding: 12px 12px;
+}
+.head2 li:hover{
+  color: #333;
+  background: white;
+  }
+#footer{
+  width:100%;
+  height: 43px;
+  background-color:rgb(51,51,51);
+  position: absolute;
+  bottom: 20px;
+  left: 0px;
+  clear: both;
+}
+.foot1 {
+    clear: both;
+  }
+.foot1 li {
+  margin-left: 13%;
+  list-style: none;
+}
+a{
+  text-decoration: none;
+  color: white;
+  float: left;
+  margin: -3px 10px;
+}
+#content{
+  border: 1px solid white;
+  width: 70%;
+  height: 720px;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  clear: both;
+}
+.ct1{
+  width: 200px;
+  height:674px;
+  margin:11px 0px;
+  background: rgb(238,238,238);
+  float: left;
+}
+.ct2{
+  height: 200px;
+  margin-left: 212px;
+  margin-top: 10px;
+  background: rgb(238,238,238);
+  padding:10px;
+
+}
+.ct2 h1{
+  padding:10px 0;
+  font-family: 微软雅黑;
+  color:#656565;
+}
+.ct2 p{
+  font-family: 微软雅黑;
+  color:#656565;
+}
