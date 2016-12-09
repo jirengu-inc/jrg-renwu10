@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>css sprite</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style type="text/css">
+	.contain:after{
+		content: "";
+		display: block;
+		clear: both;
+	}
+	.bg{
+		background: url(http://csssprites.com/results/64efd1e320e9af144b028c72057b91b9/result.png) no-repeat;
+		float: left;
+		padding: 10px 0px;
+		margin-left: 10px;
+	}
+	span{
+		margin-left: 35px;
+	}
+	.go{
+		background-position: 0 -228px;
+	}
+	.start{
+		background-position: 0 -47px;
+	}
+	.stop{
+		background-position: 0 -136px;
+	}
+	.go:hover{
+		background-position: 0 -180px;
+	}
+	.start:hover{
+		background-position: 0 -0px;
+	}
+	.stop:hover{
+		background-position: 0 -90px;
+	}
+</style>
+</head>
+<body>
+	<div class="contain">
+    <div class="go bg"><span>前进</span></div>
+    <div class="start bg"><span>开始</span></div>
+    <div class="stop bg"><span>停止</span></div>
+    </div>
+</body>
+</html>

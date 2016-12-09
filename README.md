@@ -2,7 +2,7 @@
 
 1. 获取本 repo 读写权限
 2. `git clone git@github.com:jirengu-inc/jrg-renwu10.git`
-3. `cd jrg-renwu9`
+3. `cd jrg-renwu10`
 4. `git config --global user.name 你的名字`
 5. `git config --global user.email 你的邮箱`
 6. 在homework文件夹下**新建自己名字的文件夹**

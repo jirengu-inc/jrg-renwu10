@@ -5,12 +5,13 @@
 a{
     text-decoration: none;
     color:#eee;
+    cursor:pointer;
 }
 li{
     list-style-type: none;
 }
 .container{
-    width:1200px;
+    width:1000px;
     margin:0 auto;
     /*border:1px solid red;*/
 }
@@ -47,7 +48,6 @@ li{
     float:right;
     display:inline-block;
     margin-top: 16px;
-    margin-right:60px;
     /*border:1px solid red;*/
 }
 .nav li{
@@ -98,7 +98,7 @@ li{
     display:inline-block;
     float:left;
     width:30%;
-    font-size:80px;
+    font-size:50px;
     line-height: 20px;
 }
 .desc li i{
@@ -138,19 +138,39 @@ li{
     color:red;
 
 }
+#content2 li:hover .cut{
+    display:block;
+}
+#content2 li .cut{
+    width:300px;
+    height:300px;
+    line-height:300px;
+    color:#fff;
+    font-size:60px;
+    background: rgba(51, 122, 183,0.8);
+    display:none;
+    position:absolute;
+    left:0;
+    top:0;
+}
 .imglist{
     margin-top:100px;
 }
 .imglist>li{
     background-color: #eee;
     display:block;
-    width:30%;
+    width:300px;
     float:left;
-    margin-left: 20px;
+    margin-left: 33px;
     margin-top:20px;
     text-align: center;
+    position:relative;
 
 }
+/*.imglist a{
+    width:300px;
+    height:300px;
+}*/
 .imglist>li:hover .img-hover{
     display:block;
 }
@@ -285,6 +305,10 @@ li{
     border-radius:100%;
     font-size: 20px;
 
+}
+#content4 .team .inner-connect li a:hover{
+    background-color: yellow;
+    border:1px solid yellow;
 }
 #content4 .based{
     font-size: 16px;

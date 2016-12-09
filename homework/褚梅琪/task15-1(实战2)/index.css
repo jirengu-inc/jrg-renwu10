@@ -1,0 +1,131 @@
+html,body,ul,li,p,h1,h2,h3,h4,h5,h6,div{
+	margin: 0;
+	padding: 0;
+}
+a{
+	text-decoration: none;
+	color: #666;
+}
+a:hover{
+	color: #333;
+}
+li{
+	list-style: none;
+}
+body{
+	font:14px/1.5 Helvetica,'Hiragino Sans GB','Microsoft Yahei', '微软雅黑', Arial, sans-serif;
+}
+.layout{
+	width: 1000px;
+	margin: 0 auto;
+}
+.clearfix:after{
+	content: "";
+	display: block;
+	clear: both;
+}
+.btn{
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	padding: 5px 8px;
+	background-color: transparent;
+}
+#header{
+	border: 1px solid #ccc
+}
+#header .logo{
+	float: left;
+	font-size: 35px;
+	height: 50px;
+	line-height: 50px;
+	margin-right: 20px;
+}
+#header .navbar>li{
+	float: left;
+	padding: 0 10px;
+	height: 50px;
+	line-height: 50px;
+	position: relative;
+}
+#header .navbar>li:hover .droplist{
+	display: block;
+}
+#header .droplist{
+	display: none;
+	border: 1px solid #ccc;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	background-color: white;
+}
+#header .droplist>li+li{
+	border-top: 1px dashed #ccc;
+}
+#header .droplist>li{
+	padding: 10px;
+	line-height: 1;
+}
+#content .intro{
+	background-color: #b84d45;
+	color:white;
+	padding: 30px 0;
+}
+#content .breadcrumb{
+	margin-top: 40px;
+}
+#content .breadcrumb ul{
+	padding: 10px;
+}
+#content .breadcrumb li{
+	display: inline-block;
+	color: #666;
+}
+#content .breadcrumb a{
+	color: #b84d45;
+}
+#content .works{
+	margin-top: 10px;
+}
+#content .works ul{
+	margin-left: -47px;
+}
+#content .works ul li{
+	border: 1px solid #ccc;
+	float: left;
+	text-align: center;
+	margin-left: 47px;
+	margin-top: 20px;
+	padding-bottom: 10px;
+}
+#content .works ul li h2{
+	text-align: left;
+	padding: 5px 10px;
+}
+#content .works ul li p{
+	text-align: left;
+	padding: 5px 10px;
+}
+#content .works ul li img{
+	width: 300px;
+	height: 200px;
+}
+#content .aboutme{
+	background-color: #b84d45;
+	padding: 20px 0;
+	color: white;
+	margin-top: 30px;
+	text-align: center;
+}
+#content .aboutme h2{
+	font-size:2em; 
+}
+#content .aboutme .btn{
+	color: white;
+	margin-top: 10px;
+}
+#footer p{
+	text-align: center; 
+	padding: 40px 0;
+	margin-top: 10px;
+}

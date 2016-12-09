@@ -1,0 +1,252 @@
+html,body{
+  padding: 0;
+  margin: 0;
+}
+html,body{
+  width: 100%;
+  height: 100%;
+}
+#first{
+  position: relative;
+  background: url(4.jpg) 100% 0 no-repeat;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  border: 1px solid;
+  }
+#first>h1{
+  color: white;
+  text-align: center;
+  line-height: 600px;
+  font-size: 55px;
+}
+#first p{
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -123px;
+}
+#first .link{
+  display: inline-block;
+  background: #555;
+  width: 105px;
+  line-height: 40px;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -52px;
+  margin-top: 77px;
+}
+#first .link:hover{
+  background: #999;
+  font-size: 20px;
+}
+
+#second{
+  position: relative;
+}
+#second .blank{
+  text-align: center;
+  position: relative;
+  margin: 130px auto;
+}
+#second a{
+  text-decoration: none;
+  color: green;
+}
+#second a:hover{
+  text-decoration: underline;
+}
+#third{
+  background: url(2.jpg) 0 0 no-repeat;
+  background-size: cover;
+  opacity: 0.7;
+  text-align: center;
+  padding: 20px 0;
+}
+.z3{
+  width: 1000px;
+  margin: 0 auto;
+}
+#third h1{
+  color: white;
+}
+.wrip{
+  overflow: auto;
+
+}
+.module1{
+  color: white;
+  float: left;
+  list-style: none;
+  margin:auto 6px;
+}
+.module1 a{
+  display: inline-block;
+  height: 25px;
+  width: 85px;
+  background: yellow;
+  text-decoration:none;
+  line-height: 25px;
+  color: green;
+}
+.module1 a:hover{
+  background-color: rgb(248, 203, 107);
+}
+@font-face {
+  font-family: 'iconfont2';
+  src: url('iconfont2.eot');
+  src: url('iconfont2.eot?#iefix') format('embedded-opentype'),
+  url('iconfont2.woff') format('woff'),
+  url('iconfont2.ttf') format('truetype'),
+  url('iconfont2.svg#iconfont') format('svg');
+}
+.iconfont2{
+  font-family:"iconfont2" !important;
+  font-size:120px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+  color: red;
+  margin: 50px;
+}
+#forth{
+  background: url(1.jpg) 100% 0 no-repeat;
+  background-size: cover;
+  width: 100%;
+  border: 1px solid;
+}
+#forth h1{
+  color: yellow;
+  margin: 250px auto;
+  font-size: 120px;
+  text-align: center;
+}
+#fifth{
+  clear: both;
+  width: 960px;
+  margin: 0 auto;
+  text-align: center;
+}
+#fifth h1{
+  text-align: center;
+  line-height: 100px;
+}
+#fifth li{
+  float: left;
+  list-style: none;
+  margin:6px 20px;
+}
+#fifth li img{
+  width: 400px;
+  height: 400px;
+}
+#fifth>a{
+  background: #999;
+  color: white;
+  height: 30px;
+  width: 118px;
+  line-height: 30px;
+  display: inline-block;
+  text-decoration: none;
+  margin-top: 20px;
+}
+#fifth>a:hover{
+  background-color: #666;
+}
+#sixth{
+  margin: 50px auto;
+  background: #777;
+  position: relative;
+}
+#sixth p{
+  color: white;
+  font-weight: bold;
+  text-align: center;
+}
+#sixth .kuang{
+  width: 960px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 50px 0;
+}
+#sixth a{
+  text-decoration: none;
+}
+#sixth .link1{
+  background: white;
+  color: #777;
+  width: 130px;
+  height: 40px;
+  display: inline-block;
+  line-height: 40px;
+}
+#sixth .link1:hover{
+opacity: 0.8;
+}
+#sixth .link2{
+  font-weight: bold;
+  background: #333;
+  color: white;
+  width: 130px;
+  height: 40px;
+  line-height: 40px;
+  display: inline-block;
+}
+#sixth .link2:hover{
+opacity: 0.8;
+}
+#seventh{
+  text-align: center;
+  width: 960px;
+  margin: 0 auto;
+  padding-right: 30px;
+}
+@font-face {
+  font-family: 'iconfont1';
+  src: url('iconfont1.eot');
+  src: url('iconfont1.eot?#iefix') format('embedded-opentype'),
+  url('iconfont1.woff') format('woff'),
+  url('iconfont1.ttf') format('truetype'),
+  url('iconfont1.svg#iconfont') format('svg');
+}
+.iconfont1{
+  font-family:"iconfont1" !important;
+  font-size:16px;font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+  color: black;
+}
+.both{
+  list-style: none;
+}
+.end1 a{
+  display: inline-block;
+  text-decoration: none;
+
+}
+@font-face {
+  font-family: 'iconfont3';
+  src: url('iconfont3.eot');
+  src: url('iconfont3.eot?#iefix') format('embedded-opentype'),
+  url('iconfont3.woff') format('woff'),
+  url('iconfont3.ttf') format('truetype'),
+  url('iconfont3.svg#iconfont') format('svg');
+}
+.iconfont3{
+  font-family:"iconfont3" !important;
+  font-size:50px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+#seventh h3{
+  padding-left: 30px;
+}
