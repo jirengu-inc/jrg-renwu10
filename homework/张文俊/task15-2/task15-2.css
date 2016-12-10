@@ -138,7 +138,7 @@ li{
     color:red;
 
 }
-#content2 li:hover .cut{
+#content2 li a:hover .cut{
     display:block;
 }
 #content2 li .cut{
@@ -344,6 +344,9 @@ li{
     text-align: center;
     padding:150px 0;
 }
+#content6 .contact .left-message{
+    float:left;
+}
 #content6 .contact h1{
     margin-bottom:20px;
     color:white;
@@ -358,17 +361,22 @@ li{
 }
 #content6 .contact .text{
     display: block;
-    width: 540px;
+    width: 450px;
     height: 60px;
     margin: 20px 0;
     border-radius: 5px;
     border: 1px solid transparent;
 }
+#content6 .contact .right-message{
+    float:right;
+    right:300px;
+    top:-200px;
+}
 #content6 .contact .textarea{
-    position: absolute;
-    left: 610px;
-    top: 285px;
-    width: 540px;
+    position: relative;
+    left:10px;
+    top: 20px;
+    width: 500px;
     height: 224px;
     font-size: 18px;
     border-radius: 5px;
