@@ -1,0 +1,87 @@
+@charset "UTF-8";
+/**
+ * 
+ * @authors Your Name (you@example.org)
+ * @date    2016-12-10 15:58:57
+ * @version $Id$
+ */
+
+.picture_1,.picture_2,.picture_3,.picture_4,.picture_5{
+	border: 2px solid #ccc;
+	width: 100px;
+	height: 50px;
+	margin-bottom: 30px;
+	position: relative;
+
+}
+.triangle_1{
+	margin-left: 10px;
+	width: 0px;
+	height: 0px;
+	border-bottom: 15px solid #aaa;
+	border-left: 15px solid transparent;
+	border-right: 15px solid transparent;
+}
+.triangle_2{
+	width: 0px;
+	height: 0px;
+	border-top: 20px solid red;
+	border-left: 20px solid transparent;
+	position:absolute;
+	right: -2px;
+	top: -2px;
+}
+	
+.triangle_3{
+	width: 0px;
+	height: 0px;
+	border-bottom: 15px solid #aaa;
+	border-left: 15px solid transparent;
+	border-right: 15px solid transparent;
+	position:  absolute;
+	top: -15px;
+	left: 10px;
+}
+.triangle_4{
+	width: 0px;
+	height: 0px;
+	border-bottom: 15px solid #fff;
+	border-left: 15px solid transparent;
+	border-right: 15px solid transparent;
+	position:  absolute;
+	top: -13px;
+	left: 10px;
+}
+.picture_4{
+	background: #fff;
+}
+.triangle_5{
+	width: 16px;
+	height: 16px;
+	background: #fff;
+	position: absolute;
+	transform: rotate(45deg);
+	top: -10px;
+	left: 15px;
+	border: 2px solid #ccc;
+	z-index: -1;
+}
+.triangle_6{
+	width: 16px;
+	height: 16px;
+	transform: rotate(45deg);
+	background: #fff;
+	position: absolute;
+	top: -10px;
+	left: 15px;
+	border: 2px solid #ccc;
+}
+.triangle_7{
+	width: 30px;
+	height: 18px;
+	background: #fff;
+	position: absolute;
+	top: -0px;
+	left: 10px;
+
+}
