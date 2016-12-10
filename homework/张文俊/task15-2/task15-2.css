@@ -335,7 +335,8 @@ li{
     height:50px;
 }
 #content6{
-    background: url(img/worldmap.jpg) 0 0 no-repeat;
+    background: url(img/worldmap.png) 0 0 no-repeat;
+    background-size: cover;
     height:700px;
 }
 #content6 .contact{
@@ -366,7 +367,7 @@ li{
 #content6 .contact .textarea{
     position: absolute;
     left: 610px;
-    top: 300px;
+    top: 285px;
     width: 540px;
     height: 224px;
     font-size: 18px;
