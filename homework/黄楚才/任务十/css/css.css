@@ -1,0 +1,71 @@
+@charset "UTF-8";
+/**
+ * 
+ * @authors Your Name (you@example.org)
+ * @date    2016-12-10 14:10:12
+ * @version $Id$
+ */
+ *{
+ 	margin:0;
+ 	padding: 0;
+ }
+ a{
+ 	text-decoration: none;
+ 	color: #fff;
+ }
+ li{
+ 	list-style: none;
+ }
+ .body{
+ 	font-size: 16px;
+ 	font-family: "微软雅黑";
+ }
+  .clear_fix:after{
+	display: block;
+	content: "";
+	clear: both;
+ }
+ /* 整体布局结束*/
+  /* 头部布局开始*/
+ .layout{
+ 	width:  900px;
+ 	margin: 0 auto;
+ }
+ .header{
+ 	background: #000;
+ }
+ .header .logo{
+ 	float: left;
+  }
+ .header .nav{
+  	float: right;
+
+  }
+  .header .nav li,.footer .nav li{
+	 float: left;
+	 margin-right: 1em;
+	 padding: 12px 0;
+	 
+  }
+/* 头部布局结束*/
+/* 中部布局开始*/
+.content_contain{
+  margin: 10px 0;
+}
+.aslide{
+  width: 200px;
+  height: 550px;
+  background: #ddd;
+  float: left;
+}
+.main{
+  height: 550px;
+  background: #ddd;
+  margin-left: 210px;
+}
+/* 中部布局结束*/
+/* 尾部布局开始*/
+ .footer{
+ 	background: #000;
+ }
+  /* 尾部布局结束*/
