@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	    #header{
+	    	height: 30px;
+	    	background-color: #ccc;
+	    }
+		.ct{
+			padding-left:100px;			
+			border:1px solid;
+		}
+		.ct:after{
+			content: "";
+			display: block;
+			clear: both;
+		}
+		.main{
+			width: 100%;
+			background-color: green;
+			float: left;
+		}
+		.aside{
+			position: relative;
+			left: -100px;
+			width: 100px;
+			height: 200px;
+			background-color:red;
+			float: left;
+			margin-left: -100%;
+			opacity: 0.8;
+		}
+		 #footer{
+	    	height: 30px;
+	    	background-color: #ccc;
+	    }
+	</style>
+</head>
+<body>
+<div id="header">头部</div>
+<div class="ct">
+	<div class="main">圣杯布局，圣杯布局，圣杯布局，圣杯布局，圣杯布局，圣杯布局，圣杯布局，圣杯布局，圣杯布局，圣杯布局，圣杯布局，圣杯布局，圣杯布局，圣杯布局， 圣杯布局，圣杯布局，圣杯布局，圣杯布局，圣杯布局，圣杯布局，圣杯布局</div>
+	<div class="aside">左侧边栏，固定宽度</div>
+</div>
+<div id="footer">尾部</div>	
+</body>
+</html>

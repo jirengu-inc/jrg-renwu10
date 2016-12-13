@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="./iconfont.css">
+  <style>
+  body{
+    font-family: Microsoft Yahei;
+  }
+  .box{
+    border:1px solid red;
+    margin:10px;
+    padding:5px;
+    text-align: center;
+  }
+  /*雪碧图效果实现*/
+   .task1{ display: inline-block; height:34px; padding-left: 32px; font-size: 26px; background-image: url(result.png); background-repeat: no-repeat; } .move{ background-position: 0px 0px; } .move:hover{ background-position: -1px -135px; } .start{ background-position:
+3px -88px; } .start:hover{ background-position: -2px -225px; } .stop{ background-position: -1px -46px; } .stop:hover{ background-position: 3px -180px; }
+    /*字体图标实现效果*/
+    .task2{
+      display: inline-block; height:34px; padding-left: 32px; font-size: 20px;
+    }
+    .task2 i{font-size: 20px;}
+    .icon-iconfontqianjin:hover,.icon-iconkaishi:hover,.icon-tingzhi:hover{
+      color:pink;
+    }
+    /*用cssborder实现三角形*/
+    .box3{
+      border:1px solid red;
+      margin:10px;
+      padding:5px;
+      text-align: center;
+      overflow: hidden;
+    }
+    .box3 div{
+      width:0;
+      height:0;
+      margin:10px;
+      display: inline-block;
+      float: left;
+    }
+    .img1{
+      border-color:red blue green yellow;
+      border-style:solid;
+      border-width: 50px;
+      }
+      .img2{
+        border:50px solid;
+        border-color:blue transparent transparent transparent;
+      }
+      .img3{
+        border:50px solid;
+        border-color:transparent transparent transparent red;
+      }
+      .img4{
+        border:50px solid;
+        border-color: transparent transparent green transparent;
+      }
+      .img5{
+        border:50px solid;
+        border-color: transparent transparent red red;
+      }
+      .img6{
+        border:50px solid;
+        border-color: transparent green green transparent ;
+      }
+      .taiji{
+
+      }
+      .box4{
+        width:100px !important;
+        height:100px !important;
+        position:relative;
+        margin:0 auto;
+        padding: 0;
+      }
+
+      .heart{
+
+        width:60px  !important;
+        height:90px !important;
+        background: red;
+        border-radius: 30px 30px 0 0 ;
+        -webkit-transform: rotate(45deg);
+        position: absolute;
+        top:-10px;left:0;
+      }
+      .heart2{
+        width:60px  !important;
+        height:90px !important;
+        background: red;
+        border-radius: 30px 30px 0 0 ;
+        -webkit-transform: rotate(-45deg);
+        position: absolute;
+        top:-10px;left:-21px;
+      }
+     #yin-yang {
+      width: 96px;
+      height: 48px;
+      background: #eee;
+      border-color: red;
+      border-style: solid;
+      border-width: 2px 2px 50px 2px;
+      border-radius: 100%;
+      position: relative;
+      margin:0 auto;
+      }
+      #yin-yang:before {
+      content: "";
+      position:absolute;
+      top: 50%;left: 0;
+      background: #eee;
+      border: 18px solid red;
+      border-radius: 100%;
+      width: 12px;
+      height: 12px;
+      }
+      #yin-yang:after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      background: red;
+      border: 18px solid #eee;
+      border-radius:100%;
+      width: 12px;
+      height: 12px;
+      }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h3>雪碧图实现效果</h3>
+    <div class="task1 move">前进</div>
+    <div class="task1 start">开始</div>
+    <div class="task1 stop">停止</div>
+  </div>
+
+<div class="box">  <h3>字体图标实现效果</h3><div class="task2"><i class="iconfont icon-iconfontqianjin"></i>前进</div>
+<div class="task2"><i class="iconfont icon-iconkaishi"></i>开始</div>
+<div class="task2"><i class="iconfont icon-tingzhi"></i>停止</div></div>
+<div class="box3">
+  <h3>css画图</h3>
+  <div class="img1"></div>
+<div class="img2"></div>
+<div class="img3"></div>
+<div class="img4"></div>
+<div class="img5"></div>
+<div class="img6"></div>
+<div class="taji"></div>
+<div class="box4">
+  <div class="heart"></div>
+  <div class="heart2"></div>
+</div>
+<div class="box4">
+  <div class="" id="yin-yang"></div>
+</div>
+</div>
+</body>
+</html>

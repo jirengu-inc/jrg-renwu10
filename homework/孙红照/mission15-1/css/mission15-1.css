@@ -1,0 +1,122 @@
+		* {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			text-decoration: none;
+		}
+		.layout {
+			width: 1000px;
+			margin: 0 auto;
+		}
+/*		header样式*/
+		.clear {
+			clear: both;
+		}
+		.navbar>li {
+			position: relative;
+			float: left;
+			padding: 15px 20px;
+		}
+		.navbar>li>a {
+			color: #555;
+		}
+		.navbar>li>a:hover {
+			color: black;
+		}
+		.droplist>li {
+			padding: 15px 20px;
+			background-color: white;
+		}
+		.droplist li:nth-child(2) {
+			border-top: 1px dashed #ccc;
+			border-bottom: 1px dashed #ccc;
+		}
+		.droplist a {
+			color: #555;
+		}
+		.droplist a:hover {
+			color: black;
+		}
+		.droplist li:hover {
+			background-color: #eee;
+		}
+		.droplist {
+			position: absolute;
+			top: 51px;
+			left: 1px;
+			display: none;
+		}
+		.navbar>li:hover .droplist {
+			display: block;
+		}
+/*		introduce样式*/
+		#main .introduce {
+			background-color: #b84d45;
+			padding: 50px;
+			color: white;
+		}
+/*		works样式*/
+		.works-nav {
+			background-color: #eee;
+			color: #555;
+			padding: 10px 10px;
+			margin: 40px 0;
+			font-size: 15px;
+		}
+		.works-nav>a {
+			color: #b84d45;
+		}
+		.works-detail-child {
+			border: 1px solid #ccc;
+			float: left;
+			margin-left: 50px;
+			margin-bottom: 40px;
+			text-align: center;
+		}
+		.works-detail {
+			margin-left: -56px;
+			overflow: auto;
+		}
+		.works-detail-child img {
+			width: 300px;
+			height: 200px;
+		}
+		.works-detail-child h3, .works-detail-child p {
+			margin-top: 10px;
+			margin-left: 15px;
+			text-align: left;
+		}
+		.works-detail-child a:last-child {
+			display: inline-block;
+			border: 1px solid #ccc;
+			border-radius: 3px;
+			color: #999;
+			padding: 5px 8px;
+			margin: 10px 0;
+		}
+		/*vitae样式*/
+		.vitae {
+			background-color: #b84d45;
+			padding: 30px 0;
+			text-align: center;
+			color: white;
+		}
+		.vitae p {
+			margin: 20px 0;
+		}
+		.vitae a {
+			border: 1px solid #ccc;
+			border-radius: 3px;
+			color: white;
+			padding: 5px;
+			display: inline-block;
+		}
+		/*footer样式*/
+		#footer .slice {
+			border-top: 1px solid #ccc;
+			margin: 40px 0;
+		}
+		#footer p {
+			text-align: center;
+			margin: 30px 0;
+		}

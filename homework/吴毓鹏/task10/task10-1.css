@@ -1,0 +1,131 @@
+heml,body{
+  margin:0;
+  padding:0;
+  font-family: "Microsoft Yahei", sans-serif;
+  
+}
+ul{
+  list-style: none;
+
+}
+a{
+  text-decoration: none;
+  color:white;
+}
+
+
+.contain{
+  width:900px;
+  margin:0 auto;
+  overflow: hidden;
+}
+.header{
+  height:52px;
+  padding:1px;
+
+  background-color: #333333;
+}
+.header .logo{
+  float:left;
+  height:40px;
+  margin:0;
+  padding:0;
+}
+.header .bar{
+  float: right;
+  margin-right:10px;
+  line-height: 50px;
+}
+.header .bar a{
+  display: inline-block;
+  font-size: 16px;
+  margin-right:20px;
+}
+.aside{
+  margin-top:10px;
+  background: #eee;
+  width:200px;
+  height:700px;
+  float:left;
+}
+.main{
+  margin-top:10px;
+  margin-left:210px;
+  background: #eee;
+  padding:20px;
+}
+.part2{
+  box-shadow: 0 6px 6px rgba(0, 0, 0, 0.3);
+  background: #fff;
+  overflow: hidden;
+  padding:10px;
+  text-align: center;
+}
+.pictureshow{
+padding:10px;
+
+}
+.pic{
+  width:28%;
+  /*border:1px solid #eee;*/
+  display: inline-block; 
+  margin-top: 10px;
+  text-align: center;
+  position: relative;
+  padding:0px;
+}
+.picshow{
+  line-height: 150px;
+  border:1px solid #eee;
+  width: 80%;
+  height:100px;
+  background: #fff;
+  margin: 0px auto;
+  margin-top: 10px;
+  position: relative;
+}
+.pic1::after{
+  content: '';
+  border:10px solid;
+  border-color:transparent transparent #888 transparent;
+  position: absolute;
+  top:-20px;left:10px;
+  z-index: 999;
+}
+.pic2::after{
+  content: '';
+  border:10px solid;
+  border-color:red red  transparent transparent;
+  position: absolute;
+  top:0;right:0px;
+  z-index: 999;
+}
+.pic3::after{
+  content: '';
+  width:10px;
+  height:10px;
+  background: #fff;
+  border:1px solid;
+  border-color:#eee #eee  transparent transparent;
+  transform: rotate(-45deg);
+  position: absolute;
+  top:-6px;left:10px;
+  z-index: 999;
+}
+
+
+
+
+
+.footer{
+  background: #333;
+  height:42px;
+  padding:1px;
+  position:absolute;
+  bottom:0;left:0;right:0;
+}
+.footer  a{
+  display: inline-block;
+  line-height: 40px;
+  margin-left:10px;
+}
