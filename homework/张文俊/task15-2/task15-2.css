@@ -5,12 +5,13 @@
 a{
     text-decoration: none;
     color:#eee;
+    cursor:pointer;
 }
 li{
     list-style-type: none;
 }
 .container{
-    width:1200px;
+    width:1000px;
     margin:0 auto;
     /*border:1px solid red;*/
 }
@@ -47,7 +48,6 @@ li{
     float:right;
     display:inline-block;
     margin-top: 16px;
-    margin-right:60px;
     /*border:1px solid red;*/
 }
 .nav li{
@@ -98,7 +98,7 @@ li{
     display:inline-block;
     float:left;
     width:30%;
-    font-size:80px;
+    font-size:50px;
     line-height: 20px;
 }
 .desc li i{
@@ -138,19 +138,39 @@ li{
     color:red;
 
 }
+#content2 li a:hover .cut{
+    display:block;
+}
+#content2 li .cut{
+    width:300px;
+    height:300px;
+    line-height:300px;
+    color:#fff;
+    font-size:60px;
+    background: rgba(51, 122, 183,0.8);
+    display:none;
+    position:absolute;
+    left:0;
+    top:0;
+}
 .imglist{
     margin-top:100px;
 }
 .imglist>li{
     background-color: #eee;
     display:block;
-    width:30%;
+    width:300px;
     float:left;
-    margin-left: 20px;
+    margin-left: 33px;
     margin-top:20px;
     text-align: center;
+    position:relative;
 
 }
+/*.imglist a{
+    width:300px;
+    height:300px;
+}*/
 .imglist>li:hover .img-hover{
     display:block;
 }
@@ -286,6 +306,10 @@ li{
     font-size: 20px;
 
 }
+#content4 .team .inner-connect li a:hover{
+    background-color: yellow;
+    border:1px solid yellow;
+}
 #content4 .based{
     font-size: 16px;
     margin-top:50px;
@@ -311,13 +335,17 @@ li{
     height:50px;
 }
 #content6{
-    background: url(img/worldmap.jpg) 0 0 no-repeat;
+    background: url(img/worldmap.png) 0 0 no-repeat;
+    background-size: cover;
     height:700px;
 }
 #content6 .contact{
     position:relative;
     text-align: center;
     padding:150px 0;
+}
+#content6 .contact .left-message{
+    float:left;
 }
 #content6 .contact h1{
     margin-bottom:20px;
@@ -333,17 +361,22 @@ li{
 }
 #content6 .contact .text{
     display: block;
-    width: 540px;
+    width: 450px;
     height: 60px;
     margin: 20px 0;
     border-radius: 5px;
     border: 1px solid transparent;
 }
+#content6 .contact .right-message{
+    float:right;
+    right:300px;
+    top:-200px;
+}
 #content6 .contact .textarea{
-    position: absolute;
-    left: 610px;
-    top: 300px;
-    width: 540px;
+    position: relative;
+    left:10px;
+    top: 20px;
+    width: 500px;
     height: 224px;
     font-size: 18px;
     border-radius: 5px;

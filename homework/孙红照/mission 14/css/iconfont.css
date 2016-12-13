@@ -1,0 +1,36 @@
+
+@font-face {font-family: "iconfont";
+  src: url('../font/iconfont.eot?t=1481460201834'); /* IE9*/
+  src: url('../font/iconfont.eot?t=1481460201834#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('../font/iconfont.woff?t=1481460201834') format('woff'), /* chrome, firefox */
+  url('../font/iconfont.ttf?t=1481460201834') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('../font/iconfont.svg?t=1481460201834#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family:"iconfont" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-youjian:before { content: "\3442"; }
+
+.icon-dianhua:before { content: "\e61e"; }
+
+.icon-xiangmu:before { content: "\e62e"; }
+
+.icon-github:before { content: "\e66c"; }
+
+.icon-font38:before { content: "\e637"; }
+
+.icon-boke3:before { content: "\e60d"; }
+
+.icon-tuite:before { content: "\e609"; }
+
+.icon-HTML:before { content: "\e6ac"; }
+
+.icon-JS:before { content: "\e6b0"; }
+

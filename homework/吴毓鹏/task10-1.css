@@ -1,0 +1,87 @@
+heml,body{
+  margin:0;
+  padding:0;
+  font-family: "Microsoft Yahei", sans-serif;
+}
+ul{
+  list-style: none;
+
+}
+a{
+  text-decoration: none;
+  color:white;
+}
+
+
+.contain{
+  width:900px;
+  margin:0 auto;
+  overflow: hidden;
+}
+.header{
+  height:52px;
+  padding:1px;
+
+  background-color: #333333;
+}
+.header .logo{
+  float:left;
+  height:40px;
+  margin:0;
+  padding:0;
+}
+.header .bar{
+  float: right;
+  margin-right:10px;
+  line-height: 50px;
+}
+.header .bar a{
+  display: inline-block;
+  font-size: 16px;
+  margin-right:20px;
+}
+.aside{
+  margin-top:10px;
+  background: #eee;
+  width:200px;
+  height:700px;
+  float:left;
+}
+.main{
+  margin-top:10px;
+  margin-left:210px;
+  background: #eee;
+  width:100%;
+  padding:20px;
+}
+.draw{
+  width:80%;
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.5);
+  background: #fff;
+  overflow: hidden;
+}
+.pic{
+  display: inline-block;
+  width:150px;
+  height:100px;
+  border:1px solid #eee;
+  position:relative;
+  
+}
+.pic1:before{
+  content: '';
+  border-color: #888;
+  border-width:transparent transparent 20px transparent;
+}
+.footer{
+  background: #333;
+  height:42px;
+  padding:1px;
+  position:absolute;
+  bottom:0;left:0;right:0;
+}
+.footer  a{
+  display: inline-block;
+  line-height: 40px;
+  margin-left:10px;
+}
