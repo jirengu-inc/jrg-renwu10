@@ -1,0 +1,170 @@
+@font-face {
+  font-family: 'iconfont';  /* project id 194206 */
+  src: url('//at.alicdn.com/t/font_azpj0gui85b3xr.eot');
+  src: url('//at.alicdn.com/t/font_azpj0gui85b3xr.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_azpj0gui85b3xr.woff') format('woff'),
+  url('//at.alicdn.com/t/font_azpj0gui85b3xr.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_azpj0gui85b3xr.svg#iconfont') format('svg');
+}
+.iconfontyyy{
+    font-family:"iconfontyyy" !important;
+    font-size:16px;font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;}
+	html,body,ul,li,h1{
+     margin: 0;
+     padding:0;
+    }
+	html, body {
+    height:100%;
+    width: 100%;
+    font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+     }
+     
+    li, a, h1, h2, h3, h4, p {
+      text-align: center;
+      }
+	.ct{
+		width: 960px;
+		margin: 0px auto;
+	}
+	a{ 
+		text-decoration: none;
+	}
+	li{
+		list-style: none;
+	}
+	h1{
+		font-size:4.5em;
+		font-weight: bold;
+	}
+	h2{
+		font-size: 30px;
+	}
+	hr {
+     margin-top: 20px;
+     margin-bottom: 20px;
+     border-top: 1px solid #eee;
+     max-width: 100px;
+     }
+     .bt{
+     	display: inline-block;
+     	width: 120px;
+     	height: 45px;
+     	line-height: 45px;
+     	color: #000;
+     	background-color: #ccc;
+     	border-radius: 5px;
+     }
+     .bt:hover{background-color: #736ebd;}
+	#header{
+    width: 100%;
+    height:100%;
+    background-image: url(http://img2.imgtn.bdimg.com/it/u=1857179640,692139942&fm=214&gp=0.jpg);
+    background-size: cover;
+	}
+	.table{
+	display: table;
+	height: 100%
+	}
+	.text-center{
+	text-align: center;
+	}
+	.vertical-center{
+	display: table-cell;
+    vertical-align: middle;
+	}
+    .bt1{
+    height: 50px;
+    width: 140px;
+    line-height: 50px;
+    text-align: center;
+    color: white;
+    background: rgba(25, 76, 78, 0.29);
+    }
+    .bt1:hover{
+    	background-color: rgba(16, 11, 11, 0.62);
+    }
+    #word .ct h2{
+    	margin-top: 80px;
+    }
+    #word .ct p{
+    	font-size: 20px;
+    	margin-bottom: 70px;
+    }
+    #skill{
+        background-color: rgba(94, 132, 144, 0.98);
+    }
+    .speech{
+    	background: url(http://news.xinhuanet.com/world/2015-11/23/128459363_14482688902581n.jpg);
+    	background-size: cover;
+    	padding:225px 0px;
+    	color: white;
+    }
+    .clearfix:after{
+    	content: "";
+    	display: block;
+    	clear: both;
+
+    }
+    #skill{
+    	padding: 50px 0px;
+    }
+    .item{
+    	margin-left:-20px;
+    }
+    .item li{
+     float: left;
+     width: 225px;
+     margin-left: 20px;
+
+    }
+    .bt2:hover{
+    	background-color: rgba(78, 64, 119, 0.51);
+
+    }
+    .img{
+    	margin-left: -20px;
+    }
+    .img li{
+    	float: left;
+         margin-left: 20px;
+    }
+    .img li>img{
+    	width: 470px;
+    	height:300px;
+    	
+    }
+    #info{
+        margin-top: 50px;
+    	padding: 50px 0px;
+    	background-color: rgba(153, 166, 191, 0.78);
+    }
+    .bt3{
+    	margin-top: 25px;
+    	background-color: rgba(195, 141, 141, 0.78);
+    }
+    .bt4,.bt5{
+    	width: 150px;
+    	background-color: #76afac;
+    }
+    .bt5{
+    	background-color: #3661ab;
+    }
+    .bt5:hover{
+    	background-color: #5695a9;
+    }
+    #footer{
+    	padding: 100px 0px;
+    	font-size: 14px;
+        line-height: 5px;
+    }
+    .icon{margin-top: 30px;}
+    .icon li{
+    	display: inline-block;
+    }
+    .icon li a{
+     font-size: 50px;
+     line-height: 50px;
+    }
