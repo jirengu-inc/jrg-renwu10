@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圣杯布局的两栏布局</title>
+    <style>
+        *{
+            margin: 0px;
+            padding:0px;
+        }
+        .clearfix:after{
+            display: block;
+            clear: both;
+            content: '';
+        }
+        header,footer{
+            height: 40px;
+            background: #ccc;
+        }
+        .main,.left{
+            float: left;
+        }
+        .container{
+            padding-left: 300px;
+        }
+        .main{
+            width: 100%;
+            background: #0f0;
+            height: 80px;
+        }
+        .left{
+            margin-left: -100%;
+            background: #f00;
+            position: relative;
+            left: -300px;
+            width: 300px;
+            height: 100px;
+        }
+
+    </style>
+</head>
+<body>
+<header>头部</header>
+<div class="container clearfix">
+    <div class="main">这是中间部分，圣杯布局的两栏情况</div>
+    <div class="left">这是左边栏目</div>
+</div>
+<footer>尾部</footer>
+</body>
+</html>
