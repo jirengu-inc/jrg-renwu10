@@ -1,0 +1,22 @@
+*{
+    margin:0;
+    padding:0;
+}
+.header,.footer{
+    height: 40px;
+    background: #f00;
+}
+.content{
+    overflow: auto;
+}
+.aside{
+    float: left;
+    background: #cccbe1;
+    width:200px;
+}
+.main{
+    background: #ccc;
+    margin-left:200px;
+    overflow: auto;
+    min-height: 600px;;
+}
