@@ -1,0 +1,68 @@
+*{
+    margin: 0px;
+    padding:0px;
+}
+.clearfix:after{
+    display: block;
+    clear: both;
+    content: '';
+}
+/*index的页面布局*/
+nav{
+    width: 895px;
+    background: #aaa;
+    margin: 0 auto;
+}
+ul:after{
+    display: block;
+    content: '';
+    clear: both;
+}
+ul{
+    margin-right: -10px;
+    margin-left:  -10px ;
+    background: #f00;
+}
+li{
+    list-style: none;
+    float: left;
+    margin: 10px 10px;
+    color: #fff;
+}
+nav .img{
+    width: 285px;
+    height: 80px;
+    background: #004210;
+}
+/*这是圣杯三栏布局的样式*/
+header,footer{
+    height: 40px;
+    background: #ccc;
+}
+.main,.left,.right{
+    float: left;
+}
+.left,.right{
+    width: 300px;
+    height: 100px;
+}
+.container{
+    padding: 0 300px;
+}
+.main{
+    width: 100%;
+    background: #0f0;
+    height: 80px;
+}
+.left{
+    margin-left: -100%;
+    background: #f00;
+    position: relative;
+    left: -300px;
+}
+.right{
+    margin-left: -300px;
+    background: yellow;
+    position: relative;
+    right: -300px;
+}
