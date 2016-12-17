@@ -1,0 +1,356 @@
+	html,body,h1,h2,h3,div,ul,li{
+			margin:0;
+			padding: 0;
+			box-sizing: border-box;;
+			font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+		 }
+      html,body{
+      width:100%;
+			height:100%;
+     }
+		a{
+      font-size: 20px;
+			text-decoration: none;
+			color: #ccc;
+			text-align: center;
+		}
+		li{
+			list-style: none;
+		}
+		h1{
+			font-size: 50px;
+		}
+		h2{
+			font-size: 40px;
+			text-transform: uppercase;
+		}
+		h3{
+      font-size: 16px;
+      font-style: italic;
+      margin-top: 20px;
+      margin-bottom: 75px;
+      color: rgba(210, 70, 70, 0.55);
+		}
+        .icons li{
+        	display: inline-block;
+        }
+        .icons li>a{
+        	display: block;
+        	font-size: 30px;
+        	color: #000;
+        	width: 40px;
+        	height: 40px;
+        	line-height: 40px;
+        	background-color: pink;
+        	border-radius: 50%;
+        	transition: 1s ease-out;
+        }
+        .icons li>a:hover{
+        	color:#ccc;
+        	background-color: rgba(120, 186, 243, 0.73);
+        	transform: rotate(180deg);
+        }
+		.wrap{
+			width:1000px;
+			margin:0 auto;
+		}
+		.text-center{
+			text-align: center;
+		}
+		.clearfix:after{
+			content: "";
+			display: block;
+			clear: both;
+		}
+		.btn{
+            background-color: rgba(14, 56, 12, 0.65);
+            padding: 20px 10px;
+            font-family:Helvetica,Arial,sans-serif;
+            text-transform: uppercase;
+            border-radius:  3px;
+            font-size:      20px;
+        }
+        .btn:hover{
+        	font-family:Helvetica,Arial,sans-serif;
+        	color: #99bbc5;
+        	background-color:rgba(189, 90, 90, 0.42);
+        }
+		#header{
+			width: 100%;
+			height:100%;
+			background:url(../img/heiyan-bkg.jpg);
+			background-size: cover;
+		}
+		#header .header-top{
+			padding: 20px 0px;
+		}
+		#header .header-top .logo{
+        	font-family: Againts;
+        	float: left;
+        	font-size:50px;
+        	color:rgba(4, 2, 6, 0.64);
+        }
+        #header .header-top .nav{
+        	float: right;
+        }
+        #header .header-top .nav>li{
+        	float: right;
+        	display: block;
+        	margin:0 10px;
+        	height: 50px;
+        	line-height: 50px;
+        }
+        #header .header-top .nav>li a{
+        	display: block;
+            color: #c2c9e8;
+            width: 90px;
+			height: 50px;
+			border-radius: 3px;
+		}
+		#header .header-top .nav>li a:hover{
+			background-color: rgba(0, 0, 0, 0.39);
+			color: rgba(239, 138, 138, 0.6);
+			font-size: 20px;
+			font-family: colo;
+		}
+		#header .welcome{
+			padding:80px 0;
+		}
+		#header .welcome h1{
+			font-family: colo;
+			line-height: 50px;
+			margin:10px 0;
+			color: #000;
+		}
+		#header .welcome h1:nth-child(2){
+			font-family: Againts;
+			font-size: 100px;
+			margin: 50px 0;
+			color:rgba(251, 247, 247, 0.46);
+		}
+
+        #service{
+        	padding: 130px 0;
+        }
+        #service .service-header{
+         margin-bottom: 50px;
+          }
+        #service .service-content .clearfix{
+         margin-left:-50px;
+        }
+        #service .service-content ul>li{
+        float: left;
+        display: block;
+        width: 300px;
+        height: 250px;
+        margin-left:50px;
+        }
+        #service .service-content ul>li>a{
+        	font-size: 100px;
+        }
+
+        #exhibition{
+        	padding: 130px 0px;
+        	background-color: #f7f7f7;
+        }
+        #exhibition .works ul{
+        margin-left: -35px;
+        }
+        #exhibition .works ul>li{
+        float: left;
+        display: block;
+        margin-left: 35px;
+        }
+        #exhibition .works ul>li img{
+        display: block;
+        border-radius: 50%;
+        border:5px solid #ccc;
+        width: 300px;
+        height: 300px;
+        transition: 1s ease-out;    
+        }
+         
+        #exhibition .works ul>li img:hover{
+        border-color: #000; 
+        transform: rotateY(180deg); 
+         }
+
+         #aboutme{
+         padding-top:130px;
+         }
+         #aboutme .wall{
+         	position: relative;
+         }
+         #aboutme .wall:before{
+         	content: "";
+         	display: block;
+         	position: absolute;
+         	width: 2px;
+         	height: 750px;
+         	left:50%;
+         	top: 150px;
+         	background-color:rgba(83, 56, 234, 0.28);
+         	z-index: -1
+         }
+         #aboutme .wall .child{
+         	position: relative;
+         	margin-bottom: 100px;
+         }
+         #aboutme .wall .child .aboutme-img img{
+          display: block;
+          width: 150px;
+          height: 150px;
+          border:3px solid #eee;
+          border-radius:50%;
+          transition: 1s;
+          position: absolute;
+          left: 50%;
+          top: 20px;
+          z-index: 100;
+          margin-left: -78px;
+         }
+         #aboutme .wall .child .aboutme-img img:hover{
+          border-color: pink;
+          transform: rotate(90deg);
+         }
+         #aboutme .wall .child .float-left{
+         	float: left;
+         	text-align: right;
+         	width: 40%;
+         }
+         #aboutme .wall .child .float-right{
+         	float: right;
+         	text-align: left;
+         	width: 40%;
+         }
+         #aboutme .wall .child>div>p{
+         	color: rgba(18, 97, 101, 0.38);
+         	font-style: italic;
+         }
+         #team {
+         	padding:130px 0;
+         	background-color:#f7f7f7;
+         }
+          #team .staff>ul{
+          	margin-left: -35px;
+          }
+         #team .staff>ul>li{
+        float: left;
+        display: block;
+        margin-left: 35px;
+        }
+        #team .staff>ul>li img{
+        display: block;
+        border-radius: 30%;
+        border:5px solid #ccc;
+        width: 300px;
+        height: 300px;
+        transition: 1s ease-out;    
+        }
+        #team .staff>ul>li img:hover{
+        border-color: #000;
+        transform:rotateZ(90deg);
+        }
+
+        #contact{
+        	padding:130px 0;
+        	background-color: #f7f7f7;
+        }
+        .form .form-top {
+        margin: 50px 0;
+        }
+
+        .form .form-top .form-left {
+        float: left;
+        width: 500px;
+        }
+
+        .form .form-top .form-right {
+        float: right;
+        width: 500px;
+        }
+        
+        .form .form-top .form-left .form-text {
+        width: 440px;
+        height: 40px;
+        margin-bottom: 20px; 
+        border-radius: 3px;
+        padding:10px 20px;
+        text-transform: uppercase;
+        font-family:Helvetica;
+        border: 2px solid #CCC;
+        }
+
+        .form .form-top .form-right .form-textarea {
+        width: 440px;
+        height: 190px;
+        border-radius: 5px;
+        padding: 20px;
+        text-transform: uppercase;
+        font-family: Helvetica;
+        border: 2px solid #CCC;
+        }
+
+        .form .form-bottom .form-btn {
+        background: rgba(214, 108, 108, 0.8);
+        border-radius: 5px;
+        color: #FFF;
+        text-transform: uppercase;
+        padding: 20px 40px;
+        border: 0;
+        font-family: Helvetica;
+        }
+
+        .form .form-bottom .form-btn:hover {
+         background: rgba(51, 122, 183,0.8);
+        }
+
+        #footer {
+        	padding: 30px 0;
+        	background-color: green;
+        }
+        #footer .wrap{
+        	width: 999px;
+        }
+        #footer .wrap>ul>li{
+        	float: left;
+        	width: 333px;
+
+        }
+        #footer .wrap>ul>li .footerlinks li{
+        	float: right;
+        	margin-left: 10px;
+        	line-height: 50px;
+        }
+        #footer .wrap>ul>li .footerlinks li a:hover{
+        	color:rgba(13, 15, 70, 0.45);
+        }
+        #footer .wrap>ul>li .icons li a{
+
+        }
+        #footer .wrap>ul>li .icons li a {
+         height: 50px;
+         width: 50px;
+         line-height: 50px;
+        }
+
+        #friendlinks{
+        	padding: 50px 0px;
+        }
+        #friendlinks .wrap .quater{
+        	float: left;
+        	width: 250px;
+        }
+        #friendlinks .wrap .quater img{
+        	display: block;
+        	width: 100px;
+        	height: 100px;
+        	margin:0px 75px;
+        	border-radius: 50%;
+        	border:3px solid #a6efff;
+        	transition: 1s ease-in;
+        }
+        #friendlinks .wrap .quater img:hover{
+            border-color: pink;
+            transform: rotateY(360deg);
+        }
