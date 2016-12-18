@@ -4,6 +4,9 @@
 			box-sizing: border-box;;
 			font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
 		 }
+   p { cursor: text; } 
+   a { cursor: pointer; }
+   body { cursor: url("小图片地址")} 
       html,body{
       width:100%;
 			height:100%;
