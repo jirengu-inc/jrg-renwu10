@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+
+    <style>
+	html, body, ul, li, p, h1, h2, h3, h4, h5, h6, div {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }
+    body {
+    font: 14px/1.5 normal;
+    font-family: "Lantinghei SC", "Open Sans", Arial, "Hiragino Sans GB", "Microsoft YaHei", "\5FAE\8F6F\96C5\9ED1", "STHeiti", "WenQuanYi Micro Hei", SimSun, sans-serif color: #333;
+    }
+    a{ 
+    text-decoration:none; 
+    color: #666;
+     }
+    a:hover{
+    color: #000;
+    }
+    li{list-style: none;}
+	.wrap{
+    width: 1000px;
+    margin:0 auto;
+	}
+    .bt {
+    display: inline-block;
+    padding: 5px 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    }
+	.clearfix:after{
+	content: "";
+	display: block;
+	clear: both;
+	}
+	#header .logo {
+    font-size: 30px;
+    line-height: 50px;
+    float: left;
+    }
+    #header .nav{
+    float: left;
+    margin-left: 20px;
+    }
+    #header .wrap .nav>li{
+    float: left;
+    position: relative;
+    height: 50px;
+    line-height: 50px;
+    padding: 0 10px;
+    }
+    #header .nav .droplist{
+    position: absolute;
+    display: none;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    border:1px solid #ccc;
+    }
+    .droplist li{
+    line-height: 10px;
+    padding: 10px;
+    border-bottom: 1px dashed #ccc;
+    }
+    #header .nav>li:hover .droplist{
+    display: block;
+    }
+    .profile{
+    background-color: #b84d45;
+    color:white;
+    padding: 30px;
+    }
+    .product-title{
+        background-color: #eee;
+        margin-top: 40px;
+        border-radius: 3px;
+    }
+    .product-title ul{
+        padding: 10px;
+    }
+    .product-title ul>li{
+        display: inline-block;
+    }
+    .product-title ul li a{
+        color: #b84d45
+    }
+    .product{
+    margin-top: 10px;
+    }
+    .product>ul{
+        margin-left:-47px;
+    }
+    .product>ul>li{
+        float: left;
+        margin:20px 0px 0px 47px;
+        border:1px solid #ccc;
+        text-align:center;
+        padding-bottom: 10px;
+    }
+    .product>ul>li img{
+        width: 300px;
+        height: 200px;
+        
+    }
+    .product>ul>li h2{
+    font-size: 16px;
+    text-align: left;
+    padding: 5px 10px;
+     }
+     .product>ul>li p{
+    text-align: left;
+    padding: 5px 10px;
+     }
+     .aboutme{
+    margin-top: 30px;
+    background-color: #b84d45;
+    text-align: center;
+    padding: 20px 0;
+    color: #fff;
+     }
+     .aboutme .bt {
+    color: #fff;
+    margin-top: 10px;
+     }
+     #footer p{
+        padding: 30px 0;
+        margin-top: 30px;
+        border-top: 1px solid #eee;
+        text-align: center;
+     }
+    </style>
+</head>
+
+<body>
+	<div id="header">
+	<div class="wrap clearfix">
+		<a href="" class="logo"><li class="fa fa-rocket"></li></a>
+		<ul class="nav">
+			<li><a href="">博客</a></li>
+			<li><a href="">项目</a></li>
+			<li><a href="">简历</a></li>
+			<li><a href="">更多<i class="fa fa-caret-down"></i></a>
+			<ul class="droplist">
+			<li><a href="">github</a></li>
+			<li><a href="">知乎</a></li>
+			<li><a href="">微博</a></li>	
+			</ul></li>
+		</ul>
+	</div>
+	</div>
+
+
+	<div id="content">
+		<div class="profile">
+			<div class="wrap">
+				<h1>我的简介</h1>
+					<p>这里是我的简介</p>
+					<p>我的简介简介</p>
+			</div>
+		</div>
+
+    <div class="product-title wrap">
+    	<ul>
+            <li>
+                <a href="">首页</a></li>
+                <li>/</li>
+                <li>我的作品</li>
+           
+        </ul>
+    </div>
+
+    <div class="product wrap">
+    	<ul class="clearfix">
+    		<li>
+    			<img src="img/1.jpg" alt="">
+    			<h2>作品标题</h2>
+    			<p>作品介绍</p>
+                <a href="" class="bt">查看</a>
+    		</li>
+    		<li>
+    			<img src="img/1.jpg" alt="">
+    			<h2>作品标题</h2>
+    			<p>作品介绍</p>
+                <a href="" class="bt">查看</a>
+    		</li>
+    		<li>
+    			<img src="img/1.jpg" alt="">
+    			<h2>作品标题</h2>
+    			<p>作品介绍</p>
+                <a href="" class="bt">查看</a>
+    		</li>
+    		<li>
+    			<img src="img/1.jpg" alt="">
+    			<h2>作品标题</h2>
+    			<p>作品介绍</p>
+                <a href="" class="bt">查看</a>
+    		</li>
+    		<li>
+    			<img src="img/1.jpg" alt="">
+    			<h2>作品标题</h2>
+    			<p>作品介绍</p>
+                <a href="" class="bt">查看</a>
+    		</li>
+    		<li>
+    			<img src="img/1.jpg" alt="">
+    			<h2>作品标题</h2>
+    			<p>作品介绍</p>
+                <a href="" class="bt">查看</a>
+    		</li>
+    	</ul>
+    </div>
+
+    <div class="aboutme wrap">
+    	<h1>想更详细的了解我</h1>
+    	<p>下载我的简历吧</p>
+    	<a href="" class="bt">下载</a>
+    </div>
+
+    </div>
+
+
+    <div id="footer" class="wrap">
+    <p>来自@freddy</p>
+	</div>
+</body>
+</html>
