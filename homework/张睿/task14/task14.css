@@ -1,0 +1,262 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+a{
+  text-decoration: none;
+}
+
+
+                                                 /*header区*/
+
+#header{
+display:table;
+width: 100%;
+height: 100%;
+background:url('https://jirengu-inc.github.io/jrg-renwu10/homework/%E9%BB%84%E6%A5%9A%E6%89%8D/task14/images/bg.jpg') no-repeat;
+background-size: 100%;
+min-width: 1200px;
+}
+.header-theme{
+display:table-cell;
+text-align: center;
+vertical-align: middle;
+}
+
+.btn1 {
+    display: inline-block;
+    margin-top: 30px;
+    width: 140px;
+    height: 50px;
+    line-height: 50px;
+    background: grey;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+}
+                                          /*product-desp区*/
+
+#product-desp {
+    background: #fff;
+    margin: 42px 0;
+    padding: 10px;
+    text-align: center;
+    line-height: 2em;
+}
+                                          /*service-desp区*/
+
+#service-desp {
+    background: #337ab7;
+    padding: 50px 0;
+    color: #fff;
+}
+
+.service-theme {
+    text-align: center;
+    font-size: 26px;
+    line-height: 2em;
+    margin-bottom: 25px;
+}
+
+hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-top: 1px solid #eee;
+    max-width: 100px;
+    display: block;
+    -webkit-margin-before: 0.5em;
+    -webkit-margin-after: 0.5em;
+    -webkit-margin-start: auto;
+    -webkit-margin-end: auto;
+}
+
+.service-list:after{
+          content: '';
+          display: block;
+          clear: both;
+}
+.service-list {
+    width: 960px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.service-list ul {
+    overflow: hidden;
+    margin-left: -28px;
+    margin-right: -28px;
+}
+
+.service-list li {
+    float: left;
+    width: 200px;
+    height: 260px;
+    margin-left: 26px;
+    margin-right: 26px;
+}
+
+.service-list > ul>li> .fa {
+    font-size: 112px;
+}
+
+.btn2 {
+    display: inline-block;
+    width: 90px;
+    height: 35px;
+    line-height: 35px;
+    margin-top: 10px;
+    background: #fff;
+    text-align: center;
+    text-decoration: none;
+    color: #000;
+}
+                                          /*product-show区*/
+
+#product-show {
+    padding: 280px 0;
+    margin: 0 auto;
+    color: white;
+    background: url(https://raw.githubusercontent.com/jirengu-inc/jrg-renwu10/master/homework/%E9%BB%84%E6%A5%9A%E6%89%8D/task14/images/callout.jpg);
+    background-size: cover;
+    position: relative;
+}
+
+.product-show-text {
+    max-height: 70px;
+    text-align: center;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    font-size: 70px;
+}
+                                          /*portfolio区*/
+
+#portfolio {
+    background: #fff;
+    padding: 50px 0;
+    color: #000;
+}
+
+.portfolio-theme {
+    text-align: center;
+}
+
+.portfolio-theme>hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-top: 1px solid #000;
+    max-width: 100px;
+    display: block;
+    -webkit-margin-before: 0.5em;
+    -webkit-margin-after: 0.5em;
+    -webkit-margin-start: auto;
+    -webkit-margin-end: auto;
+}
+
+.portfolio-list:after{
+          content: '';
+          display: block;
+          clear: both;
+}
+.portfolio-list {
+    width: 960px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.portfolio-list ul {
+    overflow: hidden;
+    margin-left: -33px;
+    margin-right: -33px;
+}
+
+.portfolio-list li {
+    float: left;
+    width: 450px;
+    height: 270px;
+    margin: 10px 30px;
+}
+
+.portfolio-list li img {
+    width: 450px;
+    height: 270px;
+}
+.portfolio-btn3{
+    text-align: center;
+}
+
+.btn3 {
+    display: inline-block;
+    width: 130px;
+    height: 45px;
+    line-height: 45px;
+    margin-top: 10px;
+    background: #6b6b6b;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    font-size: 14px;
+}
+                                          /*contact区*/
+
+#contact {
+    background: #337ab7;
+    color: white;
+    text-align: center;
+    padding: 50px 0px;
+}
+
+.btn4 {
+    display: inline-block;
+    width: 130px;
+    height: 45px;
+    line-height: 45px;
+    margin-top: 10px;
+    margin-right: 5px;
+    background: #fff;
+    text-align: center;
+    text-decoration: none;
+    color: #000;
+    font-size: 14px;
+}
+
+.btn5 {
+    display: inline-block;
+    width: 130px;
+    height: 45px;
+    line-height: 45px;
+    margin-top: 10px;
+    margin-left: 5px;
+    background: #164c77;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    font-size: 14px;
+}
+                                          /*footer区*/
+
+#footer {
+    margin: 150px auto;
+    text-align: center;
+}
+
+.footer-small-icon>.fa {
+    font-size: 15px;
+    padding-right: 3px;
+}
+
+.footer-big-icon>.fa {
+    font-size: 40px;
+    color: #337ab7;
+    padding: 10px;
+}
