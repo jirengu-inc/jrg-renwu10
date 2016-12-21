@@ -1,0 +1,159 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	/************************/
+     body,ul,li,p,h1,h2,h3,h4,h5,h6{
+		margin: 0;
+		padding: 0;
+	}
+	a{
+		color: #333;
+		text-decoration: none;
+	}
+	ul,li{
+		list-style: none;
+	}
+	/************************/
+	body{
+		font:17px "Microsoft YaHei","微软雅黑",sans-serif;
+	}
+
+	.container{
+		width: 900px;
+		margin: 0 auto;
+	}
+	/************************/
+	#header{
+		height: 50px;
+		border-bottom: 2px solid black;
+	}
+	#header .logo img{
+		height: 40px;
+
+     }
+     #header .nav {
+     	float: right;
+     }
+	#header .nav >li{
+		float: left;
+		margin-right: 15px;
+	}
+     .ab{
+     	display: block;
+     	font-size: 17px;
+     	height: 50px;
+     	line-height: 50px;
+     	padding: 0 10px;
+     	color: #000;
+     }
+     .ab:hover{
+     	background-color: #aaaaaa;
+     	font-size: 20px;
+     	color:#fff;
+     }
+     /************************/
+	#content{
+		margin-top:10px;
+		text-align: center;
+	}
+    #content: after{
+    	content:"";
+    	clear: both;
+    	display: block;
+    }
+    #content .aside{
+    	width: 200px;
+    	float:left;
+    	min-height:500px;
+    	border:1px solid black;
+    }
+     #content .aside>li{
+     	margin-top: 10px;
+    }
+
+    #content .aside li a{
+     	border-bottom: 1px solid black;
+     }
+   #content .main
+   {
+   	position: relative;
+   	margin-left: 210px;
+   	min-height:500px;
+ }
+ #content .main img{
+ 	display: block;
+ 	position: absolute;
+ 	height: 500px;
+ }
+ #content .main img:target{
+ 	 z-index: 1;
+ }
+   /************************/
+  #footer{
+		background-color: #333;
+		padding: 10px 0;
+	}
+	#footer:after{
+		content: '';
+		display: table;
+		clear: both;
+	}
+	#footer li{
+		float: left;
+		margin-left: 10px;
+	}
+	#footer a{
+	  font-size:15px;
+		color: #fff
+	}
+
+
+	</style>
+</head>
+<body>
+<div id="header">
+<div class="container">
+<a class="logo" href=""><img src="http://static.zara-static.cn/stdstatic/1.25.2-b.1/images/logo-zara-16.svg" alt="zara"></a>
+<ul class="nav">
+	<li><a class="ab" href="">首页</a></li>
+	<li><a class="ab" href="">店铺分布</a></li>
+	<li><a class="ab" href="">联系我们</a></li>
+	<li><a class="ab" href="">购买指南</a></li>
+</ul>
+</div>
+</div>
+
+<div id="content">
+	<div class="container">
+		<div class="aside">
+			<ul>
+				<li><a class="ab" href="#w">最新上线</a></li>
+				<li><a class="ab" href="#x">男装</a></li>
+				<li><a class="ab" href="#y">女装</a></li>
+				<li><a class="ab" href="#z">儿童</a></li>
+			</ul>
+		</div>
+		<div class="main">
+		<img id="w" src="http://www.ileehoo.com/upload/images/2013-08/2013081211014673255.jpg"  alt="最新上线">
+		<img id="x" src="http://static.zara-static.cn/static///I2016/collage/48-1-subhome-man/rollingstonesman-man01.st.jpg?1480860162000"alt="男装">
+		<img id="y" src="http://himg2.huanqiu.com/attachment2010/2013/0813/20130813030937887.jpg" alt="女装">
+		<img id="z" src="http://pic.chinasspp.com/quan/News/image/20141119/20141119165211_9948.jpg" alt="儿童">
+		</div>
+	</div>
+</div>
+
+<div id="footer">
+<div class="container">
+<ul>
+	<li><a href="http://jirengu.com">饥人谷</a></li>
+	<li><a href="#">freddy@</a></li>
+	<li><a href="#">友情链接</a></li>
+</ul>
+</div>
+</div>
+</body>
+</html>

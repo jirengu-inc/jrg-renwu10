@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>双飞翼的2两栏布局</title>
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+        }
+        header,footer{
+            height: 40px;
+            background: #ccc;
+        }
+        .clearfix:after{
+            display: block;
+            clear: both;
+            content: '';
+        }
+        .wrapper,.right{
+            float: left;
+        }
+        .wrapper{
+            color: #ffffff;
+            width: 100%;
+        }
+        .main{
+            margin-right:200px;
+            background: #f00;
+            height: 200px;
+        }
+        .right{
+            margin-left: -200px;
+            background: #00f;
+            width: 200px;
+            height: 100px;
+        }
+
+    </style>
+</head>
+<body>
+<header>头部</header>
+<div class="container clearfix">
+    <div class="wrapper">
+        <div class="main">这是双飞翼布局的主要内容</div>
+    </div>
+    <div class="right">这是右边栏</div>
+</div>
+<footer>尾部</footer>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>使用圣杯布局实现如下三栏布局(两侧固定宽度200px,中间自适应)</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        .header,
+        .footer {
+            background: #666;
+            height: 40px;
+        }
+        
+        .contain  {
+            position: relative;
+            padding-left: 200px;
+            padding-right: 200px;
+            overflow: hidden;
+        }
+        
+        .main {
+            background: lawngreen;
+            float:left;
+           
+        }
+        
+        .left {
+            float: left;
+            height: 500px;
+            width: 200px;
+            background: yellow;
+            margin-left:-100%;
+           position: relative;
+           left:-200px;
+        }
+        
+        .right {
+            float: left;
+            height: 500px;
+            width: 200px;
+            background: red;
+            margin-right: -200px;
+           
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">头部</div>
+    <div class="contain">
+        <div class="main">生变布局指两边顶宽，中间自适应的三栏布局；中间栏要放在文档流优先渲染。其流程为：1）设置container的左右padding，用于预留左右边栏空间。
+            2)给所有元素设置定位和浮动，用于设置左右边栏偏移；
+            3）给左侧边栏设置right，让其移动位置；设置负边距100%（#center宽度），让其往上跑；
+          4）给右变懒设置负边距使其往上跑。
+           
+        </div>
+        
+        <div class="left">左侧边栏，固定宽度</div>
+        <div class="right">右侧边栏，固定宽度</div>
+    </div>
+    <div class="footer"></div>
+</body>
+
+</html>

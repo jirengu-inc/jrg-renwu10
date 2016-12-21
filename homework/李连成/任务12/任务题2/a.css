@@ -1,0 +1,48 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+#all{
+  /*width: 800px;*/
+  /*margin: 0 auto;*/
+  padding: 0 200px;
+}
+#all:after{
+  content: "";
+  display: block;
+  clear: both;
+}
+#header{
+  height: 20px;
+  /*width: 1200px;*/
+  /*margin: 0 auto;*/
+  background: #ccc;
+}
+#footer{
+  height: 20px;
+  /*width: 1200px;*/
+  /*margin: 0 auto;*/
+  background: #ccc;
+}
+.main{
+  background: green;
+  float: left;
+}
+.asidel{
+  position: relative;
+  left: 200px;
+  width: 200px;
+  height: 100px;
+  background: red;
+  float: left;
+  margin-left: -200px;
+}
+.asider{
+  position: relative;
+  left: -200px;
+  width: 200px;
+  height: 100px;
+  background: yellow;
+  float: left;
+  margin-left: -100%;
+}

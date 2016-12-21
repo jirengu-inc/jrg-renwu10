@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+    .one{
+     position: relative;
+     width: 200px;
+     height: 100px;
+     border:1px solid #ccc;
+     margin-top:30px;
+    }
+    .a:after{
+     content: " ";
+     position: absolute;
+     display: block;
+     left:10px;
+     top:-25px;
+     border:12px solid;
+     border-color: transparent transparent #ccc transparent;
+    }
+    .b:after{
+     content: " ";
+     display: block;
+     position: absolute;
+     left:181px;
+     top:-1px;
+     border:10px solid;
+     border-color:red red transparent transparent;
+    }
+    .c:after{
+     content: " ";
+     display: block;
+     position: absolute;
+     width: 15px;
+     height: 15px;
+     left: 15px;
+     top:-9px;
+     background-color: #fff; 
+     border-left: 1px solid #ccc;
+     border-top: 1px solid #ccc;
+     transform: rotate(45deg);
+    }
+    
+</style>
+</head>
+<body>
+	<div class="one a"></div>
+	<div class="one b"></div>
+	<div class="one c"></div>
+</body>
+</html>

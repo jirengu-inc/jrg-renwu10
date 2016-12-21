@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>三角形的制作</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style type="text/css">
+	.size{
+		width: 0px;
+		height: 0px;
+		margin-bottom: 10px;
+	}
+	.triangle{
+		
+		border-top: 50px solid blue;
+		border-bottom: 50px solid green;
+		border-left: 50px solid red;
+		border-right: 50px solid yellow;
+	}
+	.triangle_top{
+		border-top: 50px solid blue;
+		border-right: 50px solid transparent;
+		border-left: 50px solid transparent;
+	}
+	.triangle_left{
+		border-bottom: 50px solid transparent;
+		border-top:  50px solid transparent;
+		border-left: 50px solid red;
+	}
+	.triangle_right{
+		border-left: 50px solid transparent;
+		border-bottom: 50px solid transparent;
+		border-top:  50px solid transparent;
+		border-right:  50px solid yellow;
+	}
+	.triangle_bottom{
+		border-bottom: 50px solid green;
+		border-left:  50px solid transparent;
+		border-right:  50px solid transparent;
+	}
+	.triangle_left_bottom{
+		border-left:  50px solid red;
+		border-bottom:  50px solid red;
+		border-top: 50px solid transparent;
+		border-right: 50px solid transparent;
+	}
+	.triangle_right_top{
+		border-right:  50px solid yellow;
+		border-bottom:  50px solid yellow;
+		border-left: 50px solid transparent;
+		border-top: 50px solid transparent;
+	}
+</style>
+</head>
+<body>
+    <div class="triangle size"></div>
+    <div class="triangle_top size"></div>
+    <div class="triangle_left size"></div>
+    <div class="triangle_right size"></div>
+    <div class="triangle_bottom size"></div>
+    <div class="triangle_left_bottom size"></div>
+    <div class="triangle_right_top size"></div>
+</body>
+</html>

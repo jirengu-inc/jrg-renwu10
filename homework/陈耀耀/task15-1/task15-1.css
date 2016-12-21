@@ -4,6 +4,14 @@
 	box-sizing: border-box;
 }
 
+body {
+<<<<<<< HEAD
+	background: #FFFFFF;
+=======
+	background: #fff;
+>>>>>>> dbe1bf9f7e28292bf0c2d5ef4cdf30a6f53a6807
+}
+
 a {
 	text-decoration: none;
 }
@@ -134,7 +142,7 @@ li {
 }
 
 .introduce ul {
-	margin-left: -49px;
+	margin-left: -50px;
 }
 
 .introduce li h1 {

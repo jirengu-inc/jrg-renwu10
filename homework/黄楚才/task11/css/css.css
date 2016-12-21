@@ -1,0 +1,82 @@
+*{
+    margin: 0;
+    padding:0;
+}
+body{
+    font-size: 16px;
+    font-family:"微软雅黑";
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: #000;
+}
+#pc .nav{
+    background: #ccc;
+}
+#pc .nav ul:after{
+    content: '';
+    display: block;
+    clear:both;
+}
+#pc .nav .parent_ul>li{
+    float: left;
+    padding: 10px;
+    position: relative;
+}
+/*隐藏的菜单列表*/
+#pc .nav .child{
+    position: absolute;
+    top:100%;
+    left:0;
+    background: #fff;
+    border:1px solid #ddd;
+    display:  none;
+}
+#pc .nav .child>li{
+    padding: 5px 15px 5px 5px ;
+}
+#pc .nav .parent_ul li:hover .child{
+    display: block;
+}
+#pc .nav .child>li:hover{
+    background: #ddd;
+}
+#mobile_nav{
+    display: none;
+}
+/*小于900px的大小*/
+@media screen and (max-width:900px) {
+    #pc{
+        display: none;
+    }
+    #mobile_nav{
+        display: block;
+    }
+
+    #mobile_nav .nav{
+        display: none;
+    }
+    #mobile_nav .logo{
+        background: #ccc;
+        padding: 10px;
+    }
+    #mobile_nav .nav .parent_ul>li{
+        width:200px;
+        border:1px solid #dddddd;
+        padding: 5px 5px;
+    }
+    #mobile_nav .nav .child{
+        margin-top: 5px;
+        margin-left: 10px;
+    }
+    #mobile_nav .nav .child li{
+        padding: 10px 5px;
+    }
+    #mobile_nav .nav .child li:hover{
+        background: #ccc;
+    }
+}
+
