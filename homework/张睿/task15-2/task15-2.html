@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>EVE</title>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+<style media="screen">
+* {margin: 0;padding: 0;list-style-type: none;font-family: "Microsoft YaHei" }
+html,body {height: 100%;width: 100%;}
+a{text-decoration: none;color: #fff;}
+.layout{
+width: 1000px;
+margin: 0 auto;
+}
+
+                                 /*nav区*/
+.clearfix:after {
+content:'';
+display:block;
+clear:both;
+}
+#nav{
+position: fixed;
+width: 100%;
+background-color: rgba(0, 0, 0, 0.8);
+}
+#nav >.layout> a .fa{
+ float: left;
+ display: block;
+font-size:70px;
+ line-height:70px;
+ color: #fff;
+}
+
+#nav .nav-list{
+float: left;
+}
+
+
+.nav-list>li{
+ font-size:22px;
+ float: left;
+ padding-top:15px ;
+ padding-bottom:15px ;
+ margin-left: 33px;
+ position: relative;
+}
+.nav-list a{
+color: #fff;
+}
+#nav .nav-list>li:hover .drop {
+display: block;
+}
+
+                          /*header区*/
+#header{
+display:table;
+width: 100%;
+height: 100%;
+background:url('1.jpg') no-repeat;
+background-size: 100%;
+min-width: 1200px;
+}
+.header-theme{
+display:table-cell;
+text-align: center;
+vertical-align: middle;
+  color:white;
+  line-height:80px;
+}
+.header-theme h1{
+font-family:"FZYaoti";
+font-size:100px;
+}
+.header-theme p{
+line-height:4em;
+font-size:40px;
+}
+.btn1 {
+          display: inline-block;
+          margin-top: 30px;
+          width: 300px;
+          height: 50px;
+          line-height: 50px;
+          background: black;
+          text-align: center;
+          text-decoration: none;
+          color: #fff;
+          font-size:1em;
+          opacity: 0.5;
+      }
+
+
+
+
+                          /*services区*/
+#services {
+          background: url('2.jpg');
+          color: #fff;
+          padding-top:70px;
+          padding-bottom:70px;
+      }
+
+      .service-theme{
+        margin: 0 auto;
+          text-align: left;
+          font-size: 16px;
+          line-height: 2em;
+          margin-bottom: 25px;
+          background-color: rgba(50, 50, 50, 0.6);
+          width: 500px;
+      }
+
+
+      .service-list:after{
+                content: '';
+                display: block;
+                clear: both;
+      }
+      .service-list {
+          width: 960px;
+          margin: 0 auto;
+          text-align: center;
+
+      }
+
+      .service-list ul {
+          overflow: hidden;
+          margin-left: -28px;
+          margin-right: -28px;
+      }
+
+      .service-list li {
+          float: left;
+          width: 200px;
+          height: 350px;
+          margin-left: 26px;
+          margin-right: 26px;
+          background-color: black;
+          border:1px solid white;
+      }
+
+      .service-list > ul>li> .fa {
+          font-size: 112px;
+      }
+
+      .btn2 {
+          display: inline-block;
+          width: 90px;
+          height: 35px;
+          line-height: 35px;
+          margin-top: 10px;
+          background: #fff;
+          text-align: center;
+          text-decoration: none;
+          color: #000;
+      }
+
+                          /*portfolio区*/
+#portfolio {
+ background: url('3.jpg');
+          color: #fff;
+          padding-top:30px;
+          padding-bottom:10px;
+      }
+
+      .portfolio-theme {
+          margin: 0 auto;
+          text-align: center;
+          font-size: 46px;
+          line-height: 2em;
+          margin-bottom: 25px;
+          background-color: rgba(50, 50, 50, 0.6);
+          width: 400px;
+
+      }
+
+.portfolio-list >ul{
+overflow: hidden;
+margin: 0 -24px;
+}
+.portfolio-list >ul> li{
+float: left;
+width: 300px;
+margin-left:24px;
+margin-right:24px;
+margin-bottom:30px;
+outline: 1px solid #ccc;
+ background: #fff;
+        color: #000;
+
+}
+
+.pic{
+height:270px;
+background: #D8D8D8;
+}
+
+.pic img{
+width: 300px;
+height: 270px;
+}
+
+
+.title{
+font-size:16px;
+font-weight: bold;
+margin-top:13px;
+padding-left:8px;
+text-align: center;
+}
+.description{
+font-size:14px;
+margin-top:13px;
+padding-left:8px;
+}
+
+.btn-wrapper{
+text-align:center;
+}
+.btn-wrapper >a{
+display: inline-block;
+border:1px solid #ccc;
+border-radius: 3px;
+margin: 0 auto;
+color: #666;
+margin: 10px;
+padding: 5px 8px;
+font-size:14px;
+line-height:20px;
+}
+
+
+
+                          /*refine区*/
+#refine {
+          background: url('4.png');
+          color: #fff;
+          padding-top:50px;
+          padding-bottom:50px;
+      }
+
+      .refine-theme{
+        margin: 0 auto;
+          text-align: center;
+          font-size: 46px;
+          line-height: 2em;
+          margin-bottom: 25px;
+          background-color: rgba(50, 50, 50, 0.6);
+          width: 400px;
+      }
+
+
+      .refine-list:after{
+                content: '';
+                display: block;
+                clear: both;
+      }
+      .refine-list {
+          width: 700px;
+          margin: 0 auto;
+          text-align: center;
+      }
+
+      .refine-list ul {
+          overflow: hidden;
+          margin-left: -28px;
+          margin-right: -28px;
+      }
+
+      .refine-list li {
+          float: left;
+          width: 200px;
+          height: 400px;
+          margin-left: 26px;
+          margin-right: 26px;
+
+      }
+
+      .refine-list > ul>li> .fa {
+          font-size: 112px;
+      }
+
+      .btn2 {
+          display: inline-block;
+          width: 90px;
+          height: 35px;
+          line-height: 35px;
+          margin-top: 10px;
+          background: #fff;
+          text-align: center;
+          text-decoration: none;
+          color: #000;
+      }
+
+.refine-list img{
+width: 200px;
+height: 200px;
+border-radius:100%;
+}
+
+                         /*transportation区*/
+#transportation{
+background: url('5.png');
+          color: #fff;
+          padding-top:50px;
+          padding-bottom:50px;
+overflow:auto;
+}
+.transportation-theme {
+     margin: 0 auto;
+          text-align: center;
+          font-size: 46px;
+          line-height: 2em;
+          margin-bottom: 25px;
+          background-color: rgba(50, 50, 50, 0.6);
+          width: 400px;
+}
+
+.left{
+width: 400px;
+float: left;
+outline:1px solid white;
+}
+.right{
+width: 400px;
+float: right;
+outline:1px solid white;
+}
+
+#transportation>.layout img{
+width: 200px;
+height: 200px;
+border-radius:100%;
+}
+
+
+
+
+
+
+
+
+                          /*footer区*/
+#footer {
+          margin: 0 auto;
+          text-align: center;
+    background: url('6.jpg');
+ background-size:100% auto;
+          color: #fff;
+ font-size:24px;
+ font-weight:800;
+ padding: 35px 0;
+      }
+.footer-theme{
+  margin: 0 auto;
+          text-align: center;
+          font-size: 46px;
+          line-height: 2em;
+          background-color: rgba(50, 50, 50, 0.6);
+          width: 400px;
+}
+
+.userinformation{
+margin: 0 50px;
+}
+.input-info{
+height:37px;
+width: 380px;
+margin-bottom:32px ;
+}
+.comments{
+float: right;
+}
+.info-submit{
+width: 100px;
+height: auto;
+background: grey;
+color: #fff;
+font-size:24px;
+line-height:24px;
+margin-bottom:50px ;
+}
+
+hr{
+margin: 25px 0;
+}
+
+.footer-small-icon{
+background: rgba(255,255,255,0.1);
+       border:1px solid #666;
+width: 500px;
+ margin: 0 auto;
+}
+
+      .footer-small-icon>.fa {
+          font-size: 15px;
+          padding-right: 3px;
+      }
+
+      .footer-big-icon>.fa {
+          font-size: 40px;
+          color: #337ab7;
+          padding: 10px;
+      }
+</style>
+</head>
+
+
+<body>
+  <div id="nav" class="">
+  <div class="layout clearfix">
+  <a href="#"><i class="fa fa-rocket" aria-hidden="true"></i></a>
+  <ul class="nav-list">
+    <li><a href="#services">集团服务</a></li>
+    <li><a href="#portfolio">热卖采矿无人机</a></li>
+    <li><a href="#refine">矿物精炼服务</a></li>
+    <li><a href="#transportation">星际物流服务</a></li>
+    <li><a href="#footer">联系我们</a></li>
+
+
+  </ul>
+ </div>
+</div>
+
+
+  <div id="header">
+  <div class="header-theme">
+                <h1>无 限 创 造 集 团</h1>
+            <p>让宇宙爱上中国造</p><br>
+            <a href="#footer" class="btn1">联系我们</a>
+  </div>
+  </div>
+
+
+
+
+  <div id="services">
+            <div class="service-theme">
+            <p>加达里合众国是纯粹集团资本主义的代表。八大超级集团总共占据了国家百分之九十的财产。每一个集团由成千个不同大小和种类的子集团组成，从简单的采矿公司到巨大的司法系统。这里没有单一的、标准的政府，每个超级集团圈定自己的领土，就像一个独立的王国，互不干涉内政。高级事务，诸如对其他帝国的外交政策由八个集团最高执行长官组成的董事会管理，董事会拥有最高权威，也负责保障国家基础单元的完整及处理军团间的主要纠纷。 八大超级集团分别是：卡拉吉塔集团、斯库维塔集团、纳基维集团、异株湖集团、维克米集团、三岛集团、CBD社团和莱戴集团。这里简单介绍其中三个，其他集团的资料可以在军团页面上查阅。</p>
+            </div>
+        <div class="service-list">
+            <ul>
+                <li>
+                    <i class="fa fa-plane" aria-hidden="true"></i>
+                    <h3>采矿无人机销售</h3><br>
+                    <p>我们的采矿无人机船身轻而容量大、速度快而转身灵活。针对每种矿脉无人机配置有定制的最新款矿枪，能在星系内所有环境下采集矿物与气云。</p>
+                    <a href="#" class="btn2">了解详情</a>
+                </li>
+                <li>
+                    <i class="fa fa-wrench" aria-hidden="true"></i>
+                    <h3>无人机维修服务</h3><br>
+                    <p>集团无人机维修部致力于为广大消费者提供亲切、快捷、周到的优质维修服务，提供方便快捷的送货、安装、维修服务</p>
+                    <a href="#" class="btn2">查询维修点</a>
+                </li>
+                <li>
+                    <i class="fa fa-industry" aria-hidden="true"></i>
+                    <h3>矿物精炼</h3><br>
+                    <p>集团提供矿物精炼服务，星系内常见原矿都可被精炼成矿石。但目前暂不提供克洛基石与双多特石的精炼服务。</p>
+                    <a href="#" class="btn2">立即预约</a>
+                </li>
+                <li>
+                    <i class="fa fa-rocket" aria-hidden="true"></i>
+                    <h3>星际物流服务</h3><br>
+                    <p>集团提供星系内主要矿区与星际矿物运输星门之间的物流服务。注意：由于G5ED-Y星系内个别星门附近引力数据异常，近期暂停相关区域的物流服务。</p>
+                    <a href="#" class="btn2">立即预约</a>
+                </li>
+            </ul>
+        </div>
+  </div>
+
+
+
+    <div id="portfolio">
+        <div class="portfolio-theme">
+            <h3>热卖采矿无人机</h3>
+        </div>
+        <div class="portfolio-list layout">
+     <ul>
+   <li>
+     <div class="pic">
+       <img src="111.png" alt=""></div>
+     <div class="title">作品标题</div>
+     <div class="description">作品介绍,作品介绍,作品介绍,作品介绍,作品介绍,作品介绍,作品介绍,作品介绍,作品介绍,作品介绍,作品介绍,作品介绍,作品介绍,作品介绍,</div>
+     <div class="btn-wrapper">
+     <a href="" class="btn">立即购买</a>
+     </div>
+   </li>
+   <li>
+     <div class="pic"> <img src="222.jpg" alt=""></div>
+     <div class="title">作品标题</div>
+     <div class="description">作品介绍,作品介绍,作品介绍,作品介绍,作品介绍,作品介绍,作品介绍,作品介绍,作品介绍,作品介绍,作品介绍,作品介绍,作品介绍,作品介绍,</div>
+     <div class="btn-wrapper">
+     <a href="" class="btn">立即购买</a>
+     </div>
+   </li>
+   <li>
+     <div class="pic"> <img src="333.jpg" alt=""></div>
+     <div class="title">作品标题</div>
+     <div class="description">作品介绍,作品介绍,作品介绍,作品介绍,作品介绍,作品介绍,作品介绍,作品介绍,作品介绍,作品介绍,作品介绍,作品介绍,作品介绍,作品介绍,</div>
+     <div class="btn-wrapper">
+     <a href="" class="btn">立即购买</a>
+     </div>
+     </li>
+
+
+   <li>
+     <div class="pic"> <img src="444.jpg" alt=""></div>
+     <div class="title">作品标题</div>
+     <div class="description">作品介绍,作品介绍,作品介绍,作品介绍,作品介绍,作品介绍,作品介绍,作品介绍,作品介绍,作品介绍,作品介绍,作品介绍,作品介绍,作品介绍,</div>
+     <div class="btn-wrapper">
+     <a href="" class="btn">立即购买</a>
+     </div>
+   </li>
+   <li>
+     <div class="pic"> <img src="555.jpg" alt=""></div>
+     <div class="title">作品标题</div>
+     <div class="description">作品介绍,作品介绍,作品介绍,作品介绍,作品介绍,作品介绍,作品介绍,作品介绍,作品介绍,作品介绍,作品介绍,作品介绍,作品介绍,作品介绍,</div>
+     <div class="btn-wrapper">
+     <a href="" class="btn">立即购买</a>
+     </div>
+   </li>
+   <li>
+     <div class="pic"> <img src="666.jpg" alt=""></div>
+     <div class="title">作品标题</div>
+     <div class="description">作品介绍,作品介绍,作品介绍,作品介绍,作品介绍,作品介绍,作品介绍,作品介绍,作品介绍,作品介绍,作品介绍,作品介绍,作品介绍,作品介绍,绍</div>
+     <div class="btn-wrapper">
+     <a href="" class="btn">立即购买</a>
+     </div>
+     </li>
+ </ul>
+  </div>
+    </div>
+
+
+     <div id="refine">
+            <div class="refine-theme">
+            <h3>矿物精炼服务</h3>
+            </div>
+        <div class="refine-list">
+            <ul>
+                <li>
+                    <img src="666.jpg" alt="">
+                    <h3>Service Name</h3><br>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                    <a href="#" class="btn2">Learn More</a>
+                </li>
+                <li>
+                    <img src="666.jpg" alt="">
+                    <h3>Service Name</h3><br>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                    <a href="#" class="btn2">Learn More</a>
+                </li>
+                <li>
+                    <img src="666.jpg" alt="">
+                    <h3>Service Name</h3><br>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                    <a href="#" class="btn2">Learn More</a>
+                </li>
+
+            </ul>
+        </div>
+  </div>
+
+    <div id="transportation">
+              <div class="transportation-theme">
+            <h3>星际物流服务</h3>
+        </div>
+      <div class="layout">
+
+        <div class="left">
+          <p>绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，</p>
+          <br><br><br><br><br><br><br>
+          <p>绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，</p>
+          <br><br><br><br><br><br><br>
+          <p>绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，</p>
+          <br><br><br><br><br><br><br>
+          <p>绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，</p>
+          <br><br><br><br><br><br><br>
+          <p>绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，</p>
+          <br><br><br><br><br><br><br>
+          <p>绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，</p>
+        </div>
+        <div class="right">
+
+          <br><br><br><br><br><br><br>
+          <p>绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，</p>
+          <br><br><br><br><br><br><br>
+          <p>绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，</p>
+          <br><br><br><br><br><br><br>
+          <p>绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，</p>
+          <br><br><br><br><br><br><br>
+          <p>绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，</p>
+          <br><br><br><br><br><br><br>
+          <p>绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，一段介绍文字，</p>
+          <br><br><br><br><br><br><br>
+        </div>
+                 <img src="666.jpg" alt=""><br><br><br><br><br><br><br>
+        <img src="666.jpg" alt=""><br><br><br><br><br><br><br>
+        <img src="666.jpg" alt=""><br><br><br><br><br><br><br>
+        <img src="666.jpg" alt=""><br><br><br><br><br><br><br>
+        <img src="666.jpg" alt="">
+      </div>
+    </div>
+
+
+
+
+  <div id="footer">
+    <div class="footerline layout">
+       <div class="footer-theme">
+         CONTACT US
+       </div> <br>
+      <div class="userinformation">
+        <textarea class="comments" name="comments" rows="11" cols="68" placeholder="comments"></textarea>
+        <input class="input-info" typle="name" placeholder="name" required>
+        <input class="input-info" typle="email" placeholder="email" required>
+        <input class="input-info" typle="phone" placeholder="phone number" required>
+      </div>
+      <input class="info-submit" type="submit">
+
+
+        <div class="footer-small-icon">
+            3481 第607区 <br> 木卫二, CA 90210<br>
+
+            <i class="fa fa-phone" aria-hidden="true"></i>(123) 456-7890<br>
+            <i class="fa fa-envelope-o" aria-hidden="true"></i><a href="#">code.zhangrui@gmail.com</a><br></div>
+
+        <div class="footer-big-icon">
+            <a href="" class="fa fa-facebook" aria-hidden="true"></a>
+            <a href="" class="fa fa-twitter-square" aria-hidden="true"></a>
+            <a href="" class="fa fa-github" aria-hidden="true"></a><br>
+            <hr>
+        </div>
+        <p>Copyright©code-zhangrui</p>
+    </div>
+</div>
+</body>
+</html>
