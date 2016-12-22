@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <ul class="ct">
+    <li>这里是</li>
+    <li>饥人谷</li>
+    <li>前端6班</li>
+  </ul>
+  <input class="ipt-add-content" placeholder="添加内容"/>
+  <button id="btn-add-start">开头添加</button>
+  <button id="btn-add-end">结尾添加</button>
+<script>
+  var btnStart = document.querySelector('#btn-add-start'),
+      btnEnd = document.querySelector('#btn-add-end'),
+      ct = document.querySelector('.ct'),
+      input = document.querySelector('input');
+  ct.addEventListener('click',function(e){
+      console.log(e.target.innerText)
+  },false);
+  var addStart = function(){
+      var li = document.createElement('li');
+      li.innerText = input.value;
+      ct.insertBefore(li,ct.children[0]);
+  };
+  var addEnd = function(){
+      var li = document.createElement('li');
+      li.innerText = input.value;
+      ct.appendChild(li);
+  };
+  btnStart.addEventListener('click',function(){
+    if(input.value){addStart()}else{alert('请输入要添加的内容')}
+  },false);
+  btnEnd.addEventListener('click',function(){
+    if(input.value){addEnd()}else{alert('请输入要添加的内容')}
+  },false)
+</script>
+</body>
+</html>
