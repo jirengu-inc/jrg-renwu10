@@ -1,0 +1,134 @@
+<!doctype html>
+<!--suppress JSAnnotator -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            font-family: 微软雅黑;
+        }
+        a{
+            text-decoration: none;
+            color: #333;
+        }
+        #btn{
+            padding: 5px 12px;
+            border-radius: 5px;
+            border: 1px solid gray;
+            font-size: 14px;
+        }
+        .cover{
+            position: fixed;
+            top:0;
+            bottom:0;
+            left:0;
+            right:0;
+            z-index: 2;
+            opacity: 0.5;
+            background-color: #333;
+        }
+        #modal{
+            display: none;
+        }
+        #modal .modal-ct{
+            position: fixed;
+            top:50%;
+            left:50%;
+            transform: translate(-50%,-50%);
+            -webkit-transform: translate(-50%,-50%);
+            width:400px;
+            z-index: 3;
+            background-color: white;
+        }
+        .header{
+            height:36px;
+            line-height: 36px;
+            border-bottom:1px solid #ccc;
+        }
+        .header .close{
+            float: right;
+            margin-right: 10px;
+            font-size: 20px;
+        }
+        .header h3{
+            float: left;
+            margin-left: 10px;
+        }
+        .clear-fix:after{
+            display: block;
+            content: '';
+            clear: both;
+        }
+        .content{
+            padding:10px 10px;
+        }
+        .content p{
+            padding:5px 0;
+        }
+        .footer{
+            padding: 10px;
+            border-top:1px solid #ddd;
+        }
+        .footer .btn{
+            float: right;
+            margin-right:10px ;
+        }
+    </style>
+</head>
+<body>
+<input id="btn" type="button" value="点我">
+<div id="modal">
+    <div class="cover"></div>
+    <div class="modal-ct">
+        <div class="header clear-fix">
+            <h3>我是标题</h3>
+            <a class="close" href="#">×</a>
+        </div>
+        <div class="content">
+            <p>我是内容1</p>
+            <p>我是内容1</p>
+        </div>
+        <div class="footer clear-fix">
+            <a class="btn btn-confirm" href="#">确定</a>
+            <a class="btn btn-cancel" href="#">取消</a>
+        </div>
+    </div>
+</div>
+<script>
+    function show(ele){
+        ele.style.display='block';
+    }
+    function hide(ele){
+        ele.style.display='none';
+    }
+    function hasClass(el,cls){
+        var reg = new RegExp('\\b'+cls+'\\b');
+        return reg.test(el.className);
+    }
+    var btn=document.querySelector('#btn'),
+        modal=document.querySelector('#modal'),
+        ct = document.querySelector('.modal-ct');
+    btn.addEventListener('click',function(e){
+        e.stopPropagation();
+        show(modal);
+    });
+    ct.addEventListener('click',function(e){
+        e.stopPropagation();
+        if(hasClass(e.target,'close')||hasClass(e.target,'btn-cancel')){
+            hide(modal);
+        }
+    });
+    document.body.addEventListener('click',function(){
+        hide(modal);
+    })
+
+</script>
+
+</body>
+</html>
