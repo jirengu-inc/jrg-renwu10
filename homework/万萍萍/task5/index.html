@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>task 5</title>
+
+		<style>
+			body{
+				font-family: "微软雅黑";
+				font-size: 16px;
+				line-height: 1.5;
+				color: #333;
+			}
+
+			.left{
+				text-align: left;
+			}
+			.right{
+				text-align: right;
+			}
+			.center{
+				text-align: center;
+			}
+			.justify{
+				width: 200px; /*测试文本居中，故把宽度先写死*/
+				text-align: justify;
+			}
+
+			.oneLine{
+				text-align: justify;
+			}
+
+			.en{
+				text-align: justify;
+			}
+			.zhen{
+				text-align: justify;
+			}
+			
+			.p1{
+				color: #000;
+				text-indent: 2rem;
+				line-height: 1.5;
+			}
+
+		</style>
+	</head>
+	<body>
+		<h1>页面大标题</h1>
+		<p class="p1">第一行段落，首行缩进两个字符宽度</p>
+
+		<p class="left">左对齐</p>
+		<p class="right">右对齐</p>
+		<p class="center">居中对齐</p>
+		<p class="oneLine">两端对齐，只有一行文本</p>
+		<p class="justify">两端对齐的表现，可以看到超过一行才会有效果，否则文本太短，不足一行，是看不到效果的</p>
+		<p class="justify en">Life is a horse, and either you ride it or it rides you.</p>
+		
+		<p class="justify zhen">Life is a horse, and either you ride it or it rides you.人生像一匹马，你不驾驭它,它便驾驭你。</p>
+		
+		<p id="txt" class="justify">Life is a horse, and either you ride it or it rides you.人生像一匹马，你不驾驭它,它便驾驭你。</p>
+
+		<script src="index.js"></script>
+	</body>
+</html>

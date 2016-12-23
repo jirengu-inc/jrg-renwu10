@@ -1,0 +1,39 @@
+html,body,ul,li,p{
+    margin: 0;
+    padding:0;
+}
+.box{
+    width: 603px;
+    height: 400px;
+    border: 1px solid lightgray;
+    margin-left: 200px;
+    margin-top: 200px;
+}
+ul{
+    overflow: hidden;
+    list-style-type: none;
+}
+li{
+    float: left;
+    width: 200px;
+    height: 30px;
+    border-right: 1px solid lightgray;
+    text-align: center;
+    line-height: 30px;
+}
+li:last-child{
+    border: none;
+}
+li.active{
+    background-color: lightgray;
+}
+.text{
+    display: none;
+}
+.active {
+    display: block;
+}
+p{
+    border-top: 1px solid lightgray;
+    padding: 20px;
+}
