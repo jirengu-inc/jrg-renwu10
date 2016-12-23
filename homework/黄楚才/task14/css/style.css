@@ -1,0 +1,269 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-size: 16px;
+}
+
+.clearfix:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style-type: none;
+}
+
+.layout {
+    width: 960px;
+    margin: 0 auto;
+}
+hr {
+    max-width: 100px;
+    margin: 0 auto;
+    border: 1px #c0c0c0 solid;
+}
+
+/*字体图标*/
+
+@font-face {
+    font-family: "iconfont";
+    src: url('../fonts/iconfont.eot?t=1482056480752'); /* IE9*/
+    src: url('../fonts/iconfont.eot?t=1482056480752#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../fonts/iconfont.woff?t=1482056480752') format('woff'), /* chrome, firefox */
+    url('../fonts/iconfont.ttf?t=1482056480752') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+    url('../fonts/iconfont.svg?t=1482056480752#iconfont') format('svg'); /* iOS 4.1- */
+}
+@font-face {
+    font-family: "iconfont";
+    src: url('../fonts2/iconfont.eot?t=1482125354069'); /* IE9*/
+    src: url('../fonts2/iconfont.eot?t=1482125354069#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../fonts2/iconfont.woff?t=1482125354069') format('woff'), /* chrome, firefox */
+    url('../fonts2/iconfont.ttf?t=1482125354069') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+    url('../fonts2/iconfont.svg?t=1482125354069#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+    font-family: "iconfont" !important;
+    font-style: normal;
+    color: #fff;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/*header开头*/
+#header {
+    background: url("../images/bg.jpg") no-repeat 0 0;
+    text-align: center;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+}
+#header .table{
+    display: table;
+    height: 100%;
+}
+#header .header_content{
+    padding:  350px 0   ;
+}
+#header p {
+    margin: 35px 0;
+}
+
+#header .header_content>a {
+    display: block;
+    width: 140px;
+    line-height: 45px;
+    border-radius: 5px;
+    color: #fff;
+    margin: 0 auto;
+    background: #6d7d84;
+    opacity: 0.5;
+}
+
+#header > a:hover {
+    background: #333;
+}
+
+/*header部分完成*/
+/*接下来是intro简介部分*/
+.intro {
+    background: #fff;
+    padding: 70px 0;
+    text-align: center;
+}
+
+.intro .layout> h1 {
+    margin-bottom: 25px;
+}
+
+/*skill对应的样式*/
+#skill {
+    padding: 70px 0;
+    text-align: center;
+    color: #fff;
+    background: #337ab7;
+}
+#skill .size{
+    font-size: 120px;
+}
+#skill .layout hr {
+    max-width: 100px;
+    border: 1px solid #eee;
+    margin: 0 auto;
+}
+
+#skill .layout li {
+    float: left;
+    width: 25%;
+    text-align: center;
+}
+
+#skill .layout li > p {
+    margin: 10px 0;
+}
+
+#skill .layout li > h4 {
+    margin: 10px 0;
+}
+
+.btn {
+    display: block;
+    width: 90px;
+    line-height: 30px;
+    color: #000;
+    text-align: center;
+    background: #fff;
+    margin: 0 auto;
+    border-radius: 5px;
+}
+
+/*banner的开始*/
+#banner {
+    background: url("../images/callout.jpg") no-repeat 0 0;
+    background-size: cover;
+    padding: 200px 0;
+    color: #fff;
+    text-align: center;
+}
+
+/*product样式开始*/
+#product {
+    text-align: center;
+    margin-top: 75px;
+}
+
+#product .layout > h3 {
+    color: #000;
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+
+#product .layout > hr {
+    max-width: 100px;
+    margin: 0 auto;
+    border: 1px #c0c0c0 solid;
+}
+
+#product .product_items {
+    width: 100%;
+}
+
+#product .product_items_ul {
+    margin: 0 -15px;
+}
+
+#product .product_items_ul li {
+    float: left;
+    margin: 15px;
+}
+
+#product .product_items_ul li .img > img {
+    width: 465px;
+    height: 305px;
+}
+
+#product .layout > a {
+    background: #6d7d84;
+    line-height: 35px;
+    width: 125px;
+    display: block;
+    margin: 0 auto;
+    color: #fff;
+    border-radius: 5px
+}
+
+#product .layout a:hover {
+    background: #333;
+}
+
+/*banner_two的开始*/
+#banner_two {
+    padding: 70px 0px 60px;
+    text-align: center;
+    background: #337ab7;
+    margin-top: 50px;
+}
+
+#banner_two .layout>h4 {
+    color: #fff;
+}
+
+#banner_two .banner_two_btn > a {
+    display: inline-block;
+    line-height: 40px;
+    border-radius: 5px;
+    margin-top: 25px;
+    *display: block;
+    *zoom: 1;
+}
+
+#banner_two .banner_two_btn > a:first-child {
+    width: 100px;
+    color: #000000;
+    margin-right: 25px;
+    background: #fff;
+}
+
+#banner_two .banner_two_btn > a:nth-child(2) {
+    width: 120px;
+    color: #ffffff;
+    background: #1d496b;
+}
+
+#banner_two .banner_two_btn > a:nth-child(2):hover {
+    background: #000;
+}
+/*footer的开始*/
+#footer .text_align{
+    text-align: center;
+    padding: 50px;
+    background: #fff;
+}
+#footer .text_align .size{
+    font-size:  16px;
+    color: #000;
+}
+
+#footer .footer_contact .size{
+    font-size: 100px;
+    color: #23527C;
+    font-weight: bold;
+}
+#footer .footer_contact .size:hover{
+    color: #000;
+}
+#footer .footer_contact {
+    margin-bottom: 20px;
+}
+#footer .layout .copy{
+    margin-top: 20px;
+    font-size:  20px;
+}

@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .wrapper *{list-style: none;
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+        }
+        .wrapper{
+            border: 1px solid #777;
+        }
+        .active{
+            display: block;
+
+        }
+        .ct>li{
+            float: left;
+            width:33.3%;
+            padding: 10px 0;
+            text-align: center;
+            border-bottom:1px solid #777;
+            border-right:1px solid #777;
+            cursor: pointer;
+        }
+        .ct>li:last-child{
+            border-right:none;
+        }
+        .clear-fix:after{
+            display: block;
+            content: '';
+            clear: both;
+            height: 0;
+            width: 0;
+        }
+        .wrapper .panel{
+            display: none;
+            height:180px;
+            padding: 20px;
+        }
+        .wrapper .active{
+            display: block;
+        }
+        .ct>.active{
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <ul class="ct clear-fix">
+        <li class="active">tab1</li>
+        <li>tab2</li>
+        <li>tab3</li>
+    </ul>
+    <div class="panel active">内容1</div>
+    <div class="panel">内容2</div>
+    <div class="panel">内容3</div>
+</div>
+<script>
+    function hasClass(el, cls) {
+        var reg = new RegExp( '(\\s|^)' + cls + '(\\s|$)'   );
+        return reg.test(el.className);
+    }
+
+    function addClass(el, cls){
+        if(el.length&&el.length>0){
+            for(var i=0;i<el.length;i++){
+                singleAddClass(el[i],cls)
+            }
+        }else{singleAddClass(el,cls)}
+    }
+
+    function singleAddClass(el, cls){
+        // var reg = new RegExp( '(\\s|^)' + cls + '(\\s|$)'   );
+        if(!hasClass(el, cls)){
+            el.className += " "+cls;
+        }
+    }
+    function singleRemoveClass(el, cls){
+        var reg = new RegExp( '(\\s|^)' + cls + '(\\s|$)'   );
+        if(reg.test(el.className)){
+            var tmp = el.className.replace(cls,'').replace(/\s{2,}/g,' ');
+            el.className=tmp;
+        }
+    }
+    function removeClass(el, cls){
+        if(el.length&&el.length>0){
+            for(var i=0;i<el.length;i++){
+                singleRemoveClass(el[i],cls)
+            }
+        }else{singleRemoveClass(el,cls)}
+    }
+    function indexOf(el){
+        var parent = el.parentElement,
+            childs = parent.children;
+
+            for(var i =0;i<childs.length;i++){
+                if(childs[i]===el) return i;
+            }
+            return -1;
+    }
+    var ct = document.querySelector('.ct'),
+        li = document.querySelectorAll('li'),
+        panel = document.querySelectorAll('.panel');
+//    方法一：循环遍历
+//    for(var i=0;i<li.length;i++){
+//        li[i].addEventListener('click',function(){
+//            removeClass(this.parentElement.children,'active');
+//            addClass(this,'active');
+//            removeClass(panel,'active');
+//            addClass(panel[indexOf(this)],'active');
+//        },false)
+//    }
+//      方法二：事件代理
+      ct.addEventListener('click',function(e){
+          var target = e.target;
+          if(indexOf(target)>-1){
+              removeClass(target.parentElement.children,'active');
+              addClass(target,'active');
+              removeClass(panel,'active');
+              addClass(panel[indexOf(target)],'active');
+          }
+      },false)
+
+</script>
+</body>
+</html>
