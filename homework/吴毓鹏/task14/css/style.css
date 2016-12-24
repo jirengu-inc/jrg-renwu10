@@ -134,7 +134,7 @@ body {
 .introduce {
     background: url("../img/callout.jpg");
     background-size: cover;
-    background-position: -50px 0px;
+    background-position: -180px 0px;
     padding: 25% 0;
 }
 
@@ -170,6 +170,7 @@ body {
 .project ul li img {
     width: 100%;
     height: auto;
+    text-align: center;
 }
 
 .project a {
@@ -180,18 +181,23 @@ body {
     line-height: 40px;
     width: 100px;
 }
-.project a:hover{
+
+.project a:hover {
     background: #666;
 }
-.footer-info{
+
+.footer-info {
     background: #337ab7;
-    padding:60px;
+    padding: 60px;
 }
-.footer-info p{
+
+.footer-info p {
     color: #fff;
     font-size: 30px;
     line-height: 50px;
 }
+
+
 /*.footer-info ul{
     overflow: hidden;
     margin: 0 auto;
@@ -202,38 +208,51 @@ body {
   margin: 10px;
   width: 200px;
 }*/
+
 .footer-info a {
-    color:#fff;
+    color: #fff;
     display: inline-block;
     width: 120px;
     line-height: 50px;
     margin: 10px;
 }
-.footer-info a:first-of-type{
+
+.footer-info a:first-of-type {
     background: #fff;
     color: #000;
 }
-.footer-info a:first-of-type:hover{
+
+.footer-info a:first-of-type:hover {
     background: #ddd;
 }
-.footer-info a:last-of-type{
-    background: #1f496e;
 
+.footer-info a:last-of-type {
+    background: #1f496e;
 }
-.footer-info a:last-of-type:hover{
+
+.footer-info a:last-of-type:hover {
     background: #0f2436;
 }
-.contect{
-    padding:60px;
+
+.contect {
+    padding-top: 100px;
+    padding-bottom: 60px;
 }
-.contect h3{
+
+.contect h3 {
     line-height: 50px;
 }
-.contect p{
-    line-height: 30px;
+
+.contect p {
+    line-height: 40px;
 }
-.contect a{
+
+.contect p:last-of-type {
+    padding-top: 40px;
+}
+
+.contect a {
     width: 20px;
     line-height: 60px;
-    margin: 0 10px;
+    margin: 0 15px;
 }
