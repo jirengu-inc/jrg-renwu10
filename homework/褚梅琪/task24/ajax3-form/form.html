@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>form</title>
+	<style type="text/css">
+		*{box-sizing: border-box;}
+		body{
+			font-size: 14px;
+		}
+		.register{
+			margin: 30px;
+		}
+		.register-ct dd{
+			margin-left: 86px;
+		}
+		.register-ct dt{
+			width: 86px;
+			float:left;
+			height: 24px;
+			line-height: 24px; 
+		}
+		.register-ct input{
+			height: 24px;
+			line-height: 24px;
+			padding-left: 10px;
+			border: 1px solid #ccc;
+			border-radius: 3px;
+		}
+		.register-ct input.error{
+			border-color: red;
+		} 
+		.register-ct .msg{
+			margin-top: 10px;
+			margin-bottom: 10px;
+			color: #aaa;
+			height: 12px;
+			font-size: 12px;
+		}
+		.error{
+			border: 1px solid red;
+		}
+	</style>
+</head>
+<body>
+	<div class="register">
+		<h3>注册</h3>
+		<form id="register-form" action="">
+		  <dl class="register-ct">
+		  	<dt>用户名：</dt>
+        <dd>
+        	<input type="text" id="username" placeholder="用户名(hunger被注册过)">
+        </dd> 
+        <dd class="msg msg-un">只能是字母、数字、下划线，3-10个字符</dd>
+        <dt>密码：</dt>
+        <dd>
+        	<input type="password" id="password1" placeholder="密码">
+        </dd>
+        <dd class="msg msg-pwd1">大写字母、小写、数字、下划线最少两种，6-15个字符
+        </dd>
+        <dt>再输一次：</dt>
+        <dd>
+        	<input type="password" id="password2" placeholder="再输一次密码">
+        </dd>
+        <dd class="msg msg-pwd2"></dd>
+        <dd><button id="btn-register">注册</button></dd>
+		  </dl>
+		</form>
+	</div>
+<script type="text/javascript" src='ajax.js'></script>
+<script type="text/javascript" src='changeClass.js'></script>
+<script type="text/javascript" src='testInfo.js'></script>
+<script type="text/javascript">
+	var user = document.getElementById('username'),
+			password1 = document.getElementById('password1'),
+			password2 = document.getElementById('password2'),
+			submit = document.getElementById('btn-register'),
+
+			userMsg = document.getElementsByClassName('msg-un')[0],
+			pwd1Msg = document.getElementsByClassName('msg-pwd1')[0],
+			pwd2Msg = document.getElementsByClassName('msg-pwd2')[0];
+
+	var MSG = {
+		'USERNAME_EXIST':'用户名已经存在',
+		'USERNAME_TYPE_ERROR':'用户名格式不正确',
+		'USERNAME_USEABLE':'用户名可用',
+		'PASSWORD_TYPE_ERRPR':'密码格式不正确',
+		'PASSWORD_NOT_MATCH':'两次密码输入不一致'
+	};
+	
+	function testUser(){
+		var username = user.value;
+		if(!isValidUsernm(username)){
+			userMsg.innerText = MSG.USERNAME_TYPE_ERROR;
+			addClass(user,'error');
+			return false;
+		}else{
+			userMsg.innerText='';
+			removeClass(user,'error');
+			return true;
+		}
+	}
+
+	function testPsw1(){
+		var psw1 = password1.value;
+		if(!isValidPsw(psw1)){
+			pwd1Msg.innerText = MSG.PASSWORD_TYPE_ERRPR;
+			addClass(password1,'error');
+			return false;
+		}else{
+			pwd1Msg.innerText = '';
+			removeClass(password1,'error');
+			return true;
+		}
+	}
+   
+  function testPsw2(){
+		var psw2 = password2.value;
+		if(!isValidPsw(psw2)){
+			pwd2Msg.innerText = MSG.PASSWORD_TYPE_ERRPR;
+			addClass(password2,'error');
+			return false;
+		}else if (psw2!==password1.value) {
+			pwd2Msg.innerText = MSG.PASSWORD_NOT_MATCH;
+			addClass(password2,'error');
+			return false;
+		}else{
+			pwd2Msg.innerText = '';
+			removeClass(password2,'error');
+			return true;
+		}
+	}
+
+	function testUsUseage(handle){
+     ajax({
+     	url:'form.php',
+     	type:'post',
+     	data:{
+     		username:user.value,
+     	},
+     	success:function(ret){
+     		if(ret.status===1 && ret.msg_type ==='USERNAME_EXIST' ){
+     			userMsg.innerText = MSG.USERNAME_EXIST;
+     			addClass(user,'error');
+     			handle && handle(false);
+     		}else if(ret.status===0){
+     			userMsg.innerText = MSG.USERNAME_USEABLE;
+     			removeClass(user,'error');
+     			handle && handle(true);
+     		}
+     	},
+     	error:function(){
+     		alert('出错了...');
+     	}
+     })
+  }
+  
+  user.addEventListener('change',function(){
+  	testUser() && testUsUseage();
+  });
+
+  password1.addEventListener('change',function(){
+  	testPsw1();
+  });
+  
+  password2.addEventListener('change',function(){
+  	testPsw2();
+  });
+  
+  submit.addEventListener('click',function(e){
+     e.preventDefault();
+     if( testUser() && testPsw1() && testPsw2() ){
+     	testUsUseage(function(canUse){
+     		if(canUse){
+     			alert('正在注册');
+     			console.log('正在注册...');
+     		}
+     	})
+     }
+     else{
+     	alert('请输入正确信息')
+     }
+  });
+	</script>
+</body>
+</html>
