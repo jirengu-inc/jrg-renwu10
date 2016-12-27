@@ -84,11 +84,11 @@
   <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js"></script>
   <script type="text/javascript">
   	$(function(){
-  		$('.nav-aside .cate-title').on('mouseenter',function(){
-  			$(this).next('.child-panel').show()
+  		$('.nav-aside .category').on('mouseenter',function(){
+  			$(this).find('.child-panel').show()
   		});
-  		$('.nav-aside .cate-title').on('mouseleave',function(){
-  			$(this).next('.child-panel').hide()
+  		$('.nav-aside .category').on('mouseleave',function(){
+  			$(this).find('.child-panel').hide()
   		});
   	})
 
