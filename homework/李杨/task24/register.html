@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>注册</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style>
+* {
+    box-sizing: border-box;
+}
+body {
+    font-size: 14px;
+}
+.ct dd {
+    margin-left: 86px;
+}
+.ct dt {
+    width: 86px;
+    float: left;
+    height: 24px;
+    line-height: 24px;
+}
+.ct input {
+    height: 24px;
+    line-height: 24px;
+    padding-left: 10px;
+    border: 1px solid lightgray;
+}
+.ct input.error{
+	border-color: red;
+}
+.ct .msg{
+	margin-top: 10px;
+	margin-bottom: 10px;
+	color: lightgray;
+	height: 12px;
+    font-size: 12px;
+}
+</style>
+</head>
+<body>
+	
+	<div>
+		<h3>注册</h3>
+		<form action="">
+			<dl class="ct">
+				<dt>用户名</dt>
+				<dd>
+					<input id="username" type="text" placeholder="用户名(hunger被注册过)">
+				</dd>
+				<dd class="msg msg-un">只能是字母、数字、下划线，3-10个字符</dd>
+
+				<dt>密码:</dt>
+				<dd>
+					<input type="password" id="password1" placehoder="密码">
+				</dd>
+				<dd class="msg msg-pwd1">大写字母、小写、数字、下划线最少两种，6-15个字符</dd>
+
+				<dt> 再输一次:</dt>
+				<dd>
+					<input type="password" id="passowrd2" placeholder="再输入一次密码">
+				</dd>
+				<dd class="msg msg-pwd2"></dd>
+				<dd><button id="btn-register">注册</button></dd>
+			</dl>		
+		</form>
+
+
+	</div>
+    <script src="ajax.js"></script>
+    <script src="test.js"></script>
+    <script src="class.js"></script>
+    <script>
+
+    var usernameIpt = document.getElementById('username'),
+    	password1Ipt = document.getElementById('password1'),
+    	password2Ipt = document.getElementById('passowrd2'),
+    	unMsg = document.getElementsByClassName('msg-un')[0],
+    	pwd1Msg = document.getElementsByClassName('msg-pwd1')[0],
+    	pwd2Msg = document.getElementsByClassName('msg-pwd2')[0];
+
+
+	var MSG = {
+		'USERNAME_EXIST': '用户名已经存在',
+		'USERNAME_TYPE_ERROR': '用户名格式不正确',
+		'USERNAME_USEABLE': '用户名可用',
+		'PASSWORD_TYPE_ERROR': '密码格式不正确',
+		'PASSWORD_NOT_MATCH': '两次密码输入不一致'
+	};
+
+    usernameIpt.addEventListener('change', function(){
+    	testUn() && testUnUseage()
+    });
+
+    password1Ipt.addEventListener('change', function(){
+    	testPwd1();
+    });
+
+    password2Ipt.addEventListener('change', function(){
+    	testPwd2();
+    });
+
+
+
+
+    function testUnUseage(handle){
+		ajax({
+			url: '3.php',
+			type: 'post',
+			data: {
+				username: usernameIpt.value
+			},
+			success: function(ret){
+				if(ret.status === 1 && ret.msg_type === 'USERNAME_EXIST'){
+					unMsg.innerText = MSG.USERNAME_EXIST;
+					addClass(usernameIpt, 'error');
+					handle&&handle(false);
+				}else if(ret.status === 0){
+					unMsg.innerText = MSG.USERNAME_USEABLE;
+					removeClass(usernameIpt, 'error');
+					handle&&handle(true);
+				}
+			}
+		})
+    }
+
+
+
+    function testUn(){
+      	var username = usernameIpt.value;
+ 		if(!isLegalUsername(username)){
+ 			unMsg.innerText = MSG.USERNAME_TYPE_ERROR;
+ 			addClass(usernameIpt, 'error');
+ 			return false;
+ 		}else{
+ 			unMsg.innerText = '';
+ 			removeClass(usernameIpt, 'error');
+ 			return true;
+ 		}  	
+    }
+
+    function testPwd1(){
+    	var pwd1 = password1Ipt.value;
+ 		if(!isLegalPassword(pwd1)){
+ 			pwd1Msg.innerText = MSG.PASSWORD_TYPE_ERROR;
+ 			addClass(password1Ipt, 'error');
+ 			return false;
+ 		}else{
+ 			pwd1Msg.innerText = '';
+ 			removeClass(password1Ipt, 'error');
+ 			return true;
+ 		}
+    }
+
+    function testPwd2(){
+    	var pwd2 = password2Ipt.value;
+ 		if(!isLegalPassword(pwd2)){
+ 			pwd2Msg.innerText = MSG.PASSWORD_TYPE_ERROR;
+ 			addClass(password2Ipt, 'error');
+ 			return false;
+ 		}else if(pwd2 !== password1Ipt.value){
+ 		 	pwd2Msg.innerText = MSG.PASSWORD_NOT_MATCH;
+ 			addClass(password2Ipt, 'error');
+ 			return false;	
+ 		}
+ 		else{
+ 			pwd2Msg.innerText = '';
+ 			removeClass(password2Ipt, 'error');
+ 			return true;
+ 		}
+    }
+
+    </script>
+</body>
+</html>
