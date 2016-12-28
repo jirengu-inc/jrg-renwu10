@@ -31,16 +31,30 @@
 
 	<div class="hobby">
 	    <label>爱好：</label>
-		<input type="checkbox" id="hobby" name="hobby" value="dota">dota
+		<input type="checkbox" id="hobby" name="hobby" value="dota"> dota
 		<input type="checkbox" id="hobby" name="hobby" value="travel"> 旅游
 		<input type="checkbox" id="hobby" name="hobby" value="pet"> 宠物	
 	</div>
 
 	<div class="comments">
-		评论：<input type="textarea" name="comments" style="width: 200px height : 300px">
+		<label for="comments">评论：</label>
+		<textarea name="comments" id="comments" cols="30" rows="6">输入评论：
+		</textarea>
 	</div>
-	
+
+	<div>
+		<label id="mycars">我的cars：</label>
+		<select name="cars" id="mycars">
+			<option value="sabo">萨博</option>
+			<option value="polo">大众polo</option>
+			<option value="focus">福克斯</option>
+		</select>
+	</div>
+
 	<button>提交</button>
+	<!--<
+	input type = "submit" value = "提交">
+	-->
 
 </form>
 </body>
