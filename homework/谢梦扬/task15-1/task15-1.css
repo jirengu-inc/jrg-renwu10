@@ -161,7 +161,6 @@ li{
 }
 #history{
     text-align: center;
-    margin-bottom: 80px;
     background: #3b3b3b;
 }
 
@@ -183,14 +182,75 @@ li{
     width: 130px;
     border-radius: 50%;
     margin: 0 auto;
-    z-index: 3;
+    z-index: 1;
     border: 5px solid black;
+    position: relative;
+}
+.time-line::before{
+    display: block;
+    content: "";
+    height: 900px;
+    width: 2px;
+    background: black;
+    position: absolute;
+    left: 65px;
+    z-index: -1;
 }
 .timeline-cir{
     height:130px;
     width:130px;
     border-radius: 50%;
-    z-index: 3;
+
+}
+#newstars{
+    background-image:linear-gradient(to bottom,yellow,white);
+}
+.section-top-title{
+    color: white;
+    font-size: 25px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.section-bottom-title{
+    color: white;
+    font-size: 25px;
+    margin-bottom: 85px;
+    text-align: center;
+}
+.newstar-intro{
+    margin-top: 40px;
+    margin-right: -35px;
+    margin-bottom: 40px;
+}
+.newstar-intro-container{
+    float: left;
+    width: 260px;
+    text-align: center;
+    padding: 10px;
+    margin-right: 28px;
+}
+.newstar-intro-container h4{
+    margin-top: 30px;
+}
+.newstar-link{
+    height: 180px;
+    width: 180px;
+    display: block;
+    margin: 0 auto;
+}
+.newstar-img{
+    height: 180px;
+    width: 180px;
+    border-radius: 10px;
+    border: 5px solid grey;
+}
+.newstar-name{
+    margin-bottom: 10px;
+}
+.alone{
+    width: 800px;
+    margin: 0 auto;
+    text-align:center;
 }
 .contact{
     background: url("img/1.png");
@@ -208,14 +268,18 @@ li{
 }
 .contacts-text{
     height: 40px;
-    width: 380px;
+    width: 350px;
     border-radius: 5px;
     display: block;
     margin-bottom: 10px;
+    padding-left: 10px; ;
 }
 .textarea{
     height: 150px;
     width: 230px;
+    text-indent: 1em;
+    line-height: 30px;
+    font-size: 18px;
 }
 .contact-btn-container{
     margin: 0px auto;
