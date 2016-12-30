@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        body {
+            margin: 0;
+            background: #ccc;
+        }
+        .ct {
+            width: 600px;
+            margin: 0 auto;
+        }
+        .ct2 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: -150px -300px ;
+            width: 600px;
+            background: #fff;
+            box-shadow: 0px 3px 5px 3px rgba(0, 0, 0, 0.5);
+        }
+        header, footer {
+            background: #009688;
+            font-size: 20px;
+            font-weight: bold;
+            color: #ffffff;
+            padding: 1px 15px;
+            overflow: hidden;
+        }
+        span {
+            margin-top: 15px;
+            font-size: 20px;
+            font-weight: bold;
+            padding: 15px;
+            float: right;
+            cursor: pointer; /*光标呈现为指示链接的指针（一只手）*/
+        }
+
+        main {
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+<div class="ct">
+    <div class="top">
+        <h1>页面内容</h1>
+        <h1>页面内容</h1>
+        <h1>页面内容</h1>
+        <h1>页面内容</h1>
+    </div>
+    <div class="float">
+        <div class="ct2">
+            <header>
+                <span>×</span>
+
+                <h2>头部</h2>
+            </header>
+            <main>
+                <p>内容</p>
+
+                <p>内容</p>
+            </main>
+            <footer>
+                <h2>尾部</h2>
+            </footer>
+        </div>
+    </div>
+</div>
+</body>
+</html>

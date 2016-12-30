@@ -1,0 +1,219 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    width: 100%；
+}
+
+.container {
+    width: 900px;
+    padding: 20px 20px 10px 20px;
+    margin: 0 auto;
+    font-family: "微软雅黑";
+    position: relative;
+    /*border: 1px solid red;*/
+    overflow: hidden;
+}
+
+#header {
+    padding: 30px 0;
+    overflow: hidden;
+}
+
+#person {
+    overflow: auto;
+}
+
+.ps-favicon {
+    width: 150px;
+    height: 150px;
+    margin-right: 30px;
+    margin-left: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    float: left;
+}
+
+.ps-favicon img {
+    height: 100%;
+    margin-left: -40px;
+}
+
+.ps-name {
+    font-size: 40px;
+    line-height: 80px;
+    font-weight: 100;
+    display: block;
+    margin-top: 20px;
+    letter-spacing: 5px;
+}
+
+.ps-job {
+    font-size: 16px;
+    line-height: 16px;
+    font-weight: 600;
+    display: block;
+    letter-spacing: 0px;
+}
+
+#contect {
+    float: right;
+    position: absolute;
+    top: 50px;
+    right: 140px;
+}
+
+.ctc-title {
+    font-size: 20px;
+    border-bottom: 3px solid #000;
+    margin-bottom: 10px;
+}
+
+.ctc-discribe {
+    margin-right: 10px;
+}
+
+.ctc-discribe p {
+    line-height: 26px;
+}
+
+.ctc-discribe i {
+    padding-right: 15px;
+}
+
+#main {
+    padding: 10px;
+    overflow: hidden;
+}
+
+.work-experience,
+.education,
+.activities,
+.skills {
+    margin-bottom: 10px;
+}
+
+.main-title {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 40px;
+    display: block;
+    width: 400px;
+    border-bottom: 2px solid #f2f2f2;
+    margin-bottom: 20px;
+}
+
+.work-experience ul,
+.education ul {
+    border-left: 1px solid rgba(0, 0, 0, 0.3);
+    padding-left: 70px;
+    margin-left: 10px;
+}
+
+.work-experience ul li,
+.education ul li {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.work-experience ul li:last-of-type,
+.education ul li:last-of-type {
+    margin-bottom: 0;
+}
+
+.work-experience ul li::before,
+.education ul li::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    background: rgba(0, 0, 0, 0.9);
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: -76px;
+}
+
+.text-name,
+.text-time {
+    font-size: 20px;
+    line-height: 10px;
+    padding-bottom: 16px;
+}
+
+.text-time {
+    color: #d0d8d6;
+}
+
+.text-main {
+    line-height: 30px;
+}
+
+.education ul li .text-name {
+    padding-bottom: 6px;
+}
+
+.text-course {
+    color: #daddde;
+}
+
+.activities {
+    float: left;
+}
+
+.activities ul {
+    padding-left: 70px;
+    margin-left: 10px;
+    width: 330px;
+}
+
+.activities ul li {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.activities ul li i {
+    float: left;
+    font-size: 20px;
+    margin-left: -76px;
+    margin-top: 6px;
+}
+
+.skills {
+    float: right;
+    padding-right: 10px;
+}
+
+.skills ul {
+    overflow: hidden;
+    width: 400px;
+    margin-top: -28px;
+}
+
+.skills ul li {
+    float: left;
+    width: 200px;
+    font-size: 20px;
+    margin:28px 0 ;
+}
+
+.skills ul li i {
+    margin-right: 30px;
+}
+#footer{
+    text-align: center;
+    border-top:1px solid #f2f2f2;
+    line-height: 20px;
+    font-size: 14px;
+    color:#f2f2f2;
+}

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>mock</title>
+</head>
+<body>
+<input type="text" name="username" id="username" placeholder="请输入用户名">
+<button id="btn">获取信息</button>
+<dl id="ct">
+	
+</dl>
+<script type="text/javascript">
+	// document.querySelector('#btn').addEventListener('click',function(){
+	// 	var xmlhttp = new XMLHttpRequest();
+	// 	var username = document.querySelector('#username').value;
+	// 	var url = 'ajax_simple.php'+'?username='+username;
+		
+		//GET方式
+		// xmlhttp.open('GET',url,true);
+		// xmlhttp.send();
+
+		//POST方式：
+	// 	xmlhttp.open('POST','ajax_simple.php',true);
+	// 	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	// 	xmlhttp.send("username="+username);
+
+	// 	xmlhttp.onreadystatechange = function(){
+	// 		if(xmlhttp.readyState==4 && xmlhttp.status==200){
+	// 			var userInfo = JSON.parse(xmlhttp.responseText);
+	// 			dealwith(userInfo);
+	// 		}
+	// 	}
+	// });
+	function dealwith(userInfo){
+		var str = '<dt>性别：</dt>';
+		str += '<dd>'+userInfo.sex+'</dd>';
+		str += '<dt>年龄：</dt>';
+		str += '<dd>'+userInfo.age+'</dd>';
+		document.querySelector('#ct').innerHTML = str;
+	}
+	function ajax(opts){
+		var xmlhttp = new XMLHttpRequest();
+		var dataStr = '';
+		for( var key in opts.data){
+			dataStr += key + '=' + opts.data[key]+'&'
+		}
+		dataStr = dataStr.substr(0,dataStr.length-1);
+
+		if(opts.type.toLowerCase()==='post'){
+			xmlhttp.open(opts.type,opts.url,true);
+			xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			xmlhttp.send(dataStr);
+		}
+
+		if(opts.type.toLowerCase() === 'get'){
+			xmlhttp.open(opts.type,opts.url+'?'+dataStr,true);
+			xmlhttp.send();
+		}
+
+		xmlhttp.onreadystatechange = function(){
+			if(xmlhttp.readyState ==4 && xmlhttp.status == 200){
+				var json = JSON.parse(xmlhttp.responseText);
+				opts.success(json);
+			}
+			if(xmlhttp.readyState == 4 && xmlhttp.status == 404){
+				opts.error();
+			}
+		};
+	}
+
+	document.querySelector('#btn').addEventListener('click',function(){
+		ajax({
+			url:'ajax_simple.php',
+			type:'post',
+			data:{
+				username:document.querySelector('#username').value,
+				password:document.querySelector('#password')
+			},
+			success:function(jsonData){
+				dealwith(jsonData);
+			},
+      error:function(){
+      	console.log('出错了')
+      }
+		});
+	});
+</script>
+</body>
+</html>

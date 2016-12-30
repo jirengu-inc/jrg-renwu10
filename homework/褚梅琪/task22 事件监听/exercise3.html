@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <ul class="ct">
+    <li data-img=".\img\1.jpg">鼠标放置查看图片1</li>
+    <li data-img=".\img\2.jpg">鼠标放置查看图片2</li>
+    <li data-img=".\img\3.jpg">鼠标放置查看图片3</li>
+  </ul>
+  <div class="img-preview"></div>
+<script>
+  var ct = document.querySelector('.ct'),
+      imgPre = document.querySelector('.img-preview'),
+      li = document.querySelectorAll('li'),
+      img = document.createElement('img');
+  for(var i=0; i<li.length; i++){
+    li[i].addEventListener('mouseenter',function(){
+      var src = this.getAttribute('data-img');
+      img.setAttribute('src',src);
+      imgPre.appendChild(img);
+    },false);
+  }
+  // ct.addEventListener('click',function(e){
+  //   e.stopPropagation();
+  //   var path = e.target.getAttribute('data-img');
+  //   imgPre.innerHTML='<img src= "'+path+'">'
+  // },false)
+
+</script>
+</body>
+</html>

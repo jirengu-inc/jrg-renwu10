@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Jquery</title>
+	<style type="text/css">
+	*{
+		margin:0;
+		padding: 0; 
+	}
+	a{
+		text-decoration: none;
+		color: #aaa;
+	}
+	.demo{
+		margin:100px 30px; 
+	}
+	.btn{
+		display: inline-block;
+		border: 1px solid #aaa;
+		padding: 20px;
+		border-radius: 6px;
+    margin-bottom: 20px;
+	}
+	.scroll{
+		margin-top: 30px;
+	}
+	.scroll span{
+		border: 1px dotted red;
+		padding: 5px;
+	}
+	.color{
+		display: table-cell;
+		background-color: #fff;
+		height: 500px;
+		border: 1px solid #aaa;
+		vertical-align: middle;
+		padding: 0 10px;
+		margin-bottom: 20px;
+	}
+	.ipt{
+		border: 1px solid #aaa;
+		padding: 10px;
+		margin-top: 30px;
+	}
+	.blue-border{
+		border-color: blue;
+	}
+	select{
+		margin-top: 30px;
+		font-size: 16px;
+		padding: 0 3px;
+	}
+	.selection{
+		display: inline-block;
+	}
+	.selection span{
+		border: 1px dotted red;
+		padding: 5px;
+	}
+	</style>
+</head>
+<body>
+<div class="demo">
+	<a class="btn" href="">点我变色</a>
+	<div class="color">移入移出改变颜色</div>
+	<p class="scroll">窗口垂直滚动距离：<span>0px</span></p>
+	<input type="text" class="ipt" placeholder="小写字母转大写"><br/>
+	<select>
+		<option selected="selected">javascript</option>
+		<option>jquery</option>
+		<option>php</option>
+		<option>ajax</option>
+	</select>
+	<p class="selection">所选内容：<span></span></p>
+</div>
+	<script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js"></script>
+	<script type="text/javascript" src="jquery.color.js"></script>
+	<script type="text/javascript">
+	 $(function(){
+	 	//1、当点击$btn 时，让 $btn 的背景色变为红色再变为蓝色
+	  	var flag = true;
+		  $('.btn').on('click',function(e){
+		  	e.preventDefault();
+		  	if(!flag){
+		  		return
+		  	}
+		  	flag = false;
+			 $(this).animate({ "background-color": "red" }, 1000)
+			 				.animate({"background-color": "blue"},1000,function(){
+			 					flag = true;
+			 				});		 
+		  });
+		  //2. 当窗口滚动时，获取垂直滚动距离
+		  setInterval(function(){
+		  	$('.scroll span').text($(window).scrollTop()+'px');
+		  },0)
+		  //3. 当鼠标放置到$div 上，把$div 背景色改为红色，移出鼠标背景色变为白色
+		  $('.color').on('mouseenter', function(){
+		  	$(this).css("background-color","red");
+		  });
+		  $('.color').on('mouseleave', function(){
+		  	$(this).css("background-color","#fff");
+		  });
+		  //4. 当鼠标激活 input 输入框时让输入框边框变为蓝色，当输入框内容改变时把输入框里的文字小写变为大写，当输入框失去焦点时去掉边框蓝色，控制台展示输入框里的文字
+		  $('.ipt').on('focus',function(){
+		  	$(this).addClass('blue-border')
+		  })
+		  .on('blur',function(){
+		  	$(this).removeClass('blue-border')
+		  })
+		  .on('keyup',function(){
+		  	$(this).val( $(this).val().toUpperCase() );
+		  	console.log($(this).val());
+		  });
+		  //5. 当选择 select 后，获取用户选择的内容
+		  
+		  $('select').on('change',function(){
+		  	var txt = $('select option:selected').text();
+		    $('.selection span').text( txt );
+		  })
+		  .trigger('change');
+		  
+	 })
+	  
+	</script>
+</body>
+</html>

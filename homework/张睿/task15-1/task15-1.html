@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
+
+<style>
+*{margin:0;padding:0;list-style:none;}
+
+
+a{text-decoration: none;}
+
+.layout{
+width: 1000px;
+margin: 0 auto;
+}
+
+
+.clearfix:after {          /*清除浮动*/
+content:'';
+display:block;
+clear:both;
+}
+
+#nav >.layout> a .fa{
+ float: left;
+ display: block;
+font-size:30px;
+ line-height:50px;
+color: #666;
+}
+
+#nav .nav-list{
+float: left;
+}
+
+
+.nav-list>li{
+ font-size:14px;
+ float: left;
+ padding-top:15px ;
+ padding-bottom:13px ;
+ margin-left: 22px;
+ position: relative;
+}
+
+
+.drop {
+position: absolute;
+display: none;
+left: -10px;
+top:115%;
+background: #fff;
+border:1px solid #666;
+}
+
+.nav-list a{
+color: #666;
+}
+
+
+#nav .nav-list>li:hover .drop {
+display: block;
+}
+
+.drop li {
+line-height: 1;
+padding: 10px;
+border-bottom: 1px dashed #ccc;
+}
+
+.drop li:last-child {
+border: none;
+}
+
+.drop li:hover {
+background: #eee;
+}
+
+
+
+
+
+
+
+
+
+
+
+#header{
+background: #b84d45;
+color:#fff;
+font-weight: bold;
+margin-bottom:40px;
+padding:30px 0;
+}
+.headline{
+font: 14px/1.5 normal;
+}
+
+.mywork{
+background: #eee;
+color: #666;
+padding:13px 0;
+overflow:auto;
+margin-bottom:30px;
+}
+.mywork > ul{
+overflow: hidden;
+}
+.mywork > ul > li{
+float: left;
+margin-right:6px;
+font-size:14px;
+}
+.mywork a {
+	color: #b84d45;
+margin-left:10px;
+}
+
+
+#main >ul{
+overflow: hidden;
+margin: 0 -24px;
+}
+#main >ul> li{
+float: left;
+width: 300px;
+margin-left:24px;
+margin-right:24px;
+margin-bottom:30px;
+outline: 1px solid #ccc;
+
+}
+
+.pic{
+height:200px;
+background: #D8D8D8;
+}
+
+img{
+width: 300px;
+height: 200px;
+}
+
+
+.title{
+font-size:16px;
+font-weight: bold;
+margin-top:13px;
+padding-left:8px;
+}
+.description{
+font-size:14px;
+margin-top:13px;
+padding-left:8px;
+}
+
+.btn-wrapper{
+text-align:center;
+}
+.btn-wrapper >a{
+display: inline-block;
+border:1px solid #ccc;
+border-radius: 3px;
+margin: 0 auto;
+color: #666;
+margin: 10px;
+padding: 5px 8px;
+font-size:14px;
+line-height:20px;
+}
+
+#footer{
+background: #b84d45;
+color:#fff;
+font-weight: bold;
+margin-bottom:40px;
+padding:20px 0;
+text-align:center;
+}
+.footerline{
+font: 14px/1.5 normal;
+}
+#footer>.footerline>.btn-wrapper>a{
+color: #fff;
+}
+
+
+.about{
+text-align:center;
+font-size:14px;
+padding: 30px;
+border-top: 1px solid #eee;
+}
+
+</style>
+
+</head>
+<body>
+
+
+<div id="nav" class="">
+  <div class="layout clearfix">
+  <a href="#"><i class="fa fa-rocket" aria-hidden="true"></i></a>
+  <ul class="nav-list">
+    <li><a href="#">博客</a></li>
+    <li><a href="#">项目</a></li>
+    <li><a href="#">简历</a></li>
+    <li><a href="#">更多 <i class="fa fa-caret-down" aria-hidden="true"></i></a>
+     <ul class="drop">
+       <li><a href="">GitHub</a></li>
+       <li><a href="">GitHub</a></li>
+       <li><a href="">GitHub</a></li>
+     </ul>
+
+    </li>
+
+
+  </ul>
+ </div>
+</div>
+
+
+  <div id="header">
+  <div class="headline layout">
+    <h1>我的简介</h1>
+    <p>这里是我的简介</p>
+    <p>我的简介简介</p>
+    </div>
+  </div>
+
+
+  <div class="mywork layout">
+    <ul>
+      <li><a href="#">首页</a></li>
+      <li>/</li>
+      <li>我的作品</li>
+    </ul>
+  </div>
+
+
+
+
+  <div id="main" class="layout">
+     <ul>
+   <li>
+     <div class="pic">
+       <img src="free.jpg" alt=""></div>
+     <div class="title">作品标题</div>
+     <div class="description">作品介绍</div>
+     <div class="btn-wrapper">
+     <a href="" class="btn">查看</a>
+     </div>
+   </li>
+   <li>
+     <div class="pic"> <img src="free.jpg" alt=""></div>
+     <div class="title">作品标题</div>
+     <div class="description">作品介绍</div>
+     <div class="btn-wrapper">
+     <a href="" class="btn">查看</a>
+     </div>
+   </li>
+   <li>
+     <div class="pic"> <img src="free.jpg" alt=""></div>
+     <div class="title">作品标题</div>
+     <div class="description">作品介绍</div>
+     <div class="btn-wrapper">
+     <a href="" class="btn">查看</a>
+     </div>
+     </li>
+
+
+   <li>
+     <div class="pic"> <img src="free.jpg" alt=""></div>
+     <div class="title">作品标题</div>
+     <div class="description">作品介绍</div>
+     <div class="btn-wrapper">
+     <a href="" class="btn">查看</a>
+     </div>
+   </li>
+   <li>
+     <div class="pic"> <img src="free.jpg" alt=""></div>
+     <div class="title">作品标题</div>
+     <div class="description">作品介绍</div>
+     <div class="btn-wrapper">
+     <a href="" class="btn">查看</a>
+     </div>
+   </li>
+   <li>
+     <div class="pic"> <img src="free.jpg" alt=""></div>
+     <div class="title">作品标题</div>
+     <div class="description">作品介绍</div>
+     <div class="btn-wrapper">
+     <a href="" class="btn">查看</a>
+     </div>
+     </li>
+ </ul>
+  </div>
+
+  <div id="footer">
+      <div class="footerline layout">
+    <h1>想更详细了解我？</h1>
+    <p>下载我的简历吧</p>
+         <div class="btn-wrapper">
+     <a href="" class="btn">下载</a>
+     </div>
+    </div>
+  </div>
+
+  <div class="about">
+    <p>来自@code-zhangrui</p>
+  </div>
+
+</body>
+</html>
