@@ -1,0 +1,542 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+.clearfix:after{
+    display: block;
+    content: '';
+    clear: both;
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+.layout{
+    width: 1400px;
+    margin: 0 auto;
+}
+body{
+    font-size: 16px;
+    font-family: "黑体";
+    /*background: #E5EAED;*/
+}
+/*通过js来添加的类*/
+.hover_acolor{
+    color: #3d464d !important;
+}
+/*header部分*/
+header{
+    max-width: 1300px;
+    padding: 20px 0 ;
+    background: #fff;
+    margin: 0 auto;
+}
+header .logo{
+    display: block;
+    width: 46px;
+    float: left;
+    margin-left: 40px;
+}
+header .size{
+    font-size: 46px;
+    color: #000;
+}
+header  .nav{
+    float: left;
+    margin-left: 400px;
+}
+header .nav li{
+    float: left;
+    margin-left: 35px;
+    text-align: center;
+}
+header .nav .nav_size{
+    font-size: 20px;
+}
+header .nav p{
+    font-size: 1.2em;
+}
+header .nav li a{
+    color: #919ca4;
+}
+header .line{
+    margin-top: 8px;
+}
+header .line:after{
+    content: '';
+    width: 1px;
+    height: 25px;
+    display: block;
+    background: #919ca4;
+}
+header .uplode{
+    float: right;
+    width: 115px;
+    line-height: 35px;
+    border-radius: 20px;
+    background: #2e95bb;
+    text-align: center;
+    margin-top: 8px;
+    color: #fff;
+}
+/*heade 结束*/
+/*main部分开始*/
+main{
+    min-width: 1300px;
+    background: url("../images/2.jpg") 0 0 no-repeat;
+    background-size: cover;
+    color: #ffffff;
+    padding: 0 0px 0 450px;
+    font-family: "黑体";
+}
+main .main_info{
+    float: left;
+    width: 100%;
+    margin: 160px 0px;
+}
+main .main_info  h1{
+    font-size: 70px;
+}
+main  .info>span{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: inline-block;
+    background: #f00;
+    overflow: hidden;
+    background: transparent;
+    border:  1px solid #ffffff;
+}
+main  .info>span>img{
+    width:100%;
+}
+
+main .info>p{
+    letter-spacing: 6px;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 13px;
+    font-size: 12px;
+}
+main  .info>hr{
+    width: 60px;
+    background: #261919;
+    margin-top: 20px;
+}
+main  .info .like{
+    margin-top: 30px;
+}
+main  .info .like li{
+    float: left;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 18px 0;
+    margin-left: 12px;
+}
+main .main_info .info .like li:first-child{
+    margin-left: 0;
+}
+main .main_info .info .like .like_word{
+    margin-left: 5px;
+    font-family: "黑体";
+}
+main  .info .like li .like_size{
+    font-size: 18px;
+}
+main  .info .like li:first-child{
+    background: #f9735b;
+}
+main .info .like li:nth-child(2){
+    color: #f9735b;
+}
+main .info .like li:nth-child(3){
+    background: transparent;
+    border: 2px solid #fff;
+}
+main .info .like li:nth-child(3)>span{
+    display: block;
+    margin-top: -2px;
+}
+/*main里面的detail部分*/
+main .detail{
+    background: rgba(0,0,0,0.6);
+    padding: 35px;
+    float: left;
+    width: 300px;
+    height: 100%;
+    box-sizing: border-box;
+    margin-left: -300px;
+}
+main .detail .dt_size1{
+    color: #fff;
+    font-size: 18px;
+    float: left;
+}
+main .detail .dt_size2{
+    color: #fff;
+    font-size: 18px;
+    float: right;
+}
+main .detail .dt_information{
+    text-align: center;
+    border-bottom: 1px #919ca4 solid;
+    padding-bottom: 35px;
+    margin-top: 35px;
+}
+main .detail .dt_information img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: transparent;
+    border: 1px solid #ffffff;
+}
+main .detail .dt_information>h3{
+    margin-top: 20px;
+    margin-bottom: 8px;
+    letter-spacing: 6px;
+}
+main .detail .dt_pic .add_pic{
+    color: #9e9ca4;
+    font-size: 18px;
+    margin-top: 30px;
+}
+main .detail .dt_pic .add_pic .pic_size2{
+   margin-left: 80px;
+    margin-right: 15px;
+    color: #9e9ca4;
+    font-size: 22px;
+}
+main .detail .dt_pic .add_pic .pic_size3{
+    color: #ffffff;
+    font-size: 22px;
+}
+main .detail .dt_nav{
+    margin-left: -5px;
+    margin-right:  -5px;
+    margin-top: 30px;
+
+}
+main .detail .dt_nav li{
+    width: 60px;
+    height: 50px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+    background: #fff;
+    float: left;
+}
+main .detail .dt_nav li>img{
+    width: 100%;
+    height:100%;
+    background-size: contain;
+}
+/*content部分*/
+.content{
+    padding-right: 300px;
+    min-width: 1300px;
+}
+.content .content_pic{
+    background: #e5eaed;
+    width: 100%;
+    float: left;
+    padding: 40px 35px;
+    position: relative;
+}
+.content .message{
+    border-bottom: 1px solid #919ca4;
+    padding-bottom: 25px;
+    margin-bottom: 40px;
+}
+.content .message a{
+    color: #919ca4;
+    font-size: 18px;
+    padding-right: 20px;
+}
+.content .content_size{
+    margin-right: 12px;
+}
+.content .message a:first-child{
+    border-right: 1px solid #919ca4;
+    margin-right: 15px;
+}
+.content .message .content_date{
+    font-size: 20px;
+    float: right;
+    vertical-align: middle;
+}
+.content .tri:before{
+    content: '';
+    width: 0;
+    height: 0;
+    display: inline-block;
+    border-top: 8px solid #919ca4;
+    border-right: 8px solid transparent;
+    border-left: 8px solid transparent;
+    margin-right: 10px;
+}
+.content .line{
+    width: 1px;
+    height:820px;
+    background: #919ca4;
+    position: absolute;
+    top: 150px;
+    left: 50%;
+}
+.circle_big{
+    width: 22px;
+    height: 22px;
+    background: #fff;
+    position: absolute;
+    left: -12px;
+    border-radius: 50%;
+}
+.circle_big:after{
+    border-radius: 50%;
+    content: '';
+    width: 8px;
+    height: 8px;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: #919ca4;
+}
+.line_location1{
+  top: 170px;
+}
+.line_location2{
+    top: 300px;
+}
+.line_location3{
+    top: 470px;
+}
+.line_location4{
+    top: 600px;
+}
+.line_location5{
+    top: 770px;
+}
+.content .content_nav{
+    width: 1000px;
+    margin: 0 auto;
+}
+.content .content_pic ul{
+    margin: 0 -20px;
+}
+.content .content_nav ul li{
+    width: 480px;
+    height: 260px;
+    background: #fff;
+    float: left;
+    padding: 8px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 40px;
+    position: relative;
+    color: #fff;
+}
+.content .content_nav ul li img{
+    width: 100%;
+    height: 100%;
+}
+.content .content_nav ul li .nav_btn{
+    width: 85px;
+    border-radius: 18px;
+    background: transparent;
+    border: 2px solid #919ca4;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display: block;
+    color: #fff;
+    text-align: center;
+    line-height: 30px;
+}
+.content .content_nav ul li p{
+    position: absolute;
+    bottom: 35px;
+    left: 35px;
+    letter-spacing: 0.2em;
+}
+.content .content_nav ul li  .icon_positon1{
+    position: absolute;
+    top: 35px;
+    right: 65px;
+}
+.content .content_nav ul li  .icon_positon2{
+    position: absolute;
+    top: 35px;
+    right: 35px;
+}
+.content .content_nav ul li  .icon_positon3{
+    position: absolute;
+    top: 35px;
+    left: 35px;
+    color: #fff;
+}
+.content .content_nav ul li  .icon_positon3>span,.icon_positon4>span{
+    margin-right: 8px;
+}
+.content .content_nav ul li  .icon_positon4{
+    position: absolute;
+    top: 35px;
+    left: 85px;
+    color: #fff;
+}
+.content .content_nav ul li .content_nav_pic{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: transparent;
+    border: 1px solid #fff;
+    position: absolute;
+    top: 35px;
+    right: 55px;
+}
+.content .content_nav ul li .content_nav_pic img{
+    width: 100%;
+    border-radius: 50%;
+}
+.content .content_nav ul li .icon_color{
+    color: #f00;
+}
+    /*sidebar部分*/
+.content .sidebar{
+    max-width: 300px;
+    float: left;
+    margin-right: -300px;
+
+}
+.content .sidebar .sidebar_info{
+    padding: 26px;
+    text-align: center;
+    color: #919ca4;
+    background: #fff;
+    font-size: 30px;
+    border-bottom: 1px solid #919ca4;
+}
+.content .sidebar .sidebar_info>p{
+    position: relative;
+
+}
+.content .sidebar .education_first{
+    height: 296px;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
+    background: #fff;
+    padding: 0px 20px;
+}
+.content .sidebar .year{
+    margin-top: 30px;
+    text-align: center;
+    line-height: 50px;
+    width: 180px;
+    background: #0487cc;
+    box-shadow: 5px 5px 8px rgba(0,0,0,0.5);
+    position: relative;
+    left: -40px;
+    top: 10px;
+    color: #fff;
+    font-size: 1.2em;
+}
+.content .sidebar .year:after{
+    content: '';
+    display: block;
+    width: 0px;
+    height: 0px;
+    border-top: 20px solid #0487cc;
+    border-left: 20px solid transparent;
+    position: absolute;
+    top: 100%;
+    left: 0;
+}
+.content .sidebar .education_first .side_text{
+    margin-top: 35px;
+    text-align: justify;
+}
+.content .sidebar .education_first .side_text p:first-child{
+    color: #919ca4;
+    margin-bottom: 15px;
+}
+.content .sidebar .sidebar_location{
+    position: absolute;
+    top: -5px;
+    left: 20px;
+}
+/*footer部分*/
+footer{
+    margin-top: 35px;
+}
+.layout{
+    width: 1000px;
+    margin: 0 auto;
+}
+footer .footer_name{
+    width: 550px;
+    background: #E5EAED;
+    float: left;
+    padding: 40px 45px;
+    box-shadow: 5px 5px 8px rgba(0,0,0,0.5);
+    margin-right: 25px;
+}
+footer .footer_name,.footer_message p{
+    color: #0487CC;
+    font-size:  35px;
+    margin-bottom: 20px;
+}
+footer .footer_name input,textarea{
+    display: block;
+    border: none;
+    border-bottom: 1px solid #cacaca;
+    width: 100%;
+    margin-bottom: 10px;
+    height: 40px;
+}
+footer .footer_name textarea{
+    height: 60px;
+}
+footer .footer_name button{
+    width: 125px;
+    line-height: 45px;
+    background: #0487CC;
+    color: #fff;
+    font-size: 20px;
+}
+footer .footer_message{
+    float: left;
+    width: 390px;
+    background: #E5EAED;
+    padding: 40px 45px;
+    box-shadow: 5px 5px 8px rgba(0,0,0,0.5);
+}
+footer .footer_message li{
+    margin-bottom: 13px;
+}
+footer .footer_message li .footer_contain{
+    display: inline-block;
+    width: 46px;
+    line-height: 36px;
+    background: #0487cc;
+    text-align: center;
+    color: #fff;
+    font-size: 20px;
+    border-radius: 5px;
+    margin-right: 15px;
+}
+footer .footer_message li .footer_info{
+    display: inline-block;
+    width: 230px;
+    line-height: 36px;
+    background: #757575;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    padding-left: 8px;
+}

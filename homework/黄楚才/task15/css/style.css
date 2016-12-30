@@ -1,0 +1,168 @@
+/*整体布局*/
+*{
+    margin: 0px;
+    padding: 0px;
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+.btn{
+    width: 50px;
+    line-height: 30px;
+    text-align: center;
+    display: block;
+    border: 1px solid #666;
+    margin: 0 auto;
+    border-radius: 5px;
+}
+.clearfix:after{
+    display: block;
+    content: '';
+    clear: both;
+}
+.layout{
+    width: 1000px;
+    margin: 0 auto;
+}
+/*header部分*/
+header{
+    position: relative;
+}
+header .layout>a{
+    line-height:  50px;
+    float: left;
+    font-size: 30px;
+    color: #666666;
+}
+header .size:hover{
+    color: #000;
+}
+header nav{
+    float: left;
+}
+header nav a{
+    color: #666666;
+}
+header nav>ul>li{
+    float: left;
+    margin-left: 10px;
+    line-height:50px;
+}
+header nav>ul>li>a{
+    padding: 5px;
+}
+header nav>ul .more>a:after{
+    content: '';
+    display: inline-block;
+    width: 0px;
+    height: 0px;
+    border-top: 8px solid #666666;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    margin: 0 12px;
+}
+header .more:hover .more_ul{
+    display: block;
+}
+header .more_ul{
+    position: absolute;
+    top: 100%;
+    display: none;
+    background: #fff;
+}
+header .more_ul> li >a{
+    padding:  0px 15px;
+    display: block;
+    line-height: 40px;
+    border-bottom: 1px dotted #666666;
+}
+header .more_ul> li >a:hover{
+    background: #eee;
+}
+header .more_ul> li:last-child> a{
+    border: none;
+}
+/*main部分的代码*/
+/*resume部分*/
+main{
+    margin-bottom: 30px;
+}
+main .resume{
+    background: #b84d45;
+    padding: 30px 0px;
+    color: #fff;
+}
+main .resume .layout p:first-of-type{
+    margin: 8px 0;
+}
+/*nav部分*/
+.nav{
+    margin-top: 35px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+.nav_color{
+    background: #eeeeee;
+}
+main .nav ul{
+    padding: 10px;
+}
+main .nav ul li{
+    float: left;
+    margin-right: 8px;
+}
+main .nav ul li:first-child a{
+    color: #b84d45;
+}
+main .nav ul li>a{
+    color: #666;
+}
+/*product部分*/
+.product ul{
+    margin: 0px -22px;
+}
+.product ul li{
+    float: left;
+    border: 1px solid #666;
+    margin: 20px 23px;
+}
+
+.product ul li .img img{
+    width: 300px;
+    height: 200px;
+}
+.product ul li h3{
+    padding: 10px;
+}
+.product ul li p{
+    padding: 0px 10px;
+}
+.product ul li a{
+    margin-bottom: 8px;
+    color: #666666;
+}
+/*knowme部分*/
+main .knowme{
+    margin-top: 30px;/*利用外边距*/
+    background: #b84d45;
+    padding: 25px 0;
+    text-align: center;
+    color: #fff;
+}
+main .knowme p{
+    margin: 10px 0;
+}
+main .knowme a{
+    color: #fff;
+    border: 1px solid #fff;
+}
+/*footer部分*/
+.footer_border{
+    border-top: 1px solid #eee;
+    padding: 35px 0;
+    text-align: center;
+}
+
