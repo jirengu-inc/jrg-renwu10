@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>JS Bin</title>
+    <style>
+        .main{
+            width:100%;
+            float:left;
+        }
+        .left{
+            width:100px;
+            height:200px;
+            background:yellow;
+            float:left;
+            margin-left:-100%;
+        }
+        .right{
+            width:100px;
+            height:200px;
+            background:blue;
+            float:left;
+            margin-left:-100px;
+        }
+        .wrap{
+            height:300px;
+            background:orange;
+            margin-left:100px;
+            margin-right:100px
+        }
+        .header,.footer{
+            background: green;
+            height: 30px;
+            clear: both;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<div class="header">header</div>
+<div class="ct">
+    <div class="main">
+        <div class="wrap">main</div>
+    </div>
+    <div class="left">left</div>
+    <div class="right">main</div>
+</div>
+<div class="footer">footer</div>
+</body>
+</html>
