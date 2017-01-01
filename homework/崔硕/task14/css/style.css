@@ -1,0 +1,64 @@
+a{
+  text-decoration: none;
+  color: #72b890;
+}
+ul{
+  list-style-type: none;
+}
+
+body{
+  font-family: "Lantinghei SC", "Open Sans", Arial, "Hiragino Sans GB", "Microsoft YaHei", "\5FAE\8F6F\96C5\9ED1", "STHeiti", "WenQuanYi Micro Hei", SimSun, sans-serif;
+  font-size: 14px;
+  color: #87968e;
+  background: #fff2e3;
+  text-align: center;
+}
+
+h1{
+  font-size: 42px;
+}
+.layout{
+  width:800px
+  margin: o auto;
+}
+.clearfix:after{
+  content: '';
+  display: block;
+  clear: both;
+}
+.btn{
+  display: inline-block;
+  margin:3px;
+  padding:6px 14px;
+  font-weight:normal;
+  background: #72b890;
+  color:#fff;
+  border-radius:4px;
+}
+.btn:hover{
+  opacity: 0.8;
+}
+.active{
+  opacity: 0.6;
+}
+#header h1{
+  margin-top: 30px;
+}
+.intro{
+  margin-top: 10px;
+  opacity: 0.6;
+}
+
+.demo-btns{
+  margin: 40px 0;
+
+}
+.demo-btns>li{
+  display: inline-block;
+}
+.btns{
+  margin-top: 30px;
+}
+#footer{
+  margin-top: 30px;
+}
