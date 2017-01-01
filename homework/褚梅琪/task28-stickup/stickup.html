@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>stickup</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<style type="text/css">
+	#header{
+		background: red;
+		height: 80px;
+		line-height: 80px;
+		text-align: center;
+	}
+	#nav{
+		height: 40px;
+		margin-top: 20px;
+		background-color: #1B77F5;
+	}
+	#content{
+		min-height: 800px;
+		background-color: #ccc;
+		padding: 10px;
+		overflow: auto;
+	}
+	#content .aside{
+		float: left;
+		width: 100px;
+		min-height: 400px;
+		background: green;
+	}
+	#content .main{
+		overflow: auto;
+		background: #fff;
+		min-height: 800px;
+		padding-left: 20px;
+	}
+	#footer{
+		background: #333;
+	}
+</style>
+</head>
+<body>
+  <div id="header">header</div>
+  <div id="nav">nav</div>
+  <div id="content">
+  	<div class="aside">aside</div>
+  	<div class="main">main</div>
+  </div>
+  <div id="footer">footer</div>
+  <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+  <script type="text/javascript">
+  	var $cur = $('#nav'),
+  			curH = $cur.height(),
+  			curW = $cur.width(),
+  			offsetTop = $cur.offset().top,
+  			offsetLeft = $cur.offset().left; 
+
+  	var $curClone = $cur.clone()
+  											.css({
+  												'visibility':'hidden',
+  												'display':'none'
+  											})
+  											.insertAfter($cur);
+  	function isFixed(){
+  		return $cur.data('data-fixed');
+  	}
+  	function setFixed(){
+  		$cur.data('data-fixed',true)
+  				.css({
+  					'position':'fixed',
+  					'top':0,
+  					'left':'offsetLeft',
+  					'width':curW,
+  					 'margin':0,
+  					'z-index':9999
+  				})
+  		$curClone.show();
+  	}
+  	function unsetFixed(){
+  		$cur.data('data-fixed',false)
+  				.removeAttr('style');
+  		$curClone.hide();
+  	}
+  	$(window).on('scroll',function(){
+  		var scrollTop = $(this).scrollTop();
+
+  		if(scrollTop>=offsetTop){
+  			if (!isFixed()) {
+  				setFixed();
+  			}
+  		}else {
+  			if (isFixed()) {
+  				unsetFixed();
+  			}
+  		}
+  	});
+  </script>
+</body>
+</html>
