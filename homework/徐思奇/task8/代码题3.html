@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>table</title>
+    <style>
+    .layout{
+    width: 600px;
+    margin: 0 auto;
+    font-family: arial;
+    }
+    .table{
+    margin-top: 30px;
+    border: 1px solid #ccc;
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    }
+    tr:nth-child(even){
+    background-color: #f1f1f1;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    }
+    .up th{
+    color: #fff;
+    background-color: #4caf50;
+    padding: 8px;
+    }
+    td{
+    padding: 8px;
+    }
+    .down th{
+    padding: 8px;
+    }
+    .down{
+    border: none;
+    </style>
+  </head>
+  <body>
+    <div class="layout">
+      <table class="table up">
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Points</th>
+        </tr>
+        <tr>
+          <td>Jill</td>
+          <td>Smith</td>
+          <td>50</td>
+        </tr>
+        <tr>
+          <td>Eve</td>
+          <td>Jackson</td>
+          <td>94</td>
+        </tr>
+        <tr>
+          <td>Adam</td>
+          <td>Johnson</td>
+          <td>67</td>
+        </tr>
+        <tr>
+          <td>Bo</td>
+          <td>Nilsson</td>
+          <td>50</td>
+        </tr>
+        <tr>
+          <td>Mike</td>
+          <td>Ross</td>
+          <td>35</td>
+        </tr>
+      </table>
+      <table class="table down">
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Points</th>
+        </tr>
+        <tr>
+          <td>Jill</td>
+          <td>Smith</td>
+          <td>50</td>
+        </tr>
+        <tr>
+          <td>Eve</td>
+          <td>Jackson</td>
+          <td>94</td>
+        </tr>
+        <tr>
+          <td>Adam</td>
+          <td>Johnson</td>
+          <td>67</td>
+        </tr>
+        <tr>
+          <td>Bo</td>
+          <td>Nilsson</td>
+          <td>50</td>
+        </tr>
+        <tr>
+          <td>Mike</td>
+          <td>Ross</td>
+          <td>35</td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>
