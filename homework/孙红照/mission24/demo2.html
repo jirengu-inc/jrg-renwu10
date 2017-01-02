@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>demo2 - 加载更多</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		* {
+			text-align: center;
+		}
+		.box {
+			border: 1px solid #ccc;
+			padding: 10px;
+			margin: 10px;
+		}
+		.box:hover {
+			background-color: green;
+		}
+		.btn {
+			border: 1px solid #e27272;
+			border-radius: 2px;
+			color: #e27272;
+			padding: 10px;
+			margin: 10px;
+			display: inline-block;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+<div class="ct">
+	<div class="box">1</div>
+	<div class="box">2</div>
+</div>
+<a class="btn">加载更多</a>
+<script type="text/javascript">
+	document.getElementsByClassName("btn")[0].addEventListener("click", function(){
+		var xmlhttp = new XMLHttpRequest();
+		xmlhttp.onreadystatechange=function(){
+			if (xmlhttp.readyState==4 && xmlhttp.status==200){
+				var json=JSON.parse(xmlhttp.responseText);
+				for (var i=0; i<json.length; i++){
+					newDiv = document.createElement("div");
+					newContent = document.createTextNode(json[i]);
+					newDiv.appendChild(newContent);
+					newDiv.setAttribute("class", "box");
+					document.getElementsByClassName("ct")[0].appendChild(newDiv);
+				}
+			}
+		}
+		var start = document.getElementsByClassName("box").length+1;
+		xmlhttp.open("get","/loadmore.php?length=6&start="+start, true);
+		xmlhttp.send();
+	})
+</script>
+</body>
+</html>
