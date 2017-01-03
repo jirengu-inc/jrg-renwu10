@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>task 25-3</title>
+  <script src="jquery-3.1.1.js"></script>
+  <style>
+    body,html,p,ul,li {
+      margin: 0;
+      padding: 0;
+      font-size: 14px;
+    }
+    ul,li {
+      list-style-type: none;
+    }
+    a {
+      text-decoration: none;
+    }
+    .wrapper {
+      width: 900px;
+      margin: 0 auto;
+    }
+    #title {
+      margin-top: 80px;
+      font-size: 25px;
+      color: gray;
+      margin-left: 10px;
+    }
+    .item {
+      height: 200px;
+      border: 1px solid lightgray;
+      border-radius: 5px;
+      margin: 10px;
+      position: relative;
+      flex-grow: 1;
+      flex-basis: 230px;
+    }
+    .item>p {
+      font-size: 12px;
+      padding-left: 20px;
+    }
+    .price  {
+      color: red;
+      margin-top: 5px;
+    }
+    .img-wrapper {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .cover {
+      position: absolute;
+      background-color: rgba(0,0,0,0.3);
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      display: none;
+    }
+    .cover>a {
+      position: relative;
+      border: 1px solid red;
+      color: red;
+      padding: 10px;
+      background-color: white;
+      left: 50%;
+      top: 50%;
+      margin-left: -39px;
+    }
+    #btn-wrapper {
+      margin: 30px 10px;
+    }
+    .btn {
+      border: 1px solid red;
+      color: red;
+      padding: 10px 15px;
+      border-radius: 3px;
+    }
+    .show {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <p id="title">珠宝首饰</p>
+    <div class="content">
+      <ul class="item-wrapper">
+        <li class="item">
+          <div class="cover"><a href="##">立即抢购</a></div>
+          <div class="img-wrapper"><img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt=""></div>
+          <p class="name">藏美千足金和田玉金镶吊坠</p>
+          <p class="price">￥1800.00</p>
+        </li>
+        <li class="item">
+          <div class="cover"><a href="##">立即抢购</a></div>
+          <div class="img-wrapper"><img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt=""></div>
+          <p class="name">藏美千足金和田玉金镶吊坠</p>
+          <p class="price">￥1800.00</p>
+        </li>
+        <li class="item">
+          <div class="cover"><a href="##">立即抢购</a></div>
+          <div class="img-wrapper"><img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt=""></div>
+          <p class="name">藏美千足金和田玉金镶吊坠</p>
+          <p class="price">￥1800.00</p>
+        </li>
+        <li class="item">
+          <div class="cover"><a href="##">立即抢购</a></div>
+          <div class="img-wrapper"><img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt=""></div>
+          <p class="name">藏美千足金和田玉金镶吊坠</p>
+          <p class="price">￥1800.00</p>
+        </li>
+        <li class="item">
+          <div class="cover"><a href="##">立即抢购</a></div>
+          <div class="img-wrapper"><img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt=""></div>
+          <p class="name">藏美千足金和田玉金镶吊坠</p>
+          <p class="price">￥1800.00</p>
+        </li>
+        <li class="item">
+          <div class="cover"><a href="##">立即抢购</a></div>
+          <div class="img-wrapper"><img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt=""></div>
+          <p class="name">藏美千足金和田玉金镶吊坠</p>
+          <p class="price">￥1800.00</p>
+        </li>
+      </ul>
+    </div>
+    <div id="btn-wrapper"><a class="btn" href="#">添加</a></div>
+  </div>
+  <script>
+    var products = [
+      {
+        img: 'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+        name: '珂兰 黄金手 猴哥款',
+        price: '￥405.00'
+      },{
+        img: 'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+        name: '珂兰 黄金转运珠 猴哥款',
+        price: '￥100.00'
+      },{
+        img: 'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+        name: '珂兰 黄金手链 3D猴哥款',
+        price: '￥45.00'
+      }
+    ];
+    var     $item = $('.item').eq(0),
+            $itemWrapper = $('.item-wrapper'),
+            $btn = $('.btn'),
+            $buy = $('.cover a'),
+            itemClone = '';
+            
+            
+    
+    $btn.on('click',function () {
+      for (var i = 0; i < products.length; i++) {
+        var $a = $item.clone();
+        $a.find('img').attr('src',products[i].img);
+        $a.find('.name').text(products[i].name);
+        $a.find('.price').text(products[i].price);
+        itemClone = $a.html();
+        $itemWrapper.append('<li class="item">' + itemClone + '</li>');
+      }
+    });
+    $itemWrapper.on('mouseenter mouseleave','.item',function () {
+      $(this).children('.cover').stop().fadeToggle('fast');
+    });
+    $buy.on('click',function (event) {
+      event.preventDefault();
+    })
+    
+  </script>
+</body>
+</html>
