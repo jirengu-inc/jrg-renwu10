@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    .layout {
+        width: 600px;
+        margin: 0 auto;
+    }
+    
+    .layout>div {
+        margin-top: 30px;
+    }
+    
+    .h-alert {
+        color: #fff;
+        padding: 1px 16px;
+        line-height: 1.5;
+        border-radius: 3px;
+    }
+    
+    .h-alert .close {
+        text-decoration: none;
+        float: right;
+        font-size: 24px;
+        font-weight: bold;
+        color: inherit;
+        cursor: pointer;
+    }
+    
+    .h-alert>h3 {
+        font-size: 24px;
+        font-weight: bold;
+        margin: 10px 0;
+    }
+    
+    .h-alert.success {
+        background-color: #4CAF50;
+    }
+    
+    .h-alert.info {
+        background-color: #2196F3;
+    }
+    
+    .h-alert.danger {
+        background-color: #f44336;
+    }
+    
+    .h-alert.warning {
+        background-color: #ff9800;
+    }
+</style>
+</head>
+<body>
+    <div class="layout">
+        <div class="h-alert success">
+            <span class="close">×</span>
+            <h3>恭喜你</h3>
+            <p>获得本周学霸，继续加油吧</p>
+        </div>
+        <div class="h-alert info">
+            <span class="close">×</span>
+            <h3>通知</h3>
+            <p>晚上上课，不要忘了</p>
+        </div>
+        <div class="h-alert danger">
+            <span class="close">×</span>
+            <h3>天啊</h3>
+            <p>竟然几天没做任务</p>
+        </div>
+        <div class="h-alert warning">
+            <span class="close">×</span>
+            <h3>警告</h3>
+            <p>学如逆水行舟，不进则退</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #ct:after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .left{
+            width: 100px;
+            height: 200px;
+            background: orange;
+            float: left;
+        }
+        .right{
+            width: 100px;
+            height: 200px;
+            background: orangered;
+            float: right;
+        }
+        .main{
+            height: 300px;
+            background: coral;
+            margin-left: 120px;
+            margin-right: 120px;
+        }
+        .header,.footer{
+            width: 100%;
+            height: 30px;
+            background: olive;
+
+        }
+    </style>
+</head>
+<body>
+<div class="header">header</div>
+<div id="ct">
+    <div class="left">left</div>
+    <div class="right">right</div>
+    <div class="main">main</div>
+</div>
+<div class="footer">footer</div>
+</body>
+</html>

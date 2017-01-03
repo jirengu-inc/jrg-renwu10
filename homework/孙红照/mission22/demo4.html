@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>mission22-demo4</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		* {
+			padding: 0;
+			margin: 0;
+			text-align: center;
+		}
+		ul {
+			overflow: hidden;
+		}
+		li {
+			float: left;
+			width: 200px;
+			border: 1px solid #ccc;
+			list-style: none;
+		}
+		.content {
+			width: 604px;
+			border: 1px solid #ccc;
+			height: 200px;
+		}
+	</style>
+</head>
+<body>
+<div>
+	<ul >
+		<li>tab1</li>
+		<li>tab2</li>
+		<li>tab3</li>
+	</ul>
+	<div class="content"></div>
+</div>
+<script type="text/javascript">
+	var li = document.getElementsByTagName("li");
+	var content = document.getElementsByClassName("content")[0];
+	for (var i=0; i<li.length; i++) {
+		(function(){
+			var n=i;
+			li[n].addEventListener("mouseover", function(){
+				for (var i=0; i<li.length; i++) {
+					li[i].removeAttribute("style");
+				}
+				li[n].setAttribute("style", "background-color:#ccc")
+				content.innerText = "内容" + (n+1);
+			})
+		})()
+	}
+</script>
+</body>
+</html>

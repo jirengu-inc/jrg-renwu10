@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>demo2 - mission22</title>
+</head>
+<body>
+<ul class="ct">
+    <li>这里是</li>
+    <li>饥人谷</li>
+    <li>前端6班</li>
+</ul>
+<input class="ipt-add-content" placeholder="添加内容"/>
+<button id="btn-add-start">开头添加</button>
+<button id="btn-add-end">结尾添加</button>
+<script>
+var ct = document.getElementsByClassName("ct")[0];
+var startBtn = document.getElementById("btn-add-start");
+var endBtn = document.getElementById("btn-add-end");
+
+ct.addEventListener("click", function(event){
+	console.log(event.target.innerText);
+});
+
+startBtn.addEventListener("click", function(){
+	var content = document.getElementsByClassName("ipt-add-content")[0].value;
+	var newLi = document.createElement("li");
+	var newContent = document.createTextNode(content);
+	newLi.appendChild(newContent);
+	ct.insertBefore(newLi, ct.firstChild);
+});
+
+endBtn.addEventListener("click", function(){
+	var content = document.getElementsByClassName("ipt-add-content")[0].value;
+	var newLi = document.createElement("li");
+	var newContent = document.createTextNode(content);
+	newLi.appendChild(newContent);
+	ct.appendChild(newLi);
+});
+</script>
+</body>
+</html>

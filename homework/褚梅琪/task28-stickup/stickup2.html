@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>stickup2</title>
+	<style type="text/css">
+		.wrap{
+			width: 900px;
+			margin:0 auto; 
+		}
+		#header .wrap{
+			height: 50px;
+			background-color: red;
+		}
+		.nav{
+			height: 30px;
+			border: 1px solid black;
+			background: yellow;
+		}
+		.ct{
+			margin-top: 20px;
+		}
+		.ct:after{
+			content: "";
+			display: block;
+			clear: both;
+		}
+		.aside{
+			float: left;
+			width: 200px;
+			height: 400px;
+			background: pink;
+		}
+		.aside2{
+			background: purple;
+		}
+		.aside3{
+			background: red;
+		}
+		.aside4{
+			background: green;
+		}
+		.main{
+			float: right;
+			width: 680px;
+			height: 400px;
+			background: #1FA1F6;
+		}
+	</style>
+</head>
+<body>
+	<div id="header">
+		<div class="wrap">header</div>
+	</div>
+	<div id="content">
+		<div class="wrap">
+			<div class="ct">
+				<div class="nav">nav1</div>
+				<div class="aside aside1">aside1</div>
+				<div class="main">main1</div>
+			</div>
+			<div class="ct">
+				<div class="nav">nav2</div>
+				<div class="aside aside2">aside2</div>
+				<div class="main">main2</div>
+			</div>
+			<div class="ct">
+				<div class="nav">nav3</div>
+				<div class="aside aside3">aside3</div>
+				<div class="main">main3</div>
+			</div>
+			<div class="ct">
+				<div class="nav">nav4</div>
+				<div class="aside aside4">aside4</div>
+				<div class="main">main4</div>
+			</div>
+		</div>
+	</div>
+	<div id="footer">footer</div>
+	<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+	<script type="text/javascript">
+		$('.nav').each(function(){
+			var $cur = $(this),
+  			curH = $cur.height(),
+  			curW = $cur.width(),
+  			offsetTop = $cur.offset().top,
+  			offsetLeft = $cur.offset().left; 
+
+  	var $curClone = $cur.clone()
+  											.css({
+  												'visibility':'hidden',
+  												'display':'none'
+  											})
+  											.insertAfter($cur);
+  	function isFixed(){
+  		return $cur.data('data-fixed');
+  	}
+  	function setFixed(){
+  		$cur.data('data-fixed',true)
+  				.css({
+  					'position':'fixed',
+  					'top':0,
+  					'left':'offsetLeft',
+  					'width':curW,
+  					 'margin':0,
+  					'z-index':9999
+  				})
+  		$curClone.show();
+  	}
+  	function unsetFixed(){
+  		$cur.data('data-fixed',false)
+  				.removeAttr('style');
+  		$curClone.hide();
+  	}
+  	$(window).on('scroll',function(){
+  		var scrollTop = $(this).scrollTop();
+
+  		if(scrollTop>=offsetTop){
+  			if (!isFixed()) {
+  				setFixed();
+  			}
+  		}else {
+  			if (isFixed()) {
+  				unsetFixed();
+  			}
+  		}
+  	});
+		})
+	</script>
+</body>
+</html>

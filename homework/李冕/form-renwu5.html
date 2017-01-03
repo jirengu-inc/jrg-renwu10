@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>form</title>
+</head>
+<body>
+<form id="user-register" action = "user-register.php" method="get">
+
+	<div class="name">
+		<label for="user-name">姓名：</label>
+		<input type="text" id="user-name" name = "name" placeholder="用户名">
+	</div>
+
+	<div class="password">
+		<label for="password">密码：</label>
+		<input type="password" id="password" name = "password">
+	</div>
+
+	<div class="sex">
+		<label for="sex">性别：</label>
+		<input type="radio" id="sex" name = "sex" value="male" checked> 男
+		<input type="radio" name = "sex" value="female"> 女
+	</div>
+
+	<div class="sex-prefer">
+		<label for="sex-prefer">取向：</label>
+		<input type="radio" id="sex-prefer" name = "sex-prefer" value="male"> 男
+		<input type="radio" name = "sex-prefer" value="female"> 女
+	</div>
+
+	<div class="hobby">
+	    <label>爱好：</label>
+		<input type="checkbox" id="hobby" name="hobby" value="dota"> dota
+		<input type="checkbox" id="hobby" name="hobby" value="travel"> 旅游
+		<input type="checkbox" id="hobby" name="hobby" value="pet"> 宠物	
+	</div>
+
+	<div class="comments">
+		<label for="comments">评论：</label>
+		<textarea name="comments" id="comments" cols="30" rows="6">输入评论：
+		</textarea>
+	</div>
+
+	<div>
+		<label id="mycars">我的cars：</label>
+		<select name="cars" id="mycars">
+			<option value="sabo">萨博</option>
+			<option value="polo">大众polo</option>
+			<option value="focus">福克斯</option>
+		</select>
+	</div>
+
+	<button>提交</button>
+	<!--<
+	input type = "submit" value = "提交">
+	-->
+
+</form>
+</body>
+</html>

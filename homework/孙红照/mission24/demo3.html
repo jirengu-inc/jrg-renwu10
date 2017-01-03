@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>demo3 - 注册验证</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		span {
+			font-size: 14px;
+		}
+		p {
+			font-size: 12px;
+			color: #999;
+		}
+		.error {
+			outline: red auto 5px;
+		}
+	</style>
+</head>
+<body>
+<div>
+	<h3>注册</h3>
+	<span>用户名：</span>
+	<input type="text" name="username" placeholder="用户名">
+	<p class="hint">只能是字母、数字、下划线，3-10个字符</p>
+	<span>密码：</span>
+	<input type="password" name="passwd" placeholder="密码">
+	<p class="hint">必须包含大写字母、小写字母、数字、下划线的最少两种，6-15个字符</p>
+	<span>再输一次：</span>
+	<input type="password" name="passwd-again" placeholder="再输入一次密码">
+	<p class="hint"></p>
+	<button class="btn">注册</button>
+</div>
+<script type="text/javascript">
+	//用于验证信息是否输入完整和正确
+	var check = {};
+	//ajax - 验证用户名
+	document.getElementsByTagName("input")[0].addEventListener("change", function(){
+		var username = document.getElementsByTagName("input")[0].value;
+		if (isValidUsername(username) == false){
+			document.getElementsByClassName("hint")[0].innerText = "用户名格式不正确";
+			document.getElementsByTagName("input")[0].setAttribute("class", "error");
+		}else{
+			var xmlhttp = new XMLHttpRequest();
+			xmlhttp.onreadystatechange = function(){
+				if (xmlhttp.readyState==4&&xmlhttp.status==200){
+					if (xmlhttp.responseText == false){
+						document.getElementsByClassName("hint")[0].innerText = "用户名可用"
+						check["username"] = true;
+					}
+					if (xmlhttp.responseText == true){
+						document.getElementsByClassName("hint")[0].innerText = "用户名已注册"
+						document.getElementsByTagName("input")[0].setAttribute("class", "error");
+					}
+				}
+			}
+			xmlhttp.open("get", "/demo3.php?username="+username,true);
+			xmlhttp.send();
+		}
+	})
+	// 验证密码
+	document.getElementsByTagName("input")[1].addEventListener("change", function(){
+		var passwd = document.getElementsByTagName("input")[1].value;
+		if (isValidPassword(passwd)==true){
+			document.getElementsByClassName("hint")[1].innerText = "密码格式正确";
+			check["passwd"] = true;
+		}else{
+			document.getElementsByClassName("hint")[1].innerText = "密码格式错误";
+			document.getElementsByTagName("input")[1].setAttribute("class", "error");
+		}
+	})
+	// 验证第二次密码
+	document.getElementsByTagName("input")[2].addEventListener("change", function(){
+		var passwdAgain = document.getElementsByTagName("input")[2].value;
+		var passwd = document.getElementsByTagName("input")[1].value;
+		if (passwd === passwdAgain){
+			document.getElementsByClassName("hint")[2].innerText = "两次输入密码一致";
+			check["passwdAgain"] = true;
+		}else{
+			document.getElementsByClassName("hint")[2].innerText = "两次输入密码不一致";
+			document.getElementsByTagName("input")[2].setAttribute("class", "error");
+		}
+	})
+	// 注册按钮
+	document.getElementsByClassName("btn")[0].addEventListener("click", function(){
+		if(check["username"]==true&&check["passwd"]==true&&check["passwdAgain"]==true){
+			alert("正在注册中");
+		}else{
+			alert("填写有错误，请更正后填写");
+		}
+	})
+
+	// 用正则表达式检查密码和用户名是否合理
+	function isValidUsername(str) {
+    return (str.search(/^\w{6,20}$/)>-1)
+}
+	function isValidPassword(str) {
+    if (str.search(/^\w{6,20}$/)>-1) {
+        if ((/^[A-Z]+$|^[a-z]+$|^[\d]+$|^[_]+$/g).test(str)) {
+            return false;
+        } else {
+            return true;
+        }
+    } else {
+        return false;
+    }
+}
+</script>
+</body>
+</html>

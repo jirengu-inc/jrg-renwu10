@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>demo5-mission22</title>
+	<meta charset="utf-8">
+	<style>
+		#motal1 {
+			display: none;
+		}
+	    .cover {
+	        position: fixed;
+	        top: 0;
+	        left: 0;
+	        right: 0;
+	        bottom: 0;
+	        background-color: #000;
+	        opacity: 0.4;
+	        z-index: 1;
+	    }
+		.motal {
+			position: fixed;
+			border-radius: 3px;
+			width: 300px;
+			overflow: hidden;
+			top: 50%;
+			left: 50%;
+			margin-top: -72px;
+			margin-left: -150px;
+			z-index: 100;
+			background: white;
+		}
+		h3 {
+			float: left;
+			font-size: 16px;
+			margin: 5px;
+		}
+		.close {
+			float: right;
+			font-size: 16px;
+			margin: 5px;
+			cursor: pointer;
+		}
+		.spilt {
+			clear: both;
+			border: 1px solid #ccc;
+			margin: 10px 0;
+		}
+		li {
+			list-style: none;
+			float: left;
+			margin: 5px;
+			cursor: pointer;
+		}
+		ul {
+			float: right;
+			margin: 0;
+		}
+	</style>
+</head>
+<body>
+<button>点我1</button>
+<div id="motal1" class="ccc">
+	<div class="cover"></div>
+	<div class="motal">
+		<h3>我是标题</h3>
+		<span class="close">X</span>
+		<div class="spilt"></div>
+		<p>我是内容1</p>
+		<p>我是内容2</p>
+		<ul>
+			<li>确定</li>
+			<li>取消</li>
+		</ul>
+	</div>
+</div>
+<script type="text/javascript">
+	var btn = document.getElementsByTagName("button")[0];
+	var motal = document.getElementById("motal1");
+	var cover = document.getElementsByClassName("cover")[0];
+	var close = document.getElementsByClassName("close")[0];
+	var li = document.getElementsByTagName("li");
+	var arrClose = [cover, close, li[0], li[1]];
+	
+	(function(){
+		var btn = document.getElementsByTagName("button")[0];
+		var motal = document.getElementById("motal1");
+
+		btn.addEventListener("click", function() {
+			motal1.setAttribute("style", "display:inline-block");
+		});
+	})();
+
+	(function(){
+		for (var i=0; i<arrClose.length; i++) {
+			arrClose[i].addEventListener("click", function(){
+				motal1.setAttribute("style", "display:none");
+			});
+		}
+	})();
+</script>
+</body>
+</html>

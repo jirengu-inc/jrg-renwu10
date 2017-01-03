@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+        body {
+            font-family: arial;
+        }
+        
+        .layout {
+            width: 600px;
+            margin: 0 auto;
+        }
+        
+        .layout>table {
+            margin-top: 30px;
+        }
+        
+        .h-card {
+            padding-bottom: 16px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+        
+        .h-card>h2 {
+            padding: 15px 16px;
+            background-color: #009688;
+            color: #fff;
+        }
+        
+        .h-card form {
+            margin: 16px;
+        }
+        
+        .h-card label {
+            color: #757575;
+            vertical-align: middle;
+        }
+        
+        .h-card input[type=text],
+        .h-card textarea {
+            padding: 8px;
+            display: block;
+            border: none;
+            border-bottom: 1px solid #808080;
+            width: 100%;
+        }
+        
+        .h-card input[type=text]:focus,
+        .h-card textarea:focus {
+            outline: none;
+        }
+        
+        .h-card form>div {
+            margin-top: 16px;
+            overflow: auto;
+        }
+        
+        .h-card .half {
+            width: 50%;
+            float: left;
+            line-height: 1.4;
+        }
+        
+        .h-card input[type=submit] {
+            padding: 8px 16px;
+            color: #fff;
+            background-color: #009688;
+            border: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="layout">
+        <div class="h-card">
+            <h2>信息收集表</h2>
+            <form action="" method="post">
+                <div>
+                    <label for="name">姓名</label>
+                    <input type="text" id="name" name="name">
+                </div>
+                <div>
+                    <label for="qq">QQ</label>
+                    <input type="text" id="qq" name="qq">
+                </div>
+                <div>
+                    <label for="words">要说的话</label>
+                    <textarea name="words" id="words" cols="30" rows="4"></textarea>
+                </div>
+                <div>
+                    <div class="half">
+                        <input id="milk" name="drinks" type="checkbox" checked="checked">
+                        <label for="milk">Milk</label>
+                        <br>
+                        <input id="sugar" name="drinks" type="checkbox">
+                        <label for="sugar">Sugar</label>
+                        <br>
+                        <input id="lemon" name="drinks" type="checkbox">
+                        <label for="lemon">Lemon</label>
+                    </div>
+                    <div class="half">
+                        <input id="male" type="radio" name="gender" value="male" checked="">
+                        <label for="male">Male</label>
+                        <br>
+                        <input id="female" type="radio" name="gender" value="female">
+                        <label for="female">Female</label>
+
+                    </div>
+                </div>
+                <div>
+                    <input type="submit" value="提交">
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>

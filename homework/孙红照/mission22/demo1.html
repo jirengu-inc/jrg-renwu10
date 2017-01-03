@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>mission22-demo1</title>
+	<meta charset="utf-8">
+</head>
+<body>
+<ul class="ct">
+    <li>这里是</li>
+    <li>饥人谷</li>
+    <li>前端6班</li>
+</ul>
+<script>
+  function displayContect(){
+  	console.log(this.innerText);
+  }
+  var li = document.getElementsByTagName("li");
+  for (var i=0;i<li.length;i++) {
+  	li[i].addEventListener("click", displayContect, false);
+  }
+</script>
+</body>
+</html>
