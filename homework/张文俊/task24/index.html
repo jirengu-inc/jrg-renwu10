@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单验证</title>
+    <style>
+        dt,dd{
+            margin:0;
+            padding:0;
+        }
+        dt{
+            float:left;
+            width:100px;
+            height:30px;
+            /*line-height: 30px;*/
+        }
+        input{
+            height:30px;
+            box-sizing: border-box;
+            padding-left: 3px;
+        }
+        dd{
+            margin-left:100px;
+            /*margin-top:8px;*/
+        }
+        .desp{
+            margin-top: 7px;
+            margin-bottom: 7px;
+            height:25px;
+            line-height: 25px;
+            font-size:12px;
+            color:#aaa;
+        }
+        .error{
+            border:1px solid red;
+        }
+    </style>
+</head>
+<body>
+<h3>注册</h3>
+<form >
+    <dl>
+        <dt>用户名：</dt>
+        <dd>
+            <input type="text" id="userName" placeholder="jirengu已被注册">
+        </dd>
+        <dd id="userNameDesp" class="desp">只能是字母、数字、下划线，3-10个字符</dd>
+        <dt>密码：</dt>
+        <dd>
+            <input type="password" id="password" >
+        </dd>
+        <dd id="pwdDesp" class="desp">大写字母、小写、数字、下划线最少两种，6-15个字符</dd>
+        <dt>再输入一次：</dt>
+        <dd>
+            <input type="password" id="passwordAgain">
+        </dd>
+        <dd id="pwdAgainDesp" class="desp"></dd>
+        <button>注册</button>
+    </dl>
+</form>
+</body>
+<script type="text/javascript" src="validate.js"></script>
+<script type="text/javascript" src="classOpt.js"></script>
+<script type="text/javascript" src="ajax.js"></script>
+<script type="text/javascript">
+    var userNameInput=document.getElementById("userName"),
+            userNameDesp=document.getElementById("userNameDesp"),
+            pwd=document.getElementById("password"),
+            pwdDesp=document.getElementById("pwdDesp"),
+            pwdAgain=document.getElementById("passwordAgain"),
+            pwdAgainDesp=document.getElementById("pwdAgainDesp"),
+            btn=document.getElementsByTagName("button")[0];
+    var msg_stutus={
+        USERNAME_CANUSE:"用户名可用",
+        USERNAME_EXSIT:"用户名已经存在,请重新输入",
+        USERNAME_TYPRWRONG:"用户名格式不正确，请重新输入",
+        USERNAME_CANTEMPTY:"用户名不可为空",
+        PASSWORD_CANYEMPTY:"密码不可为空",
+        PASSWORD_TYPEWRONG:"密码格式不正确,大写字母、小写、数字、下划线最少两种，6-15个字符",
+        PASSWORD_NOTEQUAL:"两次密码不一致"
+    }
+    userNameInput.addEventListener("change",function(){
+        testUserName()&&canUse();
+    });
+    pwd.addEventListener("change",function(){
+        testPwd();
+    })
+    pwdAgain.addEventListener("change",function () {
+        testPwdAgain();
+    })
+    btn.addEventListener("click",function(e){
+        e.preventDefault();
+        if(testUserName()  && testPwd()&& testPwdAgain()){
+            if(userNameDesp.innerText===msg_stutus.USERNAME_CANUSE){
+                alert("正在提交表单");
+            }
+        }
+    })
+    // 处理响应后的数据
+    function dealWith(resp){
+        if(resp===0){
+            if (classOpt.hasClass(userNameInput, "error")){
+                classOpt.singleRemoveClass(userNameInput,"error");
+            }
+            userNameDesp.innerText=msg_stutus.USERNAME_CANUSE;
+        }else if(resp===1){
+            classOpt.singleAddClass(userNameInput,"error");
+            userNameDesp.innerText=msg_stutus.USERNAME_EXSIT;
+        }
+    }
+    // 测试用户名格式是否正确
+    function testUserName(){
+        var userName=userNameInput.value;
+        if(userName===""){
+            classOpt.singleAddClass(userNameInput,"error");
+            userNameDesp.innerText=msg_stutus.USERNAME_CANTEMPTY;
+            return false;
+        }else {
+            if (isLegalUserName(userName)) {
+                return true;
+            }
+            else {
+                classOpt.singleAddClass(userNameInput, "error");
+                userNameDesp.innerText = msg_stutus.USERNAME_TYPRWRONG;
+                return false;
+            }
+        }
+    }
+    // 测试用户名是否可用
+    function canUse(){
+        ajax({
+            url: 'getData.php',   //接口地址
+            type: 'get',               // 类型， post 或者 get,
+            data: {
+                userName: userNameInput.value,
+            },
+            success: function(resp){
+                dealWith(resp)       // {status: 0}
+            },
+            error: function(){
+                alert('出错了')
+            }
+        });
+    }
+    // 测试密码格式是否正确
+    function testPwd(){
+        var password=pwd.value;
+        if(password===""){
+            classOpt.singleAddClass(pwd,"error");
+            pwdDesp.innerText=msg_stutus.PASSWORD_CANYEMPTY;
+            return false;
+        }else{
+            if(isLegalPwd(password)){
+                if( classOpt.hasClass(pwd,"error")){
+                    classOpt.singleRemoveClass(pwd,"error");
+                }
+                pwdDesp.innerText="";
+                return true;
+            }else{
+                classOpt.singleAddClass(pwd,"error");
+                pwdDesp.innerText=msg_stutus.PASSWORD_TYPEWRONG;
+                return false;
+            }
+        }
+    }
+    // 测试两次密码输入是否一致
+    function testPwdAgain(){
+        if(pwdAgain.value===""){
+            classOpt.singleAddClass(pwdAgain,"error");
+            return false;
+        }else{
+            if(pwdAgain.value!==pwd.value){
+                classOpt.singleAddClass(pwdAgain,"error");
+                pwdAgainDesp.innerText=msg_stutus.PASSWORD_NOTEQUAL;
+                return false;
+            }else {
+                if (classOpt.hasClass(pwdAgain, "error")) {
+                    classOpt.singleRemoveClass(pwdAgain, "error");
+                }
+                pwdAgainDesp.innerText = "";
+                return true;
+            }
+        }
+    }
+</script>
+</html>
