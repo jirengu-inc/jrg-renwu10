@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>原生JS实现 tab切换</title>
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+		}
+
+		.clear:after{
+			content: '';
+			display: block;
+			clear: both;
+		}
+		.wrap{
+			margin: 20px;
+			border:1px solid;
+			width:602px;
+		}
+		li{
+			list-style: none;
+			float:left;
+			padding:10px 0;
+			text-align: center;
+			width: 200px;
+			border-right: 1px solid;
+			border-bottom: 1px solid;
+		}
+		li:last-child{
+			border-right: none;
+		}
+		.ct{
+			height: 200px;
+			display: none;
+			padding: 20px;
+		}
+		.active{
+			display: block;
+		}
+		ul>.active{
+			background: #ccc;
+		}
+
+
+
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<ul class="tabs clear">
+			<li class="active">tab1</li>
+			<li>tab2</li>
+			<li>tab3</li>
+		</ul>
+		<div class="ct active">内容一</div>
+		<div class="ct">内容二</div>
+		<div class="ct">内容三</div>
+	</div>
+
+	<script>
+		
+		var Utils = {
+			hasClass:function(ele, cls){
+				return !!ele.className.match(new RegExp('\\b'+cls+'\\b'));
+			},
+			addClass:function(ele, cls){
+				if(ele.length && ele.length > 0){
+					for(var i=1; i<ele.length; i++){
+						Utils.singleAddClass(ele[i], cls);
+					}
+				}else{
+					Utils.singleAddClass(ele,cls);
+				}
+			},
+			trim:function(str){
+				return str.replace(/^\s+/,'').replace(/\s+$/, '');
+			},                                                       //去掉空格
+			removeClass:function(ele, cls){
+				if(ele.length && ele.length > 0){
+					for(var i=0; i<ele.length; i++){
+						Utils.singleRemveClass(ele[i], cls);
+					}
+				}else{
+					Utils.singleRemveClass(ele, cls);
+				}
+			},
+			singleAddClass:function(ele, cls){
+				if(Utils.hasClass(ele, cls)) return;
+				ele.className = Utils.trim(ele.className) + ' ' + cls;
+			},
+			singleRemveClass:function(ele,cls){
+				ele.className = ele.className.replace(new RegExp('\\b'+cls+'\\b','g'),'');
+			},
+			indexOf:function(ele){
+				var parent = ele.parentElement,
+					siblings = parent.children;
+				for(var i=0; i<siblings.length; i++){
+					if(ele === siblings[i]) return i ;
+				}
+				return -1;
+			}
+		};
+		//封装
+
+
+		var tabs = document.querySelector('.tabs');
+
+		tabs.addEventListener('click', function(e){
+			var target = e.target,
+				li = tabs.children,
+				index = Utils.indexOf(target),
+				ct = document.querySelectorAll('.ct');
+			if(index> -1){
+				Utils.removeClass(li, 'active');
+				Utils.addClass(target, 'active');
+				Utils.removeClass(ct, 'active');
+				Utils.addClass(ct[index], 'active');
+			}
+		})
+	</script>
+</body>
+</html>
