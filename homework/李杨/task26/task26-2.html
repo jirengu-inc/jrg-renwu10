@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>task 26-2</title>
+  <script src="jquery-3.1.1.js"></script>
+  <style>
+    body {
+      height: 2000px;
+    }
+    div {
+      width: 200px;
+      height: 200px;
+      border: 1px solid black;
+      margin: 100px;
+    }
+    .box2 {
+      position: fixed;
+      top: 0px;
+      left: 400px;
+      margin-top: 0px;
+    }
+    .box4,select {
+      margin-left: 100px;
+    }
+  </style>
+</head>
+<body>
+  <div class="box1">当点击$btn 时，让 $btn 的背景色变为红色再变为蓝色</div>
+  <div class="box2"></div>
+  <div class="box3">当鼠标放置到$div 上，把$div 背景色改为红色，移出鼠标背景色变为白色
+  </div>
+  <input type="text" class="box4">
+  <div class="box5"></div>
+  <select>
+    <option value="">11111</option>
+    <option value="">22222</option>
+    <option value="">33333</option>
+    <option value="">44444</option>
+    <option value="">55555</option>
+  </select>
+  <script>
+    var     $box1 = $('.box1'),
+            $box2 = $('.box2'),
+            $box3 = $('.box3'),
+            $box4 = $('.box4'),
+            $box5 = $('.box5'),
+            $select = $('select'),
+    $box1.on('click',function () {
+      $box1.css({'background-color': 'red'});
+      setTimeout(function () {
+        $box1.css({'background-color':'blue'})
+      },300);
+    });
+    $(window).on('scroll',function () {
+      $box2.text('垂直滚动距离为：'+ $(this).scrollTop() + 'px');
+    });
+    $box3.hover(function () {
+      $box3.css({'background': 'red'})
+    },function () {
+      $box3.css({'background': 'white'})
+    });
+    $box4.on('focusin',function () {
+      $box4.css({'border-color':'blue'});
+    });
+    $box4.on('focusout',function () {
+      $box4.css({'border-color':'white'});
+      console.log($box4.text());
+    });
+    $box4.on('keyup',function () {
+      $box4.val($(this).val().toUpperCase());
+    })
+    $select.on('change',function () {
+      $box5.text($('option:selected').text());
+    })
+  </script>
+</body>
+</html>
