@@ -1,29 +1,40 @@
 * {
-    margin: 0;
     padding: 0;
+    margin: 0;
 }
+
 ul {
     list-style: none;
 }
-body{
-    width:100%;
+
+a {
+    text-decoration: none;
 }
-.container{
-    width:900px;
-    padding:20px 20px 10px 20px;
-    margin:0 auto;
-    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "Microsoft JhengHei", "Source Han Sans SC", "Noto Sans CJK SC", "Source Han Sans CN", "Noto Sans SC", "Source Han Sans TC", "Noto Sans CJK TC", "WenQuanYi Micro Hei", SimSun, sans-serif;
-    position:relative;
-    overflow:hidden;
+
+body {
+    width: 100%;
 }
-#header{
+
+.container {
+    width: 900px;
+    padding: 20px 20px 10px 20px;
+    margin: 0 auto;
+    font-family: "Lantinghei SC", "Open Sans", Arial, "Hiragino Sans GB", "Microsoft YaHei", "\5FAE\8F6F\96C5\9ED1", "STHeiti", "WenQuanYi Micro Hei", SimSun, sans-serif;;
+    position: relative;
+    /*border: 1px solid red;*/
+    overflow: hidden;
+}
+
+#header {
     padding: 30px 0;
     overflow: hidden;
 }
-#person{
-    overflow: hidden;
+
+#person {
+    overflow: auto;
 }
-.favicon{
+
+.ps-favicon {
     width: 150px;
     height: 150px;
     margin-right: 30px;
@@ -32,71 +43,83 @@ body{
     overflow: hidden;
     float: left;
 }
-.favicon img{
+
+.ps-favicon img {
     height: 100%;
-    margin-left:-40px;
+    margin-left: -40px;
 }
-.name{
+
+.ps-name {
     font-size: 40px;
     line-height: 80px;
-    font-weight: 1000;
+    font-weight: 100;
     display: block;
     margin-top: 20px;
-
+    letter-spacing: 5px;
 }
-.job{
+
+.ps-job {
     font-size: 16px;
     line-height: 16px;
-    font-weight: 10;
+    font-weight: 600;
     display: block;
+    letter-spacing: 0px;
 }
-#contect{
+
+#contect {
     float: right;
     position: absolute;
-    top:50px;
+    top: 50px;
     right: 140px;
 }
-.title{
-    font-size:20px;
-    padding-bottom: 7px;
-    border-bottom: 3px solid black;
+
+.ctc-title {
+    font-size: 20px;
+    border-bottom: 3px solid #000;
+    margin-bottom: 10px;
 }
-.discribe{
-    padding-top: 7px;
+
+.ctc-discribe {
     margin-right: 10px;
 }
-.discribe p{
+
+.ctc-discribe p {
     line-height: 26px;
 }
-.discribe i{
-    padding-right: 26px;
+
+.ctc-discribe i {
+    padding-right: 15px;
 }
-#main{
+
+#main {
     padding: 10px;
     overflow: hidden;
 }
+
 .work-experience,
 .education,
 .activities,
 .skills {
     margin-bottom: 10px;
 }
-.main-title{
+
+.main-title {
     font-size: 20px;
-    font-weight: 400;
+    font-weight: 600;
     line-height: 40px;
     display: block;
     width: 400px;
-    border-bottom: 3px solid #f2f2f2;
+    border-bottom: 2px solid #f2f2f2;
     margin-bottom: 20px;
 }
+
 .work-experience ul,
-.education ul{
-    border-left: 1px solid black;
+.education ul {
+    border-left: 1px solid rgba(0, 0, 0, 0.3);
     padding-left: 70px;
     margin-left: 10px;
-    margin-top: 40px;
 }
+
 .work-experience ul li,
 .education ul li {
     position: relative;
@@ -107,18 +130,20 @@ body{
 .education ul li:last-of-type {
     margin-bottom: 0;
 }
+
 .work-experience ul li::before,
 .education ul li::before {
     content: '';
     width: 10px;
     height: 10px;
-    background: black;
+    background: rgba(0, 0, 0, 0.9);
     border-radius: 50%;
     position: absolute;
     top: 0;
     left: 0;
     margin-left: -76px;
 }
+
 .text-name,
 .text-time {
     font-size: 20px;
@@ -127,19 +152,19 @@ body{
 }
 
 .text-time {
-    color: #CCC;
+    color: #d0d8d6;
 }
 
 .text-main {
     line-height: 30px;
 }
+
 .education ul li .text-name {
     padding-bottom: 6px;
 }
 
 .text-course {
-    line-height: 30px;
-    color: #CCC;
+    color: #daddde;
 }
 
 .activities {
@@ -178,8 +203,8 @@ body{
 .skills ul li {
     float: left;
     width: 200px;
-    font-size: 18px;
-    margin:35px 0 10px 0;
+    font-size: 20px;
+    margin:28px 0 ;
 }
 
 .skills ul li i {
@@ -187,11 +212,8 @@ body{
 }
 #footer{
     text-align: center;
-    border-top:1px solid #CCC;
+    border-top:1px solid #f2f2f2;
     line-height: 20px;
     font-size: 14px;
-    color:#CCC;
-}
-#footer p{
-    margin-top: 15px;
+    color:#f2f2f2;
 }

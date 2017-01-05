@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .ct {
+            width: 200px;
+            margin-top: 50px;
+            margin-left: 50px;
+            position: relative;
+        }
+
+        .box {
+            width: 200px;
+            height: 100px;
+            border: 1px solid #ccc;
+            background: #fff;
+        }
+
+        .triangle1 {
+            border-bottom: 10px solid #ccc;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            position: absolute;
+            left: 10px;
+            top: -10px;
+        }
+
+        .triangle2 {
+            position: absolute;
+            top: 0px;
+            right: -2px;
+            border-top: 10px solid orange;
+            border-right: 10px solid orange;
+            border-left: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+        }
+        .triangle3{
+            border-bottom: 10px solid #ccc;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            position: absolute;
+            left: 10px;
+            top: -10px;
+        }
+        .triangle3:after{
+            border-bottom: 10px solid #fff;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            display: block;
+            position: absolute;
+            top: 2px;
+            left: -10px;
+            content: "";
+        }
+
+    </style>
+</head>
+<body>
+<div class="ct">
+    <div class="triangle1"></div>
+    <div class="box"></div>
+</div>
+<div class="ct">
+    <div class="triangle2"></div>
+    <div class="box"></div>
+</div>
+<div class="ct">
+    <div class="triangle3"></div>
+    <div class="box"></div>
+</div>
+</body>
+</html>
