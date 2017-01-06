@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>waterfull-lazyload-ajax demo</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+	<style type="text/css">
+	html,body,ul,li,p,div{
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+	ul,li{
+		list-style: none;
+	}
+
+  .wrap{
+  	width: 900px;
+		margin: 0 auto;
+  }
+
+	.clear-fix:after{
+		content: '';
+		display: block;
+		clear: both;
+	}
+	#pic-ct{
+		position: relative;
+	}
+	#pic-ct .item{
+		position: absolute;
+		padding: 0 0 10px 0;
+		width: 280px;
+		margin: 10px;
+		border: 1px solid #DFDFDF;
+		background: #FFF;
+		opacity: 0;
+		transition: all .8s;
+	}
+	#pic-ct .item img{
+	    margin: 10px;
+	    width: 260px;
+	}
+	#pic-ct .item .header{
+		height: 25px;
+	    margin: 0 12px;
+	    border-bottom: 1px solid #DBDBDB;
+	}
+	#pic-ct .desp{
+		font-size: 12px;
+		line-height: 1.8;
+	  margin: 10px 15px 0;
+	  color: #777371;
+	}
+	#load{
+		visibility: hidden;
+		height: 20px;
+	}
+	.hide{
+		display: none;
+	}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<div class="ct-waterfall">
+			<ul id="pic-ct" class="clear-fix">
+				<!--<li class="item">
+    			<a href="#" class="link">
+    				<img src="http://s.img.mix.sina.com.cn/auto/resize?img=http%3A%2F%2Fwww.sinaimg.cn%2Fdy%2Fslidenews%2F5_img%2F2016_09%2F453_75615_657883.jpg&size=250_0" alt="">
+    			</a>
+    			<h4 class="header">标题</h4>
+    			<p class="desp">
+    				当地时间2016年3月1日，在东部与亲俄武装作战中受伤的乌克兰士兵接受海豚治疗。
+    			</p>
+    		</li>-->
+    		<!-- 用于计算 item 宽度和列数，但不展示出来-->
+    		<li class="item hide"></li>
+			</ul>
+			<div id="load">看不见我</div>
+		</div>
+	</div>
+</body>	
+
+<script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script>	
+
+<script type="text/javascript">
+		var clock;
+		$(window).on('scroll',function(){
+			//用户鼠标滚轮滚动一次，有多次事件响应。下面的 setTimeout 主要是为性能考虑，只在最后一次事件响应的时候执行 checkshow
+			if(clock){
+				clearTimeout(clock);
+			}
+			clock = setTimeout(function(){
+				checkshow();
+			},100);
+		});
+		// 用户第一次打开页面，还未滚动窗口的时候需要执行一次 checkShow
+
+		checkshow();
+
+		function checkshow(){
+			if(isShow($('#load'))){
+				loadAndPlace();
+			}
+		}
+
+		function isShow($el){
+			var scrollH = $(window).scrollTop(),
+					winH = $(window).height(),
+					top = $el.offset().top;
+			if(top<scrollH+winH){
+				return true;
+			}else{
+				return false;
+			}
+		}
+
+
+// 获取数据，并且摆放位置
+
+		var curPage = 1,
+		    perPageCount = 9;
+
+		function loadAndPlace(){
+				$.ajax({
+					url:'http://platform.sina.com.cn/slide/album_tech',
+					dataType:'jsonp',
+					jsonp:'jsoncallback',
+					data:{
+						app_key:'1271687855',
+						num:perPageCount,
+						page:curPage
+					}
+				}).done(function(ret){
+					if(ret && ret.status.code === '0'){
+						place(ret.data);
+					}else{
+						console.log('get error data');
+					}
+				});
+		}
+
+		function place(nodeList){
+				console.log(nodeList);
+				var $nodes = renderData(nodeList); //节点生成后添加到页面上
+
+				var defereds = []; //创建存储 defered 对象的数组
+				$nodes.find('img').each(function(){
+					var defer = $.Deferred();
+					$(this).load(function(){
+						defer.resolve();
+					}); //当每个图片加载完成后，执行 resolve
+					defereds.push(defer);
+					//console.log(defer)
+				});
+				$.when.apply(null,defereds).done(function(){ //当所有的图片都执行 resolve 后，即全部图片加载后，执行下面的内容
+					console.log('new images all loaded ...');
+					//当节点里的图片全部加载后再使用瀑布流计算，否则会因为图片未加载 item 高度计算错误导致瀑布流高度计算出问题
+					waterFallPlace($nodes);
+				});
+		}
+
+		//瀑布流
+		var colSumHeight = [],
+		nodeWidth = $('.item').outerWidth(true),
+		colNum = parseInt( $('#pic-ct').width()/nodeWidth );
+
+		for(var i=0;i<colNum;i++){
+			colSumHeight.push(0)
+		}
+
+		function waterFallPlace($nodes){
+			$nodes.each(function(){
+			   var $cur = $(this);
+			   var idx = 0,
+			       minSumHeight = colSumHeight[0];
+
+			   for(var i=0;i<colSumHeight.length;i++){
+			   	if(colSumHeight[i]<minSumHeight){
+			   		minSumHeight = colSumHeight[i];
+			   		idx = i;
+			   	}
+			   }
+
+			   $cur.css({
+			   	left:nodeWidth*idx,
+			   	top:minSumHeight,
+			    opacity:1
+			   });
+
+			   colSumHeight[idx] += $cur.outerHeight(true);
+			   $('#pic-ct').height( Math.max.apply(null,colSumHeight) ) ;
+			});
+		}
+    
+
+
+		function renderData(items){
+			var tpl = '',
+				$nodes;
+			for(var i = 0;i<items.length;i++){
+				tpl += '<li class="item">';
+				tpl += ' <a href="'+ items[i].url +'" class="link"><img src="' + items[i].img_url + '" alt=""></a>';
+				tpl += ' <h4 class="header">'+ items[i].short_name +'</h4>';
+				tpl += '<p class="desp">'+items[i].short_intro+'</p>';
+				tpl += '</li>';
+			}
+			$nodes = $(tpl);
+			$('#pic-ct').append($nodes);
+			//console.log($nodes)
+			return $nodes;
+}
+		// <li class="item">
+  //   			<a href="#" class="link">
+  //   				<img src="http://s.img.mix.sina.com.cn/auto/resize?img=http%3A%2F%2Fwww.sinaimg.cn%2Fdy%2Fslidenews%2F5_img%2F2016_09%2F453_75615_657883.jpg&size=250_0" alt="">
+  //   			</a>
+  //   			<h4 class="header">标题</h4>
+  //   			<p class="desp">
+  //   				当地时间2016年3月1日，在东部与亲俄武装作战中受伤的乌克兰士兵接受海豚治疗。
+  //   			</p>
+  //   </li>
+	</script>
+
+</html>

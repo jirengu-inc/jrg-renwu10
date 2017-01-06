@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        ul,li{
+            margin:0;padding:0;
+            list-style:none;
+        }
+        *{
+            box-sizing: border-box;
+        }
+        a{
+            text-decoration: none;
+            color:#666;
+        }
+        .layout{
+            width:700px;
+            margin:0 auto;
+           /* border:1px solid red;*/
+        }
+        .clearfix:after{
+            content:'';
+            display:block;
+            clear:both;
+        }
+        .layout h1{
+            color:#666;
+        }
+        .container{
+
+            float:left;
+            /*border:1px solid yellow;*/
+        }
+        .prod{
+            position:relative;
+            width:200px;
+            text-align: center;
+            padding:10px 20px;
+            margin-left:20px;
+            margin-top:20px;
+            border:1px solid #ccc;
+            float:left;
+        }
+        .prod .cover{
+            position:absolute;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            background-color: #eee;
+            opacity:0;
+        }
+        .prod.hover .cover{
+            opacity:0.8;
+        }
+        .prod .btn{
+            position:absolute;
+            left:50%;
+            top:50%;
+            transform:translate(-50%,-50%);
+            background-color:red;
+            color:#333;
+            border:1px solid red;
+            padding:10px;
+        }
+        .prod-name{
+            text-align:left;
+        }
+        .prod-price{
+            text-align: left;
+            color:red;
+        }
+        .btn-add{
+            display:inline-block;
+            padding:10px 15px;
+            border:1px solid red;
+            margin-top:20px;
+        }
+        .btn1{
+            display:inline-block;
+        }
+    </style>
+</head>
+<body>
+<div class="layout ">
+    <h1>珠宝首饰</h1>
+    <ul class="container clearfix">
+                <li class="prod">
+                    <div class="cover"><a href="" class="btn">立即抢购</a></div>
+                    <a href=""><img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt=""/></a>
+                    <p class="prod-name">藏美千足金和田玉金镶玉路路通吊坠</p>
+                    <p class="prod-price">￥1699.00</p>
+                </li>
+                <li class="prod">
+                    <div class="cover"><a href="" class="btn">立即抢购</a></div>
+                    <a href=""><img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt=""/></a>
+                    <p class="prod-name">藏美千足金和田玉金镶玉路路通吊坠</p>
+                    <p class="prod-price">￥1699.00</p>
+                </li>
+                <li class="prod">
+                    <div class="cover"><a href="" class="btn">立即抢购</a></div>
+                    <a href=""><img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt=""/></a>
+                    <p class="prod-name">藏美千足金和田玉金镶玉路路通吊坠</p>
+                    <p class="prod-price">￥1699.00</p>
+                </li>
+                <li class="prod">
+                    <div class="cover"><a href="" class="btn">立即抢购</a></div>
+                    <a href=""><img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt=""/></a>
+                    <p class="prod-name">藏美千足金和田玉金镶玉路路通吊坠</p>
+                    <p class="prod-price">￥1699.00</p>
+                </li>
+                <li class="prod">
+                    <div class="cover"><a href="" class="btn">立即抢购</a></div>
+                    <a href=""><img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt=""/></a>
+                    <p class="prod-name">藏美千足金和田玉金镶玉路路通吊坠</p>
+                    <p class="prod-price">￥1699.00</p>
+                </li>
+                <li class="prod">
+                    <div class="cover"><a href="" class="btn">立即抢购</a></div>
+                    <a href=""><img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt=""/></a>
+                    <p class="prod-name">藏美千足金和田玉金镶玉路路通吊坠</p>
+                    <p class="prod-price">￥1699.00</p>
+                </li>
+    </ul>
+    <a href="javascript:void(0)" class="btn1 btn-add">更多</a> <!--此处跳转href一定要写，否则将会刷新页面而看不到效果（深坑啊！！！！）-->
+</div>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $('.container').on('mouseenter','.prod',function(){
+            $(this).addClass('hover');
+        });
+        $('.container').on('mouseleave','.prod',function(){
+            $(this).removeClass('hover');/*要用事件代理的方式，否则对于新增的对象将不会有CSS样式*/
+        });
+        /*$('.container').on('mouseenter','.prod',function(){
+         $('.prod .cover').addClass('hover')
+         });
+         $('.container').on('mouseleave','.prod',function(){
+         $('.prod .cover').removeClass('hover')
+         });*/
+
+        var products = [
+            {
+                img:'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+                name: '珂兰 黄金手 猴哥款',
+                price: '￥405.00'
+            },{
+                img:'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+                name: '珂兰 黄金手 猴哥款',
+                price: '￥605.00'
+            },{
+                img:'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+                name: '珂兰 黄金手 猴哥款',
+                price: '￥1405.00'
+            }
+        ];
+
+        function moreHtmlprod(prod){
+            var html = '';
+            html += '<li class="prod">';
+            html += '<div class="cover"><a href="" class="btn">立即抢购</a></div>';
+            html += '<a><img src="' + prod.img + '" alt=""/></a>';
+            html += '<p class="prod-name">'+ prod.name +'</p>';
+            html += '<p class="prod-price">'+ prod.price +'</p>';
+            html += '</li>';
+            return html;
+        }
+
+        $('.btn-add').on('click',function(e){
+            $.each(products,function(idx,prod){
+                var html = moreHtmlprod(prod);
+                $('.container').append(html);
+            })
+        })
+    });/*用each的方式遍历json对象，其中的idx指对象的属性，*/
+</script>
+</body>
+</html>
