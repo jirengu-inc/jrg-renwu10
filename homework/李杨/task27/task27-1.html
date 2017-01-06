@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>task 27</title>
+  <script src="jquery-3.1.1.js"></script>
+  <style>
+    body,html,ul,li {
+      margin: 0px;
+      padding: 0px;
+    }
+    a {
+      text-decoration: none;
+    }
+    ul,li {
+      list-style-type: none;
+    }
+    .carousel {
+      position: relative;
+      width: 480px;
+      height: 360px;;
+    }
+    .img-ct {
+      position: relative;
+    }
+    .img-ct>li {
+      position: absolute;
+      left: 0;
+      top:0;
+      display: none;
+    }
+    .arrow {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      border-radius: 30px;
+      background-color: rgba(0,0,0,0.3);
+      font-size: 20px;
+      color: white;
+      text-align: center;
+      line-height: 30px;
+    }
+    .arrow:hover {
+      background-color: black;
+    }
+    .pre {
+      top: 50%;
+      margin-top: -15px;
+    }
+    .next {
+      left: 100%;
+      top: 50%;
+      margin-left: -30px;
+      margin-top: -15px;
+    }
+    .bullet {
+      position: absolute;
+      overflow: hidden;
+      top: 90%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .bullet>li {
+      float: left;
+      background-color: rgba(255,255,255,0.8);
+      width: 50px;
+      border-radius: 50px;
+      height: 5px;
+      margin: 0 5px;
+      cursor: pointer;
+    }
+    .bullet>li.active {
+      background-color: rgba(255,255,255,0.4);
+    }
+  </style>
+</head>
+<body>
+  <div class="carousel">
+    <ul class="img-ct">
+      <li data-id="0"><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/26.jpg" alt=""></a></li>
+      <li data-id="1"><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/25.jpg" alt=""></a></li>
+      <li data-id="2"><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/24.jpg" alt=""></a></li>
+      <li data-id="3"><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/23.jpg" alt=""></a></li>
+    </ul>
+    <a href="#" class="pre arrow"><</a>
+    <a href="#" class="next arrow">></a>
+    <ul class="bullet">
+      <li class="active"></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </div>
+  <script>
+    var     $ct = $('.img-ct'),
+            $items = $ct.children(),
+            $pre = $('.pre'),
+            $next = $('.next'),
+            $bullet = $('.bullet'),
+            clock;
+    
+    var curIdx = 0;
+    $items.eq(0).show();
+    
+    $next.on('click',function () {
+      nextImg();
+    });
+    
+    $pre.on('click',function () {
+      preImg();
+    });
+    
+    $bullet.on('click','li',function () {
+      var $idx = $(this).index();
+      console.log($idx);
+      if ($idx > curIdx) {
+        nextImg($idx - curIdx);
+      } else if (curIdx > $idx) {
+        preImg(curIdx - $idx)
+      }
+    });
+    
+    $ct.hover(function () {
+      stopPlay();
+    },function () {
+      autoPlay();
+    })
+    
+    autoPlay();
+    
+    //下一页
+    function nextImg(idx) {
+      stopPlay();
+      var idx = idx || 1;
+      curIdx += idx;
+      $items.fadeOut();
+      $items.eq(curIdx).fadeIn();
+      console.log(curIdx)
+      if (curIdx > 3) {
+        $items.fadeOut();
+        $items.first().fadeIn();
+        curIdx = 0;
+      }
+      setBullet();
+      autoPlay();
+    }
+    //上一页
+    function preImg(idx) {
+      stopPlay();
+      var idx = idx || 1;
+      curIdx -= idx;
+      $items.fadeOut();
+      $items.eq(curIdx).fadeIn();
+      console.log(curIdx);
+      if (curIdx < 0) {
+        $items.last().fadeIn();
+        curIdx = 3
+      }
+      setBullet();
+      autoPlay();
+    }
+    //导航条
+    function setBullet() {
+      $bullet.find('li').removeClass('active').eq(curIdx).addClass('active');
+    }
+    //自动播放
+    function autoPlay() {
+      clock = setInterval(function () {
+        nextImg()
+      },2000);
+    }
+    //停止自动播放
+    function stopPlay() {
+      clearInterval(clock);
+    }
+  </script>
+</body>
+</html>
