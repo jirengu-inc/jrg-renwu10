@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>demo1</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		li {
+			list-style: none;
+		}
+		.parent-list>li {
+			background: red;
+			color: white;
+			width: 200px;
+			position: relative;
+			cursor: pointer;
+			border-bottom: 1px dotted pink;
+		}
+		.parent-list>li:after{
+			content: "";
+			display: block;
+			height: 0px;
+			clear: both;
+			visibility: hidden;
+		}
+		.words {
+			padding: 10px;
+			float: left;
+		}
+		.arrow {
+			float: right;
+			padding: 10px;
+		}
+		.child-list {
+			display: none;
+			position: absolute;
+			left: 200px;
+			color: black;
+			padding: 0;
+			width: 250px;
+			font-size: 14px;
+			border: 1px solid #ccc;
+		}.child-list>li{
+			float: left;
+			padding: 5px 40px;
+		}
+	</style>
+</head>
+<body>
+<ul class="parent-list">
+	<li>
+		<span class="words">珠宝玉器</span>
+		<span class="arrow">></span>
+		<ul class="child-list">
+			<li>翡翠</li>
+			<li>玉石</li>
+			<li>宝石</li>
+			<li>水晶</li>
+			<li>玛瑙</li>
+			<li>珍珠</li>
+			<li>钻石</li>
+			<li>琥珀</li>
+			<li>和田</li>
+			<li>琥珀</li>
+		</ul>
+	</li>
+	<li>
+		<span class="words">珠宝玉器</span>
+		<span class="arrow">></span>
+		<ul class="child-list">
+			<li>翡翠</li>
+			<li>玉石</li>
+			<li>宝石</li>
+			<li>水晶</li>
+			<li>玛瑙</li>
+			<li>珍珠</li>
+		</ul>
+	</li>
+	<li>
+		<span class="words">珠宝玉器</span>
+		<span class="arrow">></span>
+		<ul class="child-list">
+			<li>翡翠</li>
+			<li>玉石</li>
+			<li>宝石</li>
+			<li>水晶</li>
+		</ul>
+	</li>
+	<li>
+		<span class="words">珠宝玉器</span>
+		<span class="arrow">></span>
+		<ul class="child-list">
+			<li>翡翠</li>
+			<li>玉石</li>
+			<li>宝石</li>
+			<li>水晶</li>
+			<li>玛瑙</li>
+			<li>珍珠</li>
+		</ul>
+	</li>
+	<li>
+		<span class="words">珠宝玉器</span>
+		<span class="arrow">></span>
+		<ul class="child-list">
+			<li>翡翠</li>
+			<li>玉石</li>
+			<li>宝石</li>
+			<li>水晶</li>
+		</ul>
+	</li>
+</ul>
+<script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js"></script>
+<script type="text/javascript">
+	$(".parent-list>li").on("mouseenter", function(){
+		$(".child-list").css("display", "none");
+		$(this).find(".child-list").css("display", "block");
+	})
+</script>
+</body>
+</html>
