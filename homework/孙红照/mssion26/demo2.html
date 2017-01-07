@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>demo2</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		.demo1 {
+			display: inline-block;
+			text-align: center;
+			padding: 5px;
+			border: 1px solid #ccc;
+		}
+		.demo2 p {
+			padding: 20px;
+			position: fixed;
+			background-color: rgba(0,0,0,0.5);
+			color: white;
+			right: 0px;
+			top: 60px;
+		}
+		.demo3 {
+			border: 1px solid #ccc;
+			height: 50px;
+		}
+		.box {
+			height: 2000px;
+		}
+	</style>
+</head>
+<body>
+<fieldset>
+	<legend>当点击$btn 时，让 $btn 的背景色变为红色再变为蓝色</legend>
+	<div class="demo1">点我会变色</div>
+</fieldset>
+<fieldset>
+	<legend>当窗口滚动时，获取垂直滚动距离</legend>
+	<div class="demo2">
+		<p>窗口垂直滚动距离是：0</p>
+	</div>
+</fieldset>
+<fieldset>
+	<legend>当鼠标放置到$div 上，把$div 背景色改为红色，移出鼠标背景色变为白色</legend>
+	<div class="demo3"></div>
+</fieldset>
+<fieldset>
+	<legend>当鼠标激活 input 输入框时让输入框边框变为蓝色，当输入框内容改变时把输入框里的文字小写变为大写，当输入框失去焦点时去掉边框蓝色，控制台展示输入框里的文字</legend>
+	<input class="demo4" type="text">
+</fieldset>
+<fieldset>
+	<legend>当选择 select 后，获取用户选择的内容</legend>
+	<select class="demo5">
+		<option></option>
+		<option>特斯拉</option>
+		<option>沃尔沃</option>
+		<option>雷克萨斯</option>
+	</select>
+	<p>用户选取的内容是：</p>
+</fieldset>
+<div class="box"></div>
+<script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js
+"></script>
+<script type="text/javascript">
+
+	// demo1
+	$(".demo1").on("click", function(){
+		var $this = $(this);
+		$this.css("background-color", "red");
+		setTimeout(function(){
+			$this.css("background-color", "blue");
+		}, 1000);
+	})
+
+	// demo2
+	$(window).on("scroll", function(){
+		var scrollLength = $(window).scrollTop();
+		$(".demo2 p").text("窗口垂直滚动距离是：" + scrollLength);
+	})
+
+	// demo3
+	$(".demo3").on("mouseenter", function(){
+		$(this).css("background-color", "red");
+	})
+	$(".demo3").on("mouseleave", function(){
+		$(this).css("background-color", "white");
+	})
+
+	// demo4
+	$(".demo4").on("keyup", function(){
+		var content = $(this).val().toUpperCase();
+		console.log(content);
+		$(this).val(content);
+	})
+
+	// demo5
+	$(".demo5").on("change", function(){
+		$(this).parent("fieldset").find("p").text("用户选取的内容是：" + $("option:selected").text());
+	})
+</script>
+</body>
+</html>
