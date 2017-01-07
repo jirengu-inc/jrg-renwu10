@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>task29-1</title>
+  <style>
+    li {
+      height: 100px;
+      margin-top: 20px;
+      list-style-type: none;
+    }
+    .btn-wrapper {
+      position: fixed;
+      right: 50px;
+      bottom: 50px;
+    }
+    .btn-wrapper>a {
+      padding: 10px 20px;
+      border: 1px solid red;
+      color: red;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+    <li>7</li>
+    <li>8</li>
+    <li>9</li>
+    <li>10</li>
+  </ul>
+  <div class="btn-wrapper"><a href="##">回到顶部</a></div>
+  <script src="jquery-3.1.1.js"></script>
+  <script>
+    var $btn = $('.btn-wrapper');
+    $btn.hide();
+    
+    $btn.on('click',function () {
+      $(window).scrollTop(0);
+    })
+    
+    $(window).on('scroll',function () {
+      if($('body').scrollTop() > 100) {
+        $btn.show();
+      }else  {
+        $btn.hide();
+      }
+    });
+    
+  </script>
+</body>
+</html>

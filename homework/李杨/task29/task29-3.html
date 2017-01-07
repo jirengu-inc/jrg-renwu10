@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>task 26-3</title>
+  <script src="jquery-3.1.1.js"></script>
+  <style>
+    ul,li {
+      margin: 0;
+      padding: 0;
+    }
+    li {
+      color: green;
+      padding: 10px 20px;
+      margin: 5px;
+      list-style-type: none;
+      border: 1px solid green;
+      border-radius: 5px;
+    }
+    li:hover {
+      color: white;
+      background-color: green;
+    }
+    .btn {
+      padding: 10px;
+      color: green;
+      text-decoration: none;
+      border: 1px solid green;
+    }
+    .btnWrapper {
+      margin: 50px auto;
+      width: 200px;
+    }
+  </style>
+</head>
+<body>
+<ul>
+  <li>内容0</li>
+  <li>内容1</li>
+</ul>
+<div class="btnWrapper"><a href="##" class="btn">加载更多</a></div>
+<script>
+  var     $btn = $('.btn'),
+          LEN = 6;
+  $btn.on('click',function () {
+    var START = $(this).index();
+    $(this).text('loading...');
+    $.ajax({
+      url: 'getmore.php',
+      type: 'GET',
+      dataType: 'json',
+      data: {
+        start: START,
+        len: LEN
+      },
+      success: function (data) {
+        if (data.status === 1){
+          var item = data.data;
+          for (var i = 0; i < item.length; i++) {
+            $('ul').append('<li>' + item[i] + '</li>')
+          }
+        }else {
+          alert('error');
+        }
+      },
+      error: function () {
+        alert('error');
+      },
+      complete: function () {
+        $btn.text('加载更多');
+      }
+    })
+  })
+</script>
+</body>
+</html>
