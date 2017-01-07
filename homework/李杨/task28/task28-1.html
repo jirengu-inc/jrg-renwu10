@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>task28</title>
+  <script src="jquery-3.1.1.js"></script>
+  <style>
+    html,body,div {
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    body {
+      width: 100%;
+      height: 2000px;
+      position: relative;
+    }
+    .header {
+      width: 100%;
+      height: 50px;
+      background-color: red;
+    }
+    .nav  {
+      width: 100%;
+      height: 50px;
+      background-color: blue;
+    }
+    .main {
+      overflow: hidden;
+      width: 100%;
+    }
+    .sidebar {
+      float: left;
+      height: 300px;
+      width: 100px;
+      background-color: green;
+    }
+    .content {
+      height: 500px;
+      background-color: lightgray;
+      margin-left: 100px;
+    }
+    .footer {
+      width: 100%;
+      height: 50px;
+      background-color: orange;
+    }
+    
+  </style>
+</head>
+<body>
+  <div class="header">header</div>
+  <div class="nav">nav</div>
+  <div class="main">
+    <div class="sidebar">sidebar</div>
+    <div class="content">content</div>
+  </div>
+  <div class="footer">footer</div>
+  <script>
+    $.fn.stick = function () {
+      var     $cur = this,
+              curW = $cur.width(),
+              offsetT = $cur.offset().top,
+              offsetL = $cur.offset().left;
+      
+      var $clone =  $cur.clone()
+                    .css({'opacity' : 0})
+                    .insertBefore($cur)
+                    .hide();
+      
+      $(window).on('scroll',function () {
+        var scrollT = $(window).scrollTop();
+        if (scrollT >= offsetT) {
+          if (!isFixed()) {
+            setFixed();
+          }
+        }else {
+          if (isFixed()) {
+            unsetFixed();
+          }
+        }
+      })
+      
+      function isFixed() {
+        return !!$cur.attr('data-fixed');
+      }
+      
+      function setFixed() {
+        $cur    .attr('data-fixed',true)
+                .css({
+                  'position' : 'fixed',
+                  'top' : 0,
+                  'left' : offsetL,
+                  'width' : curW,
+                  'margin' : 0,
+                  'z-index' : 10
+                });
+        $clone.show();
+      }
+      
+      function unsetFixed() {
+        $cur.removeAttr('data-fixed').removeAttr('style');
+        $clone.hide();
+      }
+    }
+    
+    $('.nav').stick();
+  </script>
+</body>
+</html>
