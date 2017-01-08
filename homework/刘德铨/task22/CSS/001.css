@@ -1,0 +1,350 @@
+ul,
+li {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+body {
+    font: 20px/1.5  Helvetica, arial, "Microsoft Yahei", "微软雅黑", STXihei, "华文细黑", sans-serif;
+    background: #FF9279;
+    padding: 50px;
+    min-width: 550px;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+.clearfix::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.ct {
+    border: 2px solid #73E22D;
+    padding: 20px;
+}
+
+.ct li {
+    margin: 10px 0;
+    text-align: center;
+}
+
+.ct li:hover {
+    background: #6CB4E4;
+    cursor: pointer;
+}
+
+.modify {
+    margin: 20px 0;
+    border: 2px solid #556ADF;
+    text-align: center;
+    padding: 30px;
+}
+
+.modify .ipt-add-content {
+    height: 50px;
+    padding: 10px 30px;
+    border-radius: 35px;
+    border: none;
+    outline: none;
+    font: 18px/1.5 "Microsoft Yahei", "微软雅黑", STXihei, "华文细黑";
+    box-shadow: 0 0 10px #000;
+    transition: all 1.2s ease-in-out;
+}
+
+.modify .ipt-add-content:focus {
+    transform: scale(1.2);
+}
+
+.warning-tip {
+    border: 2px solid #519AFF;
+    color: red;
+    position: relative;
+    margin-left: 60px;
+    display: none;
+}
+
+.warning-tip::before {
+    content: '';
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-top: 15px solid transparent;
+    border-right: 15px solid #519AFF;
+    border-bottom: 15px solid transparent;
+    position: absolute;
+    top: 0;
+    left: -19px;
+}
+
+.warning-tip .warning-sign {
+    margin: 0 10px;
+}
+
+.modify .btn-add {
+    margin: 20px 0;
+    padding: 10px;
+}
+
+.modify #btn-add-start,
+.modify #btn-add-end {
+    border: none;
+    outline: none;
+    height: 47px;
+    border-radius: 23.5px;
+    margin: 10px 20px;
+    padding: 10px 30px;
+    font: bold 18px/1.5 "Microsoft Yahei", "微软雅黑", STXihei, "华文细黑";
+    color: #2B5068;
+    cursor: pointer;
+    background: #00C969;
+    box-shadow: 0 0 10px #6D7BC4;
+}
+
+.modify #btn-add-start:hover,
+.modify #btn-add-end:hover {
+    color: #DDD;
+}
+
+.img-album {
+    border: 2px solid #79C9FF;
+    padding: 20px;
+    position: relative;
+}
+
+.img-preview {
+    height: 370px;
+    text-align: center;
+}
+
+.img-album .img-list {
+    border: 2px solid #FFF;
+    text-align: center;
+}
+
+.img-album .img-list li {
+    display: inline-block;
+    margin: 10px 20px;
+    cursor: pointer;
+    border: 2px solid #006C9A;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background: #E38ED2;
+}
+
+.img-album .img-list li:hover {
+    box-shadow: 0 0 10px #F3D100;
+}
+
+.tab {
+    border: 2px solid #9F71DB;
+    margin: 30px 0;
+    padding: 20px;
+    color: #7128FF;
+}
+
+.tab .tab-title {
+    border: 2px solid #005689;
+    border-bottom: none;
+    border-top-left-radius: 22px;
+    border-top-right-radius: 22px;
+}
+
+.tab .tab-title li {
+    float: left;
+    background: #A2D7FF;
+    border-right: 2px solid #005689;
+    border-bottom: 2px solid #005689;
+    box-sizing: border-box;
+    width: 33.33%;
+    padding: 10px 0;
+    text-align: center;
+    cursor: pointer;
+}
+
+.tab .tab-title li:first-child {
+    border-top-left-radius: 20px;
+}
+
+.tab .tab-title li:last-child {
+    border-right: none;
+    border-top-right-radius: 20px;
+}
+
+.tab .panel {
+    background: #A2D7FF;
+    border: 2px solid #005689;
+    border-top: none;
+    border-bottom-left-radius: 22px;
+    border-bottom-right-radius: 22px;
+    height: 200px;
+    line-height: 200px;
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+    display: none;
+}
+
+.tab .tab-title .active {
+    background: #28A2FF;
+}
+
+.tab .active {
+    display: block;
+    background: #28A2FF;
+}
+
+.modal {
+    border: 2px solid #FFBC65;
+    height: 800px;
+    padding: 20px;
+    position: relative;
+}
+
+.modal .modal-text {
+    border: 2px solid #FFF;
+    border-radius: 30px;
+    padding: 20px;
+    margin-bottom: 30px;
+    width: 300px;
+    background: #F38181;
+    box-shadow: 0 0 10px #392F2F;
+    overflow: auto;
+}
+
+.modal .modal-text .modal-text-title {
+    border-bottom: 2px solid #FFF;
+    padding: 10px 0;
+}
+
+.modal #btn-modal {
+    border: none;
+    outline: none;
+    padding: 10px 40px;
+    background: #95E1D3;
+    font: bold 20px/1.5 'Microsoft Yahei', '微软雅黑', STXihei, '华文细黑';
+    color: #30864B;
+    letter-spacing: 10px;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 0 10px #392F2F;
+}
+
+.modal #btn-modal:hover {
+    color: #EF5353;
+    text-shadow: 0 0 2px #E9EA11;
+}
+
+.modal .modal-edit {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    border: 2px solid #FFF;
+    border-radius: 30px;
+    padding: 20px;
+    width: 400px;
+    background: #F38181;
+    box-shadow: 0 0 10px #392F2F;
+    display: none;
+}
+
+.modal .modal-edit.active {
+    display: block;
+}
+
+.modal .modal-edit .modal-edit-header .modal-edit-title {
+    display: inline-block;
+    width: 100px;
+}
+
+.modal .modal-edit .modal-edit-header .modal-edit-close {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    font-size: 30px;
+    color: #FFF;
+    transition: all 0.8s ease-in-out;
+}
+
+.modal .modal-edit .modal-edit-header .modal-edit-close:hover {
+    transform: rotateY(360deg);
+}
+
+.modal .modal-edit .modal-edit-content {
+    border-top: 2px solid #FFF;
+    border-bottom: 2px solid #FFF;
+}
+
+.modal .modal-edit .modal-edit-content .modal-edit-content-area {
+    padding: 10px;
+    margin: 10px 0;
+    border: 2px solid #FFF;
+}
+
+.modal .modal-edit .modal-edit-content  #text-size {
+    position: relative;
+}
+
+.modal .modal-edit .modal-edit-content  #text-size::before {
+    content: attr(min);
+    position: absolute;
+    top: -10px;
+}
+
+.modal .modal-edit .modal-edit-content  #text-size::after {
+    content: attr(max);
+    position: absolute;
+    top: -10px;
+    right: 0px;
+}
+
+.modal .modal-edit .modal-edit-content  .text-size-show {
+    width: 80px;
+    padding: 5px 20px;
+    border: none;
+    outline: none;
+    font: 20px/1.5 'Microsoft Yahei', '微软雅黑', STXihei, '华文细黑';
+    border-radius: 20px;
+}
+
+.modal .modal-edit .modal-edit-content  .text-width,
+.modal .modal-edit .modal-edit-content  .text-height {
+    margin: 10px 0;
+}
+
+.modal .modal-edit .modal-edit-content  #text-width,
+.modal .modal-edit .modal-edit-content  #text-height {
+    border: none;
+    outline: none;
+    width: 62%;
+    padding: 5px 20px;
+    margin: 0 4px;
+    font: 16px/1.5 'Microsoft Yahei', '微软雅黑', STXihei, '华文细黑';
+    border-radius: 20px;
+}
+
+.modal .modal-edit .modal-edit-footer {
+    float: right;
+    padding: 20px 0;
+}
+
+.modal .modal-edit .modal-edit-footer .modal-edit-confirm,
+.modal .modal-edit .modal-edit-footer .modal-edit-cancel {
+    border: 2px solid #FFF;
+    border-radius: 15px;
+    padding: 2px 20px;
+    background: #A3C4F3;
+}
+
+.modal .modal-edit .modal-edit-footer .modal-edit-cancel {
+    margin-left: 20px;
+}
+
+.modal .modal-edit .modal-edit-footer .modal-edit-confirm:hover,
+.modal .modal-edit .modal-edit-footer .modal-edit-cancel:hover {
+    background: #5E9AEA;
+}
