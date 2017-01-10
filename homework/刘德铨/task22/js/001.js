@@ -172,7 +172,7 @@ bagColorChoose.addEventListener('change', function(e) {
 
 
 textWidth.addEventListener('change', function(e) {
-    textWidth.value = textWidth.value.replace(/[^.\d]/, '');
+    textWidth.value = textWidth.value.replace(/[^.\d]/g, '');
     var width = modalStyle.width.replace(/[^.\d]/g, '');
     if (textWidth.value > width - 40) {
         textWidth.placeholder = '最宽<=' + (width - 40) + 'px';
@@ -192,7 +192,7 @@ textWidth.addEventListener('change', function(e) {
 
 
 textHeight.addEventListener('change', function(e) {
-    textHeight.value = textHeight.value.replace(/[^.\d]/, '');
+    textHeight.value = textHeight.value.replace(/[^.\d]/g, '');
     var height = modalStyle.height.replace(/[^.\d]/g, '');
     if (textHeight.value > height - 120) {
         textHeight.placeholder = '最高<=' + (height - 120) + 'px';
