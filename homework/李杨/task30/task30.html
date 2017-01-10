@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>task30</title>
+  <style>
+    .items {
+      position: relative;
+    }
+    .p1,.p2,.p3,.p4 {
+      width: 250px;
+      margin: 10px;
+      position: absolute;
+      transition: all 0.5s;
+    }
+    .p1 {
+      background-color: red;
+      height: 250px;
+    }
+    .p2 {
+      background-color: blue;
+      height: 300px;
+    }
+    .p3 {
+      background-color: yellow;
+      height: 350px;
+    }
+    .p4 {
+      background-color: green;
+      height: 400px;
+    }
+  </style>
+</head>
+<body>
+  <div class="items">
+    <div class="p1"></div>
+    <div class="p2"></div>
+    <div class="p3"></div>
+    <div class="p4"></div>
+    <div class="p1"></div>
+    <div class="p2"></div>
+    <div class="p3"></div>
+    <div class="p4"></div>
+    <div class="p1"></div>
+    <div class="p2"></div>
+    <div class="p3"></div>
+    <div class="p4"></div>
+    <div class="p1"></div>
+    <div class="p2"></div>
+    <div class="p3"></div>
+    <div class="p4"></div>
+    <div class="p1"></div>
+    <div class="p2"></div>
+    <div class="p3"></div>
+    <div class="p4"></div>
+    <div class="p1"></div>
+    <div class="p2"></div>
+    <div class="p3"></div>
+    <div class="p4"></div>
+    <div class="p1"></div>
+    <div class="p2"></div>
+    <div class="p3"></div>
+    <div class="p4"></div>
+    <div class="p1"></div>
+    <div class="p2"></div>
+    <div class="p3"></div>
+    <div class="p4"></div>
+    <div class="p1"></div>
+    <div class="p2"></div>
+    <div class="p3"></div>
+    <div class="p4"></div>
+  </div>
+  <script src="jquery-3.1.1.js"></script>
+  <script>
+    function waterFall() {
+      var winW = $(window).width(),
+              count = parseInt(winW / $('.p1').outerWidth(true)),
+              hArr = [],
+              $items = $('.items').children(),
+              $itemsW = $('.p1').outerWidth(true);
+  
+      for (var i = 0; i < count; i++) {
+        hArr.push(0);
+      }
+      $items.each(function () {
+        var $cur = $(this);
+        var idx = 0;
+        var minHight = hArr[0];
+        for(var j = 0; j < count; j++) {//获得数组中最小数以及它的索引
+          if (hArr[j] < minHight) {
+            idx = j;
+            minHight = hArr[j];
+          }
+        }
+    
+        $cur.css({
+          'left' : $itemsW * idx ,//右移数值为元素宽度乘索引值
+          'top' : minHight//下移数值为数组最小值
+        });
+        hArr[idx] = hArr[idx] + $cur.outerHeight(true);//更新数组之前的最小值
+      })
+    }
+    
+    waterFall();
+    $(window).on('resize',function () {
+      waterFall();
+    })
+    
+    
+  </script>
+</body>
+</html>
