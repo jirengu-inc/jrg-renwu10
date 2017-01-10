@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>demo3</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		* {
+			text-align: center;
+		}
+		.box {
+			border: 1px solid #ccc;
+			padding: 10px;
+			margin: 10px;
+		}
+		.box:hover {
+			background-color: green;
+		}
+		.btn {
+			border: 1px solid #e27272;
+			border-radius: 2px;
+			color: #e27272;
+			padding: 10px;
+			margin: 10px;
+			display: inline-block;
+			cursor: pointer;
+			width: 64px;
+			height: 18px;
+			text-align: center;
+		}
+		.btn img {
+			width: 18px;
+		}
+	</style>
+</head>
+<body>
+<div class="ct">
+	<div class="box">内容1</div>
+	<div class="box">内容2</div>
+</div>
+<a class="btn">加载更多</a>
+<script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js
+"></script>
+<script type="text/javascript">
+	$(".btn").on("click", function(){
+		var $this = $(this);
+		var nowLength = $(".ct").children().size();
+		console.log(nowLength);
+		if($(this).data("isLoading")){
+			return;
+		}
+
+		$this.data("isLoading", true).html('<img src="loading.gif">');
+		$.ajax({
+			url: "demo3.php",
+			dataType: "json",
+			type: "get",
+			data: {
+				start: (nowLength+1),
+				len: 6
+			},
+			success: function(json){
+				onSuccess(json);
+			},
+			error: function(){
+				onError();
+			}
+		});
+
+		function onSuccess(json){
+			if (json.status === 1){
+				for(var i=0;i<json.data.length;i++){
+					$(".ct").append('<div class="box">' + json.data[i] + '</div>');
+				}
+				$this.data("isLoading", false).text("加载更多");
+			} else {
+				$this.data("isLoading", false).text('加载更多');
+				alert("加载失败，服务器原因");
+			}
+		}
+
+		function onError(){
+			$this.data("isLoading", false).text('加载更多');
+			alert("加载失败，网络原因");
+		}
+	})
+</script>
+
+</body>
+</html>
