@@ -41,7 +41,7 @@ iptAddContent.addEventListener('input', function() {
 
 btnAddStart.addEventListener('click', function(e) {
     var iptAddContentValue = iptAddContent.value;
-    if (iptAddContentValue != '') {
+    if (iptAddContentValue !== '') {
         warningTip.style.display = 'none';
         var newLi = document.createElement('li');
         newLi.innerText = iptAddContentValue;
@@ -53,7 +53,7 @@ btnAddStart.addEventListener('click', function(e) {
 
 btnAddEnd.addEventListener('click', function(e) {
     var iptAddContentValue = iptAddContent.value;
-    if (iptAddContentValue != '') {
+    if (iptAddContentValue !== '') {
         var newLi = document.createElement('li');
         newLi.innerText = iptAddContentValue;
         ct.insertBefore(newLi, ct.lastChild);
@@ -100,7 +100,7 @@ for(var i = j = 0; i < tabLi.length; i++){
 */
 
 //方法2
-var oldindex = 0;
+/*var oldindex = 0;
 for (var i = j = 0; i < tabLi.length; i++) {
     (function(i) {
         tabLi[i].addEventListener('click', function() {
@@ -111,7 +111,28 @@ for (var i = j = 0; i < tabLi.length; i++) {
             oldindex = i;
         }, false);
     })(i);
+}*/
+
+
+//方法3
+var oldindex = 0;
+var fnArr = [];
+
+function changeActive(i) {
+        tabLi[i].addEventListener('click', function() {
+            panel[oldindex].className = panel[oldindex].className.replace(/active/, '');
+            tabLi[oldindex].className = tabLi[oldindex].className.replace(/active/, '');
+            panel[i].className += ' active';
+            tabLi[i].className += ' active';
+            oldindex = i;
+        }, false);
+ }
+
+
+ for (var i = 0; i < tabLi.length; i++) {
+    fnArr[i] = changeActive(i);
 }
+
 
 
 /*----------------------5-----------------------*/
@@ -142,7 +163,7 @@ var modalTextPreSituation = {
     "bagColor": modalTextStyle.backgroundColor,
     "textWidth": modalTextStyle.width,
     "textHeight": modalTextStyle.height
-}
+};
 
 btnModal.addEventListener('click', function(e) {
     if (!/active/.test(modalEdit.className)) {
@@ -172,7 +193,7 @@ bagColorChoose.addEventListener('change', function(e) {
 
 
 textWidth.addEventListener('change', function(e) {
-    textWidth.value = textWidth.value.replace(/[^.\d]/, '');
+    textWidth.value = textWidth.value.replace(/[^.\d]/g, '');
     var width = modalStyle.width.replace(/[^.\d]/g, '');
     if (textWidth.value > width - 40) {
         textWidth.placeholder = '最宽<=' + (width - 40) + 'px';
@@ -192,7 +213,7 @@ textWidth.addEventListener('change', function(e) {
 
 
 textHeight.addEventListener('change', function(e) {
-    textHeight.value = textHeight.value.replace(/[^.\d]/, '');
+    textHeight.value = textHeight.value.replace(/[^.\d]/g, '');
     var height = modalStyle.height.replace(/[^.\d]/g, '');
     if (textHeight.value > height - 120) {
         textHeight.placeholder = '最高<=' + (height - 120) + 'px';

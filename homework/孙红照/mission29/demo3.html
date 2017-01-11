@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>demo3</title>
+	<title>demo loadmore</title>
 	<meta charset="utf-8">
+	<script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js
+"></script>
 	<style type="text/css">
 		* {
 			text-align: center;
@@ -38,26 +40,51 @@
 	<div class="box">内容2</div>
 </div>
 <a class="btn">加载更多</a>
-<script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js
-"></script>
 <script type="text/javascript">
-	$(".btn").on("click", function(){
-		var $this = $(this);
-		console.log($this);
+	var $loadMoreBtn = $(".btn");
+	var clock;
+	loadMore($loadMoreBtn);
+
+	$(window).on("scroll", function(event){
+		if (clock) {
+			clearTimeout(clock);
+		}
+		clock = setTimeout(function(){
+			if (!isVisible($loadMoreBtn)) {
+				console.log(111);
+				return;
+			}
+			loadMore($loadMoreBtn);
+		},500);
+	})
+
+
+	function isVisible($node){
+		var offsetH = $node.offset().top;
+		var winH = $(window).height();
+		var scrollH = $(window).scrollTop();
+		if (offsetH < winH +scrollH) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+
+	function loadMore($node){
 		var nowLength = $(".ct").children().size();
-		console.log(nowLength);
 		if($(this).data("isLoading")){
 			return;
 		}
 
-		$this.data("isLoading", true).html('<img src="loading.gif">');
+		$node.data("isLoading", true).html('<img src="loading.gif">');
 		$.ajax({
 			url: "demo3.php",
 			dataType: "json",
 			type: "get",
 			data: {
 				start: (nowLength+1),
-				len: 6
+				len: 20
 			},
 			success: function(json){
 				onSuccess(json);
@@ -72,9 +99,9 @@
 				for(var i=0;i<json.data.length;i++){
 					$(".ct").append('<div class="box">' + json.data[i] + '</div>');
 				}
-				$this.data("isLoading", false).text("加载更多");
+				$node.data("isLoading", false).text("加载更多");
 			} else {
-				$this.data("isLoading", false).text('加载更多');
+				$node.data("isLoading", false).text('加载更多');
 				alert("加载失败，服务器原因");
 			}
 		}
@@ -83,7 +110,7 @@
 			$this.data("isLoading", false).text('加载更多');
 			alert("加载失败，网络原因");
 		}
-	})
+	};
 </script>
 
 </body>
