@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>加载更多</title>
+	<style type="text/css">
+	ul,li{
+		margin: 0;
+		padding:0
+	}
+	#box li{
+		list-style: none;
+		border: 1px solid #ccc;
+		padding: 10px;
+		margin-top: 10px;
+		cursor: pointer;
+	}
+	.btn{
+		height: 40px;
+		line-height: 40px;
+		width: 80px;
+		border: 1px solid green;
+		border-radius: 3px;
+		text-align: center;
+		text-decoration: none;
+    background: green;
+		color: #fff;
+	}
+	#load-more{
+		display: block;
+		margin:10px auto;
+	}
+	#box li:hover{
+		background: green;
+		color: #fff;
+	}
+	</style>
+</head>
+
+<body>
+	<ul id="box">
+		<li>第1行</li>
+		<li>第2行</li>
+	</ul>
+	<a href="" id="load-more" class="btn">再加载5行</a>
+	<script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js"></script>
+	<script type="text/javascript">
+	$(function(){
+		var origin = 3,
+	  		addMore = 5,
+	  	 flag = true;
+	  $('#load-more').on('click',function(e){
+	  	e.preventDefault();
+	  	if(!flag){
+	  		return;
+	  	}
+	  	flag = false;
+	  	$(this).text('loading...');
+	  	$.ajax({
+	  	url: 'loading.php',
+      type: 'POST',
+      dataType: 'json',
+      data: {
+           start: origin,
+           len: addMore
+            },
+			success:function(json){
+					if(json.status==1){
+						var items = json.data;
+						for( var i=0;i<items.length;i++){
+							$('#box').append('<li>'+items[i]+'</li>');
+						}
+						origin+=addMore;
+					}else{
+						console.log('失败');
+					}
+				},
+			error:function(){
+					alert('系统异常');
+				},
+			complete:function(){
+				$('#load-more').text('再加载5行');
+				flag = true;
+			}
+	  	});
+	  });
+	})
+
+	</script>
+</body>
+</html>
