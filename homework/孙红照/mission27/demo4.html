@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>demo4</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+			text-decoration: none;
+			list-style: none;
+		}
+		html, body , .carousel-fullscreen, .img-ct, .item, .cover{
+			width: 100%;
+			height: 100%;
+		}
+		.carousel-fullscreen {
+			position: relative;
+			overflow: hidden;
+		}
+		.img-ct {
+			position: absolute;
+		}
+		.item {
+			position: relative;
+			float: left;
+			height: 100%;
+		}
+		.cover {
+			background-size: cover;
+			height: 100%;
+		}
+		.tesla {
+			background-image: url("img/Tesla ModelS.jpg");
+		}
+		.volvo {
+			background-image: url("img/Volvo S90.jpg");
+		}
+		.lexus {
+			background-image: url("img/LEXUS LS.jpg");
+		}
+		.audi {
+			background-image: url("img/Audi R8.jpg");
+		}
+		.word {
+			position: absolute;
+			top: 10%;
+			left: 10%;
+			font-size: 30px;
+			border-radius: 30px;
+			padding: 0 10px;
+			background-color: rgba(0,0,0,0.6);
+			color: #ccc;
+		}
+		.bullet {
+			position: absolute;
+			bottom: 10%;
+			left: 50%;
+			margin-left: -240px;
+			overflow: auto;
+		}
+		.bullet>li {
+			margin: 0 30px;
+			width: 50px;
+			height: 5px;
+			background-color: rgba(0,0,0,0.5);
+			float: left;
+			cursor: pointer;
+		}
+		.active {
+			background-color: black!important;
+		}
+	</style>
+</head>
+<body>
+<div class="carousel-fullscreen">
+	<ul class="img-ct">
+		<li class="item">
+			<div class="cover tesla"></div>
+			<div class="word">
+				<h1>Tesla Model S</h1>
+			</div>
+		</li>
+		<li class="item">
+			<div class="cover volvo"></div>
+			<div class="word">
+				<h1>Volvo S90</h1>
+			</div>
+		</li>
+		<li class="item">
+			<div class="cover lexus"></div>
+			<div class="word">
+				<h1>Lexus LS</h1>
+			</div>
+		</li>
+		<li class="item">
+			<div class="cover audi"></div>
+			<div class="word">
+				<h1>Audi R8</h1>
+			</div>
+		</li>
+	</ul>
+	<ul class="bullet">
+		<li class="active"></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+</div>
+
+
+<script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js
+"></script>
+<script type="text/javascript">
+	function doCarousel($node){
+		var $ct = $node.find(".img-ct"),
+			$items = $node.find(".img-ct").children(),
+			$bullet = $node.find(".bullet").find("li"),
+			imgCount = $items.size(),
+			curIdx = 0,
+			isAnimate = false;
+
+
+	$ct.append($items.first().clone());
+	$ct.prepend($items.last().clone());
+	var imgReallength = $ct.children().size();
+	$ct.find('.item').css('width', ($(window).width()));
+	$ct.find('.cover').css('width', ($(window).width()));
+	$ct.css({left: 0-($(window).width()), width: imgReallength*($(window).width())});
+
+
+		$bullet.on("click",function(){
+			var idx = $(this).index();
+			if (idx<curIdx){
+				playPre(curIdx - idx);
+			}
+			if(idx>curIdx){
+				playNext(idx - curIdx);
+			}
+		})
+
+		
+		autoPlay();
+
+
+		function playPre(moveNum){
+			if (!isAnimate){
+				isAnimate = true;
+				$ct.animate({left: "+=" + (moveNum*($(window).width()))}, function(){
+					curIdx -= moveNum;
+					if(curIdx == -1){
+						curIdx = 3;
+						$ct.css({left: 0-imgCount*($(window).width())});
+					}
+					setBullet();
+					isAnimate = false;
+				})
+			}
+		}
+		function playNext(moveNum){
+			if (!isAnimate){
+				isAnimate = true;
+				$ct.animate({left: "-=" + (moveNum*($(window).width()))}, function(){
+					curIdx += moveNum;
+					if (curIdx == imgCount){
+						curIdx = 0;
+						$ct.css({left: 0-($(window).width())});
+					}
+					setBullet();
+					isAnimate = false;
+				})
+			}
+		}
+		function setBullet(){
+			$bullet.removeClass("active").eq(curIdx).addClass("active");
+		}
+		function autoPlay(){
+			setInterval(function(){
+				playNext(1);
+			}, 2000)
+		}
+	}
+
+
+	doCarousel($(".carousel-fullscreen"));
+</script>
+</body>
+</html>
