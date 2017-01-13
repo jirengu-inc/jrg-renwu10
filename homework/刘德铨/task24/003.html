@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+    <title>加载更多</title>
+    <style>
+        body {
+            font: 20px/1.5 Helvetica, arial, "Microsoft Yahei", "微软雅黑", STXihei, "华文细黑", sans-serif;
+            background: #FF9279;
+            text-align: center;
+        }
+        .content {
+            border: 2px solid #73E22D;
+            border-radius: 20px;
+            padding: 5px;
+            margin: 20px;
+            background: #2B92D7;
+            cursor: pointer;
+        }
+        .content:hover{
+            background: #A77FE6;
+        }
+        .more{
+            border: none;
+            outline: none;
+            border-radius: 10px;
+            padding: 10px 20px;
+            background: #E82E54;
+            margin: 10px;
+            font: 20px/1.5 "Microsoft Yahei", "微软雅黑", STXihei, "华文细黑", sans-serif;
+            color: #FFF;
+            cursor: pointer;
+        }
+        .more:hover{
+            color: #FCA959;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">内容1</div>
+    <div class="content">内容2</div>
+    <button class="more">加载更多</button>
+    <script>
+        var body = document.querySelector('body');   
+        var more = document.querySelector(".more");
+        
+        var lock = false;
+        more.addEventListener('click', function(){
+            var content = document.querySelectorAll('.content');
+            var start = content.length + 1;
+            var len = 6;
+            more.innerText = '加载中……';
+            if(!lock){
+                lock = true;
+                ajax({
+                    url: 'getMore.php',
+                    type: 'get',
+                    data: {
+                        start: start,
+                        len: len
+                    },
+                    success: function(data){
+                        console.log('点击了');
+                        dealWidth(data);
+                        more.innerText = '加载更多';
+                    },
+                    error: function(){
+                        console.log('出错了');
+                    }
+                }) 
+                lock = false;
+            }
+        },false);
+
+
+        function dealWidth(data){
+            for(var i = 0; i < data.length; i++){
+                var newContent = document.createElement('div');
+                newContent.className = 'content';
+                newContent.innerText = data[i];
+                body.insertBefore(newContent, more);
+            }
+        }
+
+     
+        function ajax(obj){
+            var xhr = new XMLHttpRequest();
+            var dataStr = '';
+            for(var key in obj.data){
+                dataStr += key + '=' + obj.data[key] + '&'; 
+            }
+            dataStr = dataStr.substr(0, dataStr.length - 1 );
+
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState == 4 && xhr.status == 200){
+                    var data = JSON.parse(xhr.responseText);
+                    obj.success(data);
+                }
+                if(xhr.readyState == 4 && xhr.status == 404){
+                    obj.error();
+                }
+            }
+
+            if(obj.type.toLowerCase() === 'get'){
+                xhr.open(obj.type, obj.url + '?' + dataStr, true);
+                xhr.send();
+            }
+
+            if(obj.type.toLowerCase() === 'post'){
+                xhr.open(obj.type, obj.url, true);
+                xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+                xhr.send(dataStr);
+            }
+        }
+    </script>
+</body>
+</html>

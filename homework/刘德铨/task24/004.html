@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册表单验证</title>
+    <style>
+    body {
+        font: 20px/1.5 Helvetica, arial, "Microsoft Yahei", "微软雅黑", STXihei, "华文细黑", sans-serif;
+        background: #FF9279;
+        min-width: 550px;
+        text-align: center;
+        }
+    label{
+        display: inline-block;
+        width: 140px;
+        text-align: right;
+    }
+    div{
+        margin: 20px;
+    }
+    p{
+        color: #E5254C;
+    }
+    input{
+        font: 20px/1.5 Helvetica, arial, "Microsoft Yahei", "微软雅黑", STXihei, "华文细黑", sans-serif;
+        /* border: 2px solid rgba(255, 0, 0, 0); */
+        border: none;
+    }
+    input[type = text],
+    input[type = password]{
+        outline: none;
+        padding: 10px 20px;
+        border-radius: 10px;
+    }
+    #submit{
+        border: none;
+        outline: none;
+        border-radius: 10px;
+        padding: 10px 20px;
+        background: #E82E54;
+        margin: 50px 0 0 0;
+        color: #FFF;
+        cursor: pointer;
+    }
+    #submit:hover{
+        color: #FCA959;
+    }
+    .error{
+        border: 2px solid red;
+    }
+    </style>
+</head>
+<body >
+    <h2>注册</h2>
+    <form action="test.php" method="post">
+        <div class="userName">
+            <label for="userName">用户名：</label>
+            <input type="text" id="userName" placeholder="Tom已被注册">
+            <p class="nameTip">只能是字母、数字、下划线，3-10个字符</p>
+        </div>
+        <div class="userPas">
+            <label for="userPas">密码：</label>
+            <input type="password" id="userPas" placeholder="">
+            <p class="pasTip">大写字母、小写、数字、下划线最少两种，6-15个字符</p>
+        </div>
+        <div class="userAgnPas">
+            <label for="userAgnPas">再输一次密码：</label>
+            <input type="password" id="userAgnPas" placeholder="">
+            <p class="agnPasTip"></p>
+        </div>
+        <div class="submit">
+            <input type="button" id="submit" value="注册">
+        </div>
+    </form>
+    <script>
+        var  nameTipStr = document.querySelector('.nameTip').innerHTML;
+        var  pasTipStr = document.querySelector('.pasTip').innerHTML;
+
+        function trim(str){
+            return str.replace(/^\s+|^s+$/,'');
+        }
+
+         function isNull(str){
+            return str === '' ? true : false;
+        }
+
+        var userName = document.querySelector('#userName');
+        userName.addEventListener('focus',function(){
+            userName.className = '';
+            document.querySelector('.nameTip').innerHTML = nameTipStr;
+        },false);
+
+        userName.addEventListener("change",function(){
+        var name = trim(userName.value);
+        if(isNull(name)){
+            document.querySelector('.nameTip').innerHTML = '用户名不能为空';
+            userName.className = 'error';
+            return;
+        }
+        ajax({
+            url:'test.php',
+            type: 'post',
+            data: {
+                name: name,
+            },
+            success: function(name){
+                dealWithName(name);
+            },
+            error: function(){
+                errName();
+            }
+        })
+    },false);
+
+     
+     function dealWithName(name){
+        var nameTip = document.querySelector('.nameTip');
+        if(name.type == 'error'){
+            nameTip.innerHTML = '用户名格式错误';
+            userName.className = 'error';
+        }
+        else if(name.type){
+            nameTip.innerHTML = '用户名已被注册';
+            userName.className = 'error';
+        }
+        else if(name.type === false){
+            nameTip.innerHTML = '用户名可用';
+            userName.className = '';
+        }
+     }
+
+     function errName(){
+         document.querySelector('.nameTip').innerHTML = '用户名验证失败';
+     }
+
+     
+
+     userName.addEventListener('blur',function(){
+        if(isNull(userName.value)){
+            document.querySelector('.nameTip').innerHTML = '用户名不能为空';
+            userName.className = 'error';
+        }
+    },false);
+
+
+     var userPas = document.querySelector('#userPas');
+
+     userPas.addEventListener('input',function(){
+            userPas.className = '';
+            document.querySelector('.pasTip').innerHTML = pasTipStr;
+        },false);
+
+    userPas.addEventListener('focus',function(){
+        if(isNull(userName.value)){
+            document.querySelector('.nameTip').innerHTML = '用户名不能为空';
+            userName.className = 'error';
+            document.querySelector('.pasTip').innerHTML = pasTipStr;
+            userPas.className = '';
+        }
+    },false);
+
+   
+
+    userPas.addEventListener('change',function(){
+        dealWithPas(userPas.value);
+    },false);
+
+
+    
+    userPas.addEventListener('blur',function(){
+       if(isNull(userPas.value)){
+            document.querySelector('.pasTip').innerHTML = '密码不能为空';
+            userPas.className = 'error';
+        }
+    },false);
+
+     function isValidPassword(str){
+        if (/^\w{6,15}$/.test(str)) {
+            return !/(^[A-Z]{6,15}$)|(^[0-9]{6,15}$)|(^[a-z]{6,15}$)|(^[_]{6,15}$)/.test(str);
+        }
+        else {
+            return false;
+        }
+    }
+
+     function dealWithPas(pas){
+        var pasTip = document.querySelector('.pasTip');
+        if(isValidPassword(pas)){
+            pasTip.innerHTML = '密码格式正确';
+            userPas.className = '';
+        }
+        else {
+            pasTip.innerHTML = '密码格式错误';
+            userPas.className = 'error';
+        }
+     }
+
+
+     var agepas = document.querySelector('#userAgnPas');
+      agepas.addEventListener('input',function(){
+            agepas.className = '';
+        },false);
+
+     agepas.addEventListener('blur',function(){
+        if(isNull(agepas.value)){
+            document.querySelector('.agnPasTip').innerHTML = '密码不能为空';
+            agepas.className = 'error';
+            return;
+        }
+        if(trim(agepas.value) ===  trim(userPas.value)){
+            document.querySelector('.agnPasTip').innerHTML = '密码一致';
+            agepas.className = '';
+        } 
+        else{
+            document.querySelector('.agnPasTip').innerHTML = '密码不一致';
+            agepas.className = 'error';
+        }
+    },false);
+
+     var lock = false;
+     var submitBtn = document.querySelector('#submit');
+     submitBtn.addEventListener('click',function(){
+
+        submitBtn.value = '注册中……';
+        if(!lock){
+            lock = true;
+            ajax({
+                url: 'test.php',
+                type: 'post',
+                data:{
+                    username: trim(userName.value),
+                    password: trim(userPas.value)
+                },
+                success: function(userInfo){
+                    dealWidthSub(userInfo);
+                },
+                error: function(){
+                    errSub();
+                }
+
+
+            });
+            lock = false;
+        submitBtn.value = '注册';
+        }
+     })
+
+
+
+     function dealWidthSub(userInfo){
+        alert('用户' + userInfo.name + '注册成功' + '\n'  
+            + '密码为' + userInfo.password + '\n' );
+     }
+
+     function errSub(){
+        alert('用户' + trim(userName.value) + '注册失败' + '\n' + 
+            '请确保网络畅通再重新尝试' );
+     }
+
+
+
+      function ajax(obj){
+        var xhr = new XMLHttpRequest();
+        var dataStr = '';
+        for(var key in obj.data){
+            dataStr += key + '=' + obj.data[key] + '&'; 
+        }
+        dataStr = dataStr.substr(0, dataStr.length - 1 );
+
+        xhr.onreadystatechange = function(){
+            if(xhr.readyState == 4 && xhr.status == 200){
+                var data = JSON.parse(xhr.responseText);
+                obj.success(data);
+            }
+            if(xhr.readyState == 4 && xhr.status == 404){
+                obj.error();
+            }
+        }
+
+        if(obj.type.toLowerCase() === 'get'){
+            xhr.open(obj.type, obj.url + '?' + dataStr, true);
+            xhr.send();
+        }
+
+        if(obj.type.toLowerCase() === 'post'){
+            xhr.open(obj.type, obj.url, true);
+            xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+            xhr.send(dataStr);
+        }
+    }
+    </script>
+</body>
+</html>
