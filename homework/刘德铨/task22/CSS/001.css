@@ -239,6 +239,17 @@ a {
     text-shadow: 0 0 2px #E9EA11;
 }
 
+.modal .modal-shade {
+    width: 100%;
+    height: 100%;
+    background: rgba(153, 195, 255, 0.2);
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+}
+
+
 .modal .modal-edit {
     position: absolute;
     bottom: 20px;
@@ -252,7 +263,7 @@ a {
     display: none;
 }
 
-.modal .modal-edit.active {
+.modal .active {
     display: block;
 }
 

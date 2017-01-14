@@ -145,6 +145,7 @@ var modalText = document.getElementsByClassName('modal-text')[0];
 var modalTextContent = document.getElementsByClassName('modal-text-content')[0];
 var modalTextStyle = document.defaultView.getComputedStyle(modalText, null);
 
+var modalShade = document.querySelector('.modal-shade');
 var modalEdit = document.querySelector('.modal-edit');
 var modalEditClose = document.querySelector('.modal-edit-close');
 var modalEditCancel = document.querySelector('.modal-edit-cancel');
@@ -168,11 +169,19 @@ var modalTextPreSituation = {
 btnModal.addEventListener('click', function(e) {
     if (!/active/.test(modalEdit.className)) {
         modalEdit.className += ' active';
+        modalShade.className += ' active';
     }
+}, false);
+
+
+modalShade.addEventListener('click', function(e) {
+    modalEdit.className = modalEdit.className.replace(/ active/, '');
+    modalShade.className = modalShade.className.replace(/ active/, '');
 }, false);
 
 modalEditClose.addEventListener('click', function(e) {
     modalEdit.className = modalEdit.className.replace(/ active/, '');
+    modalShade.className = modalShade.className.replace(/ active/, '');
 }, false);
 
 
@@ -235,6 +244,7 @@ textHeight.addEventListener('change', function(e) {
 
 modalEditConfirm.addEventListener('click', function(e) {
     modalEdit.className = modalEdit.className.replace(/ active/, '');
+    modalShade.className = modalShade.className.replace(/ active/, '');
     modalTextPreSituation.textSize = modalText.style.fontSize;
     modalTextPreSituation.textColor = modalText.style.color;
     modalTextPreSituation.bagColor = modalText.style.backgroundColor;
@@ -249,6 +259,7 @@ modalEditConfirm.addEventListener('click', function(e) {
 
 modalEditCancel.addEventListener('click', function(e) {
     modalEdit.className = modalEdit.className.replace(/ active/, '');
+    modalShade.className = modalShade.className.replace(/ active/, '');
 
     modalText.style.fontSize = modalTextPreSituation.textSize;
     textSizeShow.placeholder = modalTextPreSituation.textSize;

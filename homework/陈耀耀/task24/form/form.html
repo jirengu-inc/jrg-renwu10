@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		form{
+			margin:30px;
+		}
+		dt{
+			float:left;
+			height: 24px;
+			line-height: 24px;
+		}
+		dd{
+			margin:10px 90px;
+		}
+		input{
+			border:1px solid #ccc;
+			height: 24px;
+			line-height: 24px;
+			padding-left:5px;
+			border-radius: 3px;
+		}
+		.msg{
+			color:#ccc;
+			font-size: 12px;
+		}
+		.failed{
+			border:1px solid red;
+		}
+		.red{
+			color:red;
+		}
+		.opacity{
+			opacity: 0;
+		}
+	</style>
+</head>
+<body>
+	
+	<form action="">
+		<dl>
+			<h3>注册</h3>
+			<dt>用户名</dt>
+			<dd class="">
+				<input class="userName" type="text" placeholder="请输入用户名">
+			</dd>
+			<dd class="msg">只能是字母、数字、下划线，3-10个字符</dd>
+			<dt>密码</dt>
+			<dd>
+				 <input class="passWord1" type="password" placeholder="请输入密码">
+			</dd>
+			<dd class="msg">大写字母、小写、数字、下划线最少两种，6-15个字符</dd>
+			<dt>再输一次</dt>
+			<dd>
+				<input class="passWord2" type="password" placeholder="再输一次密码">
+			</dd>
+			<dd class="msg opacity">密码设置成功！</dd>
+			<dd><button>注册</button></dd>
+		</dl>
+	</form>
+
+	
+	
+
+	<script>
+		var userName=document.getElementsByClassName("userName")[0];
+		var passWord1=document.getElementsByClassName("passWord1")[0];
+		var passWord2=document.getElementsByClassName("passWord2")[0];
+		var msgs=document.getElementsByClassName("msg");
+		var btn=document.getElementsByTagName("button")[0];
+		userName.addEventListener("change",function(){
+			testUsername();
+			testUserNameUsed();
+		})
+		passWord1.addEventListener("change",function(){
+			testPassword1();
+			if(passWord2.value){
+				testPassword2();
+			}
+		})
+		passWord2.addEventListener("change",function(){
+			testPassword2();
+		})
+		btn.addEventListener('click',function(){
+	        if(testUsername()&&testPassword1()&&testPassword2()&&testUserNameUsed()){
+	            alert('注册成功！');
+	        }
+	    })
+		function testUsername(){
+			if(isValidUsername(userName.value)){
+				msgs[0].innerHTML="该用户名可用";
+				removeClass(userName,"failed");
+				removeClass(msgs[0],"red");
+				return true;
+			}
+			else{
+				msgs[0].innerHTML="用户名格式不正确!";
+				addClass(userName,"failed");
+				addClass(msgs[0],"red");
+				return false;
+			}
+		}
+		function testUserNameUsed(){
+			var flag;
+		        ajax({
+		            url:'form.php',
+		            type:'get',
+		            data:{
+		                username:userName.value
+		            },
+		            success:function(ret){
+		                if(ret===1){
+		                    msgs[0].innerHTML="用户名已经存在";
+		                    addClass(userName,"failed");
+							addClass(msgs[0],"red");
+		                    flag=false;
+		                }
+		                else if(ret===0){
+		                    msgs[0].innerHTML="该用户名可用";
+		                    removeClass(userName,"failed");
+							removeClass(msgs[0],"red");
+		                    flag=true;
+		                }
+		            }
+		        });
+		       return flag;
+		    }
+		function testPassword1(){
+			if(isValidPassword(passWord1.value)){
+				addClass(msgs[1],"opacity");
+				removeClass(passWord1,"failed");
+				removeClass(msgs[1],"red");
+				return true;
+			}
+			else{
+				msgs[1].innerHTML="密码格式不正确!";
+				addClass(passWord1,"failed");
+				addClass(msgs[1],"red");
+				removeClass(msgs[1],"opacity");
+				return false;
+			}
+		}
+		function testPassword2(){
+			if(isValidPassword(passWord2.value)){
+				if(passWord1.value!=passWord2.value){
+				msgs[2].innerHTML="两次密码输入不一致!";
+				addClass(passWord2,"failed");
+				addClass(msgs[2],"red");
+				removeClass(msgs[2],"opacity");
+				return false;
+				}
+				else{
+					msgs[2].innerHTML="密码设置成功!";
+					removeClass(msgs[2],"opacity");
+					removeClass(passWord2,"failed");
+					removeClass(msgs[2],"red");
+					return true;
+				}
+			}
+			else{
+				msgs[2].innerHTML="密码格式不正确!";
+				addClass(passWord2,"failed");
+				addClass(msgs[2],"red");
+				removeClass(msgs[2],"opacity");
+				return false;
+			}
+		};
+
+		function hasClass(el,cls){
+    var reg=new RegExp("(\\s|^)"+cls+"(\\s|$)","g");
+    return reg.test(el.className);
+}
+
+function addClass(el,cls){
+    if(!hasClass(el,cls)){
+        el.className +=" "+cls;
+    }
+}
+
+function removeClass(el,cls){
+    if(hasClass(el,cls)){
+        el.className=el.className.replace(cls,"");
+	}
+}
+
+function isPhoneNum(str){
+   return /^1[0-9]{10}$/.test(str)
+}
+
+function isValidUsername(str){
+    return /^\w{3,10}$/.test(str)
+}
+
+ function isValidPassword(str){
+    var a=/^\w{6,15}$/;
+    var b=/(^[A-Z]+$)|(^[a-z]+$)|(^[0-9]+$)|(^_+$)/;
+    if(a.test(str)){
+        if(b.test(str)){
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+    else{
+        return false;
+    }
+}
+
+ function ajax(opts){
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange=function(){
+            if(xmlhttp.readyState==4&&xmlhttp.status==200){
+                var json = JSON.parse(xmlhttp.responseText);
+                opts.success(json);
+            }
+            if(xmlhttp.status==404){
+                opts.error();
+            }
+        };
+        var dataStr = '';
+        for(var key in opts.data){
+            dataStr += key + '=' + opts.data[key]+'&';
+        }
+        dataStr = dataStr.substr(0,dataStr.length-1);
+
+        if(opts.type.toLowerCase()==='get'){
+            xmlhttp.open('get',opts.url+'?'+dataStr,false);
+            xmlhttp.send();
+        }
+        if(opts.type.toLowerCase()==='post'){
+            xmlhttp.open('post',opts.url,true);
+            xmlhttp.sendRequestHeader('content-type','application/x-www-form-urlencoded');
+            xmlhttp.send(dataStr);
+        }
+    }
+	</script>
+
+	
+</body>
+</html>
