@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>demo</title>
+	<meta charset="utf-8">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            text-decoration: none;
+            list-style:none;
+        }
+        .layout {
+            margin: 0 auto;
+            width: 960px;
+        }
+        #pic-ct {
+            position: relative;
+        }
+        .pic {
+            position: absolute;
+            border: 1px solid #ccc;
+            margin: 10px;
+            width: 298px;
+            text-align: center;
+        }
+        .pic img {
+            width: 250px;
+            margin: 10px;
+        }
+        .pic .header {
+            margin: 0 12px;
+            border-bottom: 1px solid #ccc;
+            height: 25px;
+        }
+        .pic .desp {
+            font-size: 12px;
+            margin: 15px;
+        }
+        .clearfix:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .hide {
+            display: none;
+        }
+        #load {
+            visibility: hidden;
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+	<div class="layout">
+		<div class="ct-waterfall">
+			<ul id="pic-ct" class="clearfix">
+                <li class="pic hide"></li>
+            </ul>
+			<div id="load"></div>
+		</div>
+	</div>
+    <script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script>
+<script >
+var dataLength = 10,
+	curPage = 1,
+	colSumHeight = computeCol();
+
+
+getData();
+var clock;
+$(window).on("scroll", function(){
+	if (clock) {
+		clearTimeout(clock);
+	}
+	clock = setTimeout(function(){
+		if (shouldShow()) {
+			getData();
+		}
+	}, 100);
+})
+
+
+function getData(){
+	$.ajax({
+		url: "http://platform.sina.com.cn/slide/album_tech",
+		dataType: "jsonp",
+		jsonp: "jsoncallback",
+		data: {
+			app_key: "1271687855",
+			num: dataLength,
+			page: curPage
+		}
+	}).done(function(result){
+		if(result.status.code === "0"){
+			$node = handlerData(result.data);
+				waterFall($node);
+			curPage++; 
+		}else{
+			console.log("获取数据异常");
+		}
+	}).fail(function(){
+		console.log("未获取到数据");
+	})
+}
+
+
+function shouldShow(){
+	var winH = $(window).height(),
+		scrollH = $(window).scrollTop(),
+		offsetH = $("#load").offset().top;
+	if (offsetH < winH + scrollH) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+
+
+function handlerData(data) {
+	var tpl = "";
+	for (var i=0; i<data.length; i++) {
+		tpl += '<li class="pic">';
+		tpl += '<a href="' + data[i].url +'" class="link"><img src="' + data[i].img_url + '" alt=""></a>';
+		tpl += '<h4 class="header">' + data[i].short_name + '</h4>';
+		tpl += '<p class="desp">' + data[i].short_intro + '</p>';
+		tpl += '</li>';
+	}
+	var $node = $(tpl);
+	$("#pic-ct").append($node);
+	return $node;
+}
+
+
+
+function computeCol(){
+	var colSumHeight = [], 
+		nodeWidth = $(".pic").outerWidth(true),
+		sumWidth = $(".ct-waterfall").outerWidth(true);
+	columnNum = parseInt(sumWidth/nodeWidth);
+	for (var i=0; i<columnNum;  i++) {
+		colSumHeight.push(0);
+	}
+	return colSumHeight;
+}
+
+function waterFall($node) {
+	$node.each(function(){
+		var $cur = $(this);
+		$cur.find("img").on("load", function(){
+			var idx = 0,
+				mincolHeight = colSumHeight[0];
+			for (var i=0;i<colSumHeight.length; i++) {
+				if (colSumHeight[i] < mincolHeight) {
+					mincolHeight = colSumHeight[i];
+					idx = i;
+				}
+			}
+			$cur.css({
+				left: $cur.outerWidth(true) * idx,
+				top: mincolHeight
+			});
+			colSumHeight[idx] += $cur.outerHeight(true);
+			$("#pic-ct").height(Math.max.apply(null, colSumHeight));
+		})
+	})
+}
+</script>
+</body>
+</html>
