@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>模态框</title>
+	<link rel="stylesheet/less" href="text.less"/>
+	<style>
+		.modal-liadlog{
+			display:none;
+		}
+		a{
+			text-decoration: none;
+			color: #333;
+		}
+		.cover{
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background-color: #000;
+			opacity: 0.4;
+			z-index: 99;
+		}
+		.modal-ct{
+			position: fixed;
+			top: 50%;
+			left: 50%;
+			width: 400px;
+			transform: translate(-50%, -50%);
+        	-webkit-transform: translate(-50%, -50%);
+	        border-radius: 3px;
+	        background: #fff;
+	        z-index: 100;
+		}
+		.modal-ct .header{
+			position: relative;
+			height: 36px;
+			line-height: 36px;
+			border-bottom: 1px solid #ccc;
+		}
+		h3{
+			margin:0;
+			padding-left: 10px;
+			font-size: 16px;
+		}
+		.close{
+			position: absolute;
+			right: 10px;
+			top: 10px;
+			line-height: 1;
+		}
+		.content{
+			padding:10px;
+		}
+		.modal-ct .footer{
+			padding: 10px;
+			border-top: 1px solid #eee;
+		}
+		.clearfix{
+			content: '';
+			display: block;
+			clear:both;
+		}
+		.modal-ct .fooder .btn{
+			float: right;
+			margin-left: 10px;
+		}
+
+
+	</style>
+</head>
+<body>
+	<div class="btn-group">
+		<button id="btn-modal">点我</button>
+	</div>
+
+
+
+	<div id="modal-1" class="modal-dialog">
+		<div class="cover"></div>
+		<div class="modal-ct">
+			<div class="header">
+				<h3>我是标题1</h3>
+				<a href="#" class="close">×</a>
+			</div>
+			<div class="content">
+				<p>我是内容1</p>
+				<p>我是内容2</p>
+			</div>
+			<div class="footer clearfix">
+				<a href="#" class="btn btn-confirm">确定</a>
+				<a href="#" class="btn btn-cancel">取消</a>
+			</div>
+		</div>
+	</div>
+	<script></script>
+
+	<script type="text/javascript">
+
+		var btn = document.querySelector('#btn-modal'),
+		    modal = document.querySelector('#modal-1'),
+		    modalCt = document.querySelector('#modal-1 .modal-ct');
+
+		btn.addEventListener('click', function(e){
+		    e.stopPropagation();
+		    showModal(modal);
+		});
+
+		modalCt.addEventListener('click', function(e){
+		   e.stopPropagation();
+		   if( hasClass(e.target, 'close') || hasClass(e.target, 'btn-cancel') ){
+		       hideModal(modal);
+		   } 
+		});
+
+		document.body.addEventListener('click', function(){
+		    hideModal(modal);
+		});
+		function showModal(modal){
+		    modal.style.display = 'block';
+		}
+		function hideModal(modal){
+		    modal.style.display = 'none';
+		}
+		function hasClass (ele, cls){
+		    return !!ele.className.match(new RegExp('\\b'+cls+'\\b'));
+		}						
+	</script>
+
+	<script src="https://cdn.staticfile.org/less.js/3.0.0-pre.4/less.min.js"></script>
+</body>
+</html>
