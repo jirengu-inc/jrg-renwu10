@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>懒加载</title>
+	<style type="text/css">
+		ul,li{
+			margin: 0;
+			padding: 0;
+		}
+		a{
+			text-decoration: none;
+			color: #E27272;
+		}
+		#box li{
+			list-style: none;
+			border: 1px solid #ccc;
+			padding: 10px;
+			margin-top: 10px;
+			cursor: pointer;
+		}
+		#load-more{
+			display: block;
+			margin: 10px auto;
+		  cursor: pointer;
+		}
+		.btn{
+			display: inline-block;
+			height: 40px;
+			line-height: 40px;
+			width: 80px;
+			border: 1px solid #E27272;
+			border-radius: 3px;
+			text-align: center;
+		}
+		#box li:hover{
+			background-color: green;
+			color: #fff;
+		}
+	</style>
+</head>
+<body>
+	<ul id="box">
+		<li>第1行</li>
+		<li>第2行</li>
+	</ul>
+	<a id="load-more" class="btn" href="">加载更多</a>
+	<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+	<script type="text/javascript">
+		var $loadMore = $('#load-more'),
+				$box = $('#box');
+		var clock;
+		var cur = 3;
+		$(window).on('scroll',function(){
+			// if( !isVisible($loadMore) ) return;
+			// load();
+			if(clock){
+				clearTimeout(clock)
+			}
+			clock = setTimeout(function(){
+				if( !isVisible($loadMore) ) return;
+			  load();
+			},300);
+		});
+		load();
+		function load(){
+			$.ajax({
+				url:'loading.php',
+				dataType:'json',
+				type:'POST',
+				data:{
+					start:cur,
+					len:15
+				},
+				success:function(json){
+					onSuccess(json);
+				},
+				error:function(){
+					alert('系统异常')
+				}
+			});
+		}
+		function onSuccess(json){
+			console.log(json);
+					if (json.status==1) {
+						append(json.data);
+						cur+=15;
+					}else{
+						alert('获取数据失败')
+					}
+		}
+		function append(arr){
+			for(var i = 0;i<arr.length;i++){
+				$box.append('<li>'+arr[i]+'</li>');
+			}
+		}
+		function isVisible($el){
+			var winH = $(window).height(),
+					top  = $el.offset().top,
+					scrollH = $(window).scrollTop();
+			if(top>scrollH && top<winH+scrollH){
+				return true;
+			}else{
+				return false;
+			}
+		}
+
+	</script>
+</body>
+</html>
