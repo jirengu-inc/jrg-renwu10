@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>导航条</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+	<style>
+		*{
+		  margin: 0;
+		  padding: 0;
+		  font-family: arial;
+		  list-style:none; 
+		  text-decoration: none;
+		  color: black;
+		}
+		
+		.nav{
+		  width: 600px;
+		  height: 35px;
+		  position: absolute;
+		  left: 50%;
+		  margin-left: -300px;
+		  margin-top: 10px;
+		  background: #f1f1f1;
+		  box-shadow:1px 1px 10px 0 rgba(0, 0, 0, 0.3);
+		}
+
+		.menu{
+			float: left;
+			display: inline-block;
+		    width: 65px;
+		    height: 35px;
+		    cursor: pointer;
+		    line-height: 35px;
+		    text-align:center;
+		}
+		.menu:hover{
+			background: #ccc;
+		}
+
+		.subMenu{
+			display: none;
+			width: 160px;
+			box-shadow:1px 1px 10px 0 rgba(0, 0, 0, 0.3);
+			text-align: left;
+		}
+		
+    	.menu:hover .subMenu{
+	        display: block;
+	    }
+	    
+	    .subitem{
+			padding-left: 10px;
+		}
+	    .subitem:hover{
+			background: #ccc;
+		}
+
+
+	</style>
+</head>
+<body>
+    <div class="nav">
+	 <ul class="title1">
+	   <li class="menu"><a href="#">首页</a></li>
+	   <li class="menu"><a href="#">作品</a></li>
+	   <li class="menu"><a href="#">更多</a>
+		<ul class="subMenu">
+			<li class="subitem">GitHub</li>
+			<li class="subitem">博客</li>
+			<li class="subitem">知乎</li>
+		</ul>
+	   </li>
+	 </ul>
+	</div>
+</body>
+</html>
