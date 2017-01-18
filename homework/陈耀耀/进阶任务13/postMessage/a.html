@@ -1,0 +1,52 @@
+<html>
+<style>
+	.ct{
+		width: 910px;
+		margin: auto;
+	}
+	.main{
+		float: left;
+		width: 450px;
+		height: 300px;
+		border: 1px solid #ccc;
+	}
+	.main input{
+		margin: 20px;
+		width: 200px;
+	}
+	.iframe{
+		float: right;
+	}
+	iframe{
+		width: 450px;
+		height: 300px;
+		border: 1px dashed #ccc;
+	}
+</style>
+
+<div class="ct">
+	<h1>使用postMessage实现跨域</h1>
+	<div class="main">
+		<input type="text" placeholder="http://a.yasinchan.com:8080/a.html">
+	</div>
+
+	<iframe src="http://localhost:8080/b.html" frameborder="0" ></iframe>
+
+</div>
+
+
+<script>
+//URL: http://a.jrg.com:8080/a.html
+$('.main input').addEventListener('input', function(){
+	console.log(this.value);
+	window.frames[0].postMessage(this.value,'*');
+})
+window.addEventListener('message',function(e) {
+		$('.main input').value = e.data
+    console.log(e.data);
+});
+function $(id){
+	return document.querySelector(id);
+}
+</script>
+</html>
