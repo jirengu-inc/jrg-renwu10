@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>加载更多</title>
+  <style>
+  ul,li{
+  margin: 0;
+  padding: 0
+}
+#ct li{
+  list-style:none;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-top: 10px;
+  cursor:pointer;
+}
+#load-more{
+    display: block;
+    margin: 10px auto;
+    text-align: center;
+    cursor: pointer;
+}
+#load-more img{
+    width: 40px;
+    height: 40px;
+}
+.btn{
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+    width: 80px;
+    border: 1px solid #E27272;
+    border-radius: 3px;
+    text-align: center;
+    text-decoration: none;
+    color: #E27272;
+}
+.hover{
+  background: green;
+  color: #fff;
+}
+  </style>
+</head>
+<body>
+<ul id="ct">
+  <li>内容1</li>
+  <li>内容2</li>
+</ul>
+  <a id="load-more" class="btn" href="#">加载更多</a>
+</body>
+
+    <script type="text/javascript">
+    var ct = document.querySelector('#ct');
+    function append(arr){
+        for(var i = 0;i<arr.length;i++){
+            var li = document.createElement('li');
+            li.innerHTML='内容'+arr[i];
+            ct.appendChild(li);
+        }
+    }
+    function ajax(opts){
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange=function(){
+            if(xmlhttp.readyState==4 && xmlhttp.status==200){
+                var json = JSON.parse(xmlhttp.responseText);
+                console.log(json);
+                opts.success(json);
+            }
+            if(xmlhttp.readyState==4 && xmlhttp.status==404){
+                opts.error();
+            }
+        }
+        var dataStr = '';
+        for(var key in opts.data){
+            dataStr += key+'='+opts.data[key]+'&';
+        }
+        dataStr=dataStr.substr(0,dataStr.length-1);
+        xmlhttp.open('get',opts.url+'?'+dataStr,true);
+        xmlhttp.send();
+    }
+    var count = 2;
+        document.querySelector('.btn').addEventListener('click',function(){
+            ajax({
+                url:'/getMore',
+                type:'get',
+                data:{
+                    start:count,
+                    len:6
+                },
+                success:function(json){
+                    if(json.status=== 0){
+                        append(json.data);
+                        count+=6
+                    }else{
+                        console.log('失败');
+                    }
+                },
+                error:function(){
+                    alert('出现错误');
+                }
+            });
+        });
+    </script>
+  
+  
+  
+</html>
