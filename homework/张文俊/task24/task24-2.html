@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>加载更多</title>
+    <style>
+        ul,li{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+            padding: 10px;
+            border: 1px solid #eee;
+            border-radius: 5px;
+            height:25px;
+            line-height: 25px;
+            margin:8px;
+        }
+        li:hover{
+            background-color: green;
+            color:white;
+        }
+        #btn{
+            text-decoration: none;
+            color:black;
+            display: block;
+            padding: 8px;
+            width:64px;
+            margin: 0 auto;
+            margin-top: 10px;
+            height:25px;
+            line-height: 25px;
+            border:1px solid orangered;
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body>
+<ul id="ct">
+    <li>内容1</li>
+    <li>内容2</li>
+</ul>
+<a id="btn" href="#">加载更多</a>
+<script type="text/javascript">
+    var ct=document.getElementById("ct");
+    var cur=2;
+    function ajax(obj){
+        // todo ...
+        var xhr=new XMLHttpRequest();
+        xhr.onreadystatechange=function(){
+            if(xhr.readyState==4 && xhr.status==200){
+                var json=JSON.parse(xhr.responseText);
+                obj.success(json);
+            }
+            if(xhr.status==404){
+                obj.error();
+            }
+        };
+        var dataStr="";
+        for(var key in obj.data){
+            dataStr+=key+'='+obj.data[key]+'&';
+        }
+        dataStr.substr(0,dataStr.length-1);
+        if(obj.type.toLowerCase()==="get"){
+            xhr.open(obj.type,obj.url+'?'+dataStr);
+            xhr.send();
+        }else if(obj.type.toLowerCase()==="post"){
+            xhr.open(obj.type,obj.url);
+            xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+            xhr.send(dataStr);
+        }
+        cur+=obj.data.length;
+    }
+    var lock=false;
+    document.getElementById("btn").addEventListener("click",function () {
+        event.preventDefault();
+        if(!lock){
+            lock=true;
+            ajax({
+                url: 'task24-2.php',   //接口地址
+                type: 'get',               // 类型， post 或者 get,
+                data: {
+                    start: cur,
+                    length: 7
+                },
+                success: function(resp){
+                    dealWith(resp)       // {status: 0}
+                },
+                error: function(){
+                    alert('出错了')
+                }
+            });
+            lock=false;
+        }
+    });
+    function dealWith(resp) {
+        var start=resp[0],
+                length=resp.length;
+        for(var i=0;i<length;i++){
+            var li=document.createElement("li");
+            li.innerText="内容"+(start+i+1);
+            ct.appendChild(li);
+        }
+    }
+</script>
+</body>
+</html>

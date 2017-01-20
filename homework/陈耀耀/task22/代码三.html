@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+<ul class="ct">
+    <li data-img="http://cdn.jirengu.com/book.jirengu.com/img/11.jpg">鼠标放置查看图片1</li>
+    <li data-img="http://cdn.jirengu.com/book.jirengu.com/img/13.jpg">鼠标放置查看图片2</li>
+    <li data-img="http://cdn.jirengu.com/book.jirengu.com/img/14.jpg">鼠标放置查看图片3</li>
+</ul>
+<div class="img-preview"></div>
+<script>
+
+//方法一：
+	// var li = document.querySelectorAll('li'),
+	//     imgPreview = document.querySelector('.img-preview');
+
+	// for(i=0;i<li.length;i++){
+	// 	li[i].addEventListener('mouseenter', function(){
+	// 		var Div = this.getAttribute('data-img');
+	// 		imgPreview.innerHTML = '<img src="' + Div + '">'
+	// 	})
+	// }
+
+//方法二：
+
+	var ct = document.querySelector(".ct"),
+		imgPreview = document.querySelector(".img-preview");
+
+	ct.addEventListener("mouseover", function(e){
+		var Div = e.target.getAttribute("data-img");
+		if (Div !== null) {
+			imgPreview.innerHTML = "<img src='" + Div + "'>";
+		}
+	}) 
+
+
+</script>
+
+</body>
+</html>

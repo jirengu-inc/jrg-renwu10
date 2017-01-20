@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>back-to-top</title>
+	<style type="text/css">
+		p{
+			line-height: 3;
+		}
+		#go-top{
+			position: fixed;
+			bottom: 10px;
+			right: 10px;
+			border: 1px solid red;
+			padding: 10px;
+			cursor: pointer;
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<p>内容1</p>
+	<p>内容2</p>
+	<p>内容3</p>
+	<p>内容1</p>
+	<p>内容2</p>
+	<p>内容3</p>
+	<p>内容1</p>
+	<p>内容2</p>
+	<p>内容3</p>
+	<p>内容1</p>
+	<p>内容2</p>
+	<p>内容3</p>
+	<p>内容1</p>
+	<p>内容2</p>
+	<p>内容3</p>
+	<p>内容1</p>
+	<p>内容2</p>
+	<p>内容3</p>
+	<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+	<script type="text/javascript">
+	  //方法一：原始方法
+		// var $goTop = $('<div id="go-top">回到顶部</div>');
+		// $('body').append($goTop);
+
+		// $(window).on('scroll',function(){
+		// 	var top = $(this).scrollTop();
+		// 	console.log(top);
+		// 	if(top>100){
+		// 		$goTop.show();
+		// 	}else {
+		// 		$goTop.hide();
+		// 	}
+		// })
+		// $goTop.on('click',function(){
+		// 	$(window).scrollTop(0);
+		// })
+
+    //方法二：封装
+		var GoTop = {
+			init: function(){
+				if($('#go-top').length>0){
+					return;
+				}
+				var $goTop = $('<div id="go-top">回到顶部</div>');
+				$('body').append($goTop);
+
+				this.$goTop = $goTop;
+				this.bind();
+			},
+			bind: function(){
+				var me = this;
+				$(window).on('scroll',function(){
+					var top = $(this).scrollTop();
+					if(top>100){
+						me.$goTop.show();
+					}else {
+						me.$goTop.hide();
+					}
+				});
+        this.$goTop.on('click',function(){
+        	$(window).scrollTop(0);
+        });
+			}
+		};
+    GoTop.init();
+		GoTop.init();//不会生成两个$goTop
+		//方法三：立即执行函数实现封装
+		// var GoTop = (function(){
+		// 	var $goTop = $('<div id="go-top">回到顶部</div>');
+	 // 		$('body').append($goTop);
+	 // 		function init(){
+	 // 			$(window).on('scroll',function(){
+		// 			var top = $(this).scrollTop();
+		// 			if(top>100){
+		// 				$goTop.show();
+		// 			}else {
+		// 				$goTop.hide();
+		// 			}
+		// 		});
+		// 		$goTop.on('click',function(){
+		// 			$(window).scrollTop(0);
+		// 		});
+	 // 		}
+
+	 // 		return {
+	 // 			init: init
+	 // 		}
+		// })();
+		// GoTop.init();
+		// GoTop.init();
+	</script>
+</body>
+</html>

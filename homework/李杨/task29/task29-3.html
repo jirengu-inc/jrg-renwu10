@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>task 26-3</title>
+  <script src="jquery-3.1.1.js"></script>
+  <style>
+    ul,li {
+      margin: 0;
+      padding: 0;
+    }
+    li {
+      color: green;
+      padding: 10px 20px;
+      margin: 5px;
+      list-style-type: none;
+      border: 1px solid green;
+      border-radius: 5px;
+    }
+    .btn {
+      padding: 10px;
+      color: green;
+      text-decoration: none;
+      border: 1px solid green;
+    }
+    .btnWrapper {
+      margin: 50px auto;
+      width: 200px;
+    }
+    .active {
+      color: white;
+      background-color: green;
+    }
+  </style>
+</head>
+<body>
+  <ul>
+    <li>内容0</li>
+    <li>内容1</li>
+    <li>内容2</li>
+    <li>内容3</li>
+    <li>内容4</li>
+    <li>内容5</li>
+    <li>内容6</li>
+    <li>内容7</li>
+    <li>内容8</li>
+    <li>内容9</li>
+  </ul>
+  <div class="btnWrapper"><a href="##" class="btn">加载更多</a></div>
+  <script>
+    var     $btn = $('.btn'),
+            LEN = 10,
+            $ul = $('ul'),
+            $li = $('li');
+
+    function addMore() {
+      if (isVisible($btn)) {
+        showBtn();
+      }
+    }
+    
+    function showBtn() {
+      var START = $('li:last-child').index()+1;
+      $(this).text('loading...');
+      $.ajax({
+        url: 'getmore.php',
+        type: 'GET',
+        dataType: 'json',
+        data: {
+          start: START,
+          len: LEN
+        },
+        success: function (data) {
+          if (data.status === 1){
+            var item = data.data;
+            for (var i = 0; i < item.length; i++) {
+              $('ul').append('<li>' + item[i] + '</li>')
+            }
+          }else {
+            alert('error');
+          }
+        },
+        error: function () {
+          alert('error');
+        },
+        complete: function () {
+          $btn.text('加载更多');
+        }
+      })
+    }
+    
+    function isVisible(e) {
+      if(e.offset().top < $(window).height() + $(window).scrollTop()) {
+        return true;
+      }else {
+        return false;
+      }
+    }
+    
+    addMore();
+    
+    $(window).on('scroll',function () {
+      addMore();
+    })
+    
+    $ul.on('mouseenter mouseleave','li',function () {
+      $(this).toggleClass('active');
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>renwu1</title>
+    <style>
+    body,p,a,div{
+      margin: 0;
+      padding: 0;
+    }
+
+      .word{
+        background-color: #e61616;
+        color: white;
+        font-weight: bold;
+        border: 1px solid #ccc;
+        width: 200px;
+        height: 30px;
+        line-height: 30px;
+        cursor: pointer;
+
+
+      }
+      .link{
+        border:1px solid #ccc;
+        display: inline-block;
+        width:95px;
+        list-style: none;
+        padding-left: 0;
+        cursor: pointer;
+        background-color: white;
+
+      }
+      .link > li{
+        float: left;
+        margin: 5px;
+        padding-left: 0;
+      }
+      .link a{
+        text-decoration: none;
+        color: #334;
+      }
+      .a1{
+        position: absolute;
+        top:0px;
+        left:241px;
+        display: none;
+
+      }
+      .a2{
+        position: absolute;
+        top:32px;
+        left:241px;
+        display: none;
+
+      }
+      .a3{
+        position: absolute;
+        top:64px;
+        left:241px;
+        display: none;
+
+      }
+      .a4{
+        position: absolute;
+        top:97px;
+        left:241px;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <ul>
+      <li class="word b1">珠宝玉器 &nbsp &nbsp &nbsp&nbsp &nbsp ></li>
+      <li class="word b2">珠宝玉器 &nbsp &nbsp &nbsp&nbsp &nbsp ></li>
+      <li class="word b3">珠宝玉器 &nbsp &nbsp &nbsp&nbsp &nbsp ></li>
+      <li class="word b4">珠宝玉器 &nbsp &nbsp &nbsp&nbsp &nbsp ></li>
+    </ul>
+      <ul class="link a1">
+        <li><a href="#">翡翠</a></li>
+        <li><a href="#">宝石</a></li>
+        <li><a href="#">玛瑙</a></li>
+        <li><a href="#">水晶</a></li>
+      </ul>
+      <ul class="link a2">
+        <li><a href="#">翡翠</a></li>
+        <li><a href="#">宝石</a></li>
+        <li><a href="#">玛瑙</a></li>
+        <li><a href="#">水晶</a></li>
+      </ul>
+      <ul class="link a3">
+        <li><a href="#">翡翠</a></li>
+        <li><a href="#">宝石</a></li>
+        <li><a href="#">玛瑙</a></li>
+        <li><a href="#">水晶</a></li>
+      </ul>
+      <ul class="link a4">
+        <li><a href="#">翡翠</a></li>
+        <li><a href="#">宝石</a></li>
+        <li><a href="#">玛瑙</a></li>
+        <li><a href="#">水晶</a></li>
+      </ul>
+      <script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js" charset="utf-8"></script>
+      <script type="text/javascript">
+
+        $('.b1').on('mouseover',function(){
+          $('.a1').show();
+        })
+        $('.a1').on('mouseover',function(){
+        $('.a1').show();
+        })
+        $('.a1').on('mouseleave',function(){
+        $('.a1').hide();
+        })
+        $('.b1').on('mouseleave',function(){
+          $('.a1').hide();
+        })
+        $('.b2').on('mouseover',function(){
+          $('.a2').show();
+        })
+        $('.a2').on('mouseover',function(){
+        $('.a2').show();
+        })
+        $('.a2').on('mouseleave',function(){
+        $('.a2').hide();
+        })
+        $('.b2').on('mouseleave',function(){
+          $('.a2').hide();
+        })
+        $('.b3').on('mouseover',function(){
+          $('.a3').show();
+        })
+        $('.a3').on('mouseover',function(){
+          $('.a3').show();
+        })
+        $('.a3').on('mouseleave',function(){
+          $('.a3').hide();
+        })
+        $('.b3').on('mouseleave',function(){
+          $('.a3').hide();
+        })
+        $('.b4').on('mouseover',function(){
+          $('.a4').show();
+        })
+        $('.a4').on('mouseover',function(){
+          $('.a4').show();
+        })
+        $('.a4').on('mouseleave',function(){
+          $('.a4').hide();
+        })
+        $('.b4').on('mouseleave',function(){
+          $('.a4').hide();
+        })
+      </script>
+
+  </body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .ct{
+            margin-left: 120px;
+            margin-right: 170px;
+        }
+        .main{
+            width: 100%;
+            height: 200px;
+            background: orangered;
+            float: left;
+        }
+        .left{
+            width: 100px;
+            height: 200px;
+            float: left;
+            background: green;
+            margin-left: -100%;
+            position: relative;
+            left: -120px;
+        }
+        .right{
+            width: 150px;
+            height: 200px;
+            float: left;
+            background: goldenrod;
+            margin-left: -150px;
+            position: relative;
+            left: 170px;
+        }
+        .header,.footer{
+            background: gold;
+            height: 40px;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+<div class="header">header</div>
+<div class="ct">
+    <div class="main">main</div>
+    <div class="left">left</div>
+    <div class="right">right</div>
+</div>
+<div class="footer">footer</div>
+</body>
+</html>

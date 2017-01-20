@@ -1,0 +1,106 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax Test</title>
+</head>
+<body>
+<fieldset>
+    <legend>简单的GET</legend>
+    <div id="myName">
+        <h2>我的名字</h2>
+    </div>
+    <button id="myNameBtn">修改内容</button>
+    <script>
+        document.getElementById("myNameBtn").addEventListener('click',function(){
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function(){
+                if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+                    document.getElementById("myName").innerHTML = xmlhttp.responseText;
+                }          
+            }
+            xmlhttp.open("GET","ajax_simple.php",true);
+            xmlhttp.send();
+        })
+    </script>
+</fieldset>
+<fieldset>
+    <legend>GET有参数同步</legend>
+    <div id="getParSyn"> 
+        <h2>GET同步有参</h2>
+    </div>
+    <button id="getParSynBtn">点我</button>
+    <script>
+        document.getElementById("getParSynBtn").addEventListener("click",function(){
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function(){
+                if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+                    var resultObj = JSON.parse(xmlhttp.responseText);
+                    document.getElementById("getParSyn").innerHTML = 
+                          dealwidth(resultObj);
+                    alert("数据来之后我出现在这！"); 
+                }
+            }
+            xmlhttp.open("GET","ajax_input.php?name=kenin&age=20",false);
+            xmlhttp.send();
+            
+        })
+    </script>
+</fieldset>
+<fieldset>
+    <legend>POST有参数异步</legend>
+    <div id="postParAsy">
+        <h2>POST有参异步</h2>
+    </div>
+    <button id="postParAsyBtn">点我</button>
+    <script>
+        document.getElementById("postParAsyBtn").addEventListener("click",function(){
+            var xmlhttp = new XMLHttpRequest();
+            var postPar = 'name=Mike&age=18';
+            xmlhttp.onreadystatechange = function(){
+                if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+                    var resultObj = JSON.parse(xmlhttp.responseText);
+                    document.getElementById("postParAsy").innerHTML = dealwidth(resultObj);
+                }       
+            }
+            xmlhttp.open('POST','ajax_post.php',true);
+            xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xmlhttp.send(postPar);
+        })
+    </script>
+</fieldset>
+<fieldset>
+    <legend>GET有参数异步</legend>
+    <div id="getParAsy">
+        <h2>get有参异步</h2>
+    </div>
+    <button id="getParAsyBtn">点我</button>
+    <script>
+        document.getElementById("getParAsyBtn").addEventListener("click",function(){
+            var xmlhttp = new XMLHttpRequest();
+            var getPar = 'name=Tom&age=38';
+            xmlhttp.onreadystatechange = function(){
+                if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+                    var resultObj = JSON.parse(xmlhttp.responseText);
+                    document.getElementById('getParAsy').innerHTML = dealwidth(resultObj);
+                }
+            }
+            xmlhttp.open('GET','ajax_input.php' + '?' + getPar, true);
+            xmlhttp.send();
+            document.getElementById('getParAsy').innerHTML = "数据来之前我先出现在这里";
+        })
+    </script>
+</fieldset>
+
+<script>
+    function dealwidth(resultObj){
+        var newDl = document.createElement("dl");
+        newDl.className = 'info';
+        var str = '<dt>姓名：</dt>';
+        str +=    '<dd>' + resultObj.name + '</dd>';
+        str +=    '<dt>年龄：</dt>';
+        str +=    '<dd>' + resultObj.age + '</dd>';
+        return str;
+    }
+</script>
+</body>
+</html>

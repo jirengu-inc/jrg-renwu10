@@ -1,0 +1,192 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Arial", "Microsoft YaHei", "黑体", "宋体", sans-serif;
+}
+
+ul, li {
+    list-style: none;
+}
+
+body {
+    width: 900px;
+    margin: 50px auto;
+    box-shadow: 0 3px 3px 3px rgba(0, 0, 0, 0.3);
+}
+
+.header {
+    width: 900px;
+    margin: 0 auto;
+    padding-top: 50px;
+}
+
+.header:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.header > .img {
+    float: left;
+}
+
+.header > .img > img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-left: 100px;
+
+}
+
+.header > .img > .name {
+    padding: 40px 40px 40px 80px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.header > .img > .name > p {
+    padding-top: 20px;
+}
+
+.header > .info {
+    display: inline-block;
+    width: 300px;
+    vertical-align: top;
+    margin-left: 30px;
+}
+
+.header > .info > p {
+    border-bottom: 5px solid;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.header > .info > ul > li {
+    padding: 15px 0;
+}
+
+.main {
+    width: 700px;
+    margin: 0 auto;
+    padding: 30px 30px 0 50px;
+}
+
+.main > h2 {
+    border-bottom: 1px solid #ccc;
+    display: inline-block;
+    width: 400px;
+    padding-bottom: 10px;
+}
+
+.main > ul:nth-child(2),.main > ul:nth-child(4) {
+    margin-top: 20px;
+    border-left: 5px solid #BED5FB;
+}
+.main > ul:nth-child(6),.main > ul:nth-child(8){
+    margin-top: 20px;
+    border-left: 5px solid #ccc;
+}
+/*li前的黑点*/
+/*.main > ul > li:before {*/
+/*content: "";*/
+/*width: 10px;*/
+/*height: 10px;*/
+/*background: rgba(0, 0, 0, 0.9);*/
+/*border-radius: 50%;*/
+/*position: absolute;*/
+/*top: 0;*/
+/*left: -5px;*/
+/*margin-left: -100px;*/
+/*}*/
+
+.main > ul > li {
+    margin-left: 100px;
+    position: relative;
+    margin-bottom: 25px;
+    margin-right: 100px;
+    line-height: 2.5;
+}
+
+.main > ul > li > p:nth-child(1) {
+    font-size: 20px;
+    line-height: 1;
+    font-weight: bold;
+}
+
+.iconfont {
+    font-size: 20px;
+}
+
+.text-school {
+    color: rgba(0, 0, 255, 0.4);
+}
+
+.text-major {
+    color: rgba(0, 0, 0, 0.7)
+}
+
+.text-company {
+    color: rgba(0, 0, 255, 0.4);
+}
+
+.text-job {
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.text-time {
+    color: rgba(0, 0, 0, 0.5);
+}
+.footer {
+    width: 700px;
+    margin: 0 auto 100px auto;
+    padding: 30px 30px 100px 50px;
+}
+.flex>.half>h2{
+    border-bottom: 1px solid #ccc;
+    display: inline-block;
+    width: 300px;
+    padding-bottom: 10px;
+    font-size: 18px;
+}
+.flex{
+    padding-top: 20px;
+    justify-content: space-between;
+    align-items: flex-start;
+    display: flex;
+}
+.footer > .flex > .half {
+    width: 300px;
+    height: 300px;
+}
+
+.half>ul>li{
+    position: relative;
+    margin: 25px 0 25px 100px;
+    line-height: 1.5;
+}
+.half>ul>li>p:nth-child(1){
+    font-size: 20px;
+    line-height: 1;
+    font-weight: bold;
+}
+.half>.ul-extra>li:before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    background: rgba(0, 0, 0, 0.9);
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: -5px;
+    margin-left: -100px;
+}
+.skill{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.skill>p{
+    width: 110px;
+    padding-top: 20px;
+    padding-bottom: 50px;
+}

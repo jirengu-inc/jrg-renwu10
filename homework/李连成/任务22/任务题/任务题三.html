@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>renwu3</title>
+    <style>
+    </style>
+  </head>
+  <body>
+    <ul class="ct">
+      <li data-img="http://cdn.jirengu.com/book.jirengu.com/img/11.jpg">鼠标放置查看图片1</li>
+      <li data-img="http://cdn.jirengu.com/book.jirengu.com/img/13.jpg">鼠标放置查看图片2</li>
+      <li data-img="http://cdn.jirengu.com/book.jirengu.com/img/14.jpg">鼠标放置查看图片3</li>
+    </ul>
+    <div class="img-preview"></div>
+    <script>
+    var ct = document.querySelector(".ct"),
+        preview = document.querySelector(".img-preview");
+
+    ct.addEventListener('mouseover',function(e){          //mouseover鼠标悬停，与mouseenter不同；Mouseover：不论鼠标指针穿过被选元素或其子元素，都会触发 mouseover 事件。Mouseenter：只有在鼠标指针穿过被选元素时，才会触发 mouseenter 事件。
+      var dataImg = e.target.getAttribute('data-img');
+      if (dataImg !== null){
+        preview.innerHTML = "<img src='"+ dataImg +"'/>";
+      }
+    })
+
+      // var ct = document.querySelector(".ct"),
+      //     child = ct.querySelectorAll("li"),
+      //     preview = document.querySelector(".img-preview");
+      // console.log(child)
+      // for(i=0; i<child.length; i++){
+      //   child[i].addEventListener('mouseenter',function(){
+      //     var dataImg = this.getAttribute('data-img');
+      //     preview.innerHTML = "<img src='"+ dataImg +"'/>"
+      //   })
+      // }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+    <title>Document</title>
+    <link rel="stylesheet" href="CSS/001.css">
+</head>
+<body>
+    <ul class="ct">
+        <li>这里是</li>
+        <li>饥人谷</li>
+        <li>前端10班</li>
+    </ul>
+    <div class="modify">
+        <div class="ipt-add">
+            <input class="ipt-add-content" placeholder="添加内容"/>
+            <p class="warning-tip"><b class="warning-sign">X</b>不能为空！</p>
+        </div> 
+        <div class="btn-add">
+            <button id="btn-add-start">开头添加</button>
+            <button id="btn-add-end">结尾添加</button>
+        </div>
+    </div>
+    <div class="img-album">    
+        <div class="img-preview"></div> 
+        <ul class="img-list">
+            <li data-img="img/1.jpg">鼠标放置查看图片1</li>
+            <li data-img="img/2.jpg">鼠标放置查看图片2</li>
+            <li data-img="img/3.jpg">鼠标放置查看图片3</li>
+        </ul>
+    </div>
+    <div class="tab">
+        <ul class="tab-title clearfix">
+            <li class="active">tab1</li>
+            <li>tab2</li>
+            <li>tab3</li>
+        </ul>
+        <div class="panel active">内容1</div>
+        <div class="panel">内容2</div>
+        <div class="panel">内容3</div>
+    </div>
+    <div class="modal">
+        <div class="modal-text">
+            <h2 class="modal-text-title">文本区</h2>
+            <p class="modal-text-content" >点击按钮来修改文本的字体大小，字体颜色，文本区域的背景颜色，宽高</p>
+        </div>
+       <button id="btn-modal">点我</button>
+       <div class="modal-shade"></div>
+           <div class="modal-edit">
+            <div class="modal-edit-header">
+               <h2 class="modal-edit-title">编辑区</h2>
+                <a class="modal-edit-close" href="javascript:;">X</a> 
+            </div>
+            <div class="modal-edit-content" >
+                <div class="modal-edit-content-area text-size">
+                    <label for="text-size">文字大小：</label>
+                    <input id="text-size" type="range" name="range" min="14" max="26"> 
+                    <input class="text-size-show" type="text" placeholder="20px">
+                </div>
+                <div class="modal-edit-content-area text-color">
+                    <label for="text-color">字体颜色：</label>
+                    <input id="text-color-choose" type="color" name="color">
+                </div>
+                <div class="modal-edit-content-area bag-color">
+                    <label for="bag-color">背景颜色：</label>
+                    <input id="bag-color-choose" type="color" name="color">
+                </div>
+                <div class="modal-edit-content-area text-width-height">
+                    <div class="text-width">
+                        <label for="text-width">宽度：</label>
+                        <input id="text-width" type="text" name="text" placeholder="300px Min:100,Max:父级宽-40"><b>px</b>
+                    </div>
+                    <div class="text-height">
+                        <label for="text-height">高度：</label>
+                        <input id="text-height" type="text" name="text" placeholder="270px Min:200,Max:680"><b>px</b>
+                    </div>
+                </div>
+            </div> 
+            <div class="modal-edit-footer">
+                <a class="modal-edit-confirm" href="javascript:;">确定</a>
+                <a class="modal-edit-cancel" href="javascript:;">取消</a>
+            </div>
+       </div>
+       
+    </div>
+<script src="js/001.js"></script>
+</body>
+</html>

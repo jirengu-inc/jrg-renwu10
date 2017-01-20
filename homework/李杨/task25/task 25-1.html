@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TASK 25-1</title>
+  <script src="jquery-3.1.1.js"></script>
+  <style>
+    body,html,p,table {
+      margin: 0;
+      padding: 0;
+    }
+    ul,li {
+      list-style-type: none;
+    }
+    a {
+      text-decoration: none;
+      color: black;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .nav {
+      position: relative;
+      width: 200px;
+      background-color: firebrick;
+      color: white;
+      border: 1px solid #de772e;
+      cursor: pointer;
+      }
+    .title {
+      padding: 10px 20px;
+    }
+    .innertable {
+      position: absolute;
+      left: 200px;
+      top: -1px;
+      display: none;
+      color: black;
+      border: 1px solid lightgray;
+    }
+    .innertable td {
+      padding: 10px 20px;
+    }
+    .right {
+      float: right;
+    }
+  </style>
+</head>
+<body>
+  <ul id="nav-wrapper">
+    <li class="nav">
+      <p class="title">珠宝玉器 <span class="right"> > </span></p>
+      <table class="innertable">
+        <tr>
+          <td><a href="#">翡翠</a></td>
+          <td><a href="#">玉石</a></td>
+        </tr>
+        <tr>
+          <td><a href="#">玛瑙</a></td>
+          <td><a href="#">水晶</a></td>
+        </tr>
+        <tr>
+          <td><a href="#">宝石</a></td>
+          <td><a href="#">珍珠</a></td>
+        </tr>
+        <tr>
+          <td><a href="#">钻石</a></td>
+          <td><a href="#">琥珀</a></td>
+        </tr>
+        <tr>
+          <td><a href="#">和田</a></td>
+          <td><a href="#">琥珀</a></td>
+        </tr>
+      </table>
+    </li>
+    <li class="nav">
+      <p class="title">珠宝玉器 <span class="right"> > </span></p>
+      <table class="innertable">
+        <tr>
+          <td><a href="#">翡翠</a></td>
+          <td><a href="#">玉石</a></td>
+        </tr>
+        <tr>
+          <td><a href="#">玛瑙</a></td>
+          <td><a href="#">水晶</a></td>
+        </tr>
+        <tr>
+          <td><a href="#">宝石</a></td>
+          <td><a href="#">珍珠</a></td>
+        </tr>
+      </table>
+    </li>
+    <li class="nav">
+      <p class="title">珠宝玉器 <span class="right"> > </span></p>
+      <table class="innertable">
+        <tr>
+          <td><a href="#">翡翠</a></td>
+          <td><a href="#">玉石</a></td>
+        </tr>
+        <tr>
+          <td><a href="#">玛瑙</a></td>
+          <td><a href="#">水晶</a></td>
+        </tr>
+      </table>
+    </li>
+    <li class="nav">
+      <p class="title">珠宝玉器 <span class="right"> > </span></p>
+      <table class="innertable">
+        <tr>
+          <td><a href="#">翡翠</a></td>
+          <td><a href="#">玉石</a></td>
+        </tr>
+        <tr>
+          <td><a href="#">玛瑙</a></td>
+          <td><a href="#">水晶</a></td>
+        </tr>
+        <tr>
+          <td><a href="#">宝石</a></td>
+          <td><a href="#">珍珠</a></td>
+        </tr>
+      </table>
+    </li>
+    <li class="nav">
+      <p class="title">珠宝玉器 <span class="right"> > </span></p>
+      <table class="innertable">
+        <tr>
+          <td><a href="#">翡翠</a></td>
+          <td><a href="#">玉石</a></td>
+        </tr>
+        <tr>
+          <td><a href="#">玛瑙</a></td>
+          <td><a href="#">水晶</a></td>
+        </tr>
+      </table>
+    </li>
+  </ul>
+  <script>
+    var $title = $('.title');
+    var $innertable = $('.innertable')
+    $title.hover(function () {
+      $(this).next().show();
+    },function () {
+      $(this).next().hide();
+    });
+    $innertable.hover(function () {
+      $(this).show();
+    },function () {
+      $(this).hide();
+    });
+  </script>
+</body>
+</html>

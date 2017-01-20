@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>加载更多</title>
+	<style type="text/css">
+	ul,li{
+		margin: 0;
+		padding:0
+	}
+	  li{
+		list-style: none;
+		border: 1px solid #ccc;
+		padding: 10px;
+		margin-top: 10px;
+		cursor: pointer;
+	}
+	.btn{
+		height: 40px;
+		line-height: 40px;
+		width: 80px;
+		border: 2px solid;
+		text-align: center;
+    background: black;
+		text-decoration: none;
+		color: #fff;
+		display: block;
+		margin:10px auto;}
+
+	  li:hover{
+		background: #000;
+		color: #fff;
+	}
+	</style>
+</head>
+
+<body>
+	<ul id="ct">
+		<li>第1行</li>
+		<li>第2行</li>
+	</ul>
+	<a href="#" id="load-more" class="btn">再加载5个</a>
+	<script type="text/javascript">
+	var ct = document.querySelector('#ct');
+	function append(arr){
+		for(var i = 0;i<arr.length;i++){
+			var li = document.createElement('li');
+			li.innerHTML=arr[i];
+			ct.appendChild(li);
+		}
+
+	}
+	function ajax(opts){
+		var xmlhttp = new XMLHttpRequest();
+		xmlhttp.onreadystatechange=function(){
+			if(xmlhttp.readyState==4 && xmlhttp.status==200){
+				var json = JSON.parse(xmlhttp.responseText);
+				console.log(json);
+				opts.success(json);
+			}
+			if(xmlhttp.readyState==4 && xmlhttp.status==404){
+				opts.error();
+			}
+		}
+		var dataStr = '';
+		for(var key in opts.data){
+			dataStr += key+'='+opts.data[key]+'&';
+		}
+		dataStr=dataStr.substr(0,dataStr.length-1);
+		xmlhttp.open('get',opts.url+'?'+dataStr,true);
+		xmlhttp.send();
+	}
+
+	var accumulation = 3;
+		document.querySelector('.btn').addEventListener('click',function(){
+			ajax({
+				url:'loading.php',
+				type:'get',
+				data:{
+					origin:accumulation,
+					increase:5
+				},
+				success:function(json){
+					if(json.status==1){
+						append(json.data);
+						accumulation+=5;
+					}else{
+						console.log('失败');
+					}
+				},
+				error:function(){
+					console.log('错误');
+				}
+			});
+		});
+
+	</script>
+</body>
+</html>

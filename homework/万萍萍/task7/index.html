@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>css选择器</title>
+		<style>
+			p{
+			  font-size: 20px;
+			}
+
+			/*#header{
+			  color: red;
+			}
+
+			.header{
+			  color: blue;
+			}
+
+			.p1,.mobile{
+			  color: red;
+			}
+
+			.pp>.logo{
+			  color: green;
+			}*/
+
+
+			p~div
+			{
+				color: red;
+			}
+		</style>
+
+	</head>
+	<body>
+		  <p id="header">段落1</p>
+		  <p class="header">段落2</p>
+		  <p class="pp">段落333
+		    <span class="logo">段落3331
+		       <span class="logo1">段落3322</span>
+		    </span>
+		   
+		  </p>
+		  
+		  <div class="pp" class="mobile">DIV1
+		    <p class="p2">div段落1</p>
+		  
+		  </div>
+		  
+			<span>我是span啊</span>
+
+		  <div>DIV2</div>
+		  <p class="p1">jiyou</p>
+	</body>
+</html>

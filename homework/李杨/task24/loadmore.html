@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax</title>
+    <style>
+        li,ul {
+            margin: 0;
+            padding: 0;
+        }
+        p {
+            text-align: center;
+            margin: 20px;
+        }
+        #btn {
+            text-decoration: none;
+            border: 1px solid red;
+            border-radius: 5px;
+            color:  red;
+            padding: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+
+        }
+        #btn:hover {
+            background-color: red;
+            color: white;
+        }
+        li {
+            list-style-type: none;
+            border: 1px solid lightgray;
+            padding: 10px;
+            margin: 10px;
+            transition: 0.3s;
+        }
+        li:hover {
+            background-color: green;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<ul id="ct">
+    <li>内容1</li>
+    <li>内容2</li>
+</ul>
+<p><a id="btn">加载更多</a></p>
+<script type="text/javascript">
+    function addLi(arr) {
+        var ct = document.querySelector('#ct');
+        for(var i = 1; i < arr.length; i++) {
+            var li = document.createElement('li');
+            li.innerHTML = arr[i];
+            ct.appendChild(li);
+        }
+    }
+    function ajax(opts) {
+        var xhr = new XMLHttpRequest();//创造一个Ajax实例
+        var dataStr = '';
+        for(var key in opts.data){//处理data的数据，转换为url格式
+            dataStr += key + '=' + opts.data[key] + '&';
+        }
+        dataStr = dataStr.substring(0,dataStr.length-1);
+        xhr.onreadystatechange = function() {//绑定事件监听函数
+            if(xhr.readyState == 4 & xhr.status == 200) {
+                var json = JSON.parse(xhr.responseText);
+                opts.success(json);
+            }
+            if(xhr.readyState == 4 & xhr.status == 404) {
+                opts.error();
+            }
+        }
+        if(opts.type.toLowerCase() === 'post') {
+            xhr.open(opts.type,opts.url,true);
+            xhr.setRequestHeader('Content-type','application/x-www-form-urlencodeed');
+            xhr.send(dataStr);
+        }
+        if(opts.type.toLowerCase() === 'get') {
+            xhr.open(opts.type,opts.url + '?' + dataStr, true);
+            xhr.send();
+        }
+    }
+
+
+    var start = 2;
+    document.querySelector('#btn').addEventListener('click',function () {
+        ajax({
+            url: '/getMore',
+            type: 'get',
+            data: {
+                start: start,
+                len: 6
+            },
+            success: function (json) {
+                if (json.status == 0) {
+                    addLi(json.data);
+                    start += 6;
+                }
+            },
+            error: function () {
+                console.log('出错了')
+            }
+        })
+    })
+
+</script>
+</body>
+</html>

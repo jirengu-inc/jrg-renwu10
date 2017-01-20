@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>demo GoTop</title>
+	<style type="text/css">
+		.go-top {
+			position: fixed;
+			padding: 20px;
+			border: 1px solid red;
+			right: 20px;
+			bottom: 20px;
+		}
+	</style>
+</head>
+<body>
+<p>This is the first line.</p>
+<div style="height: 3000px"></div>
+<script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+	function GoTop($parent){
+		
+
+		this.ct = $parent || $("body");
+
+
+		this.target = $('<div class="go-top">click me!</div>');
+
+
+		this.bindEvent = function(){
+			var $cur = this.target;
+			$cur.on("click", function(){
+				var clock = setInterval(function(){
+					var top = $(window).scrollTop();
+					var speed = 20;
+					if((top-speed)>0){
+						$(window).scrollTop(top-speed);
+					}else {
+						$(window).scrollTop(0);
+						clearInterval(clock);
+					}
+				}, 5)
+			})
+		}
+
+
+		this.createNode = function(){
+			this.ct.append(this.target);
+		}
+	}
+
+
+	goTop1 = new GoTop();
+	goTop1.createNode();
+	goTop1.bindEvent();
+</script>
+</body>
+</html>

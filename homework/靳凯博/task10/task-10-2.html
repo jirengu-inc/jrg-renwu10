@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        body {
+            font-family: arial;
+        }
+
+        .ct {
+            margin: 0 auto;
+            width: 600px;
+
+        }
+
+        .info {
+            padding-bottom: 20px;
+            box-shadow: 0px 3px 5px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        .info form {
+            margin: 15px;
+        }
+
+        h2 {
+            background: #009688;
+            padding: 15px;
+            color: white;
+        }
+
+        label {
+            padding: 10px;
+            color: #009688;
+            font-size: 20px;
+        }
+
+        .info input[type=text], .info textarea {
+            padding: 10px;
+            display: block;
+            width: 100%;
+            border: none;
+            border-bottom: 1px solid #009688;
+        }
+
+        .info form > div {
+            /*overflow: auto; /!*如果内容被修剪，则浏览器会显示滚动条以便查看其余的内容。*!/*/
+            margin-top: 20px;
+        }
+
+        .box1,.box2,.box3 {
+            overflow: auto;
+        }
+
+        .check {
+            float: left;
+            width: 50%;
+            line-height: 1.5;
+        }
+
+        .radio {
+            float: left;
+            width: 50%;
+            line-height: 1.5;
+        }
+
+        input[type=submit] {
+            padding: 10px 20px;
+            color: white;
+            background-color: #009688;
+            border: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="ct">
+
+    <div class="info">
+        <h2>信息收集表</h2>
+
+        <form action="" method="post">
+            <div class="box1">
+                <label for="name">姓名</label>
+                <input type="text" id="name" name="name">
+            </div>
+            <div class="box2">
+                <label for="qq">QQ</label>
+                <input type="text" id="qq" name="qq">
+            </div>
+            <div class="box3">
+                <label for="other">要说的话</label>
+                <textarea name="other" id="other"></textarea>
+            </div>
+            <div style="overflow: hidden">
+                <div class="check">
+                    <input id="milk" name="drinks" type="checkbox" checked="checked">
+                    <label for="milk">Milk</label>
+                    <br>
+                    <input id="sugar" name="drinks" type="checkbox">
+                    <label for="sugar">Sugar</label>
+                    <br>
+                    <input id="lemon" name="drinks" type="checkbox">
+                    <label for="lemon">Lemon</label>
+                </div>
+                <div class="radio">
+                    <input id="male" type="radio" name="gender" value="male" checked="">
+                    <label for="male">Male</label>
+                    <br>
+                    <input id="female" type="radio" name="gender" value="female">
+                    <label for="female">Female</label>
+                </div>
+            </div>
+            <div>
+                <input type="submit" value="提交">
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

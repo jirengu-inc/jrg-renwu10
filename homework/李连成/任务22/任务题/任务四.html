@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <style>
+      .a{
+        outline:1px solid #ccc;
+        display:inline-block;
+        width:250px;
+        height:30px;
+        float: left;
+        line-height:30px;
+        text-align: center;
+        cursor: pointer;
+      }
+      .changecolor{
+        background-color: #999;
+      }
+      .tab:after{
+        content:'';
+        display: block;
+        clear: both;
+      }
+      .box{
+        outline:1px solid #ccc;
+        width:750px;
+        height:200px;
+        position:absolute;
+        left:48px;
+        top:48px;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="tab">
+      <li class="a changecolor">tab1</li>
+      <li class="a">tab2</li>
+      <li class="a">tab3</li>
+    </ul>
+    <div class="box changecolor">内容一</div>
+    <div class="box">内容二</div>
+    <div class="box">内容三</div>
+
+    <script>
+    var Utils = {
+
+        hasClass: function(ele, cls){
+            return !!ele.className.match(new RegExp('\\b'+cls+'\\b'));
+        },
+
+        addClass:function(ele, cls){
+          if(ele.length && ele.length > 0){
+              for(var i=0; i<ele.length; i++){
+                  Utils.singleAddClass(ele[i], cls);
+              }
+          }else{
+              Utils.singleAddClass(ele, cls);
+          }
+        },
+
+        removeClass:function(ele, cls){
+           if(ele.length && ele.length > 0){
+              for(var i=0; i<ele.length; i++){
+                  Utils.singleRemoveClass(ele[i], cls);
+              }
+          }else{
+              Utils.singleRemoveClass(ele, cls);
+          }
+        },
+
+        singleAddClass: function(ele, cls){
+            if(Utils.hasClass(ele,cls)) return;
+            ele.className += ' ' + cls;
+        },
+
+        singleRemoveClass: function(ele, cls){
+            ele.className = ele.className.replace(new RegExp('\\b'+cls+'\\b', 'g'), '');
+        },
+
+        indexOf: function(ele){
+            var parent = ele.parentElement,
+                siblings = parent.children;
+            for(var i=0; i<siblings.length; i++){
+                if(ele === siblings[i]) return i;
+            }
+            return -1;
+        }
+    };
+
+      var tab = document.querySelector(".tab"),
+      tab.addEventListener('click',function(e){
+        var target = e.target;
+            tabs = tab.children,
+            index = Utils.indexOf(target),
+            boxs = document.querySelectorAll('.box');
+
+            if(index > -1){
+              Utils.removeClass(tabs,'changecolor')
+              Utils.addClass(target,'changecolor')
+              Utils.removeClass(boxs,'changecolor')
+              Utils.addClass(boxs[index],'changecolor')
+            }
+      })
+          box = document.querySelector(".box"),
+          childs = tab.querySelectorAll("li");
+
+
+    </script>
+  </body>
+</html>

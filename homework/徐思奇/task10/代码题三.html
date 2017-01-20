@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>代码题三</title>
+    <style>
+    body {
+    background: rgba(0,0,0,0.4)
+    }
+    .layout {
+    width: 600px;
+    margin: 0 auto;
+    }
+    .box {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    }
+    .pop {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background: #fff;
+    }
+    .pop header {
+    background: #009688;
+    padding: 1px 16px;
+    color: #fff;
+    }
+    .box .pop .close {
+    float: right;
+    margin-top: 16px;
+    font-size: 20px;
+    cursor: pointer;
+    }
+    .pop main {
+    padding: 16px;
+    }
+    .pop footer {
+    background: #009688;
+    padding: 1px 16px;
+    color: #fff;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="layout">
+      <h1>这是页面内容</h1>
+      <h1>这是页面内容</h1>
+      <h1>这是页面内容</h1>
+      <h1>这是页面内容</h1>
+      <div class="box">
+        <div class="pop">
+          <header>
+            <span class="close">×</span>
+            <h3>头部</h3>
+          </header>
+          <main>
+          <p>这是内容</p>
+          <p>这是内容</p>
+          </main>
+          <footer>
+            <p>尾部</p>
+          </footer>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

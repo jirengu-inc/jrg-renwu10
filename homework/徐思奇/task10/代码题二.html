@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>代码题二</title>
+    <style>
+    .layout {
+    font-family: arial;
+    width: 600px;
+    margin: 0 auto;
+    }
+    .card{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding-bottom: 16px;
+    }
+    .card>h2 {
+    background: #009688;
+    padding: 15px 16px;
+    color: #fff;
+    }
+    .card form {
+    margin: 16px;
+    }
+    .card lable {
+    color: #757575;
+    vertical-align: middle;
+    }
+    .card input[type=text],
+    .card textarea {
+    padding: 8px;
+    display: block;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #808080;
+    
+    }
+    .card form>div {
+    margin-top: 16px;
+    overflow: auto;
+    }
+    .card .select{
+    overflow: hidden;
+    }
+    .card .select>div {
+    width: 50%;
+    float: left;
+    line-height: 1.4;
+    }
+    .card input[type=submit] {
+    padding: 8px 16px;
+    color: #fff;
+    background-color: #009688;
+    border: 0;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="layout">
+      <div class="card">
+        <h2>信息收集表</h2>
+        <form action="" method="post">
+          <div>
+            <lable for="name">姓名</lable>
+            <input type="text" id="name" name="name">
+          </div>
+          <div>
+            <lable for="qq">QQ</lable>
+            <input type="text" id="qq" name="qq">
+          </div>
+          <div>
+            <lable for="words">要说的话</lable>
+            <textarea name="words" id="words" cols="30" rows="4"></textarea>
+          </div>
+          <div class="select">
+            <div>
+              <input type="checkbox" name="hobby" id="milk" checked="checkted">
+              <lable for="milk">Milk</lable>
+              <br>
+              <input type="checkbox" name="hobby" id="sugar">
+              <lable for="sugar">Sugar</lable>
+              <br>
+              <input type="checkbox" name="hobby" id="lemon">
+              <lable for="lemon">Lemon</lable>
+            </div>
+            <div>
+              <input type="radio" id="male" name="sex" value="male" checked="">
+              <lable for="male">Male</lable>
+              <br>
+              <input type="radio" id="female" name="sex" value="female">
+              <lable for="female">Female</lable>
+            </div>
+          </div>
+          <div class="submit">
+            <input type="submit" value="提交">
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<ul class="ct">
+    <li>这里是</li>
+    <li>饥人谷</li>
+    <li>前端6班</li>
+</ul>
+<script>
+//方法一：
+	// var ct = document.querySelector('.ct');
+	// ct.addEventListener('click', function(e){
+	// 	console.log(e.target.innerText);
+	// })
+//方法二：
+	var li = document.querySelectorAll('li');
+	for(i=0;i<li.length;i++){
+		li[i].addEventListener('click', function(){
+			console.log(this.innerText);
+		})
+	}
+
+//todo ...
+</script>
+</body>
+</html>

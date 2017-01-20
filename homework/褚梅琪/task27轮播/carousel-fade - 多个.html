@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>carousel-fade</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<style type="text/css">
+	html,body,ul,li,p{
+		margin: 0;
+		padding: 0;
+	}
+	li{
+		list-style: none;
+	}
+	a{
+		text-decoration: none;
+	}
+	.carousel{
+		position: relative;
+		width: 300px;
+		height: 200px;
+		/*overflow: hidden;*/
+	}
+	.carousel .img-ct{
+		position: relative;
+	}
+	.carousel .img-ct img{
+		width: 300px;
+		height: 200px;
+	}
+	.carousel .img-ct li{
+		position: absolute;
+		display: none;
+	}
+	.arrow{
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		width: 25px;
+		height: 25px;
+		line-height: 25px;
+		text-align: center;
+		background-color: #4E443C;
+		color: #fff;
+		border-radius: 50%;
+		box-shadow: 0 0 2px #999;
+		opacity: 0.8;
+	}
+	.arrow:hover{
+		opacity: 1;
+	}
+	.pre{
+		left: 10px;
+	}
+	.next{
+		right: 10px;
+	}
+	ul.bullet{
+		position: absolute;
+		bottom: 10px;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+	ul.bullet li{
+		display: inline-block;
+		width: 13px;
+		height: 5px;
+		border-radius: 2px;
+		background-color: #ccc;
+		cursor: pointer;
+	}
+	ul.bullet li.active{
+		background-color: #666;
+	}
+</style>
+</head>
+<body>
+	<div class="carousel carousel1">
+		<ul class="img-ct">
+			<li data-id=0><a href=""><img src="http://cdn.jirengu.com/book.jirengu.com/img/3.jpg"></a></li>
+			<li data-id=1><a href=""><img src="http://cdn.jirengu.com/book.jirengu.com/img/10.jpg"></a></li>
+			<li data-id=2><a href=""><img src="http://cdn.jirengu.com/book.jirengu.com/img/2.jpg"></a></li>
+			<li data-id=3><a href=""><img src="http://cdn.jirengu.com/book.jirengu.com/img/1.jpg"></a></li>
+		</ul>
+		<a href="javascript:void(0)" class="pre arrow"><</a>
+		<a href="javascript:void(0)" class="next arrow">></a>
+		<ul class="bullet">
+			<li class="active"></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+	<div class="carousel carousel2">
+		<ul class="img-ct">
+			<li data-id=0><a href=""><img src="http://cdn.jirengu.com/book.jirengu.com/img/3.jpg"></a></li>
+			<li data-id=1><a href=""><img src="http://cdn.jirengu.com/book.jirengu.com/img/10.jpg"></a></li>
+			<li data-id=2><a href=""><img src="http://cdn.jirengu.com/book.jirengu.com/img/2.jpg"></a></li>
+			<li data-id=3><a href=""><img src="http://cdn.jirengu.com/book.jirengu.com/img/1.jpg"></a></li>
+		</ul>
+		<a href="javascript:void(0)" class="pre arrow"><</a>
+		<a href="javascript:void(0)" class="next arrow">></a>
+		<ul class="bullet">
+			<li class="active"></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+	<div class="carousel carousel3">
+		<ul class="img-ct">
+			<li data-id=0><a href=""><img src="http://cdn.jirengu.com/book.jirengu.com/img/3.jpg"></a></li>
+			<li data-id=1><a href=""><img src="http://cdn.jirengu.com/book.jirengu.com/img/10.jpg"></a></li>
+			<li data-id=2><a href=""><img src="http://cdn.jirengu.com/book.jirengu.com/img/2.jpg"></a></li>
+			<li data-id=3><a href=""><img src="http://cdn.jirengu.com/book.jirengu.com/img/1.jpg"></a></li>
+		</ul>
+		<a href="javascript:void(0)" class="pre arrow"><</a>
+		<a href="javascript:void(0)" class="next arrow">></a>
+		<ul class="bullet">
+			<li class="active"></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+ <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>   
+ <script type="text/javascript">
+ function choose(carousel){
+ 	var $parent = carousel,
+ 	    $ct = $parent.find('.img-ct'),
+ 			$items = $ct.children(),
+ 			$pre = $parent.find('.pre'),
+ 			$next = $parent.find('.next'),
+ 			$bullet = $parent.find('.bullet'),
+ 			imgCount = $items.length;
+ 	var curIdx = 0;
+ 	var isAnimate = false;
+ 	function play(idx){
+ 		if(isAnimate) return; 
+ 		isAnimate = true;
+ 		$items.eq(idx).fadeIn(500);
+ 		$items.eq(idx).siblings().fadeOut(500,function(){
+ 			isAnimate = false;
+ 		});
+ 		curIdx = idx;
+ 		setBullet();
+ 	}
+ 	function playNext(){
+ 		play((curIdx+1)%imgCount)
+ 	}
+ 	function playPre(){
+ 		play( (imgCount+curIdx-1)%imgCount )
+ 	}
+ 	function setBullet(){
+ 		$bullet.children().removeClass('active')
+ 		            .eq(curIdx).addClass('active');
+ 	}
+ 	function autoPlay(){
+ 		  clock = setInterval(function(){
+ 			playNext();
+ 		},2000);
+ 	}
+ 	play(0);
+ 	autoPlay();
+ 	$bullet.children('li').on('click',function(){
+ 		var idx = $(this).index();
+ 		play(idx);
+ 	});
+ 	$pre.on('click',function(){
+ 		playPre();
+ 	});
+ 	$next.on('click',function(){
+ 		playNext();
+ 	})
+ }
+ choose($('.carousel1'));
+ choose($('.carousel2'));
+ choose($('.carousel3'));	
+ </script>
+</body>
+</html>

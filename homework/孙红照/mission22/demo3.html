@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>demo3-mission22</title>
+	<meta charset="utf-8">
+</head>
+<body>
+<ul class="ct">
+    <li data-img="http://cdn.jirengu.com/book.jirengu.com/img/11.jpg">鼠标放置查看图片1</li>
+    <li data-img="http://cdn.jirengu.com/book.jirengu.com/img/13.jpg">鼠标放置查看图片2</li>
+    <li data-img="http://cdn.jirengu.com/book.jirengu.com/img/14.jpg">鼠标放置查看图片3</li>
+</ul>
+<div class="img-preview"></div>
+<script>
+var ct = document.querySelector(".ct"),
+	preview = document.querySelector(".img-preview");
+
+ct.addEventListener("mouseover", function(event){
+	var dataImg = event.target.getAttribute("data-img");
+	if (dataImg !== null) {
+		preview.innerHTML = "<img src='" + dataImg + "'>";
+	}
+})
+</script>
+</body>
+</html>

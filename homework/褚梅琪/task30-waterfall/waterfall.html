@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>waterfall</title>
+	<style type="text/css">
+		.content{
+			position: relative;
+		}
+		.item{
+			position: absolute;
+			width: 200px;
+			margin-right: 10px;
+			margin-top: 10px;
+			transition: all 1s;
+		}
+		.h1{
+			height: 200px;
+			background-color: #f4b300;
+		}
+		.h2{
+			height: 300px;
+			background-color: #691BB8;
+		}
+		.h3{
+			height: 400px;
+			background-color: #006ac1;
+		}
+	</style>
+</head>
+<body>
+	<div class="content">
+		<div class="item h1">1</div>
+		<div class="item h3">2</div>
+		<div class="item h2">3</div>
+		<div class="item h1">4</div>
+		<div class="item h1">5</div>
+		<div class="item h3">6</div>
+		<div class="item h3">7</div>
+		<div class="item h2">8</div>
+		<div class="item h1">9</div>
+		<div class="item h3">10</div>
+		<div class="item h3">11</div>
+		<div class="item h3">12</div>
+		<div class="item h2">13</div>
+		<div class="item h2">14</div>
+	</div>
+	<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+	<script type="text/javascript">
+	  //方法一：原始方法
+		// function render(){
+		// 	var nodeWidth = $('.item').outerWidth(true),
+		// 			colNum = Math.floor( $(window).width()/nodeWidth ),
+		// 			sumHeight = [];
+
+		// 	for(var i =0;i<colNum;i++){
+		// 		 sumHeight.push(0)
+		// 	}
+
+		// 	$('.item').each(function(){
+		// 			var idx = 0,
+		// 					minSumHeight = sumHeight[0];
+
+		// 			for(var i=0;i<sumHeight.length;i++){
+		// 				if(sumHeight[i]<minSumHeight){
+		// 					idx = i;
+		// 					minSumHeight = sumHeight[i]
+		// 				}
+		// 			}
+
+		// 			$(this).css({
+		// 				'left':idx*nodeWidth,
+		// 				'top':minSumHeight
+		// 			});
+
+		// 			sumHeight[idx]+=	$(this).outerHeight(true);
+		// 	})
+		// }
+		// render();
+
+		// $(window).on('resize',function(){
+		// 		render();
+		// })
+
+	  //方法2， 通过闭包进行私有化封装
+	  // var water = (function(){
+		 //  function render(){
+			// 		var nodeWidth = $('.item').outerWidth(true),
+			// 				colNum = Math.floor( $(window).width()/nodeWidth ),
+			// 				sumHeight = [];
+
+			// 		for(var i =0;i<colNum;i++){
+			// 			 sumHeight.push(0)
+			// 		}
+
+			// 		$('.item').each(function(){
+			// 				var idx = 0,
+			// 						minSumHeight = sumHeight[0];
+
+			// 				for(var i=0;i<sumHeight.length;i++){
+			// 					if(sumHeight[i]<minSumHeight){
+			// 						idx = i;
+			// 						minSumHeight = sumHeight[i]
+			// 					}
+			// 				}
+
+			// 				$(this).css({
+			// 					'left':idx*nodeWidth,
+			// 					'top':minSumHeight
+			// 				});
+
+			// 				sumHeight[idx]+=	$(this).outerHeight(true);
+			// 		})
+			// }
+			
+			// $(window).on('resize',function(){
+			// 		render();
+			// })
+			// render();
+			// return {
+			// 	init:render
+			// }
+	  // })();	
+	  //water.init();
+
+    // 方法3， 把功能都绑定到一个对象上
+    var WaterFall = {
+
+    		arrColHeight:[],
+
+    		init:function($ct){
+    			this.$ct = $ct;
+    			this.$items = $ct.find('.item');
+    			this.itemWidth = this.$items.outerWidth(true);
+
+    			this.bind();
+    			this.start();
+    		},
+
+    		bind:function(){
+    			var me =this;
+    			$(window).on('resize',function(){
+    				me.start();
+    			});
+    		},
+
+    		start:function(){
+    			var me = this;
+    			this.colNum = Math.floor( this.$ct.width()/this.itemWidth );
+    			this.arrColHeight.length = this.colNum;
+    			for(var i =0;i<this.colNum;i++){
+    				this.arrColHeight[i]=0;
+    			}
+
+    			this.$items.each(function(){
+    				me.placeItem($(this));
+    			})
+    		},
+
+    		placeItem:function($el){
+    				var obj = this.getIndexOfMin(this.arrColHeight),
+    				    idx = obj.idx,
+    				    min = obj.min;
+    				    
+    				$el.css({
+    					'left':idx*this.itemWidth,
+    					'top':min
+    				});
+    				this.arrColHeight[idx] += $el.outerHeight(true);
+    		},
+
+    		getIndexOfMin:function(arr){
+    			var min = arr[0],
+    			    idx = 0;
+    			 for(var i=0;i<arr.length;i++){
+    			 	  if(arr[i]<min){
+    			 	  	min = arr[i];
+    			 	  	idx = i;
+    			 	  }
+    			 }
+
+    			 return {
+    			 	idx:idx,
+    			 	min:min
+    			 }
+    		}
+    }
+    WaterFall.init( $('.content') );
+	</script>
+</body>
+</html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>魔兽世界</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        li{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        .layout{
+            width: 1200px;
+            margin: 0 auto;
+        }
+        .clearfix:after{
+            display: block;
+            clear: both;
+            content: '';
+        }
+        body{
+            background: #000;
+        }
+        header{
+            height: 700px;
+            overflow: hidden;
+        }
+        .view {
+            position: absolute;
+            background-size: cover;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        .layout  nav li{
+            margin-top: 45px;
+            float: left;
+            width: 160px;
+            line-height: 70px;
+            border-left:1px solid #3F2A22;
+            background: #261712;
+            text-align: center;
+
+        }
+        .layout nav  li a{
+            width: 100%;
+            display: block;
+            color: #F8B408;
+            font-weight:900;
+        }
+
+        .layout  nav li:nth-child(4){
+            width: 240px;
+            position: relative;
+            height: 70px;
+        }
+        .layout  nav li:nth-child(4) img{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%)
+        }
+        main{
+            padding: 35px 0 40px;
+            background: #120D0A;
+
+        }
+        main ul{
+            margin: 0 -8px;
+        }
+        main ul li{
+            width: 288px;
+            margin: 0 8px;
+
+            float: left;
+            position: relative;
+        }
+        main ul li a{
+            width: 100%;
+            display: block;
+            transition: all  0.5s;
+        }
+        main ul li a p{
+            color: #F8B408;
+            text-align: center;
+            font-weight: 900;
+            line-height: 63px;
+            background: #251812;
+        }
+        main ul li:hover a{
+            transform: translateY(-25px);
+        }
+        main ul li:hover a p{
+            color: #fff;;
+        }
+        footer{
+            padding: 50px 0;
+        }
+        footer .content{
+            margin-left: 150px;
+            float: left;
+        }
+        footer .brand{
+            float: right;
+            color: #fff;
+            vertical-align: middle;
+            margin-right: 150px;
+            font-size: 16px;
+            line-height: 26px;
+            font-weight: 900;
+        }
+
+        footer .brand a{
+            display: inline-block;
+            vertical-align: middle;
+        }
+        footer .info_icon a{
+            color: #fff;
+        }
+        footer .info_icon .icon{
+            width: 22px;
+            height:22px;
+            display: inline-block;
+            background-image: url(./images/icons.png);
+            vertical-align: bottom;
+        }
+        footer .info_icon .service{
+            background-position: -6px -4px;
+        }
+        footer .info_icon .service2{
+            background-position: -34px -4px;
+        }
+        footer .info_icon .service3{
+            background-position: -6px -29px;
+        }
+        footer .custom .blizz{
+            position: relative;
+           top: 81px
+        }
+        footer .footer_info{
+            width: 100%;
+            padding-top: 40px;
+            border-top: 1px solid #fff;
+            text-align: center;
+            color: #fff;
+            margin-top: 60px;
+        }
+        footer .footer_info p{
+            width: 900px;
+            margin: 0 auto;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="view">
+          <video src="./images/bigvideo.mp4" loop="loop" autoplay="autoplay">
+              您的浏览器不支持视频播放
+          </video>
+    </div>
+    <div class="layout">
+    <nav>
+        <ul class="clearfix">
+            <li><a href="javascript:;">进入官网</a></li>
+            <li><a href="javascript:;">账号注册</a></li>
+            <li><a href="javascript:;">充值管理</a></li>
+            <li><a href="javascript:;"><img src="./images/logo.png" alt="logo"> </a></li>
+            <li><a href="javascript:;">游戏下载</a></li>
+            <li><a href="javascript:;">客服中心</a></li>
+            <li><a href="javascript:;">官网论坛</a></li>
+        </ul>
+    </nav>
+    </div>
+</header>
+<main>
+    <div class="layout">
+            <ul class="clearfix">
+                <li>
+                    <a href="javascript:;">
+                    <p>全新职业恶魔猎手</p>
+                    <img src="images/game1.jpg" alt="">
+                    </a>
+                <li>
+                    <a href="javascript:;">
+                    <p>全新职业恶魔猎手</p>
+                    <img src="images/game2.jpg" alt="">
+                    </a>
+                <li>
+                    <a href="javascript:;">
+                    <p>全新职业恶魔猎手</p>
+                    <img src="images/game3.jpg" alt="">
+                    </a>
+                <li>
+                    <a href="javascript:;">
+                    <p>全新职业恶魔猎手</p>
+                    <img src="images/game4.jpg" alt="">
+                    </a>
+            </ul>
+        </div>
+</main>
+<footer>
+    <div class="layout">
+        <div class="clearfix">
+            <div class="content">
+            <div class="info_icon">
+                <a href="javascript:;"><span class="service icon"></span>在线客服</a>
+                <a href="javascript:;"><span class="service2 icon"></span>在线客服</a></a>
+                <a href="javascript:;"><span class="service3 icon"></span>在线客服</a></a>
+            </div>
+            <div class="custom">
+                <a href="javascript:;" class="blizz"><img src="images/partner1.png" alt=""></a>
+                <a href="javascript:;"><img src="images/partner2.png" alt=""></a>
+            </div>
+            </div>
+            <div class="brand">
+                合作品牌
+                <a href="#">
+                    <img src="http://diablo3.nos.netease.com/1/common/business-logo-wow.png" alt="">
+                </a>
+            </div>
+        </div>
+        <div class="footer_info">
+            <p>积极健康的游戏心态是健康游戏的开端，本游戏故事情节设置紧凑，请您合理控制游戏时间，避免沉溺游戏影响生活，注意自我保护，防范网络陷阱。
+                健康游戏忠告：抵制不良游戏，拒绝盗版游戏。注意自我保护，谨防受骗上当。适度游戏益脑，沉迷游戏伤身。合理安排时间，享受健康生活</p>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

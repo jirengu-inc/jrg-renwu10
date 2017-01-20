@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>demo2 stick mulit</title>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script>
+	<style type="text/css">
+		.layout {
+			width: 1000px;
+			margin: 0 auto;
+		}
+		#header p, #footer p{
+			background-color: red;
+			height: 100px;
+			line-height: 100px;
+			text-align: center;
+			color: white;
+		}
+		.nav {
+			background-color: blue;
+			height: 50px;
+			line-height: 50px;
+			text-align: center;
+			color: white;
+		}
+		.content {
+			padding-left: 200px;
+		} 
+		.main-bar {
+			float: left;
+			width: 100%;
+			height: 1000px;
+			background-color: #ccc;
+			text-align: center;
+		}
+		.aside-bar {
+			position: relative;
+			float: left;
+			width: 200px;
+			height: 1000px;
+			background-color: pink;
+			text-align: center;
+			margin-left: -100%;
+			left: -200px;
+		}
+		.content:after {
+			content: "";
+			display: block;
+			clear: both;
+		}
+	</style>
+</head>
+<body>
+<div id="header">
+	<div class="layout">
+		<p>header</p>
+	</div>
+</div>
+<div id="main">
+	<div class="layout">
+		<div class="nav">nav1</div>
+		<div class="content">
+			<div class="main-bar">main1</div>
+			<div class="aside-bar">aside1</div>
+		</div>
+		<div class="nav">nav2</div>
+		<div class="content">
+			<div class="main-bar">main2</div>
+			<div class="aside-bar">aside2</div>
+		</div>
+		<div class="nav">nav3</div>
+		<div class="content">
+			<div class="main-bar">main3</div>
+			<div class="aside-bar">aside3</div>
+		</div>
+		<div class="nav">nav4</div>
+		<div class="content">
+			<div class="main-bar">main4</div>
+			<div class="aside-bar">aside4</div>
+		</div>
+	</div>
+</div>
+<div id="footer">
+	<div class="layout">
+		<p>footer</p>
+	</div>
+</div>
+
+
+<script type="text/javascript">
+	(function(){
+		$.fn.stick =function(){
+			var $cur = this,
+				curH = $cur.height(),
+				curW = $cur.width(),
+				offsetTop = $cur.offset().top,
+				offsetLeft = $cur.offset().left,
+				isFixed = false;
+
+			//  克隆元素，用于占位
+			var $curClone = $cur.clone()
+								.css({visibility: "hidden",display: "none"})
+								.insertBefore($cur);
+			
+
+			//  设置监听函数
+			$(window).on("scroll", function(){
+				var winScroll = $(this).scrollTop();
+				if(offsetTop < winScroll){
+					if(!isFixed){
+						setFixed();
+					}
+				}else{
+					if(isFixed){
+						unsetFixed();
+					}
+				}
+			});
+
+
+
+			// 设置添加和删除stick函数
+			function setFixed(){
+				$cur.css({
+					"position" : "fixed",
+					"top" : 0,
+					"left" : offsetLeft,
+					"width" : curW,
+					"z-index" : 100,
+					"margin" : 0
+				}),
+				$curClone.show();
+				isFixed = true;
+			}
+			function unsetFixed(){
+				$cur.removeAttr("style");
+				$curClone.hide();
+				isFixed = false;
+			}
+
+		}
+	})();
+
+
+	$(".nav").each(function(){
+		console.log($(this));
+		$(this).stick();
+	})
+</script>
+</body>
+</html>
