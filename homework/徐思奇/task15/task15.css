@@ -1,0 +1,428 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.ct {
+  width: 1100px;
+  margin: 0 auto;
+  font-family: Arial, "Microsoft YaHei", "\5FAE\8F6F\96C5\9ED1", SimSun, sans-serif;
+  text-align: center;
+}
+ul, li, a {
+  list-style: none;
+  text-decoration: none;
+}
+#header {
+  height: 900px;
+  background-image: url(image/头部背景.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #fff;
+}
+#header a {
+  color: #fff;
+}
+#header .navgation {
+  width: 100%;
+  padding: 5px 40px;
+  background: rgba(0,0,0,0.5);
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+#header .navgation:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+#header .navgation-left {
+  float: left;
+}
+#header .navgation-left > a {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  display: inline-block;
+}
+#header .navgation-left img {
+  width: 100%;
+  vertical-align: middle;
+}
+#header .navgation-left > a .cover-change {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0;
+  color: #fff;
+  transition: .9s;
+}
+#header .navgation-left > a .cover-change i {
+  line-height: 75px;
+  font-size: 60px;
+}
+#header .navgation-left > a .cover-change:hover {
+  opacity: 1;
+}
+#header .navgation-left > h3 {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 30px;
+}
+#header .navgation-left > h3 a:hover {
+  color: #bbb;
+  transition: .3s;
+}
+#header .navgation-right {
+  margin-top: 5px;
+  margin-right: 50px;
+  float: right;
+}
+#header .navgation-right > li {
+  display: inline-block;
+}
+#header .navgation-right a {
+  padding: 20px 5px;
+  display: inline-block;
+  font-weight: bold;
+  letter-spacing: 1px;
+  font-style: italic;
+  font-size: 20px;
+}
+#header .navgation-right a:hover {
+  color: #bbb;
+  transition: .3s;
+}
+#header .header-middle {
+  padding-top: 480px;
+}
+#header .header-middle > h1 {
+  font-size: 50px;
+  margin-bottom: 20px;
+}
+#header .header-middle a {
+  display: inline-block;
+  padding: 20px 30px;
+  background: #fed136;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 8px;
+}
+#header .header-middle a:hover {
+  background: #fec503;
+  transition: .3s;
+}
+#series {
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
+#series .series-title h2 {
+  font-size: 40px;
+  letter-spacing: 3px;
+}
+#series .series-title p {
+  font-style: italic;
+  font-size: 15px;
+  color: #777;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+#series .series-list li {
+  width: 330px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+  border-radius: 5px;
+  display: inline-block;
+  margin: 35px 13px;
+}
+#series .series-list li img {
+  width: 100%;
+  border-radius: 5px 5px 0 0;
+}
+#series .series-list li h3 {
+  letter-spacing: 2px;
+  margin: 10px;
+}
+#series .series-list li p {
+  font-size: 14px;
+  color: #777;
+  margin: 20px;
+}
+#moments {
+  padding-top: 120px;
+  padding-bottom: 120px;
+  background: #f7f7f7;
+}
+#moments .moments-title h2 {
+  font-size: 40px;
+  letter-spacing: 3px;
+}
+#moments .moments-title p {
+  font-style: italic;
+  font-size: 15px;
+  color: #777;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+}
+#moments .moments-list li {
+  width: 440px;
+  display: inline-block;
+  margin: 30px 20px;
+  background: #fff;
+}
+#moments .moments-list li a {
+  width: 100%;
+  height: 250px;
+  display: inline-block;
+  position: relative;
+}
+#moments .moments-list li img {
+  width: 100%;
+  height: 250px;
+}
+#moments .moments-list .cover {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(254,209,54,.9);
+  opacity: 0;
+  color: #fff;
+  transition: .8s;
+}
+#moments .moments-list .cover > i {
+  position: absolute;
+  left: 22%;
+  font-size: 250px;
+  line-height: 250px;
+}
+#moments .moments-list li a .cover:hover {
+  opacity: 1;
+}
+#moments .moments-list li h3 {
+  letter-spacing: 1px;
+  margin: 10px;
+}
+#moments .moments-list li p {
+  font-size: 14px;
+  color: #777;
+  margin: 10px;
+}
+#characters {
+  padding-top: 120px;
+  padding-bottom: 100px;
+}
+#characters .characters-title h2 {
+  font-size: 40px;
+  letter-spacing: 3px;
+}
+#characters .characters-title p {
+  font-style: italic;
+  font-size: 15px;
+  color: #777;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  letter-spacing: 2px;
+}
+#characters .characters-list-wrap {
+  position: relative;
+}
+#characters .characters-list:before {
+  content: '';
+  width: 3px;
+  background: #ccc;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: -40px;
+  z-index: -2;
+}
+#characters .characters-list li {
+  position: relative;
+  margin-top: 0;
+  margin-bottom: 150px;
+}
+#characters .characters-list li:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+#characters .characters-list li img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+#characters .characters-list h2 {
+  letter-spacing: 2px;
+  margin: 10px;
+}
+#characters .characters-list p {
+  font-size: 14px;
+  color: #777;
+  margin: 10px;
+}
+#characters .characters-list .characters-brief-left {
+  width: 40%;
+  float: left;
+  margin-left: -30px;
+}
+#characters .characters-list .characters-brief-right {
+  width: 40%;
+  float: right;
+  margin-right: -30px;
+}
+#characters .characters-list .characters-list-image {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  margin-left: -100px;
+  z-index: -1;
+}
+#team {
+  padding-top: 120px;
+  padding-bottom: 120px;
+  background: #f7f7f7;
+}
+#team .team-title h2 {
+  font-size: 40px;
+  letter-spacing: 3px;
+}
+#team .team-title > p {
+  font-style: italic;
+  font-size: 15px;
+  color: #777;
+  margin-top: 20px;
+  margin-bottom: 100px;
+  letter-spacing: 2px;
+}
+#team .team-list > li {
+  display: inline-block;
+  margin: 0 40px;
+}
+#team .team-list h3 {
+  letter-spacing: 1px;
+  margin: 10px;
+}
+#team .team-list p {
+  font-size: 16px;
+  color: #777;
+  margin: 20px;
+}
+#team .team-list img {
+  width: 230px;
+  height: 230px;
+  border-radius: 50%;
+  border: 8px solid #fff;
+}
+#team .team-list .team-iconfont a {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #000;
+  display: inline-block;
+  color: #fff;
+  line-height: 40px;
+}
+#team .team-list .team-iconfont a:hover {
+  background: #fed136;
+  transition: .3s;
+}
+#team .team-list .team-iconfont li {
+  display: inline-block;
+  margin: 0 5px;
+}
+#contact {
+  height: 1000px;
+  background: url(image/contact背景图片.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+#contact .contact-title h2 {
+  margin-top: 80px;
+  font-size: 40px;
+  letter-spacing: 3px;
+}
+#contact .contact-title p {
+  font-style: italic;
+  font-size: 15px;
+  color: #777;
+  margin-top: 20px;
+  letter-spacing: 2px;
+}
+#contact .contact-form-short {
+  position: absolute;
+  top: 12%;
+  left: 10%;
+}
+#contact .contact-form-short .form-short {
+  width: 400px;
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  display: block;
+}
+#contact .contact-form-textarea {
+  position: absolute;
+  top: 36%;
+  left: 10%;
+}
+#contact .contact-form-textarea #message {
+  width: 400px;
+  height: 170px;
+  padding: 20px;
+  border-radius: 10px;
+  font-family: Arial, "Microsoft YaHei", "\5FAE\8F6F\96C5\9ED1", SimSun, sans-serif;
+}
+#contact .contact-button {
+  position: absolute;
+  top: 59%;
+  left: 20%;
+}
+#contact .contact-button a {
+  display: inline-block;
+  background: #fed136;
+  padding: 15px; 
+  border-radius: 5px;
+  color: #fff;
+  font-weight: bold;
+}
+#contact .contact-button a:hover {
+  background: #fec503;
+  transition: .3s;
+}
+#footer .footers > li {
+  display: inline-block;
+  margin: 20px 60px;
+  padding: 0 20px;
+}
+#footer .footers > li > ul > li {
+  display: inline-block;
+  margin: 0 10px;
+}
+#footer .footers .footers-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: inline-block;
+  background: #000;
+  color: #fff;
+  line-height: 40px;
+}
+#footer .footers .footers-icon:hover {
+  background: #fed136;
+  transition: .3s;
+}
+#footer .footers .privacy {
+  color: #fed136;
+}
+#footer .footers .privacy:hover {
+  color: #fec503;
+  text-decoration:underline;
+}
