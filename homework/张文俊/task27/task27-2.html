@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin:0;
+            padding:0
+        }
+        li{
+            list-style-type: none;
+        }
+        .imglist{
+            position:relative;
+            width:310px;
+            height:206px;
+            border:1px solid #eee;
+            margin:0 auto;
+            overflow:hidden;
+        }
+        .img{
+            width:2000px;
+            position:absolute;
+            top:0;
+            left:0
+        }
+        img{
+            width:310px;
+            height:206px;
+        }
+        .imglist ul li{
+            float:left;
+        }
+        .btn{
+            font-size:20px;
+            width:20px;
+            height:20px;
+            background:#eee;
+            text-align: center;
+            border-radius:10px;
+            cursor:pointer;
+            line-height:20px;
+        }
+        .btn-l{
+            position:absolute;
+            top:50%;
+            left:5px;
+        }
+        .btn-r{
+            position:absolute;
+            top:50%;
+            right:5px;
+        }
+        .choose{
+            position:absolute;
+            bottom:10px;
+            left:50%;
+            transform: translateX(-50%);
+        }
+        .choose li{
+            width:16px;
+            height:10px;
+            border-radius: 4px;
+            background-color: #fff;
+            display:inline-block;
+            margin-left:5px;
+            cursor:pointer;
+        }
+        .choose li.active{
+            background-color: #666;
+        }
+    </style>
+</head>
+<body>
+<div class="imglist1 imglist">
+    <ul class="img">
+        <li><a href=""><img src="http://cdn.jirengu.com/book.jirengu.com/img/26.jpg" alt=""/></a></li>
+        <li><a href=""><img src="http://cdn.jirengu.com/book.jirengu.com/img/25.jpg" alt=""/></a></li>
+        <li><a href=""><img src="http://cdn.jirengu.com/book.jirengu.com/img/24.jpg" alt=""/></a></li>
+        <li><a href=""><img src="http://cdn.jirengu.com/book.jirengu.com/img/23.jpg" alt=""/></a></li>
+    </ul>
+    <ul class="choose">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <div class="btn btn-l">&lt;</div>
+    <div class="btn btn-r">&gt;</div>
+</div>
+<div class="imglist2 imglist">
+    <ul class="img">
+        <li><a href=""><img src="http://cdn.jirengu.com/book.jirengu.com/img/26.jpg" alt=""/></a></li>
+        <li><a href=""><img src="http://cdn.jirengu.com/book.jirengu.com/img/25.jpg" alt=""/></a></li>
+        <li><a href=""><img src="http://cdn.jirengu.com/book.jirengu.com/img/24.jpg" alt=""/></a></li>
+        <li><a href=""><img src="http://cdn.jirengu.com/book.jirengu.com/img/23.jpg" alt=""/></a></li>
+    </ul>
+    <ul class="choose">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <div class="btn btn-l">&lt;</div>
+    <div class="btn btn-r">&gt;</div>
+</div>
+<div class="imglist3 imglist">
+    <ul class="img">
+        <li><a href=""><img src="http://cdn.jirengu.com/book.jirengu.com/img/26.jpg" alt=""/></a></li>
+        <li><a href=""><img src="http://cdn.jirengu.com/book.jirengu.com/img/25.jpg" alt=""/></a></li>
+        <li><a href=""><img src="http://cdn.jirengu.com/book.jirengu.com/img/24.jpg" alt=""/></a></li>
+        <li><a href=""><img src="http://cdn.jirengu.com/book.jirengu.com/img/23.jpg" alt=""/></a></li>
+    </ul>
+    <ul class="choose">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <div class="btn btn-l">&lt;</div>
+    <div class="btn btn-r">&gt;</div>
+</div>
+<script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+    function allPlay(name){
+        var $name = $('.'+name),
+                $imgs=$name.find('.img'),
+                $items=$imgs.children(),
+                $back=$name.find('.btn-l'),
+                $next=$name.find('.btn-r'),
+                $choose=$name.find('.choose'),
+                imgCount=$items.size();
+
+        var curIdx=0;
+        var isAnimate=false;
+
+        $next.on('click',function(){
+            playNext();
+        });
+        $back.on('click',function(){
+            playBack();
+        });
+        $choose.find('li').on('click',function(){
+            var idx=$(this).index();
+            play(idx);
+            stopAuto();
+        });
+       /* $imgs.hover(function(){
+            stopAuto();
+        },function(){
+            autoPlay();
+        });*/
+        play(0);
+        autoPlay();
+
+        function playNext(){
+            play((curIdx+1) % imgCount);
+        }
+
+        function playBack(){
+            play((curIdx+imgCount-1) % imgCount)
+        }
+
+        function play(idx){
+            if(isAnimate) return;
+            isAnimate = true;
+            $items.eq(curIdx).fadeOut(500);
+            $items.eq(idx).fadeIn(500,function(){
+                isAnimate = false;
+            });
+            curIdx = idx;
+            rechoose();
+        }
+
+        function rechoose(){
+            $choose.children().removeClass('active')
+                    .eq(curIdx).addClass('active');
+        }
+
+        function stopAuto(){
+            clearInterval(clock);
+        }
+
+        function autoPlay(){
+            clock = setInterval(function(){
+                playNext()
+            },2000)
+        }
+    }
+
+    allPlay('imglist1');
+    allPlay('imglist2');
+    allPlay('imglist3');
+    //本例重在如何找到不同父元素下的子元素，采用构造名称的方法
+
+</script>
+</body>
+</html>
+
