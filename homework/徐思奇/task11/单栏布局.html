@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>单栏布局</title>
+		<style>
+			.layout {
+		max-width: 600px;
+		margin: 0 auto;
+		text-align: center;
+		}
+		.layout > div:first-child {
+		background: red;
+		height: 50px;
+		}
+		.layout > div:nth-child(2) {
+		background: yellow;
+		height: 300px;
+		}
+		.layout > div:last-child {
+		background: blue;
+		height: 50px;
+		}
+		</style>
+	</head>
+	<body>
+		<div class="layout">
+			<div>header</div>
+			<div>content</div>
+			<div>footer</div>
+		</div>
+	</body>
+</html>
