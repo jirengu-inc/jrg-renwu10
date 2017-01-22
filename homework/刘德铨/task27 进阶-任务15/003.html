@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body {
+            font: 20px/1.5 Helvetica, arial, "Microsoft Yahei", "微软雅黑", STXihei, "华文细黑", sans-serif;
+            background: #FF9279;
+            text-align: center;
+        }
+        ul,li{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .item {
+            border: 2px solid #73E22D;
+            border-radius: 20px;
+            padding: 5px;
+            margin: 20px;
+            background: #2B92D7;
+            text-align: center;
+        }
+        .more{
+            outline: none;
+            border: none;
+            cursor: pointer;
+            font: 20px/1.5 Helvetica, arial, "Microsoft Yahei", "微软雅黑", STXihei, "华文细黑", sans-serif;
+            background: #FF9B00;
+            padding: 10px 20px;
+            border-radius: 10px;
+            color: #0096CC;
+        }
+        .more:hover{
+            color: #FFF;
+            background: #0096CC;
+        }
+    </style>
+</head>
+<body>
+    <ul class="content">
+        <li class="item">内容1</li>
+        <li class="item">内容2</li>
+    </ul>
+    <button class="more">加载更多</button>
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script>
+        $(function(){
+            var lock = false;
+            var more = $('.more');
+            more.on('click', function(){
+                var start = $('.item').length + 1;
+                var len = 3;
+                more.val('加载中……');
+                if(!lock){
+                    lock = true;
+                    $.ajax({
+                        url: '/getMore',
+                        type: 'get',
+                        dataType: 'json',
+                        data:{
+                            start: start,
+                            len: len
+                        },
+                        success: function(result){
+                            console.log('点击了');
+                            console.log(result);
+                            dealWith(result.data);
+                            more.val('加载更多');
+                            lock = false;
+                        },
+                        error: function(){
+                            console.log('出错了');
+                            lock = false;
+                        }
+                    })
+                }
+            })
+
+            function dealWith(data){
+                for(var i = 0; i < data.length; i++){
+                    $('.content').append('<li class="item">' + data[i] + '</li>');
+                }
+            }
+            
+        })
+    </script>
+</body>
+</html>

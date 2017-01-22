@@ -1,0 +1,106 @@
+
+body{
+    font: 20px/1.5 Helvetica, arial, "Microsoft Yahei", "微软雅黑", STXihei, "华文细黑", sans-serif;
+    background: #FF9279;
+    padding: 30px;
+}
+
+.container {
+    width: 70%;
+    margin: 50px auto;
+    padding: 20px 30px;
+    background: #F6F4EC;
+    border: 2px solid #FFF;
+    box-shadow: 0 0 10px #FF0099;
+    text-align: center;
+}
+
+.clearfix::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+
+/* 1 */
+.btn {
+    border: none;
+    outline: none;
+    background: #FFF;
+    color: #7360E4;
+    border-radius: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 20px;
+
+}
+
+.btn:hover{
+    color: #66E560;
+}
+
+
+/* 2 */
+.show {
+    font-size: 16px;
+    border: 2px solid #34B9DC;
+    padding: 20px;
+    position: fixed;
+}
+
+.title {
+    color: #4D34DC;
+}
+
+.distance {
+    display: inline-block;
+    border: 2px solid #FFF;
+    width: 40px;
+    padding: 5px;
+    margin: 0 10px;
+}
+
+
+/* 3 */
+.div{
+    border: 2px solid #38DD34;
+    width: 300px;
+    margin: 0 auto;
+    padding: 100px;
+    background: #FFF;
+}
+
+
+
+/* 4 */
+#input {
+    outline: none;
+    border: 4px solid #FF0300;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font: 20px/1.5 Helvetica, arial, "Microsoft Yahei", "微软雅黑", STXihei, "华文细黑", sans-serif;
+}
+
+
+/* 5 */
+#city {
+    margin: 10px 20px;
+    padding: 5px 20px;
+    background: #FF9B00;
+    cursor: pointer;
+}
+
+#city .chose {
+    background: #FF9B00;
+}
+
+.result {
+    display: inline-block;
+    width: 200px;
+}
+
+.chosed {
+    border: 2px solid #0097CC;
+    padding: 5px 20px;
+    width: 50px;
+}
