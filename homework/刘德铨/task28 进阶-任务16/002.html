@@ -1,0 +1,14 @@
+<script>
+    function isVisible($node){
+        var windowHeight = $(window).height(),
+            scrollTop = $(window).scrollTop(),
+            offsetTop = $node.offset().top,
+            nodeHeight = $node.outerHeight(true);
+        if(windowHeight + scrollTop > offsetTop && scrollTop < offsetTop + nodeHeight ){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+</script>
