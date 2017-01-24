@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>demo Carousel</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+			text-decoration: none;
+			list-style: none;
+		}
+		.clear:after {
+			content: "";
+			display: block;
+			clear: both;
+		}
+
+		/*carousel*/
+		.carousel {
+			position: relative;
+			height: 200px;
+			width: 300px;
+			overflow: hidden;
+		}
+		.carousel .pic-ct {
+			width: 1200px;
+			position: absolute;
+		}
+		.carousel .pic {
+			float: left;
+		}
+		.carousel .pic img {
+			width: 300px;
+			height: 200px;
+		}
+		.carousel .arrow-ct .arrow {
+			top: 85px;
+			z-index: 100;
+			background-color: rgba(0,0,0,0.4);
+			cursor: pointer;
+			height: 30px;
+			width: 30px;
+			line-height: 30px;
+			text-align: center;
+			border-radius: 30px;
+			color: white;
+		}
+		.carousel .arrow-ct .arrow:hover {
+			background-color: rgba(0,0,255,0.5);
+		}
+		.carousel .arrow-ct .left-arrow {
+			position: absolute;
+			left: 10px;
+		}
+		.carousel .arrow-ct .right-arrow {
+			position: absolute;
+			left: 260px;
+		}
+		.carousel .page-ct {
+			position: absolute;
+			top: 175px;
+		}
+		.carousel .page-ct li {
+			float: left;
+			width: 50px;
+			margin-left: 20px;
+			height: 5px;
+			background-color: rgba(0,0,0,0.4);
+			cursor: pointer;
+		}
+		.carousel .page-ct li:hover {
+			background-color: rgba(0,0,255,0.5);
+		}
+		.carousel .page-ct .active {
+			background-color: rgba(0,0,0,1);
+		}
+	</style>
+</head>
+<body>
+<div class="carousel">
+	<ul class="pic-ct clear">
+		<li class="pic"><img src="./img/Car1.jpg"></li>
+		<li class="pic"><img src="./img/Car2.jpg"></li>
+		<li class="pic"><img src="./img/Car3.jpg"></li>
+		<li class="pic"><img src="./img/Car4.jpg"></li>
+	</ul>
+	<ul class="arrow-ct">
+		<li class="left-arrow arrow"><</li>
+		<li class="right-arrow arrow">></li>
+	</ul>
+	<ul class="page-ct">
+		<li class="active"></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+</div>
+<div class="carousel">
+	<ul class="pic-ct clear">
+		<li class="pic"><img src="./img/TsingTao1.jpg"></li>
+		<li class="pic"><img src="./img/TsingTao2.jpeg"></li>
+		<li class="pic"><img src="./img/TsingTao3.jpeg"></li>
+		<li class="pic"><img src="./img/TsingTao4.jpg"></li>
+	</ul>
+	<ul class="arrow-ct">
+		<li class="left-arrow arrow"><</li>
+		<li class="right-arrow arrow">></li>
+	</ul>
+	<ul class="page-ct">
+		<li class="active"></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+</div>
+
+
+<script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+var carousel = (function(){
+
+
+	function Carousel($node){
+		this.$node = $node;
+		this.init();
+		this.bind();
+		this.autoMove();
+	}
+
+
+	Carousel.prototype.init = function(){
+		this.$pic = this.$node.find(".pic");
+		this.$picCt = this.$node.find(".pic-ct");
+		this.$leftArrow = this.$node.find(".left-arrow");
+		this.$rightArrow = this.$node.find(".right-arrow");
+		this.$page = this.$node.find(".page-ct>li");
+		this.imgCount = this.$pic.size();
+		this.imgWidth = this.$pic.width();
+		this.isMoving = false;
+		this.curImg = 0;
+
+		this.$picCt.prepend(this.$pic.eq(this.imgCount-1).clone())
+		this.$picCt.append(this.$pic.eq(0).clone());
+		this.$picCt.width(this.imgWidth * (this.imgCount+2));
+		this.$picCt.css({
+			left: -(this.imgWidth)
+		});
+	}
+
+
+	Carousel.prototype.bind = function(){
+		var _this = this
+		
+		this.$leftArrow.on("click", function(){
+			_this.move(-1);
+		});
+
+		this.$rightArrow.on("click", function(){
+			_this.move(1);
+		});
+
+		this.$page.on("click", function(){
+			var idx = $(this).index();
+			_this.move(idx - _this.curImg);
+		})
+	}
+
+
+	Carousel.prototype.move = function(num){
+		if (this.isMoving) {
+			return 
+		}
+		this.isMoving = true;
+		var _this = this;
+		this.$picCt.animate({
+			left: ("-=" + num*this.imgWidth)
+		}, function(){
+			_this.curImg += num;
+			if (_this.curImg === _this.imgCount) {
+				_this.$picCt.css({
+					left: -(_this.imgWidth),
+				});
+				_this.curImg = 0;
+			}
+			if (_this.curImg === -1) {
+				console.log(_this.imgWidth*_this.imgCount);
+				_this.$picCt.css("left", -(_this.imgWidth*_this.imgCount));
+				_this.curImg = 3;
+			}
+			_this.changePage(_this.curImg)
+			_this.isMoving = false;
+		});
+		
+	}
+
+
+	Carousel.prototype.changePage = function(num){
+		this.$page.removeClass("active");
+		this.$page.eq(num).addClass("active");
+	}
+
+
+	Carousel.prototype.autoMove = function(){
+		var _this = this
+		setInterval(function(){
+			_this.move(1)
+		}, 2000);
+	}
+
+
+	return {
+		use: function($node){
+			new Carousel($node)
+		}
+	}
+})()
+
+
+carousel.use($(".carousel").eq(0));
+carousel.use($(".carousel").eq(1));
+</script>
+</body>
+</html>
