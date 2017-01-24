@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+  <style>
+ .all {width:400px;
+      margin:0 auto;
+      background:white;
+      overflow:hidden;
+      height:500px;
+      position:relative; 
+      left:-200px;
+    }
+    
+.xinxi{background:#009688;
+       overflow:hidden;} 
+    
+ h3 {color:#fff;
+      margin:10px 15px;}
+ 
+body {font-family:arial;} 
+     
+form .table
+ {margin: 20px;
+ overflow:auto;
+ color:#757575}
+
+form .table2
+ {margin: 20px;
+ overflow:auto;
+ color:#757575}
+    
+
+form .table3
+ {margin: 20px;
+ overflow:auto;
+ color:#757575}
+
+input[type=text] 
+    {padding:8px;
+    display:block;
+   border:none;
+   border-bottom:1px solid #808080;
+  width:100%}
+    
+    
+
+textarea {padding:8px;
+    display:block;
+   border:none;
+   border-bottom:1px solid #808080;
+   width:100%;}
+ 
+.table4
+    {float:left;
+   
+      width:50%;
+      overflow:hidden;
+      position:relative; 
+      left:20px;
+      color:#757575;}
+.table5
+    {color:#757575;}
+   
+ input[type=submit]{
+    background-color:#009688;
+    clear:both;
+    color:white;
+    position:relative; 
+    top:30px; left:-175px;
+    
+ }
+  
+  
+  </style>
+ 
+  
+ 
+  
+</head>
+<body>
+<div class="all">
+  <div class="xinxi">
+  <h3>信息收集表</h1> 
+    </div>   
+  <form action method="post">
+ <div class="table">
+    <label for="name">姓名
+      <input type="text" name="name" id="name" />
+      </label>     
+   </div>
+ <div class="table2">
+    <label for="qq">QQ
+      <input type="text" name="qq" id="qq" />
+      </label>
+   </div>
+    
+ 
+  <div class="table3">
+      <label for="word">要说的话</label>
+        <textarea name="word" id="word" cols="30" rows="4">
+        </textarea>
+    </div>
+  <div class="table4">
+    <input name="drinks" id="milk" type="checkbox" ><label for="milk" checked >Milk</label><br>
+    <input name="drinks" id="sugar" type="checkbox" ><label for="sugar">sugar</label><br>
+    <input name="drinks" id="lemon" type="checkbox" ><label for="sugar">Lemon</label>
+    </div>
+    <div class="table5">
+      <input id="male" type="radio" name="gender" value="male" checked>
+      <label for="male">Male</label><br>
+      <input id="femal" type="radio" name="gender" vlaue="female">
+      <label for="femal">Female</label>
+    </div>
+    <div class="table6">
+    <INPUT TYPE="SUBMIT" VALUE="提交">
+     </div>
+    
+      </form>  
+</div>
+</body>
+</html>
