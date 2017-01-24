@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>news</title>
+  <style>
+    .container{
+      width: 900px;
+      margin: 0 auto;
+    }
+    ul,
+    li {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+     body {
+        font: 20px/1.5  Helvetica, arial, "Microsoft Yahei", "微软雅黑", STXihei, "华文细黑", sans-serif;
+        background: #FF9279;
+        padding: 50px;
+        min-width: 550px;
+    }
+    .change{
+      border: none;
+      outline: none;
+      margin: 30px;
+      padding: 10px 20px;
+      border-radius: 10px;
+      background: #4A9DBB;
+      font: 20px/1.5  "Microsoft Yahei", "微软雅黑", STXihei, "华文细黑", sans-serif;
+      color: #FFF;
+      cursor: pointer;
+    }
+    .news{
+      background: #EF6100;
+      padding: 30px 20px;
+    }
+  </style>
+</head>
+<body>
+    <div class="container">
+      <ul class="news">
+        <li>中英上演奥运金牌大战</li>
+        <li>没有中国选手和巨星的110米栏 我们还看吗？ </li> 
+        <li>下跪拜谢与洪荒之力一样 都是真情流露</li>
+      </ul>
+      <button class="change">换一组</button>
+    </div>
+    
+  <script>
+    
+    $('.change').addEventListener('click', function(){
+      var xhr = new XMLHttpRequest();
+      xhr.open('get', 'http://b.ji.com:8080/getNews', true);
+      xhr.send();
+      xhr.onreadystatechange = function(){
+        if(xhr.readyState === 4 && xhr.status === 200){
+          appendHtml( JSON.parse(xhr.responseText) )
+        }
+      }
+      window.xhr = xhr
+    })
+    function appendHtml(news){
+      var html = '';
+      for( var i=0; i<news.length; i++){
+        html += '<li>' + news[i] + '</li>';
+      }
+      $('.news').innerHTML = html;
+    }
+    function $(id){
+      return document.querySelector(id);
+    }
+  </script>
+</body>
+</html>

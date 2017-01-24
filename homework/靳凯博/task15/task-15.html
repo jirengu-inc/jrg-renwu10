@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
+        }
+        ul,li{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        /*旋转*/
+        @-webkit-keyframes circle{
+            0%{ transform:rotate(0deg); }
+            100%{ transform:rotate(-360deg); }
+        }
+        #nav{
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: rgba(0, 0, 0, .5);
+            height: 70px;
+            line-height: 80px;
+            width: 100%;
+            z-index: 100;
+        }
+        #nav>.container{
+            margin:0 40px;
+        }
+
+        #nav>.container>.name{
+            position: relative;
+            width: 200px;
+        }
+
+        #nav>.container>.name>em{
+            position: absolute;
+            display: inline-block;
+            top: 50%;
+            margin-top: -30px;
+            width: 48px;
+            height: 48px;
+            font-style: normal;
+            background: url("img/em-bg-nav.png") no-repeat;
+            border-radius: 50%;
+            border: 2px solid #50b332;
+            cursor: pointer;
+        }
+        #nav>.container>.name>em:hover{
+            -webkit-animation:circle 1s infinite linear;/*匀速 循环*/
+        }
+        #nav>.container>.name{
+            float: left;
+        }
+        #nav>.container>.name>a{
+            margin-left: 70px;
+            color: #50b332;
+            font-size: 30px;
+        }
+        #nav>.container>ul{
+            float: right;
+        }
+        #nav>.container>ul:after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+        #nav>.container>ul>li{
+            margin-right: 10px;
+            float: left;
+        }
+        #nav>.container>ul>li:after{
+            content: '\/';
+            display: inline-block;
+            position: relative;
+            left: 5px;
+            color: #50b332;
+        }
+        #nav>.container>ul>li:last-child:after{
+            content: "";
+        }
+        #nav>.container>ul>li>a{
+            color: #50b332;
+            font-size: 20px;
+        }
+        #header{
+            width: 100%;
+            height: 100%;
+            background: url("img/bg.jpg") no-repeat;
+            background-size: cover;
+            min-height: 800px;
+        }
+        #header>.container{
+            width: 1000px;
+            height: 100%;
+            position: absolute;
+            text-align: center;
+            color: #fff;
+            top: 50%;
+            left: 50%;
+            margin-left: -500px;
+            margin-top: -150px;
+        }
+        #header>.container>.welcome{
+            line-height: 40px;
+            font-size: 40px;
+            margin-bottom: 25px;
+            font-style: italic;
+            font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
+        }
+        #header>.container>.title{
+            font-weight: bold;
+            font-size: 70px;
+            margin-bottom: 55px;
+            font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
+        }
+        #header>.container>a{
+            font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+            color: #fff;
+            background-color: #50b332;
+            font-size: 19px;
+            padding: 20px 40px;
+            border-radius: 3px;
+        }
+        #person{
+            background-color: rgba(0,0,0,0.1);
+        }
+        #person>.container{
+            padding-top: 50px;
+            margin: 0 auto;
+            width: 80%;
+        }
+        #person>.container>h2{
+            line-height: 40px;
+            font-size: 40px;
+            margin-bottom: 25px;
+            padding-left: 20px;
+            border-left: 5px solid #50b332;
+        }
+        #person>.container>.flex{
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            padding: 10px;
+        }
+        #person>.container>.flex>.half{
+            width: 40%;
+            height: 500px;
+        }
+        #person>.container>.flex>.half>div{
+            margin: 20px auto;
+            width: 200px;
+            height: 200px;
+        }
+        #person>.container>.flex>.half>div.img1{
+            border-radius: 50%;
+            background: url("img/person.jpg") no-repeat 0 0;
+        }
+        #person>.container>.flex>.half>div.img2{
+            background: url("img/person.jpg") no-repeat -100px -230px;
+            border-radius: 50%;
+        }
+        #person>.container>.flex>.half>div:hover{
+            box-shadow: 3px 3px 3px 3px #ccc;
+            cursor: pointer;
+            transition: all 0.5s linear;
+        }
+        .flex>.half>h2{
+            margin: 30px auto;
+            padding-bottom: 10px;
+            border-bottom: 5px solid;
+            text-align: center;
+            width: 400px;
+            font-weight: bold;
+            font-size: 30px;
+        }
+        .flex>.half>p{
+            width: 400px;
+            margin: 0 auto;
+            text-indent: 2em;
+            line-height: 1.5;
+        }
+        #photo{
+            margin-top: 50px;
+        }
+        #photo>.container{
+            width: 80%;
+            margin: 0 auto;
+        }
+        #photo>.container>h2{
+            line-height: 40px;
+            font-size: 40px;
+            padding-left: 20px;
+            border-left: 5px solid #50b332;
+        }
+        #photo>.container>.flex>ul{
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            padding: 10px;
+            flex-wrap: wrap;
+        }
+        #photo>.container>.flex>ul>li{
+            display: inline-block;
+            width: 30%;
+            margin: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 2px 2px rgba(0,0,0,0.4);
+        }
+        #photo>.container>.flex>ul>li>a{
+            width: 100%;
+            display: inline-block;
+            position: relative;
+        }
+        #photo>.container>.flex>ul>li>a>span{
+            position: absolute;
+            width: 100%;
+            height: 98%;
+            top: 0;
+            left: 0;
+            text-align: center;
+            background: rgba(0, 0, 0, 0);
+            transition: background .5s;
+        }
+        #photo>.container>.flex>ul>li>a>span>em{
+            position: absolute;
+            display: inline-block;
+            top: 50%;
+            left: 50%;
+            margin-top: -20px;
+            margin-left: -25px;
+            width: 48px;
+            height: 48px;
+            font-style: normal;
+            transition: background .5s .5s;
+        }
+        #photo>.container>.flex>ul>li>a>img{
+            width: 100%;
+            height: 80%;
+        }
+        #photo>.container>.flex>ul>li>a:hover .cover{
+            background: rgba(0,0,0,0.5);
+        }
+        #photo>.container>.flex>ul>li>a:hover .cover>em{
+            -webkit-animation:circle 1.5s infinite linear;/*匀速 循环*/
+            background: url("img/em-bg.png") no-repeat;
+            border-radius: 50%;
+            border: 2px solid #e6e6e6;
+        }
+        #photo>.container>.flex>ul>li>p{
+            font-size: 20px;
+            margin: 10px 0;
+        }
+        #introduce{
+            margin-top: 50px;
+            background: rgba(0,0,0,0.1);
+        }
+        #introduce>.container{
+            margin: 0 auto;
+            width: 80%;
+            padding-top: 40px;
+        }
+        #introduce>.container>h2{
+            line-height: 40px;
+            font-size: 40px;
+            padding-left: 20px;
+            border-left: 5px solid #50b332;
+        }
+        #introduce>.container>.info{
+
+        }
+        #introduce>.container>.info>ul{
+            padding-top: 30px;
+        }
+        #introduce>.container>.info>ul>li{
+            display: block;
+        }
+        #introduce>.container>.info>ul>li>.img1{
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 1px solid #50b332;
+            position: absolute;
+            left: 50%;
+            margin-left: -100px;
+            background: #fff url("img/img1.png") no-repeat -75px 0;
+        }
+        #introduce>.container>.info>ul>li>.img2{
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 1px solid #50b332;
+            position: absolute;
+            left: 50%;
+            margin-left: -100px;
+            background: #fff url("img/img2.png") no-repeat -50px 0;
+        }
+        #introduce>.container>.info>ul>li>.img3{
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 1px solid #50b332;
+            position: absolute;
+            left: 50%;
+            margin-left: -100px;
+            background: #fff url("img/img3.png") no-repeat -105px 0;
+        }
+        #introduce>.container>.info>ul>li>.img4{
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 1px solid #50b332;
+            position: absolute;
+            left: 50%;
+            margin-left: -100px;
+            background: #fff url("img/img4.png") no-repeat -25px -20px;
+        }
+        #introduce>.container>.info>ul>li>.img5{
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 1px solid ;
+            position: absolute;
+            left: 50%;
+            margin-left: -100px;
+            background: #fff url("img/img5.png") no-repeat -45px 0;
+        }
+        #introduce>.container>.info>ul>li>.text-left{
+            width: 30%;
+            height: 300px;
+            padding-right: 10%;
+            margin-left: 10%;
+            border-right: 4px solid #50b332;
+        }
+        #introduce>.container>.info>ul>li>.text-right{
+            width: 30%;
+            height: 300px;
+            margin-left: 50%;
+            border-left: 4px solid #50b332;
+            padding-left: 15%;
+        }
+        #introduce>.container>.info>ul>li>.text-last{
+            width: 30%;
+            height: 200px;
+            padding-right: 10%;
+            margin-left: 10%;
+            padding-bottom: 50px;
+        }
+        #introduce>.container>.info>ul>li>div>h2{
+            padding-top: 50px;
+        }
+        #introduce>.container>.info>ul>li>div>p{
+            margin-top: 20px;
+            text-indent: 2em;
+            line-height: 1.5;
+        }
+        #contact{
+            width: 100%;
+            height: 100%;
+            background: url("img/bg2.jpg") no-repeat;
+            background-size: cover;
+            min-height: 800px;
+            position: relative;
+        }
+        #contact>.container{
+            width: 80%;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin: -200px 0 0 -40%;
+        }
+        #contact>.container>h2{
+            line-height: 40px;
+            font-size: 40px;
+            text-align: center;
+            color: #50b332;
+        }
+        #contact>.container>p{
+            color: #50b332;
+            text-align: center;
+            font-size: 20px;
+            margin: 20px;
+        }
+        #contact>.container>form{
+            position: relative;
+            padding-bottom: 50px;
+        }
+
+        #contact>.container>form:after{
+            display: block;
+            content: "";
+            clear: both;
+        }
+
+        #contact>.container>form>ul>li{
+            width: 50%;
+            /*height: 200px;*/
+            float: left;
+            display: inline-block;
+        }
+        #contact>.container>form>ul>li>input[type="text"]{
+            display: inline;
+            width: 70%;
+            height: 60px;
+            margin-left: 20%;
+            margin-bottom: 20px;
+            border: 1px solid rgba(0,0,0,0.1);
+            border-radius: 4px;
+        }
+        #contact>.container>form>ul>li>textarea{
+            resize: none;
+            width: 80%;
+            height: 220px;
+            border: 1px solid rgba(0,0,0,0.1);
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+        #contact>.container>form>input[type="submit"]{
+            font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+            color: #fff;
+            background-color: rgba( 0,0,255,0.1);
+            font-size: 19px;
+            padding: 10px 40px;
+            border: 1px solid rgba( 0,0,0,0.1);
+            border-radius: 3px ;
+            position: absolute;
+            left: 10%;
+            bottom: 0;
+            cursor: pointer;
+        }
+        #contact>.container>form>input[type="submit"]:hover{
+            background-color: rgba( 0,0,255,0.4);
+            transition: .5s;
+        }
+        footer>.container>ul{
+            padding: 10px;
+            background: rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        footer>.container>ul>li{
+            width: 20%;
+            height: 50px;
+        }
+        footer>.container>ul>li>p{
+            font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+            margin: 15px;
+        }
+        footer>.container>ul>li{
+            position: relative;
+            min-width: 200px;
+        }
+        footer>.container>ul>li>em{
+            position: absolute;
+            display: inline-block;
+            top: 50%;
+            left: 50%;
+            margin-top: -26px;
+            margin-left: -25px;
+            width: 48px;
+            height: 48px;
+            font-style: normal;
+            background: url("img/em-bg-black.png") no-repeat;
+            border-radius: 50%;
+            border: 2px solid #2c2c2c;
+            cursor: pointer;
+        }
+        footer>.container>ul>li>em:hover{
+            -webkit-animation:circle 1s infinite linear;/*匀速 循环*/
+        }
+        footer>.container>ul>li>a{
+            display: inline-block;
+            margin-top: 15px;
+            margin-left: 25px;
+        }
+
+    </style>
+</head>
+<body>
+<div id="nav">
+    <div class="container">
+        <div class="name">
+            <em></em>
+            <a href="#">口袋妖怪</a>
+        </div>
+        <ul>
+            <li><a href="#">官网首页</a></li>
+            <li><a href="#person">主要角色</a></li>
+            <li><a href="#photo">同人图片</a></li>
+            <li><a href="#introduce">精灵介绍</a></li>
+            <li><a href="#contact">联系我们</a></li>
+
+        </ul>
+    </div>
+</div>
+<div id="header">
+    <div class="container">
+        <div class="welcome">欢迎来到口袋妖怪的世界</div>
+        <div class="title">IT'S NICE TO MEET YOU</div>
+        <a href="#">TELL ME MORE</a>
+    </div>
+</div>
+<div id="person">
+    <div class="container">
+        <h2>主要角色: </h2>
+        <div class="flex">
+            <div class="half">
+                <div class="img1"></div>
+                <h2>小智</h2>
+                <p>年满十岁的小智以成为宝可梦大师为目标，在大木博士处领取了最初拿到的宝可梦皮卡丘后踏上旅程。漫漫旅程，小智在不断的邂逅与分离中逐渐成长。在同伴的陪伴与支持下，小智先后挑战了宝可梦联盟石英、白银、彩幽、铃兰、桧垣、密阿雷大会，并最高取得了大会亚军的成绩。</p>
+            </div>
+            <div class="half">
+                <div class="img2"></div>
+                <h2>皮卡丘</h2>
+                <p>皮卡丘是日本任天堂公司开发的掌机游戏系列《口袋妖怪》和根据它改编的动画《神奇宝贝》（港译《宠物小精灵》）中登场的虚构角色神奇宝贝中的一种。</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="photo">
+    <div class="container">
+        <h2>同人图片:</h2>
+        <div class="flex">
+            <ul>
+                <li>
+                    <a href="#photo">
+                        <img src="img/photo1.jpg" alt=""/>
+                        <span class="cover">
+                            <em></em>
+                        </span>
+                    </a>
+                    <p>图片1</p>
+                </li>
+                <li>
+                    <a href="#photo">
+                        <img src="img/photo2.jpg" alt=""/>
+                        <span class="cover">
+                            <em></em>
+                        </span>
+                    </a>
+                    <p>图片2</p>
+                </li>
+                <li>
+                    <a href="#photo">
+                        <img src="img/photo3.jpg" alt=""/>
+                        <span class="cover">
+                            <em></em>
+                        </span>
+                    </a>
+                    <p>图片3</p>
+                </li>
+                <li>
+                    <a href="#photo">
+                        <img src="img/photo4.png" alt=""/>
+                        <span class="cover">
+                            <em></em>
+                        </span>
+                    </a>
+                    <p>图片4</p>
+                </li>
+                <li>
+                    <a href="#photo">
+                        <img src="img/photo5.jpg" alt=""/>
+                        <span class="cover">
+                            <em></em>
+                        </span>
+                    </a>
+                    <p>图片5</p>
+                </li>
+                <li>
+                    <a href="#photo">
+                        <img src="img/photo6.jpg" alt=""/>
+                        <span class="cover">
+                            <em></em>
+                        </span>
+                    </a>
+                    <p>图片6</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div id="introduce">
+   <div class="container">
+       <h2>精灵介绍：</h2>
+       <div class="info">
+           <ul>
+               <li>
+                   <div class="img1"></div>
+                   <div class="text-left">
+                       <h2>超梦</h2>
+                       <p>超梦的体形与梦幻相去甚远：其形象类似于双足猫科动物，通体银灰，尾巴和腹部呈现紫色，由背部中心伸出的体外神经束一直延伸到后脖颈。身高和人类相当。</p>
+                   </div>
+               </li>
+               <li>
+                   <div class="img2"></div>
+                   <div class="text-right">
+                       <h2>梦幻</h2>
+                       <p>梦幻是日本任天堂公司开发的掌机游戏系列《口袋妖怪》和根据它改编的动画系列《神奇宝贝》中登场的虚构生物（即神奇宝贝）的一种。
+                           因为能使用所有的技能，很多学者认为它是神奇宝贝的祖先。</p>
+                   </div>
+               </li>
+               <li>
+                   <div class="img3"></div>
+                   <div class="text-left">
+                       <h2>古拉顿</h2>
+                       <p>大陆神奇宝贝，以陆地的创造者在神话中登场。在地底的熔岩中沉睡着，据说一旦醒来火山就会喷发。</p>
+                   </div>
+               </li>
+               <li>
+                   <div class="img4"></div>
+                   <div class="text-right">
+                       <h2>阿尔宙斯</h2>
+                       <p>据说它从虚无之处的一颗蛋中诞生，然后创造了整个世界。</p>
+                   </div>
+               </li>
+               <li>
+                   <div class="img5"></div>
+                   <div class="text-last">
+                       <h2>骑拉帝纳</h2>
+                       <p>由于过于凶暴而被驱逐，在被称为“破格的世界”的地方静静地凝视着原来的世界。</p>
+                   </div>
+               </li>
+           </ul>
+       </div>
+   </div>
+</div>
+<div id="contact">
+    <div class="container">
+        <h2>了解更多口袋妖怪的信息</h2>
+        <p>或加入我们</p>
+
+        <form action="#" method="post">
+            <ul>
+                <li>
+                    <input type="text" name="name" placeholder="训练师姓名"/>
+                    <input type="text" name="email" placeholder="邮箱"/>
+                    <input type="text" name="phone" placeholder="电话"/>
+                </li>
+                <li>
+                    <textarea name="message" id="" cols="30" rows="10" placeholder="有什么想对我们说的吗？"></textarea>
+                </li>
+            </ul>
+            <input type="submit" value="提交"/>
+        </form>
+    </div>
+</div>
+<footer>
+    <div class="container">
+        <ul>
+            <li>
+                <p>Copyright © 靳 2016</p>
+            </li>
+            <li>
+                <em></em>
+            </li>
+            <li>
+                <a href="#contact">联系我们</a>
+                <a href="#contact">加入我们</a>
+            </li>
+        </ul>
+    </div>
+</footer>
+</body>
+</html>

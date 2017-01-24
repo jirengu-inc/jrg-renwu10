@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>模态框</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+	
+	<style>
+		body{
+		  background: #ccc;
+		}
+
+		.content{
+		  width: 600px;
+		  margin: 0 auto;
+		}
+
+
+		.alert{
+		  position: absolute;
+		  width: 600px;
+		  left: 50%;
+		  margin-left: -300px;
+		  top: 50%;
+		  margin-top: -110px;
+		  box-shadow:0 6px 20px 0 rgba(0, 0, 0, 0.3);
+		}
+
+		.alertContent{
+		  height: 110px;
+		  background: white;
+		}
+
+		.tops,.bottoms{
+		  background: #009688;
+		  font-size: 20px;
+		  font-weight: bold;
+		  color: white;
+		  padding: 20px;
+		  border-top:1px solid      rgba(255,255,255,0.4)
+		}
+
+		.bottoms{
+		  font-weight: normal;
+		  font-size: 18px;
+		}
+
+		.tops span{
+		 /*  color: white;
+		  font-size: 24px; */
+		  position: relative;
+		  left: 500px;
+		  top: -10px;
+		  cursor: pointer;
+		}
+
+		.alertContent p{
+		  margin: 0;
+		  padding: 10px;
+		}
+
+		.alertContent .content{
+		  padding: 15px;
+		}
+	</style>
+</head>
+<body>
+    <div class="content">
+    <h2>这是页面内容</h2>
+    <h2>这是页面内容</h2>
+    <h2>这是页面内容</h2>
+    <h2>这是页面内容</h2>
+  </div>
+    
+  <div class="alert">
+    <div class="tops">
+      头部
+      <span>×</span>
+    </div>
+
+    <div class="alertContent">
+      <div class="content">
+        <p>这是内容</p>
+        <p>这是内容</p>
+      </div>
+    </div>
+   
+    <div class="bottoms">
+    尾部
+    </div>
+    
+  </div>
+</body>
+</html>

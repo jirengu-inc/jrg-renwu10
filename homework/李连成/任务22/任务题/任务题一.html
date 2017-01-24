@@ -12,18 +12,18 @@
     </ul>
     <script>
     // 方法一：
-    var liArr = document.getElementsByClassName('ct')[0].getElementsByTagName('li');
-    // console.log(document.getElementsByClassName('ct')[0].getElementsByTagName('li'))
-      for(var i=0; i<liArr.length; i++){
-        liArr[i].addEventListener('click',function(){
-          console.log(this.innerText);
-        })
-      }
+    // var liArr = document.getElementsByClassName('ct')[0].getElementsByTagName('li');
+    // // console.log(document.getElementsByClassName('ct')[0].getElementsByTagName('li'))
+    //   for(var i=0; i<liArr.length; i++){
+    //     liArr[i].addEventListener('click',function(){
+    //       console.log(this.innerText);
+    //     })
+    //   }
     // 方法二：
-    //   var ct = document.querySelector(".ct");
-    //   ct.addEventListener('click',function(e){
-    //     console.log(e.target.innerHTML)
-    //   })
+      var ct = document.querySelector(".ct");
+      ct.addEventListener('click',function(e){
+        console.log(e.target.innerHTML)
+      })
     </script>
   </body>
 </html>

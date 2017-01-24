@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>task13</title>
+		<style>
+		.box {
+		width: 200px;
+		height: 100px;
+		border: 1px solid #ccc;
+		margin: 20px;
+		position: relative;
+		}
+		.top:before {
+		content: '';
+		border-left: 10px solid transparent;
+		border-right: 10px solid transparent;
+		border-bottom: 10px solid #ccc;
+		position: absolute;
+		top: -10px;
+		left: 9px;
+		}
+		.middle:before {
+		content: '';
+		border-left: 10px solid transparent;
+		border-right: 10px solid red;
+		border-bottom: 10px solid transparent;
+		border-top: 10px solid red;
+		position: absolute;
+		left: 181px;
+		top: -1px
+		}
+		.bottom:before {
+		content: '';
+		width: 11px;
+		height: 11px;
+		background: #fff;
+		display: inline-block;
+		border-top: 1px solid #ccc;
+		border-left: 1px solid #ccc;
+		transform: rotate(45deg);
+		position: absolute;
+		top: -7px;
+		left: 12px;
+		}
+		</style>
+	</head>
+	<body>
+	    <div class="box top"></div>
+		<div class="box middle"></div>
+		<div class="box bottom"></div>
+	</body>
+</html>

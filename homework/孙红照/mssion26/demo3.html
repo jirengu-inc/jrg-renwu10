@@ -43,6 +43,7 @@
 <script type="text/javascript">
 	$(".btn").on("click", function(){
 		var $this = $(this);
+		console.log($this);
 		var nowLength = $(".ct").children().size();
 		console.log(nowLength);
 		if($(this).data("isLoading")){

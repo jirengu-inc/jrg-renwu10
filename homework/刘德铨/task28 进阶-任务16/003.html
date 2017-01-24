@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body{
+            font: 20px/1.5 Helvetica, arial, "Microsoft Yahei", "微软雅黑", STXihei, "华文细黑", sans-serif;
+            background: #FF9279;
+            padding: 30px;
+            height: 2500px;
+        }
+        #hello{
+            position: absolute;
+            top: 1500px;
+            left: 40%;
+            padding: 50px;
+            border: 2px solid #FF0500;
+            background: #0096CC;
+        }      
+    </style>
+</head>
+<body>
+    <p id="hello">hello</p>
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script>
+       $(window).on('scroll',function result(){
+            if(isVisible($('#hello'))){
+                console.log(true);
+            }
+            else{
+                console.log(false);
+            }
+        }) 
+        function isVisible($node){
+            var windowHeight = $(window).height(),
+                scrollTop = $(window).scrollTop(),
+                offsetTop = $node.offset().top,
+                nodeHeight = $node.outerHeight(true);
+            if(windowHeight + scrollTop > offsetTop && scrollTop < offsetTop + nodeHeight ){
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>

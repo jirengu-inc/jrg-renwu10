@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>表单</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			font-family: arial;
+		}
+		h2{
+			background-color: #009688;
+			color: white;
+			padding: 15px;
+		}
+
+		input[type="text"]{
+			margin: 10px;
+			width: 100%;
+			border:none;
+			outline: none;
+		}
+
+		.formbox{
+			width: 600px;
+			position: absolute;
+			left: 50%;
+			margin-left: -300px;
+			margin-top: 20px;
+			box-shadow:1px 1px 10px 0 rgba(0, 0, 0, 0.3);
+		}
+
+		.formcontent>div{
+			margin: 20px;
+			overflow: auto;
+		}
+		.box3{
+			height: 100px;
+		}
+
+		.box4>div{
+			display: inline-block;
+			color: #8a8a8e;
+		}
+		.box4 .radioBtn{
+			margin-left: 200px;
+			vertical-align: top;
+		}
+
+		input[type="submit"]{
+			width: 60px;
+			height: 32px;
+			border: none;
+			background: #009688;
+			color: white;
+			font-size: 14px;
+		}
+	</style>
+</head>
+<body>
+    <div class="formbox">
+    	<h2>信息收集表</h2>
+    	<form class="formcontent" action="">
+	    	<div class="box box1">
+	    		<p>姓名</p>
+    			<input type="text"/>
+	    	</div>
+    		
+			<div class="box box2">
+				<p>QQ</p>
+    			<input type="text"/>
+			</div>
+    		
+    		<div class="box box3">
+    			<p>要说的话</p>
+    			<input class="longTxt" type="text"/>
+    		</div>
+    		
+			<div class="box box4">
+				<div class="checkBtn">
+					<div class="checkItem">
+						<input type="checkbox" checked="checked"/>
+						Milk 
+					</div>
+					<div class="checkItem">
+						<input type="checkbox" value=""/>
+	    				Sugar
+					</div>
+	    			<div class="checkItem">
+	    				<input type="checkbox" value=""/>
+	    				Lemon
+	    			</div>
+				</div>
+
+				 <div class="radioBtn">
+				 <!-- 单选按钮处于同一个name中 才有单选效果 -->
+				 	<div class="checkItem">
+				 		<input type="radio" name="sex" checked="checked"/>
+				 		Male
+				 	</div>
+				 	<div class="checkItem">
+				 		<input type="radio" name="sex"/>
+	    				Female
+				 	</div>
+				 </div>
+			</div>
+    		
+    		<div class="box box5">
+    			<input type="submit" value="提交"/>
+    		</div>
+    	</form>
+    </div>
+</body>
+</html>

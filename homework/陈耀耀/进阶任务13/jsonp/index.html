@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>news</title>
+<style>
+  .container{
+    width: 900px;
+    margin: 0 auto;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <ul class="news">
+      <li>第11日前瞻：中国冲击4金 博尔特再战</li>
+      <li>男双力争会师决赛 </li> 
+      <li>女排将死磕巴西！</li>
+    </ul>
+    <button class="change">换一组</button>
+  </div>
+  
+<script>
+  
+  $('.change').addEventListener('click', function(){
+    var script = document.createElement('script');
+    script.src = 'http://a.yasinchan.com:8080/getNews?callback=appendHtml';
+    document.head.appendChild(script);
+    document.head.removeChild(script);
+  })
+  function appendHtml(news){
+    var html = '';
+    for( var i=0; i<news.length; i++){
+      html += '<li>' + news[i] + '</li>';
+    }
+    console.log(html);
+    $('.news').innerHTML = html;
+  }
+  function $(id){
+    return document.querySelector(id);
+  }
+</script>
+
+</body>
+
+</html>

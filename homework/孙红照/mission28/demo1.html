@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>demo stickup single</title>
+	<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script>
+	<style type="text/css">
+		#header, #footer {
+			background-color: red;
+			height: 100px;
+			line-height: 100px;
+			text-align: center;
+			color: white;
+		}
+		#nav {
+			background-color: blue;
+			height: 50px;
+			line-height: 50px;
+			text-align: center;
+			color: white;
+		}
+		#content {
+			padding-left: 200px;
+		} 
+		.main {
+			float: left;
+			width: 100%;
+			height: 2000px;
+			background-color: #ccc;
+			text-align: center;
+		}
+		.aside {
+			position: relative;
+			float: left;
+			width: 200px;
+			height: 1000px;
+			background-color: pink;
+			text-align: center;
+			margin-left: -100%;
+			left: -200px;
+		}
+		#content:after {
+			content: "";
+			display: block;
+			clear: both;
+		}
+	</style>
+</head>
+<body>
+<div id="header">header</div>
+<div id="nav">nav</div>
+<div id="content">
+	<div class="main">main</div>
+	<div class="aside">aside</div>
+</div>
+<div id="footer">footer</div>
+
+<script type="text/javascript">
+	(function(){
+		$.fn.stick =function(){
+			var $cur = this,
+				curH = $cur.height(),
+				curW = $cur.width(),
+				offsetTop = $cur.offset().top,
+				offsetLeft = $cur.offset().left,
+				isFixed = false;
+
+			//  克隆元素，用于占位
+			var $curClone = $cur.clone()
+								.css({visibility: "hidden",display: "none"})
+								.insertBefore($cur);
+			
+
+			//  设置监听函数
+			$(window).on("scroll", function(){
+				var winScroll = $(this).scrollTop();
+				if(offsetTop < winScroll){
+					if(!isFixed){
+						setFixed();
+					}
+				}else{
+					if(isFixed){
+						unsetFixed();
+					}
+				}
+			});
+
+
+
+			// 设置添加和删除stick函数
+			function setFixed(){
+				$cur.css({
+					"position" : "fixed",
+					"top" : 0,
+					"left" : offsetLeft,
+					"width" : curW,
+					"z-index" : 100,
+					"margin" : 0
+				}),
+				$curClone.show();
+				isFixed = true;
+			}
+			function unsetFixed(){
+				$cur.removeAttr("style");
+				$curClone.hide();
+				isFixed = false;
+			}
+
+		}
+	})();
+
+
+	$("#nav").stick();
+</script>
+</body>
+</html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>封装Ajax</title>
+    <style>
+        div{
+            margin: 20px 0;
+        }
+        
+    </style>
+</head>
+<body>
+<fieldset>
+    <legend>封装Ajax</legend>
+    <div id="userInfo">
+        <h2>用户信息</h2>
+        <div class="userName">
+            <label for="userName">姓名：</label>
+            <input id="userName" type="text" placeholder="请输入姓名,如：Tom">
+            <strong class="nameTip"></strong>
+        </div>
+        <div class="userPas">
+            <label for="userPas">密码：</label>
+            <input id="userPas" type="password" placeholder="请输入密码,如：123456">
+            <strong class="pasTip"></strong>
+        </div>
+    </div>
+    <div class="type">
+        <label for="type">方式：</label>
+        <input id="type" type="text" placeholder="请输入请求方式，默认为get">
+        <strong class="typeTip"></strong>
+    </div>
+    <button id="userInfoBtn">点我</button>
+    <strong class="resultTip"></strong>
+    <script>
+        function trim(str){
+            return str.replace(/^\s+|^s+$/,'');
+        }
+    </script>
+    <script>
+
+   
+
+    document.querySelector('#userName').addEventListener("change",function(){
+        var name = trim(document.querySelector('#userName').value);
+        if(isNull(name)){
+            document.querySelector('.nameTip').innerHTML = '用户名不能为空';
+            return;
+        }
+        ajax({
+            url:'getData.php',
+            type: 'post',
+            data: {
+                name: name,
+            },
+            success: function(name){
+                dealWithName(name);
+            },
+            error: function(){
+                errName();
+            }
+        })
+    },false);
+
+
+    document.querySelector('#userName').addEventListener('blur',function(){
+        if(isNull(document.querySelector('#userName').value)){
+            document.querySelector('.nameTip').innerHTML = '用户名不能为空';
+        }
+    },false);
+
+    document.querySelector('#userPas').addEventListener('focus',function(){
+        if(isNull(document.querySelector('#userName').value)){
+            document.querySelector('.nameTip').innerHTML = '用户名不能为空';
+        }
+    },false);
+
+
+    document.querySelector('#userPas').addEventListener('change',function(){
+        ajax({
+            url: 'getData.php',
+            type: 'post',
+            data: {
+                pas: document.querySelector('#userPas').value
+            },
+            success: function(pas){
+                dealWithPas(pas);
+            },
+            error: function(){
+                errPas();
+            }
+        })
+    },false);
+
+    document.querySelector('#userPas').addEventListener('blur',function(){
+       if(isNull(document.querySelector('#userPas').value)){
+            document.querySelector('.pasTip').innerHTML = '密码不能为空';
+        }
+    },false);
+    
+
+    document.querySelector('#type').addEventListener('blur',function(){
+        var type = trim(document.querySelector('#type').value);
+        ajax({
+            url: 'getData.php',
+            type: 'post',
+            data: {
+                type: type
+            },
+            success: function(type){
+                dealWidthType(type);
+            },
+            error: function(){
+                errType();
+            }
+        })
+    })
+
+     
+    var btnActive = false;
+    document.querySelector("#userInfoBtn").addEventListener("click",function(){
+        if(!btnActive){
+            btnActive = true;
+        if(isNull(document.querySelector('#userName').value)  ){
+            document.querySelector('.nameTip').innerHTML = '用户名不能为空';
+            return ;
+        }
+        if(isNull(document.querySelector('#userPas').value)){
+            document.querySelector('.pasTip').innerHTML = '密码不能为空';
+            return ;
+        }
+             ajax({
+                url:'getData.php',
+                type: document.querySelector('#type').value||'get',
+                data: {
+                    username: document.querySelector('#userName').value,
+                    password: document.querySelector('#userPas').value
+                },
+                success: function(user){
+                    dealWithBtn(user);
+                    btnActive = false;
+                },
+                error: function(){
+                    errInfo();
+                    btnActive = false;
+                }
+            });
+        }          
+     },false);
+    
+    </script>
+</fieldset>
+<script>
+
+    function isNull(str){
+        return str === '' ? true : false;
+    }
+    
+
+    function ajax(obj){
+        var xhr = new XMLHttpRequest();
+        var dataStr = '';
+        for(var key in obj.data){
+            dataStr += key + '=' + obj.data[key] + '&'; 
+        }
+        dataStr = dataStr.substr(0, dataStr.length - 1);
+
+        xhr.onreadystatechange = function(){
+            if(xhr.readyState == 4 && xhr.status == 200){
+                var user = JSON.parse(xhr.responseText);
+                obj.success(user);
+            }
+            if(xhr.readyState == 4 && xhr.status == 404){
+                var user = JSON.parse(xhr.responseText);
+                obj.error();
+            }
+        }
+        if(obj.type.toLowerCase() === 'get'){
+            xhr.open(obj.type, obj.url + '?' + dataStr, true);
+            xhr.send();
+        }
+
+        if(obj.type.toLowerCase() === 'post'){
+            xhr.open(obj.type, obj.url, true);
+            xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+            xhr.send(dataStr);
+        }
+
+     }
+
+     function dealWithName(name){
+        var nameTip = document.querySelector('.nameTip');
+        if(name.type){
+            nameTip.innerHTML = '用户名正确';
+        }
+        else if(name.type === false){
+            nameTip.innerHTML = '用户名错误';
+        }
+        /*else if(name.type === null){
+            nameTip.innerHTML = '用户名不能为空';
+        }*/
+     }
+
+     function errName(){
+         document.querySelector('.nameTip').innerHTML = '用户名验证失败';
+     }
+
+     function dealWithPas(pas){
+        var pasTip = document.querySelector('.pasTip');
+        if(pas.type){
+            pasTip.innerHTML = '密码正确';
+        }
+        else if(pas.type === false ){
+            pasTip.innerHTML = '密码错误';
+        }
+     }
+
+     function errPas(){
+         document.querySelector('.pasTip').innerHTML = '密码验证失败';
+     }
+
+     function dealWidthType(type){
+        var typeTip = document.querySelector('.typeTip');
+        if(type.type){
+            typeTip.innerHTML = '方式正确';
+        }
+        else if(type.type === false){
+            typeTip.innerHTML = '方式错误';
+        }
+     }
+
+
+     function errType(){
+        document.querySelector('.typeTip').innerHTML = '方式验证失败';
+     }
+
+
+     function dealWithBtn(user){
+        var userInfo = document.querySelector('#userInfo');
+        var userInfoChild = userInfo.children;
+
+        if(userInfoChild.length != 9){
+            var userSex = document.createElement('div');
+            userSex.className = 'userSex';
+            var sexLab = document.createElement('label');
+            sexLab.innerHTML = '性别： ';
+            sexLab.setAttribute('for','userSex');
+            var sex = document.createElement('input');
+            sex.id = 'userSex'; 
+            sex.type = 'text';
+            sex.value = user.sex;
+            userSex.appendChild(sexLab);
+            userSex.appendChild(sex);
+
+
+            var userAge = document.createElement('div');
+            userAge.className = 'userAge';
+            var ageLab = document.createElement('label');
+            ageLab.innerHTML = '年龄： ';
+            ageLab.setAttribute('for','userAge');
+            var age = document.createElement('input');
+            age.id = 'userAge'; 
+            age.type = 'text';
+            age.value = user.age;
+            userAge.appendChild(ageLab);
+            userAge.appendChild(age);
+
+            userInfo.appendChild(userSex);
+            userInfo.appendChild(userAge);
+        }
+        else {
+            var sex = document.querySelector('#userSex');
+            var age = document.querySelector('#userAge'); 
+            sex.value = user.sex;
+            age.value = user.age;
+        }
+       document.querySelector('.resultTip').innerHTML = '信息获取成功!';
+     }
+
+     function errInfo(){
+        document.querySelector('.resultTip').innerHTML = '信息获取失败!';
+     }
+</script>
+</body>
+</html>
