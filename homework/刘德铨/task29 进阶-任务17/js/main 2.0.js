@@ -6,7 +6,9 @@ var $imgCt = $('.img-ct'),
     $lastImg = $imgCt.find('li').last(),
     $ctoInterval = $('.control-interval'),
     $ctoPlus = $('.control-plus'),
+    $cover = $('.cover');
     $imgCtPlus = $('.img-ct-plus');
+    $close = $('.close');
 
 var curPageIndex = 0;
 var imgLength = $imgCt.children().length;
@@ -44,8 +46,10 @@ console.log(intervalPlay);
 
 $ctoPlus.on('click', function(){
     $imgCtPlus.addClass('active');
-    console.log($imgCtPlus.find('li').eq(curPageIndex).attr('data-index'));    
+    $cover.addClass('active');   
     $imgCtPlus.find('li').eq(curPageIndex).addClass('show');
+    $imgCtPlus.find('.close').addClass('show');
+
     if($ctoInterval.find('.active').siblings().children().attr('class') === 'play'){
         clearInterval(intervalPlay);
         $ctoInterval.find('.stop').parent().removeClass("active");
@@ -53,10 +57,12 @@ $ctoPlus.on('click', function(){
     }
 })
 
-$imgCtPlus.on('click', '.cover' ,function(){
+$close.on('click' ,function(){
     console.log('cover');
     $imgCtPlus.removeClass('active');
+    $cover.removeClass('active');
     $imgCtPlus.find('li').removeClass('show');
+    $imgCtPlus.find('.close').removeClass('show');
 })
 
 
