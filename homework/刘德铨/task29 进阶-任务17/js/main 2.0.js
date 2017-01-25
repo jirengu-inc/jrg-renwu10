@@ -4,7 +4,9 @@ var $imgCt = $('.img-ct'),
     $bullet = $('.bullet'),
     $firstImg = $imgCt.find('li').first(),
     $lastImg = $imgCt.find('li').last(),
-    $ctoInterval = $('.control-interval');
+    $ctoInterval = $('.control-interval'),
+    $ctoPlus = $('.control-plus'),
+    $imgCtPlus = $('.img-ct-plus');
 
 var curPageIndex = 0;
 var imgLength = $imgCt.children().length;
@@ -35,9 +37,28 @@ $ctoInterval.on('click', 'div', function(){
 
 intervalPlay = setInterval(function(){
     play(curPageIndex + 1);
-},5000);
+},8000*3000);
+
 
 console.log(intervalPlay);
+
+$ctoPlus.on('click', function(){
+    $imgCtPlus.addClass('active');
+    console.log($imgCtPlus.find('li').eq(curPageIndex).attr('data-index'));    
+    $imgCtPlus.find('li').eq(curPageIndex).addClass('show');
+    if($ctoInterval.find('.active').siblings().children().attr('class') === 'play'){
+        clearInterval(intervalPlay);
+        $ctoInterval.find('.stop').parent().removeClass("active");
+        $ctoInterval.find('.play').parent().addClass("active");
+    }
+})
+
+$imgCtPlus.on('click', '.cover' ,function(){
+    console.log('cover');
+    $imgCtPlus.removeClass('active');
+    $imgCtPlus.find('li').removeClass('show');
+})
+
 
 function play(index){
     if(curPageIndex === index){
@@ -69,8 +90,6 @@ function play(index){
 }
 
 
-
-
 function setBullet(){
     $bullet.children()
            .removeClass('active')
@@ -93,7 +112,7 @@ function ctoInter(node){
     else if(node.children().attr('class') === 'play'){
         intervalPlay = setInterval(function (){
             play(curPageIndex + 1);
-        },5000);
+        },8000);
     }
     isInterval = false;
 }

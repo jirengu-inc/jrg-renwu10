@@ -21,7 +21,10 @@ body{
 }
 
 .carousel {
-    position: relative;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 420px;
     height: 324px;
     overflow: hidden;
@@ -33,13 +36,15 @@ body{
 
 .carousel .img-ct>li{
     float: left;
+    cursor: pointer;
 }
-
 
 .carousel .img-ct img {
     width: 420px;
     height: 324px;
+    border-radius: 8px;
 }
+
 
 .carousel .btn{
     width: 40px;
@@ -123,7 +128,6 @@ body{
 .carousel:hover .btn-next{
     right: 15px;
 }
-
 
 .carousel .bullet-ct {
     position: absolute;
@@ -238,4 +242,116 @@ body{
 
 .control-interval .active {
     display: inline-block;
+}
+
+.control-plus {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.control-plus .icon {
+  /* 通过设置 font-size 来改变图标大小 */
+  width: 1em; height: 1em;
+  /* 图标和文字相邻时，垂直对齐 */
+  vertical-align: -0.15em;
+  /* 通过设置 color 来改变 SVG 的颜色/fill */
+  fill: currentColor;
+  /* path 和 stroke 溢出 viewBox 部分在 IE 下会显示
+     normalize.css 中也包含这行 */
+  overflow: hidden;
+  color: #FFA618;
+  font-size: 30px;
+} 
+
+.control-plus .icon:hover {
+    color: #FF3832;
+
+}
+
+.big-pic .img-ct-plus {
+    display: none;
+}
+
+.big-pic .img-ct-plus.active {
+    display: block;
+}
+
+.big-pic .img-ct-plus .cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background: linear-gradient(to bottom, #149DD1 0%, #128CBA 100%);
+}
+
+.big-pic .img-ct-plus li {
+    position: absolute;
+    top: 42%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    width: 684px;
+    height: 655px;
+    text-align: center;
+    display: none;
+}
+
+.big-pic .img-ct-plus li.show {
+    display: block;
+}
+
+.big-pic .img-ct-plus li h3 {
+    font-size: 35px;
+   text-transform: uppercase;
+   color: #16B0E8;
+   font-weight: bold;
+   text-shadow: 0 8px 9px #107BA3,
+                0 -2px 1px #FFF;
+   transition: all 0.8s ease-in-out;
+}
+
+.big-pic .img-ct-plus li h3:hover {
+    transform: scale(1.2);
+}
+
+
+.big-pic .img-ct-plus img{
+    width: 660px;
+    height: 508px;
+    border: 12px solid #FFF;
+    box-shadow: 0 4px 10px #000;
+}
+
+.big-pic .img-ct-plus li::before {
+    content: '';
+    display: block;
+    width: 200px;
+    height: 100px;
+    background: #555;
+    position: absolute;
+    bottom: 20px;
+    left: 10px;
+    transform: skew(-10deg, -10deg) ;
+    z-index: -1;
+    box-shadow: 20px 20px 10px #000;
+
+}
+
+.big-pic .img-ct-plus li::after {
+    content: '';
+    display: block;
+    width: 200px;
+    height: 100px;
+    background: #555;
+    position: absolute;
+    bottom: 20px;
+    right: 40px;
+    transform: skew(10deg, 10deg) ;
+    z-index: -1;
+    box-shadow: 20px 20px 10px #000;
 }
