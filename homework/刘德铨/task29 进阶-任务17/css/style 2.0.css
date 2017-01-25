@@ -284,10 +284,8 @@ body{
     height: 100%;
     z-index: 2;
     display: none;
-    background: linear-gradient(to bottom, #149DD1 0%, #128CBA 100%);
+    background: linear-gradient(135deg, #149DD1, #9D1BB2 100%);
 }
-
-
 
 .big-pic .img-ct-plus .close {
     position: absolute;
@@ -313,6 +311,7 @@ body{
     left: 50%;
     transform: translate(-50%,-50%) rotateZ(-45deg);
     box-shadow: 0 -1px 2px #FFF;
+    transition: all 0.8s ease-in-out;
 }
 
 .big-pic .img-ct-plus .close-rg {
@@ -322,11 +321,27 @@ body{
     border-radius: 3px;
     background: #16B0E8;
     position: absolute;
-    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%) rotateZ(45deg);
     box-shadow: 0 -1px 2px #FFF;
+    transition: all 0.8s ease-in-out;
+}
+
+
+.big-pic .img-ct-plus .close:hover .close-lf,
+.big-pic .img-ct-plus .close:hover .close-rg {
+    background: #FF1E18;
+    box-shadow: 0 -1px 2px #FFB9B1;
+   
+}
+
+.big-pic .img-ct-plus .close:hover .close-lf {
+     transform: translate(-50%,-50%) rotate(315deg);
+}
+
+.big-pic .img-ct-plus .close:hover .close-rg {
+     transform: translate(-50%,-50%) rotate(405deg);
 }
 
 .big-pic .img-ct-plus {
@@ -349,14 +364,6 @@ body{
     position: absolute;
     display: none;
     z-index: 3;
-   /*  top: 0;
-   left: 50%;
-   transform: translateX(-50%);
-   z-index: 3; 
-   width: 684px;
-   height: 644px;
-   text-align: center;
-   display: none; */
 }
 
 .big-pic .img-ct-plus .show {
