@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>轮播</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style 2.0.css">
+</head>
+<body>
+    <div class="carousel">
+        <ul class="img-ct clearfix">
+            <li data-index="0"><a href="javascript:;"><img src="img/001.jpg" alt="001.jpg"></a></li>
+            <li data-index="1"><a href="javascript:;"><img src="img/002.jpg" alt="002.jpg"></a></li>
+            <li data-index="2"><a href="javascript:;"><img src="img/003.jpg" alt="003.jpg"></a></li>
+            <li data-index="3"><a href="javascript:;"><img src="img/004.jpg" alt="004.jpg"></a></li>
+        </ul>
+        <a href="javascript:;" class="btn btn-pre">
+            <div class="row lt-top"></div>
+            <div class="lt-middle"></div>
+            <div class="row lt-bot"></div>
+        </a>
+        <a href="javascript:;" class="btn btn-next">
+            <div class="row gt-top"></div>
+            <div class="gt-middle"></div>
+            <div class="row gt-bot"></div>
+        </a>
+        <div class="bullet-ct">
+            <ul class="bullet">
+                <li class="active">
+                    <div class="thumbnail">
+                        <img src="img/001.jpg" alt="001.jpg">
+                    </div>
+                </li>
+                <li>
+                    <div class="thumbnail">
+                        <img src="img/002.jpg" alt="002.jpg">
+                    </div>
+                </li>
+                <li>
+                    <div class="thumbnail">
+                        <img src="img/003.jpg" alt="003.jpg">
+                    </div>
+                </li>
+                <li>
+                    <div class="thumbnail">
+                        <img src="img/004.jpg" alt="004.jpg">
+                    </div>
+                </li>
+            </ul>
+        </div> 
+        <div class="control-interval">
+            <div class="set-interval  active">
+                <span class="stop"></span>
+                <span class="stop"></span>
+            </div>            
+            <div class="clear-interval">
+                <span class="play"></span>
+            </div>            
+        </div>
+    </div>
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/main 2.0.js"></script>
+</body>
+</html>

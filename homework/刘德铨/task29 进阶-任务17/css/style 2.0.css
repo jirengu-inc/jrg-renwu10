@@ -1,0 +1,241 @@
+ul,li{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+a{
+    text-decoration:none;
+}
+
+body{
+    font: 20px/1.5 Helvetica, arial, "Microsoft Yahei", "微软雅黑", STXihei, "华文细黑", sans-serif;
+    background: #FF9279;
+    padding: 50px;
+}
+
+.clearfix::after{
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.carousel {
+    position: relative;
+    width: 420px;
+    height: 324px;
+    overflow: hidden;
+}
+
+.carousel .img-ct {
+    position: absolute;
+}
+
+.carousel .img-ct>li{
+    float: left;
+}
+
+
+.carousel .img-ct img {
+    width: 420px;
+    height: 324px;
+}
+
+.carousel .btn{
+    width: 40px;
+    display: block;
+    transition: all 0.8s ease-in-out;
+    position: absolute;
+    top: 50%;
+    margin-top: -25px;
+    padding: 9px 0;
+}
+
+
+.carousel .btn .row {
+    height: 14px;
+    border-radius: 7px;
+    background: #FF3732;
+    
+}
+
+.carousel .btn .lt-top {
+    transform: rotateZ(-35deg);
+    box-shadow: 2px 2px 2px #000;
+}
+
+.carousel .btn .lt-middle {
+    height: 12px;
+    width: 14px;
+    background: #FF3732;
+    transform: rotateZ(55deg);
+    position: absolute;
+    z-index: 1;
+    top: 28%;
+    left: 8.5px;
+}
+
+.carousel .btn .lt-bot {
+    box-shadow: 2px -2px 2px #000;
+    margin-top: 1px;
+    transform: rotateZ(35deg);
+}
+
+.carousel .btn .gt-top {
+    box-shadow: -2px 2px 2px #000;
+    transform: rotateZ(35deg);
+}
+
+.carousel .btn .gt-middle {
+    height: 12px;
+    width: 14px;
+    background: #FF3732;
+    transform: rotateZ(-55deg);
+    position: absolute;
+    z-index: 1;
+    top: 28%;
+    right: 8.5px;
+}
+
+.carousel .btn .gt-bot {
+    box-shadow: -2px -2px 2px #000;
+    margin-top: 1px;
+    transform: rotateZ(-35deg);
+}
+
+.carousel .btn:hover{
+    color: #FF0500;
+    transform: scale(1.2);
+}
+
+.carousel .btn-pre {
+    left: -65px;
+}
+
+.carousel .btn-next{
+    right: -65px;
+}
+
+.carousel:hover .btn-pre{
+    left: 15px;
+}
+
+.carousel:hover .btn-next{
+    right: 15px;
+}
+
+
+.carousel .bullet-ct {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 12px;
+    text-align: center;
+}
+
+.carousel .bullet {
+    display: inline-block;
+}
+
+.carousel .bullet>li {
+   display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin: 0 5px;
+    background: #FFF;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.6s ease-in-out;
+}
+
+.carousel .bullet>li.active {
+    background: #666;
+    width: 30px;
+    border-radius: 6px;
+}
+
+.carousel .bullet>li.active .thumbnail img {
+    left: -13px;
+}
+
+.carousel .bullet>li.active .thumbnail::after {
+    left: 3px;
+}
+
+.carousel .bullet>li .thumbnail {
+    display: none;
+    transition: all 0.6s ease-in-out;
+}
+
+.carousel .bullet>li:hover .thumbnail {
+    display: block;
+}
+
+.carousel .bullet>li .thumbnail img{
+    width: 52px;
+    height: 40px;
+    border: 2px solid #2AA7D6;
+    position: absolute;
+    top: -48px;
+    left: -22px;
+}
+
+.carousel .bullet>li .thumbnail::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    border-top: 6px solid #2AA7D6;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    position: absolute;
+    top: -6px;
+    left: -6px;
+}
+
+.control-interval {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.control-interval .set-interval {
+    display: none;
+    height: 25px;
+}
+
+
+.control-interval .stop {
+    display: inline-block;
+    width: 6px;
+    height: 25px;
+    background: #FFF;
+}
+
+.control-interval .clear-interval {
+    display: none;
+}
+
+.control-interval .play {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-top: 15px solid transparent;
+    border-left: 20px solid #FFF;
+    border-bottom: 15px solid transparent;
+}
+
+.control-interval:hover .stop{
+    background: #FF3832;
+}
+
+.control-interval:hover .play {
+    border-left-color: #FF3832;
+}
+
+.control-interval .active {
+    display: inline-block;
+}
