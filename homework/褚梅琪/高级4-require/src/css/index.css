@@ -31,13 +31,16 @@ h2{
 	font-size: 2em;
 }
 #gotop{
-		width: 32px;  
+		width: 60px;  
+		height: 60px;
+		font-size: 1em;
 		cursor: pointer; 
 		border: 1px solid #ccc; 
 		padding: 10px; 
 		background-color: rgba(90,86,201,0.9);
 		color: #fff;
 		line-height: 1.2;
+		text-align: center;
 	}
 .layout{
 	width: 1000px;
