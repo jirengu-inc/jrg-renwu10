@@ -23,10 +23,10 @@ $imgCt.css('left','-420px');
 
 
 $preBtn.on('click', function(){
-    play(curPageIndex - 1)
+    play(curPageIndex - 1);
 });
 $nextBtn.on('click', function(){
-    play(curPageIndex + 1)
+    play(curPageIndex + 1);
 });
 
 $bullet.on('click', 'li', function(){
@@ -90,6 +90,7 @@ function play(index){
         } 
         isAnimate = false;
         setBullet();
+        canLoad(curPageIndex);
         console.log('index: ' + index);
         console.log('curPageIndex: ' + curPageIndex);
     })
@@ -122,4 +123,13 @@ function ctoInter(node){
     }
     isInterval = false;
 }
+
+
+function canLoad(key){
+    if($imgCtPlus.find('img').eq(key).attr('src') === ''){
+        var imgUrl = $imgCtPlus.find('img').eq(key).attr('data-src')
+        $imgCtPlus.find('img').eq(key).attr('src', imgUrl);
+    }
+}
+
 

@@ -43,6 +43,7 @@ body{
     width: 420px;
     height: 324px;
     border-radius: 8px;
+    transition: all 0.8s ease-in-out;
 }
 
 
@@ -108,10 +109,10 @@ body{
     transform: rotateZ(-35deg);
 }
 
-.carousel .btn:hover{
-    color: #FF0500;
-    transform: scale(1.2);
+.carousel .btn:hover {
+    transform: scale(1.2, 1.2);
 }
+
 
 .carousel .btn-pre {
     left: -65px;
@@ -120,6 +121,13 @@ body{
 .carousel .btn-next{
     right: -65px;
 }
+
+/* .carousel  li{
+    transition: all 0.8s ease-in-out;
+} */
+
+
+
 
 .carousel:hover .btn-pre{
     left: 15px;
@@ -360,10 +368,21 @@ body{
     display: block;
 }
 
+
+
 .big-pic .img-ct-plus li {
     position: absolute;
     display: none;
     z-index: 3;
+}
+
+.big-pic .img-ct-plus a {
+    display: inline-block;
+    width: 660px;
+    height: 508px;
+    border: 12px solid #FFF;
+    box-shadow: 0 4px 10px #000;
+    overflow: hidden;
 }
 
 .big-pic .img-ct-plus .show {
@@ -386,11 +405,14 @@ body{
 }
 
 
-.big-pic .img-ct-plus img{
+.big-pic .img-ct-plus img {
     width: 660px;
     height: 508px;
-    border: 12px solid #FFF;
-    box-shadow: 0 4px 10px #000;
+    transition: all 1.2s ease-in-out;
+}
+
+.big-pic .img-ct-plus img:hover {
+    transform: scale(1.6,1.6);
 }
 
 .big-pic .img-ct-plus li::before {
