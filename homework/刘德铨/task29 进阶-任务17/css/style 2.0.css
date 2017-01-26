@@ -43,7 +43,6 @@ body{
     width: 420px;
     height: 324px;
     border-radius: 8px;
-    transition: all 0.8s ease-in-out;
 }
 
 
@@ -121,13 +120,6 @@ body{
 .carousel .btn-next{
     right: -65px;
 }
-
-/* .carousel  li{
-    transition: all 0.8s ease-in-out;
-} */
-
-
-
 
 .carousel:hover .btn-pre{
     left: 15px;
@@ -363,11 +355,6 @@ body{
     text-align: center;
     display: none; 
 }
-
-.big-pic .active {
-    display: block;
-}
-
 
 
 .big-pic .img-ct-plus li {

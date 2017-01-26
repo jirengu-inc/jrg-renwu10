@@ -39,14 +39,12 @@ $ctoInterval.on('click', 'div', function(){
 
 intervalPlay = setInterval(function(){
     play(curPageIndex + 1);
-},8000*3000);
+},8000);
 
-
-console.log(intervalPlay);
 
 $ctoPlus.on('click', function(){
-    $imgCtPlus.addClass('active');
-    $cover.addClass('active');   
+    $imgCtPlus.fadeIn(1800);
+    $cover.fadeToggle(800); 
     $imgCtPlus.find('li').eq(curPageIndex).addClass('show');
     $imgCtPlus.find('.close').addClass('show');
 
@@ -58,9 +56,8 @@ $ctoPlus.on('click', function(){
 })
 
 $close.on('click' ,function(){
-    console.log('cover');
-    $imgCtPlus.removeClass('active');
-    $cover.removeClass('active');
+    $imgCtPlus.fadeOut(1800);
+    $cover.fadeToggle(800);
     $imgCtPlus.find('li').removeClass('show');
     $imgCtPlus.find('.close').removeClass('show');
 })
@@ -91,8 +88,6 @@ function play(index){
         isAnimate = false;
         setBullet();
         canLoad(curPageIndex);
-        console.log('index: ' + index);
-        console.log('curPageIndex: ' + curPageIndex);
     })
 }
 
@@ -111,10 +106,8 @@ function ctoInter(node){
     isInterval = true;
     node.removeClass('active');
     node.siblings().addClass('active');
-    console.log(node.children().attr('class'));
     if(node.children().attr('class') === 'stop'){
         clearInterval(intervalPlay);
-        console.log(intervalPlay);
     }
     else if(node.children().attr('class') === 'play'){
         intervalPlay = setInterval(function (){
