@@ -3,6 +3,7 @@ function ajax(opts){
 	opts.error = opts.error || function(){};
 	opts.type = opts.type || 'get';
 	opts.data = opts.data || {};
+  opts.dataType = opts.dataType || 'json';
 
 	var dataStr = '';
 	for(var key in opts.data){
@@ -13,7 +14,11 @@ function ajax(opts){
   xmlhttp.onreadystatechange = function(){
   	if(xmlhttp.readyState===4){
   		if(xmlhttp.status===200){
-  			opts.success(JSON.parse(xmlhttp.responseText))
+        if(opts.dataType === 'text'){
+          opts.success( xmlhttp.responseText );
+        }else if (opts.dataType === 'json') {
+          opts.success(JSON.parse(xmlhttp.responseText))
+        } 			
   		}else{
   			opts.error();
   		}
