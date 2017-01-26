@@ -216,7 +216,7 @@ body{
     display: inline-block;
     width: 6px;
     height: 25px;
-    background: #FFF;
+    background: #FFA618;
 }
 
 .control-interval .clear-interval {
@@ -228,7 +228,7 @@ body{
     width: 0;
     height: 0;
     border-top: 15px solid transparent;
-    border-left: 20px solid #FFF;
+    border-left: 20px solid #FFA618;
     border-bottom: 15px solid transparent;
 }
 

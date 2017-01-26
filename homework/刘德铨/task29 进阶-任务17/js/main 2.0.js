@@ -39,7 +39,7 @@ $ctoInterval.on('click', 'div', function(){
 
 intervalPlay = setInterval(function(){
     play(curPageIndex + 1);
-},8000);
+},4000);
 
 
 $ctoPlus.on('click', function(){
@@ -112,7 +112,7 @@ function ctoInter(node){
     else if(node.children().attr('class') === 'play'){
         intervalPlay = setInterval(function (){
             play(curPageIndex + 1);
-        },8000);
+        },4000);
     }
     isInterval = false;
 }
