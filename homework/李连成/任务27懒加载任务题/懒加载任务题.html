@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>懒加载任务题</title>
+    <style media="screen">
+      img{
+        margin: 0;
+        padding: 0;
+      }
+      .ct img{
+        display: inline-block;
+        width:350px;
+        height:350px;
+        float: left;
+        margin:10px;
+      }
+      .ct img:after{
+        content:"";
+        display: block;
+        clear: both;
+      }
+    </style>
+  </head>
+  <body>
+     <div class="ct">
+       <img src="http://a.hiphotos.baidu.com/zhidao/pic/item/0823dd54564e9258b95a842f9982d158cdbf4e80.jpg" data-src="http://ww1.sinaimg.cn/large/0069KsLQjw1f0c6w38yujj318g0qowim.jpg" alt="">
+       <img src="http://a.hiphotos.baidu.com/zhidao/pic/item/0823dd54564e9258b95a842f9982d158cdbf4e80.jpg" data-src="http://uploads.cnrencai.com/allimg/201610/16-16100G51R9526.jpg" alt="">
+       <img src="http://a.hiphotos.baidu.com/zhidao/pic/item/0823dd54564e9258b95a842f9982d158cdbf4e80.jpg" data-src="http://img4.duitang.com/uploads/item/201511/23/20151123214330_rPRVA.thumb.700_0.jpeg" alt="">
+       <img src="http://a.hiphotos.baidu.com/zhidao/pic/item/0823dd54564e9258b95a842f9982d158cdbf4e80.jpg" data-src="http://img4.duitang.com/uploads/item/201510/13/20151013092058_QBnxh.jpeg" alt="">
+       <img src="http://a.hiphotos.baidu.com/zhidao/pic/item/0823dd54564e9258b95a842f9982d158cdbf4e80.jpg" data-src="http://cdn.duitang.com/uploads/item/201509/20/20150920135247_sjvn5.jpeg" alt="">
+       <img src="http://a.hiphotos.baidu.com/zhidao/pic/item/0823dd54564e9258b95a842f9982d158cdbf4e80.jpg" data-src="http://img5.duitang.com/uploads/item/201511/08/20151108150335_wSRVu.thumb.700_0.jpeg" alt="">
+       <img src="http://a.hiphotos.baidu.com/zhidao/pic/item/0823dd54564e9258b95a842f9982d158cdbf4e80.jpg" data-src="http://a-ssl.duitang.com/uploads/item/201510/15/20151015201748_Fj5XK.jpeg" alt="">
+       <img src="http://a.hiphotos.baidu.com/zhidao/pic/item/0823dd54564e9258b95a842f9982d158cdbf4e80.jpg" data-src="http://imgsrc.baidu.com/forum/w=580/sign=ba295e5bab6eddc426e7b4f309dab6a2/fbe6a544ad345982066a952c0af431adcaef8463.jpg" alt="">
+       <img src="http://a.hiphotos.baidu.com/zhidao/pic/item/0823dd54564e9258b95a842f9982d158cdbf4e80.jpg" data-src="http://imgsrc.baidu.com/forum/w=580/sign=ba295e5bab6eddc426e7b4f309dab6a2/fbe6a544ad345982066a952c0af431adcaef8463.jpg" alt="">
+       <img src="http://a.hiphotos.baidu.com/zhidao/pic/item/0823dd54564e9258b95a842f9982d158cdbf4e80.jpg" data-src="http://www.nanrenwo.net/uploads/allimg/151228/8431-15122QG533.jpg" alt="">
+       <img src="http://a.hiphotos.baidu.com/zhidao/pic/item/0823dd54564e9258b95a842f9982d158cdbf4e80.jpg" data-src="http://img3.duitang.com/uploads/item/201509/24/20150924170632_4yLuR.jpeg" alt="">
+       <img src="http://a.hiphotos.baidu.com/zhidao/pic/item/0823dd54564e9258b95a842f9982d158cdbf4e80.jpg" data-src="http://img4.cache.netease.com/photo/0026/2015-10-15/B600KHML513O0026.jpg" alt="">
+       <img src="http://a.hiphotos.baidu.com/zhidao/pic/item/0823dd54564e9258b95a842f9982d158cdbf4e80.jpg" data-src="http://ww2.sinaimg.cn/large/005tvRidjw1exdenz0b19j318g0tmn5r.jpg" alt="">
+       <img src="http://a.hiphotos.baidu.com/zhidao/pic/item/0823dd54564e9258b95a842f9982d158cdbf4e80.jpg" data-src="http://img5.iqilu.com/c/u/2015/0922/1442891935978.jpg" alt="">
+       <img src="http://a.hiphotos.baidu.com/zhidao/pic/item/0823dd54564e9258b95a842f9982d158cdbf4e80.jpg" data-src="http://www.hnrxw.cn/uploadfile/2015/0921/20150921104633725.jpg" alt="">
+       <img src="http://a.hiphotos.baidu.com/zhidao/pic/item/0823dd54564e9258b95a842f9982d158cdbf4e80.jpg" data-src="http://img4.duitang.com/uploads/item/201510/08/20151008004652_JiSAf.jpeg" alt="">
+       <img src="http://a.hiphotos.baidu.com/zhidao/pic/item/0823dd54564e9258b95a842f9982d158cdbf4e80.jpg" data-src="http://imgsrc.baidu.com/forum/pic/item/ac6eddc451da81cb746d3a4d5266d016082431a2.jpg" alt="">
+       <img src="http://a.hiphotos.baidu.com/zhidao/pic/item/0823dd54564e9258b95a842f9982d158cdbf4e80.jpg" data-src="http://i2.hdslb.com/video/38/385bab52d535eb7d692fb533f99256da.jpg" alt="">
+       <img src="http://a.hiphotos.baidu.com/zhidao/pic/item/0823dd54564e9258b95a842f9982d158cdbf4e80.jpg" data-src="http://img4.duitang.com/uploads/item/201510/04/20151004085132_zG5iX.jpeg" alt="">
+
+     </div>
+
+     <script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js"></script>
+     <script type="text/javascript">
+          check();
+        $(window).on('scroll',check);
+        //check本身就是函数，直接写即可，另外这里不能加括号(加上括号就变为值)
+
+        function check(){
+          $('.ct img').not('.load').each(function(){
+            if(isShow($(this))){
+              showImg($(this))
+            }
+          })
+        }
+
+        function showImg($imgs){
+          $imgs.each(function(){
+            var url = $(this).attr('data-src');
+            $(this).attr('src',url);
+            $(this).addClass('load');
+          })
+        };
+
+        function isShow($node){
+          var scrollTop = $(window).scrollTop(),
+              offsetTop = $node.offset().top,
+              nodeHeight = $node.height(),
+              windowHeight = $(window).height();
+        if(windowHeight + scrollTop > offsetTop && scrollTop < offsetTop + nodeHeight){
+          return true;
+        }else{
+          return false;
+        };
+      };
+     </script>
+  </body>
+</html>
