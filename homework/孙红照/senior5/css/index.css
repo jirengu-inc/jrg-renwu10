@@ -1,0 +1,248 @@
+* {
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+	text-decoration: none;
+	font-family: "Microsoft YaHei";
+}
+html, body {
+	height: 100%;
+}
+.clear:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+.layout {
+	width: 1000px;
+	margin: 0 auto;
+}
+h1 {
+	padding: 20px 0;
+}
+/*nav*/
+#nav {
+	width: 100%;
+	position: fixed;
+	background-color: rgba(0,0,0,0.5);
+	top: 0px;
+	left:0px;
+	z-index: 100;
+}
+#nav li {
+	margin: 15px 0;
+	float: left;
+}
+#nav ul {
+	float: right;
+	overflow: auto;
+}
+#nav a {
+	color: white;
+	margin: 0 30px;
+	font-size: 17px;
+}
+#nav a:hover {
+	color: #ddd;
+}
+#main {
+	height: 1000px;
+}
+/*header*/
+#header {
+	height: 100%;
+	width: 100%;
+}
+/*honour*/
+.honour {
+	padding: 50px 0;
+	text-align: center;
+}
+.honour h1 {
+	padding: 20px 0;
+}
+.honour h3 {
+	padding: 20px 0;
+}
+.honour p {
+	font-size: 14px;
+	color: 16px;
+}
+.honour-list>li {
+	float: left;
+	width: 320px;
+	margin-right: 20px;
+}
+.honour-list>li:nth-child(3) {
+	margin-right: 0px;
+}
+/*training*/
+.training {
+	text-align: center;
+	padding: 30px 0;
+}
+.training h1 {
+	padding: 20px 0;
+}
+.training h3 {
+	padding: 20px 0;
+}
+.training p {
+	font-size: 14px;
+	color: 16px;
+}
+.training-list {
+	position: relative;
+}
+.training-list>li {
+	position: absolute;
+	width: 333px;
+	padding: 20px 0;
+}
+.training img {
+	width: 300px;
+	height: 200px;
+}
+.training a:hover {
+	opacity: 0.5;
+}
+.training .btn-readmore {
+	display: inline-block;
+	cursor: pointer;
+	color: white;
+	background-color: rgba(0,0,0,0.7);
+	padding: 5px 10px;
+	border-radius: 5px;
+}
+.training .btn-readmore:hover {
+	background-color: black;
+}
+
+/*history*/
+.history {
+	padding: 50px 0;
+	text-align: center;
+	background: url(../img/background/background2.jpg);
+	background-size: cover;
+}
+.history img {
+	position: relative;
+	z-index: 2;
+	width: 180px;
+	height: 180px;
+	border-radius: 50%;
+	border: 6px solid #eee;
+}
+.history-words {
+	width: 300px;
+	font-size: 14px;
+}
+li:nth-child(odd) .history-words {
+	position: relative;
+	top: -188px;
+	left: 60px;
+	text-align: right;
+}
+li:nth-child(even) .history-words {
+	position: relative;
+	top: -188px;
+	left: 630px;
+	text-align: left;
+}
+.history-list {
+	margin-top: 30px;
+	position: relative;
+}
+.history .connect-line {
+    position: absolute;
+    left: 499px;
+    top: 0px;
+    border: 1px solid #eee;
+    width: 0;
+    height: 3000px;
+    z-index: 1;
+}
+/*players*/
+.players {
+	padding: 50px 0;
+	text-align: center;
+}
+.players img {
+	border-radius: 50%;
+	height: 300px;
+	width: 300px;
+}
+.player-list {
+	overflow: auto;
+}
+.player-list li {
+	float: left;
+	margin-top: 50px;
+	margin-right: 50px;
+}
+.players p {
+	margin-top: 30px;
+}
+.player-list li:last-child {
+	margin-right: 0px;
+}
+.players .iconfont {
+	font-size: 30px;
+	color: #333;
+	margin: 0 15px;
+}
+.players .iconfont:hover {
+	color: black;
+}
+/*contact*/
+.contact {
+	background: url(../img/background/background3.jpg);
+	background-size: cover;
+	padding-top: 100px;
+	color: white;
+}
+.contact input {
+	color: #333;
+	font-size: 18px;
+	padding: 20px;
+	margin: 10px 50px 10px 0;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	width: 448px;
+}
+.contact form {
+	position: relative;
+	padding: 50px 0;
+}
+.contact textarea {
+	position: absolute;
+	top: 50px;
+	right: 0px;
+	color: #333;
+	font-size: 18px;
+	padding: 20px;
+	margin: 10px 0 10px 50px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	width: 448px;
+	height: 196px;
+}
+.contact .tac {
+	text-align: center;
+}
+.contact .submit {
+	margin-left: 300px;
+	width: 400px;
+	background-color: #fed136;
+	color: white;
+}
+.contact .submit:hover {
+	background-color: #fec503;
+}
+/*footer*/
+#footer {
+	text-align: center;
+	padding: 20px;
+	background-color: white;
+	color: black;
+}
