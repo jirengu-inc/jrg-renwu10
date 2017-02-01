@@ -1,0 +1,138 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    background-color: lightpink;
+}
+#layout{
+    width: 900px;
+    margin: 0 auto;
+}
+#header{
+    margin-top: 100px;
+}
+#header::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+.contacts{
+    float: right;
+}
+.contacts ul{
+    float: left;
+    list-style: none;
+    line-height: 3em;
+    font:22px bold black;
+}
+.contacts ul li{
+    line-height: 1.5em;
+}
+.abbreviation{
+    font-weight: bolder;
+}
+.Contact-information{
+    margin-left: 20px;
+}
+img{
+    margin-left: 10px;
+    display: inline-block;
+    border-radius: 100px;
+    float: left;
+}
+.title{
+    margin-top: 75px;
+    margin-left: 50px;
+    display: inline-block;
+    line-height: 2em;
+}
+.contacts h2{
+    font-size: 30px;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    border-bottom: 10px solid black;
+}
+#info {
+    margin-top: 100px;
+}
+.info-title {
+    padding-bottom: 20px;
+    font-size: 30px;
+    width: 300px;
+    border-bottom: 2px solid #a0a0a0;
+    
+}
+.frist{
+    border-left: 2px solid black;
+    margin-top: 40px;
+    position: relative;
+} 
+.second{
+    border-left: 2px solid black;
+    margin-bottom: 40px;
+    position: relative;
+}
+#info h3{
+    display: inline-block;
+    margin-left: 100px;
+    margin-bottom: 30px;
+}
+
+.spot{
+    position: absolute;
+    left:-8px;
+    top: 0px;
+}
+#info P{
+    margin-left: 100px;
+    padding-bottom: 30px;
+    line-height: 1.5em;
+    font-size: 20px;
+}
+.world{
+    color: #a0a0a0;
+}
+#item {
+    width: 300px;
+    float: right;
+
+}
+#item ul{
+    list-style: none;
+    margin-top: 30px;
+
+}
+#item ul li{
+    float: left;
+    padding-right: 20px;
+    width: 120px;
+    line-height: 1.7em;
+    
+}
+#friend {
+    width: 300px; 
+}
+.girl {
+    position: relative;
+    margin-top: 30px;
+}
+.bug {
+    position: relative;
+    margin-top: 30px;
+}
+.plus {
+    display: inline-block;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    font-size: 20px;
+    border-radius: 5px red;
+}
+#fotter h3 {
+    display: inline-block;
+    margin-left: 50px; 
+    padding-bottom: 20px;
+}
+#friend p{
+    margin-left: 50px;
+    line-height: 1.7em;
+}
