@@ -95,17 +95,18 @@
         height: 100px;
         background-color: #c00;
         display: inline-block;
+        animation: 2s rainbow linear infinite;
     }
-    @-webkit-keyframes rainbow {
+    @keyframes rainbow {
       0% { background: #c00 }
       25%{background:yellow }
       50% { background: orange }
       75% { background: blue }
       100% { background: #c00 }
     }
-    .animation:hover {
-      -webkit-animation: 2s rainbow linear infinite;
-    }
+   /*  .animation:hover {
+      animation: 2s rainbow linear infinite;
+    } */
   </style>
 </head>
 <body>
