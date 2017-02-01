@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>媒体查询</title>
+	<style type="text/css">
+		body{
+			background: red;
+		}
+		@media (max-width:600px){
+			body{
+				background: #ccc;
+			}
+		}
+		@media (max-width:900px) and (min-width: 601px){
+			body{
+				background: yellow;
+			}
+		}
+		@media (max-width:1200px) and (min-width: 901px){
+			body{
+				background: green;
+		}
+
+	</style>
+</head>
+<body>
+
+1. 在页面宽度> 1200px 时页面背景为红色 <br>
+2. 在页面1200px>=宽度> 900px  时页面背景为绿色 <br>
+3. 在页面900px>=宽度> 600px  时页面背景为黄色<br>
+4. 宽度<=600px 背景为灰色	
+
+</body>
+</html>

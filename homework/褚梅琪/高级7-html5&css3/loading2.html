@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>loading2</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			background: rgb(13,206,203);
+		}
+		.loading{
+			width: 100px;
+			height: 100px;
+			border-radius: 50%;
+			margin: 100px auto;
+			border-top: 15px solid rgb(255,255,255);
+			border-right: 15px solid rgba(255,255,255,0.2);
+			border-bottom: 15px solid rgba(255,255,255,0.2);
+			border-left: 15px solid rgba(255,255,255,0.2);
+			animation: load2 1.1s infinite linear;
+		}
+		@keyframes load2{
+			0%{
+				transform: rotate(0deg);
+			}
+			100%{
+				transform: rotate(360deg);
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="loading"></div>
+</body>
+</html>
