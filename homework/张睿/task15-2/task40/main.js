@@ -1,3 +1,0 @@
-
-
-define(["./js/div/goTop"]);
