@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+          * {
+          margin: 0;
+          padding: 0;
+        }
+        
+        .img-preview{
+          width: 700px;
+          margin: 0 auto;
+        }
+
+        .img-row {
+          margin-bottom: 8px;
+        }
+
+        .img-row::after {
+          content: "";
+          display: block;
+          clear: both;
+        }
+
+        .img-box {
+          float: left;
+        }
+
+        .img-line .img-box:first-child {
+          padding-left: 0;
+        }
+    </style>
+</head>
+<body>
+     <div class="img-preview">
+
+    </div>
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/main3.0.js"></script>
+</body>
+</html>
