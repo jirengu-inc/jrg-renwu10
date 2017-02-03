@@ -1,0 +1,103 @@
+ul,li{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+a{
+    text-decoration:none;
+}
+
+body{
+    font: 20px/1.5 Helvetica, arial, "Microsoft Yahei", "微软雅黑", STXihei, "华文细黑", sans-serif;
+    background: #FF9279;
+    padding: 50px;
+}
+
+.clearfix::after{
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.carousel {
+    position: relative;
+    width: 420px;
+    height: 324px;
+    overflow: hidden;
+}
+
+.carousel .img-ct {
+    /* position: relative; */
+    /* width: 1680px; */
+    /* left: -420px; */
+    position: absolute;
+}
+
+.carousel .img-ct>li{
+    /* position: absolute; */
+    float: left;
+}
+
+
+.carousel .img-ct img {
+    width: 420px;
+    height: 324px;
+}
+
+.carousel .btn{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    color: #FFF;
+    background: #000;
+    opacity: 0.6;
+    display: block;
+    text-align: center;
+    line-height: 50px;
+    transition: all 0.8s ease-in-out;
+    position: absolute;
+    top: 50%;
+    margin-top: -25px;
+}
+
+.carousel .btn:hover{
+    color: #FF0500;
+    opacity: 0.8;
+    /* font-size: 120%; */
+    transform: scale(1.2);
+}
+
+.carousel .btn-pre {
+    left: 15px;
+}
+
+.carousel .btn-next{
+    right: 15px;
+}
+
+.carousel .bullet-ct {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 15px;
+    text-align: center;
+}
+
+.carousel .bullet {
+    display: inline-block;
+}
+
+.carousel .bullet>li {
+   display: inline-block;
+    width: 20px;
+    height: 6px;
+    border-radius: 3px;
+    margin: 0 5px;
+    background: #FFF;
+    cursor: pointer;
+}
+
+.carousel .bullet .active {
+    background: #666;
+}

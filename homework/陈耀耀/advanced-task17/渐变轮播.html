@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>渐变轮播</title>
+	<link rel="stylesheet" href="css/iconfont.css">
+<style>
+	
+html,body,ul,li,p{
+	margin: 0;
+	padding: 0;
+}
+li{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+}
+
+.wrap{
+	position: relative;
+	width: 450px;
+	height: 300px;
+	overflow: hidden;
+}
+.wrap .img-ct{
+	position: absolute;
+}
+.wrap .img-ct img{
+	width: 450px;
+	height: 300px;
+}
+.wrap .img-ct li{
+	position: absolute;
+	display: none;
+}
+
+.btn{
+	position: absolute;
+	height: 30px;
+	width: 30px;
+	border-radius: 15px;
+	background: #000;
+	opacity: 0.4;
+	text-align: center;
+	line-height: 27px;
+	display: block;
+	color: #fff;
+	top: 50%;
+	transform: translateY(-50%);
+	transition: all 1s;            /*css3效果*/
+}
+.btn:hover{
+	opacity: 1
+}
+.btn-pre{
+	left: 10px;
+}
+.btn-nxt{
+	right: 10px;
+}
+.bullet{
+	position: absolute;
+	bottom: 40px;
+	left: 50%;
+	transform: translateX(-50%);
+}
+.bullet li{
+	height: 5px;
+	width: 20px;
+	background-color: #fff;
+	cursor: pointer;
+	margin: 0 5px;
+	border-radius: 5px;
+	display: inline-block;
+}
+.bullet .active{
+	background-color: #666;
+}
+
+
+</style>
+</head>
+<body>
+	
+<div class="wrap">
+	<ul class="img-ct">
+		<li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/2.jpg" alt=""></a></li>
+		<li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/3.jpg" alt=""></a></li>
+		<li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/4.jpg" alt=""></a></li>
+		<li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/5.jpg" alt=""></a></li>
+	</ul>
+	<a class="btn btn-pre" href="#"><i class="iconfont">&#x343c;</i></a>
+	<a class="btn btn-nxt" href="#"><i class="iconfont">&#x343b;</i></a>
+	<ul class="bullet">
+		<li class="active"></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+</div>
+
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+<script>
+
+$(function(){
+
+
+
+var	$imgCt = $('.img-ct'),
+	$items = $('.img-ct li'),
+	$btnPre = $('.btn-pre'),
+	$btnNxt = $('.btn-nxt'),
+	$bullet = $('.bullet');
+
+
+var pageIndex = 0,
+	imgLength = $imgCt.children().length;
+
+var isAnimate = false;
+
+$btnPre.on('click', function(){
+	playPre();
+})
+$btnNxt.on('click', function(){
+	playNxt();
+})
+
+$bullet.find('li').on('click', function(){
+	playTo($(this).index());
+})
+
+playTo(0);
+
+autoPlay();
+
+function stopAuto(){
+	clearInterval(clock);
+}
+
+function autoPlay(){
+	clock = setInterval(function(){
+		playNxt();
+	}, 2000);	
+}
+function playNxt(){
+	playTo((pageIndex+1)%imgLength);
+}
+
+function playPre(){
+	playTo((imgLength+pageIndex-1)%imgLength);
+}
+
+function playTo(n){
+	if(isAnimate === true) return;
+	isAnimate = true;
+	$items.eq(pageIndex).fadeOut(500)
+	$items.eq(n).fadeIn(500, function(){
+		isAnimate = false;
+	})
+	pageIndex = n;
+	setBullet();
+}
+
+function setBullet(){
+	$bullet.children().removeClass('active').eq(pageIndex).addClass('active')
+}
+
+
+
+})
+	
+
+
+
+
+</script>
+
+
+</body>
+</html>

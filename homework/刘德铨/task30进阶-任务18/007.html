@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    .wrap{
+    width: 900px;
+    margin: 0 auto;
+  }
+
+  #header .wrap{
+    height: 50px;
+    background: red;
+  }
+  .nav{
+    height: 30px;
+    border: 1px solid ;
+    background: yellow;
+  }
+
+  .ct{
+    margin-top: 20px
+  }
+  .ct::after{
+    content: '';
+    display: block;
+    clear: both;
+  }
+  .aside{
+    float: left;
+    width: 200px;
+    height: 400px;
+    background: pink;
+  }
+  .aside2{
+    background: yellow;
+  }
+  .aside3{
+    background: red;
+  }
+  .main{
+    float: right;
+    width: 680px;
+    height: 400px;
+    background: blue;
+  }
+
+
+
+    </style>
+</head>
+<body>
+<div id="header">
+  <div class="wrap">header</div>
+</div>
+<div id="content">
+  <div class="wrap">
+
+    <div class="ct">
+      <div class="nav">nav1</div>
+      <div class="aside aside1">aside1</div>
+      <div class="main">main1</div>
+    </div>
+    <div class="ct">
+      <div class="nav">nav2</div>
+      <div class="aside aside2">aside2</div>
+      <div class="main">main2</div>
+    </div>
+    <div class="ct">
+      <div class="nav">nav3</div>
+      <div class="aside aside3">aside3</div>
+      <div class="main">main3</div>
+    </div>
+    <div class="ct">
+      <div class="nav">nav4</div>
+      <div class="aside">aside4</div>
+      <div class="main">main4</div>
+    </div>
+  </div>
+
+
+</div>
+<div id="footer">footer</div>
+
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/main7.0.js"></script>
+</body>
+</html>

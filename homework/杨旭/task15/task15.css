@@ -1,0 +1,197 @@
+*{
+    margin:0;
+    padding:0;
+}
+.clearfix:after{
+    content:'';
+    display:block;
+    clear:both;
+}
+.layout{
+    width:1200px;
+    margin:0 auto;
+}
+header{
+    height:480px;
+    background:url(http://img15.3lian.com/2015/f2/16/d/52.jpg)  no-repeat;
+    background-size:cover;
+}
+.navbar{
+    height:30px;
+}
+.navbar h3{
+    font-size:48px;
+}
+.navbar a{
+    color:#fff;
+    font-size:32px;
+    text-decoration: none;
+    display:inline-block;
+    float:right;
+    margin-top:30px;
+    margin-right:12px;
+
+}
+.wrap{
+    text-align:center;
+}
+.wrap p{
+    color:#fff;
+    font-size:48px;
+    padding:120px 0;
+}
+.wrap button{
+    width:240px;
+    height:100px;
+    border-radius:3px;
+    font-size:32px;
+    color:#fff;
+    background:rgba(246,246,246,0.2);
+    border:1px solid #fff;
+}
+#services,#about{
+    height:480px;
+    background:rgba(246,246,246,0.9);
+}
+#services,#movies{
+    text-align:center;
+}
+#services .wrap a,#movies .wrap a{
+    font-size:48px;
+}
+.address h3,.price h3,.comment h3{
+    margin-top:16px;
+}
+.address,.price,.comment,.movie-no1,.movie-no2,.movie-no3{
+    display:inline-block;
+    margin:30px;
+}
+.picture-no1{
+    width:240px;
+    height:240px;
+    background:url(http://tupian.enterdesk.com/2013/lxy/11/012/2/1.jpg) no-repeat;
+    background-size:cover;
+    border-radius:50%;
+}
+.picture-no2{
+    width:240px;
+    height:240px;
+    background:url(http://weimeiba.com/uploads/allimg/c120229/13305221W910F-144M03.jpg) no-repeat;
+    background-size:cover;
+    border-radius:50%;
+}
+.picture-no3{
+    width:240px;
+    height:240px;
+    background:url(http://weimeiba.com/uploads/allimg/c120229/133052152411T0-NA49.jpg) no-repeat;
+    background-size:cover;
+    border-radius:50%;
+}
+.movie-no1,.movie-no2,.movie-no3{
+    width:200px;
+    height:240px;
+    box-shadow:0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px rgba(0,0,0,0.19);
+}
+.movie-no1 img,.movie-no2 img,.movie-no3 img{
+    width:100%;
+    height:80%;
+}
+.movie-no1 p,.movie-no2 p,.movie-no3 p{
+    padding:16px;
+}
+#about{
+    height:800px;
+    background:rgba(246,246,246,0.9);
+    text-align:center;
+}
+#about a,.contact a{
+    display:inline-block;
+    font-size:48px;
+}
+.about-picture1{
+    background:url(http://tupian.enterdesk.com/2013/lxy/11/012/2/1.jpg);
+    background-size:cover;
+    width:240px;
+    height:240px;
+    border-radius:50%;
+    border:10px solid #ccc;
+}
+.about-picture2{
+    background:url(http://pic.meituba.com/uploads/allimg/2015/11/07/639.jpg);
+    background-size:cover;
+    width:240px;
+    height:240px;
+    border-radius:50%;
+    border:10px solid #ccc;
+}
+.about-begin,.about-servlet{
+    margin-top:50px;
+}
+.begin,.servlet{
+    width:250px;
+}
+.begin,.about-picture1{
+    float:left;
+    position:relative;
+    left:215px;
+}
+.begin,.servlet{
+    top:100px;
+}
+.servlet,.about-picture2{
+    float:right;
+    position:relative;
+    right:230px;
+}
+.about-picture2:before{
+    content:'';
+    position:absolute;
+    left:50%;
+    top:-60px;
+    height:50px;
+    width:5px;
+    background:#ccc;
+}
+.contact{
+    height:480px;
+    background:url(http://www.bz55.com/uploads/allimg/150507/139-15050FS645.jpg);
+    background-size:cover;
+    text-align:center;
+}
+.contact-information,.contact-message{
+    margin-top:50px;
+    float:left;
+    width:50%;
+}
+.contact-information input{
+    display:block;
+    width:85%;
+    line-height:1.5;
+    color:#eee;
+    border:1px solid #ccc;
+    border-radius:3px;
+    padding:20px;
+    margin:10px;
+    font-size:18px;
+}
+.contact-message textarea{
+    display:block;
+    width:80%;
+    line-height:1.5;
+    color:#eee;
+    border:1px solid #ccc;
+    border-radius:3px;
+    padding:20px;
+    margin:10px;
+    font-size:18px;
+}
+.btn{
+    margin-top:15px;
+    width:240px;
+    height:100px;
+    border-radius:3px;
+    font-size:32px;
+    color:#fff;
+    background:rgba(246,246,246,0.2);
+    border:1px solid #fff;
+}

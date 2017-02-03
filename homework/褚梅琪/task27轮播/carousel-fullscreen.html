@@ -171,7 +171,7 @@
  		var idx = idx || 1;
  		if(isAnimate) return; 
  		isAnimate = true;
- 		setBg(idx+curIdx+1)
+ 		setBg(idx+curIdx+1);
  		$ct.animate({left:'-='+idx*imgWidth},function(){
  			curIdx = (curIdx+idx)%imgCount;
  			if(curIdx === 0){
@@ -185,7 +185,7 @@
  		var idx = idx || 1;
  		if(isAnimate) return; 
  		isAnimate = true;
- 		setBg(curIdx+1-idx)
+ 		setBg(curIdx+1-idx);
  		$ct.animate({left:'+='+idx*imgWidth},function(){
  			curIdx = (imgCount+curIdx-idx)%imgCount;
  			if(curIdx === imgCount-1){
@@ -203,6 +203,7 @@
  		if($node.data('isBgSet')) return;
  		$cover.css('background-image','url('+imgUrl+')');
  		$node.data('isBgSet',true);
+ 		
  	}
  	function setBullet(){
  		$('.bullet').children().removeClass('active')
@@ -213,7 +214,7 @@
  			playNext();
  		},2000);
  	}
- 	autoPlay();
+ 	// autoPlay();
  	setBg();
  	$('.bullet li').on('click',function(){
  		var idx = $(this).index();

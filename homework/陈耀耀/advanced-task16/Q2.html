@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Q2</title>
+
+<style>
+	
+.wrap{
+	position: relative;
+	height: 2000px;
+	background: #ccc;
+}
+.main{
+	position: absolute;
+	top: 1000px;
+	font-size: 30px;
+	color: red;
+}
+
+</style>
+
+</head>
+<body>
+<div class="wrap">
+	<div class="main">
+		HelloWorld!
+	</div>	
+</div>
+
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+<script>
+
+
+
+ function isVisible($node){
+ 	var windowHeight = $(window).height(),
+ 		scrollTop = $(window).scrollTop(),
+ 		offsetTop = $node.offset().top,
+ 		nodeHeight = $node.outerHeight(true);
+    if(windowHeight + scrollTop > offsetTop && scrollTop < offsetTop + nodeHeight){
+      return true;
+    }else{
+      return false;
+    }
+ }
+
+$(window).on('scroll', function(){
+	if(isVisible($('.main'))){
+		console.log(true)
+	}
+})
+
+</script>
+</body>
+</html>

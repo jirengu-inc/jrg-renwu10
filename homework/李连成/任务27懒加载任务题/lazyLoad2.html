@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>新闻懒加载</title>
+    <style media="screen">
+      li,a,img,h4{
+        margin: 0;
+        padding: 0;
+      }
+      .ct li{
+        list-style: none;
+      }
+      .ct .link-box>img{
+        /*border: 1px solid #ccc;*/
+        width:40px;
+        height: 40px;
+        float: left;
+      }
+      .ct .link-box:after{
+        content: "";
+        display: block;
+        clear: both;
+      }
+      .ct .link-box h4{
+        display: inline-block;
+        float: left;
+        margin-left: 10px;
+      }
+      .ct .link-box p{
+        display: inline-block;
+        float: left;
+        margin-left: 10px;
+        margin-top: 10px;
+        color:#bbb;
+      }
+      .ct .link-box{
+        cursor: pointer;
+      }
+      .ct .link-box :active{
+        background-color: red;
+        color: white;
+      }
+      .box{
+        /*border: 1px solid #ccc;*/
+        max-width: 600px;
+        margin: 0 auto;
+      }
+      .btn{
+        border: 1px solid #ccc;
+        display: inline-block;
+        width:80px;
+        height: 25px;
+        border-radius: 5px;
+        text-align: center;
+        line-height: 25px;
+        margin-bottom: 30px;
+        cursor: pointer;
+        visibility: hidden;
+      }
+      .btn:hover{
+        background-color: red;
+        color:white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <ul class="ct">
+
+      </ul>
+    </div>
+    <a class="btn">加载更多</a>
+    <script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js"></script>
+    <script type="text/javascript">
+      var pageIndex=0;
+      var isOver = false;
+      var isNewArrive = true;
+
+
+
+
+
+      getNews();
+      $(window).on('scroll',check);
+
+      function check(){
+        if(isShow($('.btn')) && !isOver && isNewArrive){
+          getNews();
+        }
+      }
+
+      function getNews(){
+        isNewArrive = false;
+
+        $.ajax({
+            url: "/getNews",
+            method: "get",
+            data:{
+              page: pageIndex,
+            }
+        }).done(function(retNews){
+          isNewArrive = true;
+
+          if(retNews.status === 0){
+            appendHTML(retNews.data);
+            pageIndex++;
+              check() //加载更多按钮出现在屏幕中就继续加载更多，解决无法滚动触发加载更多的问题
+          }else{
+            console.log('获取新闻出错')
+          }
+        }).fail(function(){
+          console.log("error")
+        })
+      }
+
+
+
+      function appendHTML(news){
+        if(news.length === 0){
+          // $('.btn').remove();
+          isOver = true;
+          $('.ct').append('<p>没有数据了...</p>')
+        }
+        var html = '';
+        $.each(news,function(){
+          html += '<li><a href="' + this.link +  '" class="link-box">';
+          html += ' <img src=" ' + this.img + ' " alt="加载失败了"> ';
+          html += '<h4>' + this.title + '</h4>';
+          html += '<p>' + this.brif + '</p>';   //使用this，而不是news！
+          html += '</a> </li>';
+         })
+         $('.ct').append(html);
+
+      };
+
+      function isShow($node){
+        var scrollTop = $(window).scrollTop(),
+            windowHeight = $(window).height(),
+            offsetTop = $node.offset().top,
+            nodeHeight = $node.outerHeight(true);
+        if(scrollTop + windowHeight > offsetTop && scrollTop < offsetTop + nodeHeight){
+          return true;
+        }else{
+          return false;
+        }
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <style type="text/css">
+    .layout{
+        width: 800px;
+        margin: 0 auto;
+    }
+    .fillet{
+        width: 80px;
+        height: 30px;
+        border-radius: 10px;
+        border: 1px solid red;
+        text-align: center;
+        margin-bottom: 30px;
+        float: left;
+        margin-right:30px; 
+    }
+    .circle{
+        width: 80px;
+        height: 80px;
+        border: 1px solid red;
+        border-radius: 50%; 
+        text-align: center;
+        margin-bottom: 30px;
+        float: left;
+        margin-right:30px; 
+        display: table-cell;
+        vertical-align: middle;
+    }      
+    .shadow{
+        margin-top: 5px;
+        width: 80px;
+        height: 80px;
+        background-color: #ddd;
+        box-shadow: 0 0 10px red;
+        float: left;
+    }
+    .first{
+        overflow: hidden;
+        text-align: center;
+    }
+    section{
+        margin-top: 50px;
+    }
+    .normal{
+        width: 70px;
+        height: 70px;
+        background-color: #ddd;
+        margin-bottom:30px;
+        display: inline-block;
+        margin-right: 20px;
+        text-align: center;
+    }
+    .bigger{
+        transform: scale(1.5);
+    }
+    .smaller{
+        transform:scale(0.7);
+    }
+    .translate{
+        transform: translate(200px,20px);
+    }
+    .rotate{
+        transform: rotate(60deg);
+    }
+    
+    .trans-3d{
+        transform: perspective(300px) translate3d(0,0,100px);
+    }
+    .rotate-3d{
+        transform: perspective( 300px ) rotateY(40deg);
+    }
+    
+    .gradient{
+        width: 150px;
+        height:150px;
+        background-image:linear-gradient(to top, red, orange,yellow,green,blue,indigo,violet);
+        display: inline-block;
+    }
+    .transition{
+        width: 150px;
+        height: 150px;
+        background-color: pink;
+        transition:2s;
+        display: inline-block;
+    }
+    .transition:hover{
+        background-color: purple;
+    }
+    .animation{
+        width:100px;
+        height: 100px;
+        background-color: #c00;
+        display: inline-block;
+        animation: 2s rainbow linear infinite;
+    }
+    @keyframes rainbow {
+      0% { background: #c00 }
+      25%{background:yellow }
+      50% { background: orange }
+      75% { background: blue }
+      100% { background: #c00 }
+    }
+   /*  .animation:hover {
+      animation: 2s rainbow linear infinite;
+    } */
+  </style>
+</head>
+<body>
+<div class="layout">
+<section class="first">
+  <div class="fillet">圆角</div>
+  <div class="circle">圆形</div>
+  <div class="shadow">阴影</div>
+</section>
+  
+<section>2D转换:
+  <div class="normal">原样</div>
+  <div class="normal bigger">放大</div>
+  <div class="normal smaller">缩小</div>
+  <div class="normal rotate">旋转</div>
+  <div class="normal translate">偏移</div>
+</section>
+<section>3D转换：
+  <div class="normal">原样</div>
+  <div class="normal trans-3d">Z轴移动</div>
+  <div class="normal rotate-3d">Y轴旋转</div> 
+</section>
+<section>渐变和过渡：
+  <div class="gradient">渐变</div>
+  <div class="transition">点我过渡</div>
+</section>
+<section>动画：
+  <div class="animation"></div>
+</section>
+</div>
+  
+</body>
+</html>

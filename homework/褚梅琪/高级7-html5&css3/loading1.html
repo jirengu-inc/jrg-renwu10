@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>loading</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			background: rgb(13,206,203);
+		}
+		.loading,
+		.loading:before,
+		.loading:after{
+			width: 10px;
+			height: 40px;
+			background: #fff;
+			animation: load1 1s infinite ease-in-out;
+		}
+		.loading{
+			margin:100px auto;
+			position: relative;
+			animation-delay: 0.16s; 
+		}
+		.loading:before{
+			position: absolute;
+			left: -15px;
+			top: 0;
+			content: "";
+
+		}
+		.loading:after{
+			position: absolute;
+			left: 15px;
+			top: 0;
+			content: "";
+			animation-delay: 0.32s;
+		}
+		@keyframes load1{
+			0%,
+			80%,
+			100%{
+				box-shadow: 0 0 #fff;
+				height: 40px;
+			}
+			10%{
+				box-shadow: 0 -20px #fff;
+				height: 50px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="loading"></div>
+</body>
+</html>
