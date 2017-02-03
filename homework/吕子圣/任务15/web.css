@@ -1,0 +1,280 @@
+* {
+    margin: 0;
+    padding: 0;
+     
+}
+#layout {
+    margin: 0 auto;    
+}
+
+#header {
+    position: fixed;
+    left:0 ;
+    top: 0 ;
+    z-index: 1;
+    width: 100%;
+    padding:20px 0;
+    background-color: #000000;
+}
+h3 {
+    line-height: 2em;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+}
+h4 {
+    font-size: 15px;
+    line-height: 1em;
+    color: dimgray; 
+    text-align: center;
+}
+
+#header h1 {
+    display: inline-block;
+    margin-left: 14%;
+    font-size:40px;
+    color: yellow;
+}
+
+nav{
+    margin-right: 15%;
+    float: right;   
+}
+nav>a {
+    padding: 10px 15px;
+    margin-left: 5px;
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    font-size: 20px; 
+    border-radius: 3px;
+}
+nav>a:hover {
+    background-color: orange;
+}
+#top {
+    position: relative;
+    height: 720px;
+    background: url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1485955919008&di=e9fadd4dc71be9ea711d310c0bbca370&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fforum%2Fpic%2Fitem%2F5366d0160924ab184f5ed38a35fae6cd7a890bc6.jpg) no-repeat;
+}
+
+.top-warp {
+    position: absolute;
+    top: 400px;
+    left: 50%;
+    margin-left: -350px;
+    width: 700px;
+    text-align: center;
+}
+.title{
+
+    margin-bottom: 30px;
+    color: lawngreen;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    font-weight: bolder;
+}
+.mintitle{
+    margin-bottom: 30px;
+    color: lawngreen;
+    font-family:"Times New Roman";
+    font-size: 70px;
+    font-weight: bolder;
+    text-align: center;
+}
+#top a {
+    padding: 20px 30px;
+    color: white;
+    display: inline-block;
+    margin-top: 30px;
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: bold;
+    background-color: orange;
+    text-align: center;
+
+}
+#services {
+    padding-top: 100px;
+    padding-bottom: 200px;
+    text-align: center;
+}
+
+.show {
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    list-style: none;
+    text-align: center;
+    max-width: 990px;
+    min-width: 400px;
+    
+}
+.show::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+.services li {
+    float: left;
+    width:33.33%;
+}
+.services img {
+     border-radius: 100px;
+     border: 2px solid blue ;
+     display: inline-block;
+}
+h5 {
+    padding: 10px;
+    font-size: 16px;
+}
+#goods {
+    padding-top: 100px;
+    padding-bottom: 200px;
+    background-color: lightgray;
+}
+.gundam {
+    max-width: 1080px;
+}
+.gundam li {
+    float: left;
+    margin-top: 50px;
+    margin-left: 20px;
+}
+#about {
+    padding-top: 100px;
+    padding-bottom: 200px;
+}
+.info {
+    border-radius: 100px;
+    margin: 100px auto;
+    width: 1000px;
+    list-style: none;
+}
+.info li {
+    position: relative;
+    margin-bottom: 30px;
+    width: 100%;
+    text-align: center;;
+}
+.info li:last-child {
+    margin-bottom: 0px;
+}
+.info::before{
+    content: "";
+    display: block;
+    width: 2px;
+    height: 100%;
+    background-color: darkslategray;
+}
+.info::before {
+    position: absolute;
+    left: 50%;
+    margin-left: -1px;
+}
+.info li::after{
+    content: "";
+    width: 0;
+    height: 100%;
+}
+
+.info img {
+    border-radius: 50% ;
+    text-align:center;
+    display: inline-block;
+}
+.aside , .other-side{
+    width: 300px;
+}
+.aside {
+    margin-right: -300px;
+    display: inline-block;
+    font-family: "KaiTi";
+}
+.other-side {
+    margin-left: -300px;
+    display: inline-block;
+    font-family: "Microsoft YaHei";
+}
+
+.icon a{
+    color: black;
+    text-decoration:none;
+}
+.icon a:hover {
+    color: greenyellow;
+}
+#team {
+    padding-top: 100px;
+    padding-bottom: 200px;
+    background-color: lightslategray;
+}
+.member{
+    width: 990px;
+}
+.member img{
+    border-radius: 50%;
+    display: inline-block;
+    margin-bottom: 30px;
+}
+.member li {
+    margin-left: 25px;
+    float: left;
+    width: 300px;
+}
+#contact {
+    padding-top: 100px;
+    padding-bottom: 200px;
+    background-color: darkslateblue;
+}
+.method-warp {
+    margin: 100px auto;
+    width: 920px;
+}
+.message {
+    float: right;
+}
+.message textarea {
+    margin-left: -50px;
+    width: 400px;
+    height: 330px;
+    border-radius: 5px;
+    font-size: 20px;
+}
+.buyer-info input {
+    margin-bottom: 25px;
+    display: block;
+    width: 480px;
+    height: 90px;
+    border-radius: 5px;
+    font-size: 20px;
+}
+button {
+    margin: 50px auto;
+    padding: 15px 40px;
+    display: block;
+    background: orange;
+    border-radius: 5px;
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+}
+#footer::after {
+    content:"";
+    display: block;
+    height: 100%；
+}
+
+#footer div {
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+}
+#footer .icon {
+    margin-right: 640px;
+    margin-left: 650px;
+    color: greenyellow;
+}
+#footer div a {
+   text-decoration: none;
+}
