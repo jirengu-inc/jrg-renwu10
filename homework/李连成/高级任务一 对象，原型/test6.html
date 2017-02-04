@@ -1,0 +1,51 @@
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <meta charset="utf-8">
+        <title>对象test</title>
+        <style media="screen">
+          *{
+            padding: 0;
+            margin: 0;
+          }
+          .content{
+            width: 100%;
+            height:2000px;
+            background-color: pink;
+          }
+          .btn{
+            position: fixed;
+            top:50%;
+            left:50%;
+            margin-left: -100px;
+            margin-top: -25px;
+            width:200px;
+            height:50px;
+          }
+        </style>
+      </head>
+      <body>
+        <div class="box">
+          <div class="content">
+          </div>
+        </div>
+        <script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js"></script>
+        <script>
+          function GoTop(ct,target){
+            this.ct = ct;
+            this.target = target;
+            GoTop.prototype.createNode = function(){
+              $(ct).append('<'+ target +' class="btn">回到顶部</' + target + '>');
+            };
+            GoTop.prototype.bindEvent = function(){
+              $('.btn').on('click',function(){
+                $(window).scrollTop(0);
+              })
+            }
+          };
+          var gotop = new GoTop('.content','button');
+          gotop.createNode();
+          gotop.bindEvent();
+        </script>
+      </body>
+    </html>
