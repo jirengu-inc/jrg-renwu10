@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<style>
+    .ct{
+        width: 910px;
+        margin: auto;
+    }
+    .main{
+        float: left;
+        width: 450px;
+        height: 300px;
+        border: 1px solid #ccc;
+    }
+    .main input{
+        margin: 20px;
+        width: 200px;
+    }
+    iframe{
+        float: right;
+    }
+    iframe{
+        width: 450px;
+        height: 300px;
+        border: 1px dashed #ccc;
+    }
+</style>
+</head>
+<body>
+<div class="ct">
+    <h1>使用降域实现跨域</h1>
+    <div class="main">
+        <input type="text" placeholder="http://a.jrg.com:8080/a.html">
+    </div>
+
+    <iframe src="http://b.jrg.com:8080/b.html" frameborder="0" ></iframe>
+
+</div>
+
+
+<script>
+    //URL: http://a.jrg.com:8080/a.html
+    document.querySelector('.main input').addEventListener('input', function(){
+        console.log(this.value);
+        window.frames[0].document.querySelector('input').value = this.value;
+    });
+    document.domain = "jrg.com" ; /* 两个页面不同域，但是它们的父域之上都相同(端口)，那么可以使用降域的方法
+                                      如a.html 的url为 a.jrg.com:8080/a.html;
+                                        a.html 的url为 b.jrg.com:8080/b.html;
+                                       那么将二者都使用document.domaim = 'jrg.com';
+                                        即可使二者之间进行跨域。 */
+</script>
+</body>
+</html>
