@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>加载更多</title>
+</head>
+<style>
+	ul,li{
+		margin: 0;
+		padding: 0;
+	}
+	li{
+		list-style: none;
+		border: 1px solid #ccc;
+		padding: 10px;
+		margin-top: 10px;
+		cursor: pointer;
+		border-radius: 3px;
+	}
+	.btn{
+		border: 1px solid red;
+		height: 40px;
+		width: 80px;
+		text-align: center;
+		background: white;
+		text-decoration: none;
+		color: red;
+		display: block;
+		margin: 10px auto;
+		border-radius: 3px;
+	}
+	li:hover{
+		background: green;
+		color: #fff;
+
+	}
+
+
+
+
+
+</style>
+<body>
+	<ul id="ct">
+		<li>内容1</li>
+		<li>内容2</li>
+	</ul>
+	<button class="btn">加载更多</button>
+	<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+	<script>
+		var index = 1;
+			len = 3;
+		$('.btn').on('click',function(){
+			$.get('getMore',{index: index, len: len})
+			 .done(function(ret){
+			 	if(ret.status === 0){
+			 		index++;
+			 		appendHtml(ret);
+			 	}else{
+			 		alert('获取数据出错');
+			 	}
+			 })
+			 .fail(function(){
+			 	alert('系统异常');
+			 })
+		})
+
+		function appentHtml(content){
+			var html = '';
+				html += '<li>'+'内容'+content.arr[0]+'</li>',
+				html += '<li>'+'内容'+content.arr[1]+'</li>',
+				html += '<li>'+'内容'+content.arr[2]+'</li>',
+				$('#ct').append(html);
+		}
+
+
+
+
+	</script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

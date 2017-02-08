@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var people = {
+            name: 'hunger',
+            age: 28,
+            sayHello: function(){
+                console.log('hello,', this.name);
+            }
+        }
+        people.sayHello();
+
+        function getPeople(name, age){
+            var p = {
+                name: name,
+                age: age,
+                sayHello: function(){
+                    console.log('hello,',this.name);
+                }
+            }
+            return p;
+        }
+        var p1 = getPeople('hunger', 28);
+        var p2 = getPeople('valley', 20);
+        p1.sayHello();
+        p2.sayHello();
+        console.log('p2 instanceof getPeople: ' , p2 instanceof getPeople);
+
+        function People(name, age){
+            this.name = name;
+            this.age = age;
+            this.sayHello = function(){
+                console.log('hello,',this.name);
+            }
+        }
+        var p3 = new People('Mary', 40);
+        var p4 = new People('pety', 30);
+        p3.sayHello();
+        p4.sayHello();
+        console.log('p3 instanceof People: ' , p3 instanceof People);
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>server-mock使用说明</title>
+<style>
+
+</style>
+</head>
+<body>
+  <div class="container">
+   <ul class="news">
+	   <li>伊朗再反制特朗普：弃用美元 或用人民币代替</li>
+	   <li>中国又掌握一项尖端设备技术 轻易锁定中国战机太难</li>
+	   <li>欧洲高官称美中俄与极端伊斯兰一样 成欧盟威胁</li>
+   </ul>
+       <button class="change">换一组</button>
+  </div>
+
+<script>
+	$('.change').addEventListener('click',function() {
+		var xhr = new XMLHttpRequest();
+		xhr.open('get','http://b.jrg.com:8080/getNews',true);
+		//此时页面域名为a.jrg.com:8080,它无法向不同源的http://b.jrg.com:8080/getNews请求数据
+		xhr.send();
+		xhr.onreadystatechange = function(){
+			if(xhr.status == 200 && xhr.readyState == 4){
+				appendHtml(JSON.parse(xhr.responseText))
+			}
+		};
+	});
+
+
+	function appendHtml(news) {
+		var html = '';
+		for (var i = 0; i < news.length; i++) {
+			html += '<li>' + news[i] + '</li>';
+		}
+		$('.news').innerHTML = html;
+	}
+
+
+	function $(id){
+		return document.querySelector(id);
+	}
+
+</script>
+  	
+</body>
+</html>

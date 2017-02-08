@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>model dialog</title>
+    <style>
+        *{
+            padding:0;
+            margin: 0;
+        }
+        a{
+            text-decoration: none;
+        }
+        .model-dialog>button{
+            padding:2px 5px;
+            border-radius: 5px;
+        }
+        .model-cover{
+            position: relative;
+            display: none;
+        }
+        .model-cover .cover{
+            position:fixed;
+            top:0;
+            left:0;
+            bottom:0;
+            right: 0;
+            background: rgba(130,130,130,0.6);
+        }
+        .model-cover .model-cover-main{
+            background: #fff;
+            width: 400px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform:translate(-50%,-50%);
+            border-radius: 3px;
+        }
+        .model-cover .model-cover-main .header{
+            padding: 10px;
+            position: relative;
+        }
+        .model-cover .model-cover-main h3{
+            display: inline-block;
+        }
+        .model-cover .model-cover-main .close{
+            color: #666;
+            font-size: 25px;
+            display: inline-block;
+            font-family: Arial;
+            position: absolute;
+            top: 3px;
+            right: 10px;
+        }
+        .model-cover-main .content{
+            border-top: 1px solid #aaa;
+            border-bottom: 1px solid #aaa;
+            padding: 20px 10px;
+        }
+        .model-cover-main .content p{
+            margin: 15px 0px;
+        }
+        .model-cover-main .footer{
+            padding: 10px;
+        }
+        .model-cover-main .footer:after{
+            display: block;
+            content: '';
+            clear: both;
+        }
+        .model-cover-main .footer a{
+            float: right;
+            margin-left: 5px;
+        }
+    </style>
+</head>
+<body>
+<div class="model-dialog">
+    <button type="button" class="button">轻点我</button>
+    <div class="model-cover">
+        <div class="cover" data-close="close"></div>
+        <div class="model-cover-main">
+            <div class="header">
+                <h3>我是标题</h3>
+                <a href="javascript:;" class="close" data-close="close">x</a>
+            </div>
+            <div class="content">
+                <p>您好</p>
+                <p>很高兴您点击了我</p>
+            </div>
+            <div class="footer">
+                <a href="javacript:;" alt>确定</a>
+                <a href="javacript:;" alt data-close="close">取消</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script>
+var button=document.getElementsByClassName("button")[0];
+var model=document.getElementsByClassName("model-cover")[0];
+button.addEventListener('click',function(){
+    model.style.display='block';
+})
+model.addEventListener('click',function(e){
+    var target=e.target;
+    //console.log(target.getAttribute("data-close"));
+    if(target.getAttribute("data-close")=='close'){
+        model.style.display='none';
+    }
+})
+</script>
+</body>
+</html>

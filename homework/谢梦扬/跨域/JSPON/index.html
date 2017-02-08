@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>server-mock使用说明</title>
+<style>
+
+</style>
+</head>
+<body>
+  <div class="container">
+   <ul class="news">
+	   <li>伊朗再反制特朗普：弃用美元 或用人民币代替</li>
+	   <li>中国又掌握一项尖端设备技术 轻易锁定中国战机太难</li>
+	   <li>欧洲高官称美中俄与极端伊斯兰一样 成欧盟威胁</li>
+   </ul>
+       <button class="change">换一组</button>
+  </div>
+
+<script>
+	$('.change').addEventListener('click',function() {
+		var script = document.createElement('script');
+		/* 在html下引入外界地址的script标签是可行的，比如各种框架。
+		那么也就是说同源策略并没有对script的src进行监测，而且script的特性是在页面加载时会访问script的src，
+		那么我们可以将这个src想象成一个简单的get请求，通过访问这个地址，
+		我们可以配合后端对路由进行参数配置，使这段访问的src中加入一些参数，从而灵活的从后端调取数据*/
+		script.src = 'http://b.jrg.com:8080/getNews?callback=appendHtml';     //此时html页面域名为a.jrg.com:8080
+		document.head.appendChild(script);
+		document.head.remove(script);
+	});
+
+
+	function appendHtml(news) {
+		var html = '';
+		for (var i = 0; i < news.length; i++) {
+			html += '<li>' + news[i] + '</li>';
+		}
+		$('.news').innerHTML = html;
+	}
+
+
+	function $(id){
+		return document.querySelector(id);
+	}
+
+</script>
+  	
+</body>
+</html>

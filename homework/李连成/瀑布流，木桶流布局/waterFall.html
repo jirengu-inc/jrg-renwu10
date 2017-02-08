@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>瀑布流布局复习</title>
+    <style media="screen">
+    div{
+      margin: 0;
+      padding: 0;
+    }
+    .content{
+      position: relative;
+    }
+    .box{
+      width:200px;
+      position: absolute;
+      margin-left: 10px;
+      margin-top: 10px;
+      transition: all 2s;
+
+    }
+    .h1{
+      background-color: green;
+      height: 300px;
+    }
+    .h2{
+      background-color: purple;
+      height: 250px;
+    }
+    .h3{
+      background-color: blue;
+      height: 200px;
+    }
+    .h4{
+      background-color: yellow;
+      height: 350px;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="content">
+      <div class="h1 box">1</div>
+      <div class="h4 box">2</div>
+      <div class="h1 box">3</div>
+      <div class="h3 box">4</div>
+      <div class="h1 box">5</div>
+      <div class="h1 box">6</div>
+      <div class="h2 box">7</div>
+      <div class="h4 box">8</div>
+      <div class="h1 box">9</div>
+      <div class="h2 box">10</div>
+      <div class="h1 box">11</div>
+      <div class="h2 box">12</div>
+      <div class="h1 box">13</div>
+      <div class="h3 box">14</div>
+    </div>
+
+    <script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js"></script>
+    <script type="text/javascript">
+
+    function render(){
+      var  nodeWidth = $('.box').outerWidth(true),
+           boxNumber = parseInt($(window).width()/nodeWidth), //parseInt()是取整数的意思;
+           culSumHeight = [];
+
+      for(var i=0; i<boxNumber; i++){
+        culSumHeight.push(0);
+      }
+      $('.box').each(function(){
+        var $cur = $(this);
+        var idx = 0;
+        var minSumHeight = culSumHeight[0];
+
+        for(var i=0; i<culSumHeight.length; i++){
+          if(culSumHeight[i] < minSumHeight){
+            idx = i;
+            minSumHeight = culSumHeight[i];
+          }
+        }
+        $cur.css({
+          'left': nodeWidth*idx,
+          'top': minSumHeight
+      });
+        culSumHeight[idx] = culSumHeight[idx] + $cur.outerHeight(true);
+      })
+    }
+    render();
+    $(window).on('resize',function(){
+      render();
+    })
+
+
+
+
+
+
+
+
+
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>给li添加内容</title>
+</head>
+<body>
+<ul class="ct">
+    <li>这里是</li>
+    <li>饥人谷</li>
+    <li>前端6班</li>
+</ul>
+<input type="text" class="ipt-add-content" placeholder="添加内容">
+<button id="btn-add-start">开头添加</button>
+<button id="btn-add-end">结尾添加</button>
+<script>
+    var btnAddStrat=document.getElementById("btn-add-start");
+    var btnAddEnd=document.getElementById("btn-add-end");
+    var ulList=document.getElementsByClassName("ct")[0];
+    var input=document.getElementsByClassName("ipt-add-content")[0];
+    var addLi={
+        createLi:function(){
+            var inputValue=input.value;
+            var li=document.createElement('li');
+            var liTextNode=document.createTextNode(inputValue);
+            li.appendChild(liTextNode);
+            return li;
+        },
+        addStart:function(){
+            ulList.insertBefore(addLi.createLi(),ulList.firstChild);
+        },
+        addEnd:function(){
+            ulList.appendChild(addLi.createLi());
+        },
+    }
+    btnAddStrat.addEventListener('click',addLi.addStart);
+    btnAddEnd.addEventListener('click',addLi.addEnd);
+    ulList.addEventListener('click',function(e){
+        var liTarget=e.target;
+        //判定对应的标签名字，可能点击到ul上面
+        if(liTarget.nodeName==='LI'){
+            console.log(liTarget.innerHTML);
+        }
+    })
+</script>
+</body>
+</html>

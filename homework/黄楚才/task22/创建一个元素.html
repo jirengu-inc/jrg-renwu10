@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>如何创建一个元素？如何给元素设置属性？</title>
+</head>
+<body>
+<div id="container">
+    <p>将要在我的后面添加一个元素</p>
+</div>
+<script>
+    var p =document.createElement("p");
+    var ct=document.getElementById('container');
+    p.setAttribute("id","hcc")
+    p.setAttribute('class','pname')
+
+    var textNode=document.createTextNode("专注前端25小时")
+    p.appendChild(textNode);
+    ct.insertBefore(p, ct.firstChild);
+    //document.getElementsByTagName('body')[0].appendChild(p);
+    var h1 = document.createElement("h1")
+    var textNode2=textNode.cloneNode();
+    h1.appendChild(textNode2)
+    document.body.appendChild(h1)
+</script>
+</body>
+</html>

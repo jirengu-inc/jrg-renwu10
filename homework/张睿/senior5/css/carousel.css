@@ -1,0 +1,112 @@
+
+
+
+/* carousel区 */
+html,
+body,
+.carousel,
+.img-ct {
+    width: 100%;
+    height: 100%;
+}
+
+.carousel {
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel .img-ct {
+    position: absolute;
+}
+
+.carousel .img-ct .item {
+    position: relative;
+    float: left;
+    height: 100%;
+}
+
+.carousel .img-ct .cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    opacity: 0.8;
+}
+
+.carousel .img-ct:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.carousel .arrow {
+    position: absolute;
+    top: 50%;
+    margin-top: -15px;
+    width: 30px;
+    height: 70px;
+    line-height: 70px;
+    text-align: center;
+    background-color: #4E443C;
+    color: #fff;
+    opacity: 0.8;
+}
+
+.carousel .arrow:hover {
+    opacity: 1;
+}
+
+.carousel .pre {
+    left: 10px;
+}
+
+.carousel .next {
+    right: 10px;
+}
+
+.carousel .bullet {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.carousel .bullet li {
+    display: inline-block;
+    width: 16px;
+    height: 4px;
+    border-radius: 2px;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.carousel .bullet li.active {
+    background-color: #666;
+}
+
+.item {
+    text-align: center;
+    vertical-align: middle;
+    color: white;
+}
+
+.header-theme {
+    font-family: "FZYaoti";
+    font-size: 40px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+}
+
+.header-theme p {
+    line-height: 4em;
+    font-size: 40px;
+    color: white;
+}

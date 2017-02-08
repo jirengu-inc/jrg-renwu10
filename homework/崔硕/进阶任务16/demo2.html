@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>打印ture</title>
+	<style>
+		body{
+			font-family: "Microsoft Yahei", "微软雅黑",
+		}
+		.wrap{
+			position: relative;
+			height: 2500px;
+			background-color: pink;
+		}
+		.main{
+			position: absolute;
+			top: 1500px;
+			left: 40%;
+			color: black;
+			font-size: 40px;
+
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<div class="main">
+			I'm here
+		</div>
+	</div>
+	<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script>
+
+
+		$(window).on("scroll",function(){
+		isVisible($(".main"));  //窗口滚动时，执行isVisible()进行判断
+		})
+		function isVisible($node){
+		var winH = $(window).height(),
+		    offsetY = $node.offset().top;
+		if( (scrollY+winH) > offsetY ){ 
+		    console.log("true");
+		    return true;
+		}
+		else{
+		    // console.log("false");
+		    return false;
+		}
+		}
+
+	</script>
+</body>
+</html>
