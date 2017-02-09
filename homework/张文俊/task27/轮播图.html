@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>无缝轮播图</title>
+    <style>
+        *{margin:0;padding:0;list-style: none;}
+        .banner{width:310px;height:206px;margin:0 auto;border:1px red solid;position:relative;overflow: hidden}
+        .image img{width:310px;height:206px;}
+        .image{width:2000px;position:absolute;left:0;top:0;}
+        .image li{float:left;}
+        .num{position:absolute;width:100%;bottom:10px;left:0;text-align: center;font-size:0}
+        .num li{width:20px;height:20px;background-color: #888;border-radius: 50%;display:inline-block;margin:0 5px;cursor:pointer;}
+        .banner .num li.on{background:#F60;}
+        .banner .btn{width:40px;height:50px;background: rgba(0,0,0,0.5);position:absolute;top:50%;margin-top:-25px;cursor:pointer;
+            line-height: 50px;text-align: center;font-size: 40px;color:#fff;display:none;}
+        .banner:hover .btn{display:block;}
+        .banner .btn_l{left:0;}
+        .banner .btn_r{right:0;}
+    </style>
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">
+            $(function(){
+            var i=0;
+            var clone=$(".banner .image li").first().clone();
+                $(".banner .image").append(clone) ;
+            var size=$(".banner .image li").size();
+                for(var j=0;j<size-1;j++){
+                    $(".banner .num").append("<li></li>");
+                }
+            $(".banner .num li").first().addClass("on");
+                /*鼠标点击事件*/
+                $(".banner .num li").click(function(){
+                    var index=$(this).index();
+                    i=index;
+                    $(".banner .image").animate({left:-index*310});
+                    $(this).addClass("on").siblings().removeClass("on")
+                });
+                /*自动轮播*/
+                var t=setInterval(moveL(),2000);
+                /*对banner定时器的操作*/
+                $(".banner").hover(function(){
+                    clearInterval(t);
+                },function(){
+                   t=setInterval(moveL,2000)
+                });
+                function moveL() {
+                    i++;
+                    if (i == size) {
+                        $(".banner .image").css({left: 0});
+                        i = 1
+                    }
+                    $(".banner .image").animate({left: -i * 310}, 500);
+                    if (i == size - 1) {
+                        $(".banner .num li").eq(0).addClass("on").siblings().removeClass("on")
+                    } else {
+                        $(".banner .num li").eq(i).addClass("on").siblings().removeClass("on")
+                    }
+                }
+                function moveR(){
+                    i--;
+                    if(i==-1){
+                        $(".banner .image").css({left:-(size-1)*310});
+                        i=size-2;
+                    }
+                    $(".banner .image").stop().animate({left:-i*310},500);
+                    $(".banner .num li").eq(i).addClass("on").siblings().removeClass("on")
+                }
+                /*向左移动*/
+                $(".banner .btn_l").stop().click(function(){
+                    moveR()
+                });
+                /*向右移动*/
+                $(".banner .btn_r").click(function(){
+                    moveL();
+                })
+        })
+    </script>
+</head>
+<body>
+<div class="banner">
+    <ul class="image">
+        <li><a href=""><img src="http://cdn.jirengu.com/book.jirengu.com/img/26.jpg"/></a></li>
+        <li><a href=""><img src="http://cdn.jirengu.com/book.jirengu.com/img/25.jpg"/></a></li>
+        <li><a href=""><img src="http://cdn.jirengu.com/book.jirengu.com/img/24.jpg"/></a></li>
+        <li><a href=""><img src="http://cdn.jirengu.com/book.jirengu.com/img/23.jpg"/></a></li>
+    </ul>
+    <ul class="num">
+    </ul>
+    <div class="btn btn_l">&lt;</div>
+    <div class="btn btn_r">&gt;</div>
+</div>
+</body>
+</html>

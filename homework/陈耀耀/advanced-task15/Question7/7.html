@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>7</title>
+<style>
+	
+body{
+	height: 1500px;
+	background: #ccc;
+	box-sizing: border-box;
+}
+.wrap{
+	margin: 50px 250px;
+}
+.btn{
+	height: 100px;
+	width: 300px;
+	border: 2px solid #ccc;
+	cursor: pointer;
+	background: #fff;
+	outline: none;
+	border-radius: 5px;
+}
+
+.scroll-wrap{
+	position: fixed;
+	top: 50px;
+	left: 50px;
+}
+.scroll{
+	height: 20px;
+	width: 40px;
+	overflow: hidden;
+	background: #fff;
+	border-radius: 5px;
+	border: 1px solid #ccc;
+	padding: 15px;
+}
+.div{
+	height: 100px;
+	width: 300px;
+	border: 2px solid #ccc;
+	cursor: pointer;
+	background: #fff;
+	border-radius: 5px;
+	text-align: center;
+	line-height: 100px;
+}
+.text1{
+	height: 100px;
+	width: 280px;
+	border: 5px solid;
+	border-color: #fff;
+	outline: none;
+	border-radius: 5px;
+	font-size: 30px;
+	padding-left: 20px;
+}
+select{
+	height: 40px;
+	width: 75px;
+	border: 1px solid #ccc; 
+	border-radius: 5px;
+	font-size: 25px;
+	outline: none;
+}
+.text2{
+	height: 40px;
+	width: 75px;
+	border: 1px solid #ccc; 
+	border-radius: 5px;
+	font-size: 25px;
+	outline: none;	
+}
+span{
+	font-size: 20px;
+}
+
+</style>
+</head>
+<body>
+	<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+	<script src="http://apps.bdimg.com/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+
+<!-- 第一题	 -->
+	<div class="wrap">
+		<button class="btn">请点击</button>
+	</div>
+	<script>
+	var pos = [
+		{backgroundColor: "red"},
+		{backgroundColor: "blue"},
+		{backgroundColor: "white"}
+	]
+	$('.btn').on('click', function(){
+		$(this).animate(pos[0])
+		$(this).animate(pos[1])
+		$(this).animate(pos[2])
+	})
+	</script>
+
+<!-- 第二题 -->
+	<div class="wrap">
+		<div class="scroll-wrap">
+			<h3>垂直滚动距离:</h3>
+			<div class="scroll"></div>
+		</div>
+	</div>
+	<script>
+		$(window).on('scroll', function(){
+			$('.scroll').text($(window).scrollTop() + 'px')
+			console.log($(window).scrollTop())
+		})
+	</script>
+<!-- 第三题 -->
+	<div class="wrap">
+		<div class="div">请滑入</div>
+	</div>
+	<script>
+		$('.div').on('mouseenter', function(){
+			$(this).animate({backgroundColor:'red'})
+		}).on('mouseleave', function(){
+			$(this).animate({backgroundColor:'white'})
+		})
+	</script>
+<!-- 第四题 -->
+	<div class="wrap">
+		<input class="text1" type="text" placeholder="请输入">
+	</div>
+	<script>
+		$('.text1').on('focus', function(){
+			$(this).animate({borderColor:'blue'})
+		}).on('change', function(){
+			$(this).val($(this).val().toUpperCase())
+		});
+		$('.text1').on('blur', function(){
+			$(this).animate({borderColor:'#fff'});
+			if($(this).val() != ''){
+				console.log($(this).val());
+			}
+		})
+	</script>
+<!-- 第五题 -->
+	<div class="wrap">
+		<select>
+			<option value="第一">第一</option>
+			<option value="第二">第二</option>
+			<option value="第三">第三</option>
+			<option value="第四">第四</option>
+		</select>
+		<span>选择的内容是：</span>
+		<input class="text2" type="text" value="第一">
+	</div>
+	<script>
+		$('select').on('change', function(){
+			$('.text2').val($('select').val())
+		})
+	</script>
+</body>
+</html>

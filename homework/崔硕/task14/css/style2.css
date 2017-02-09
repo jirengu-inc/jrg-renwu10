@@ -34,7 +34,7 @@ body {
     overflow: auto;
 }
 
-.ps-favicon {
+.favicon {
     width: 150px;
     height: 150px;
     margin-right: 30px;
@@ -44,12 +44,12 @@ body {
     float: left;
 }
 
-.ps-favicon img {
+.favicon img {
     height: 100%;
     margin-left: -40px;
 }
 
-.ps-name {
+.name {
     font-size: 40px;
     line-height: 80px;
     font-weight: 100;
@@ -58,7 +58,7 @@ body {
     letter-spacing: 5px;
 }
 
-.ps-job {
+.job {
     font-size: 16px;
     line-height: 16px;
     font-weight: 600;
@@ -73,21 +73,21 @@ body {
     right: 140px;
 }
 
-.ctc-title {
+.title {
     font-size: 20px;
     border-bottom: 3px solid #000;
     margin-bottom: 10px;
 }
 
-.ctc-discribe {
+.discribe {
     margin-right: 10px;
 }
 
-.ctc-discribe p {
+.discribe p {
     line-height: 26px;
 }
 
-.ctc-discribe i {
+.discribe i {
     padding-right: 15px;
 }
 

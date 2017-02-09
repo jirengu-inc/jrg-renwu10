@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>demo Modal</title>
+    <style>
+        .clear:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+        .dialog {
+            display: none;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            position: fixed;
+        }
+        .dialog-overlay {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: -1;
+        }
+        .dialog-box {
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            width: 300px;
+            margin-left: -150px;
+        }
+        .dialog-header {
+            background: #666;
+            color: white;
+        }
+        .dialog-header>h3 {
+            float: left;
+            margin: 0;
+            padding: 10px 15px;
+        }
+        .dialog-header>.btn-close {
+            float: right;
+            line-height: 42px;
+            padding-right: 15px;
+            cursor: pointer;
+        }
+        .dialog-content {
+            background-color: white;
+            padding: 30px 20px;
+            font-size: 12px;
+        }
+        .dialog-footer {
+            background-color: white;
+            text-align: center;
+        }
+        .dialog-footer>.btn {
+            display: inline-block;
+            text-decoration: none;
+            background-color: #c33100;
+            padding: 5px 10px;
+            color: white;
+            border-radius: 4px;
+            margin: 5px;
+        }
+        .dialog-footer>.btn:hover {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<div class="modal">
+    <button id="dialog1">打开1</button>
+    <button id="dialog2">打开2</button>
+    <button id="dialog3">打开3</button>
+    <button id="dialog4">打开4</button>
+    <button id="dialog5">打开5</button>
+</div>
+<img src="./img/pretty.jpg" alt="">
+<div class="dialog"></div>
+<!-- <div class="dialog">
+	<div class="dialog-overlay"></div>
+	<div class="dialog-box">
+		<div class="dialog-header clear">
+			<h3>您好</h3>
+			<span class="btn-close">X</span>
+		</div>
+		<div class="dialog-content">这里是饥人谷</div>
+		<div class="dialog-footer">
+			<a href="" class="btn btn-close">取消</a>
+			<a href="" class="btn btn-confirm">确定</a>
+		</div>		
+	</div>
+</div> -->
+
+
+<script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+var modal = (function(){
+
+    function Modal(option) {
+        this.$node = option.$node;
+        this.header = option.header || undefined;
+        this.content = option.content || undefined;
+        this.footer = option.footer || undefined;
+        if (this.footer !== undefined) {
+	        if(option.footer.confirmBtn) {
+	            this.confirmBtn = option.footer.confirmBtn.name || undefined;
+	            this.confirmBtnHint = option.footer.confirmBtn.hint || undefined;
+	        }
+	        if(option.footer.closeBtn) {
+	            this.closeBtn = option.footer.closeBtn.name || undefined;
+	            this.closeBtnHint = option.footer.closeBtn.hint || undefined;
+	        }
+        }
+        this.bind();
+    }
+
+    Modal.prototype.render = function(){
+        var tpl = "";
+        tpl += '  <div class="dialog-overlay"></div>';
+        tpl += '  <div class="dialog-box">';
+        if (this.header !== undefined) {
+            tpl += '<div class="dialog-header clear">';
+            tpl += '  <h3>' + this.header +'</h3>';
+            tpl += '  <span class="btn-close">X</span>';
+		    tpl += '</div>';
+        }
+        tpl += '    <div class="dialog-content">' + this.content + '</div>';
+        if (this.footer !== undefined) {
+            tpl += '<div class="dialog-footer">';
+            if(this.closeBtn !== undefined) {
+                tpl += '<a href="javascript:void(0)" class="btn btn-close">' + this.closeBtn + '</a>';
+            }
+            if(this.confirmBtn !== undefined) {
+                tpl += '<a href="javascript:void(0)" class="btn btn-confirm">' + this.confirmBtn + '</a>';
+            }
+            tpl += '</div>';
+        }
+        tpl += '  </div>';
+        $(".dialog").html(tpl);
+    };
+    Modal.prototype.bind = function(){
+        var _this = this;
+
+        this.$node.on("click", function(){
+        	_this.render();
+	       
+	        $(".dialog .btn-close").on("click", function(){
+	            if(_this.closeBtnHint !== undefined) {
+	                alert(_this.closeBtnHint);
+	            }
+	            $(".dialog").hide();    
+	        });
+	        
+            $(".dialog .btn-confirm").on("click", function(){
+            	console.log(1);
+	            if(_this.confirmBtn !== undefined) {
+	                alert(_this.confirmBtnHint);
+	            }
+	            $(".dialog").hide();
+	        });
+
+            $(".dialog").show();
+        });
+
+
+
+    }
+
+    return {
+        use: function(object){
+            new Modal(object)
+        }
+    }
+
+})();
+
+
+// 绑定按钮
+modal.use({
+    $node: $("#dialog1"),
+    content: "hello, 这里是饥人谷",
+    footer: {
+        closeBtn: {
+            name: "取消"
+        }
+    }
+})
+
+modal.use({
+	$node: $("#dialog2"),
+	content: '<a href="www.jirengu.com">饥人谷</a>',
+	footer: {
+		closeBtn: {
+			name: "取消"
+		}
+	}
+})
+
+modal.use({
+	$node: $("#dialog3"),
+	header: "欢迎来到饥人谷",
+	content: "hello",
+	footer: {
+		confirmBtn: {
+			name: "确认",
+			hint: "确认"
+		},
+		closeBtn: {
+			name: "取消",
+			hint: "取消"
+		}
+	}
+})
+
+modal.use({
+	$node: $("#dialog4"),
+	header: "欢迎来到饥人谷",
+	content: "<ul><li>列表1</li><li>列表2</li><li>列表3</li><li>列表4</li></ul>",
+	footer: {
+		confirmBtn: {
+			name: "确认",
+			hint: "确认"
+		},
+		closeBtn: {
+			name: "取消",
+			hint: "取消"
+		}
+	}
+})
+
+modal.use({
+	$node: $("#dialog5"),
+	header: "欢迎来到饥人谷",
+	content: "hello"
+})
+</script>
+</body>
+</html>

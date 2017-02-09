@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>滚动轮播</title>
+	<link rel="stylesheet" href="css/iconfont.css">
+<style>
+	
+html,body,ul,li,p{
+	margin: 0;
+	padding: 0;
+}
+li{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+}
+
+.wrap{
+	position: relative;
+	width: 450px;
+	height: 300px;
+	overflow: hidden;
+}
+.wrap .img-ct{
+	position: absolute;
+}
+.wrap .img-ct img{
+	width: 450px;
+	height: 300px;
+}
+.wrap .img-ct:after{
+	content: ' ';
+	display: block;
+	clear: both;
+}
+.wrap .img-ct li{
+	float: left;
+}
+
+.btn{
+	position: absolute;
+	height: 30px;
+	width: 30px;
+	border-radius: 15px;
+	background: #000;
+	opacity: 0.4;
+	text-align: center;
+	line-height: 27px;
+	display: block;
+	color: #fff;
+	top: 50%;
+	transform: translateY(-50%);
+	transition: all 1s;            /*css3效果*/
+}
+.btn:hover{
+	opacity: 1
+}
+.btn-pre{
+	left: 10px;
+}
+.btn-nxt{
+	right: 10px;
+}
+.bullet{
+	position: absolute;
+	bottom: 40px;
+	left: 50%;
+	transform: translateX(-50%);
+}
+.bullet li{
+	height: 5px;
+	width: 20px;
+	background-color: #fff;
+	cursor: pointer;
+	margin: 0 5px;
+	border-radius: 5px;
+	display: inline-block;
+}
+.bullet .active{
+	background-color: #666;
+}
+
+
+</style>
+</head>
+<body>
+	
+<div class="wrap">
+	<ul class="img-ct">
+		<li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/2.jpg" alt=""></a></li>
+		<li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/3.jpg" alt=""></a></li>
+		<li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/4.jpg" alt=""></a></li>
+		<li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/5.jpg" alt=""></a></li>
+	</ul>
+	<a class="btn btn-pre" href="#"><i class="iconfont">&#x343c;</i></a>
+	<a class="btn btn-nxt" href="#"><i class="iconfont">&#x343b;</i></a>
+	<ul class="bullet">
+		<li class="active"></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+</div>
+
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+<script>
+
+$(function(){
+
+
+
+var $wrap = $('.wrap'),
+	$imgCt = $('.img-ct'),
+	$btnPre = $('.btn-pre'),
+	$btnNxt = $('.btn-nxt'),
+	$bullet = $('.bullet');
+
+var $firstImg = $imgCt.find('li').first(),
+	$lastImg = $imgCt.find('li').last();
+
+var pageIndex = 0,
+	imgLength = $imgCt.children().length;
+
+var isAnimate = false;
+
+$imgCt.prepend($lastImg.clone());
+$imgCt.append($firstImg.clone());
+
+$imgCt.width($firstImg.width() * $imgCt.children().length);
+$imgCt.css('left', '-450px');
+
+$btnPre.on('click', function(e){
+	e.preventDefault();
+	playPre();
+})
+$btnNxt.on('click', function(e){
+	e.preventDefault();
+	playNxt();
+})
+
+$bullet.find('li').on('click', function(){
+	playTo($(this).index());
+})
+
+autoPlay();
+
+function stopAuto(){
+	clearInterval(clock);
+}
+
+function autoPlay(){
+	clock = setInterval(function(){
+		playNxt();
+	}, 3000);	
+}
+
+function playTo(n){
+	if(isAnimate === true) return;
+
+	isAnimate = true;
+
+	$imgCt.animate({
+		left: '+=' + (pageIndex-n)*$firstImg.width()
+	},function(){
+		pageIndex = n;
+		isAnimate = false;
+		setBullet();
+	})
+}
+
+function playNxt(){
+	if(isAnimate === true) return;
+
+	isAnimate = true;
+
+	$imgCt.animate({
+		left: '-=450'
+	},function(){
+		pageIndex++;
+		if(pageIndex === imgLength){
+			$imgCt.css('left', -$firstImg.width());
+			pageIndex = 0;
+		}
+		isAnimate = false;
+		setBullet();
+	})
+	
+}
+
+function playPre(){
+	if(isAnimate === true) return;
+
+	isAnimate = true;
+
+	$imgCt.animate({
+		left: '+=450'
+	},function(){
+		pageIndex--;
+		if(pageIndex<0){
+			$imgCt.css('left', -(imgLength*$firstImg.width()));
+			pageIndex = imgLength - 1;
+		}
+		isAnimate= false;
+		setBullet();
+	})
+}
+
+
+
+function setBullet(){
+	$bullet.children().removeClass('active').eq(pageIndex).addClass('active')
+}
+
+
+
+
+
+//   这是第二种写法 
+// function play(index){
+//     if(pageIndex === index){
+//         return;
+//     }
+//     if(isAnimate) return;
+//     isAnimate = true;
+//     $imgCt.animate({
+//         left: '+=' + (pageIndex - index) * $firstImg.width()
+//     }, function(){
+//         pageIndex = index;
+//         if(pageIndex === imgLength){
+//             $imgCt.css({
+//                 left: - $firstImg.width()
+//             })
+//             pageIndex = 0;
+//         }
+//         else if(pageIndex === -1){
+//             $imgCt.css({
+//                 left: - $firstImg.width() * imgLength
+//             })
+//             pageIndex = imgLength -1 ;
+//         } 
+//         isAnimate = false;
+//         setBullet();
+//     })
+// }
+
+
+
+
+//第三种写法：
+// function playNext(idx){
+// 	var idx = idx || 1;
+// 	if(!isAnimate){
+// 		isAnimate = true;
+// 		$ct.animate({left: '-='+(imgWidth*idx)},function(){
+// 			// pageIndex = (pageIndex + idx)%imgLength;
+// 			// if(pageIndex === 0){
+// 			// 	$ct.css({left: 0-imgWidth});;
+// 			// }
+// 			pageIndex++;
+// 			if(pageIndex === imgLength){
+// 				$ct.css({left: 0-imgWidth});;
+// 				pageIndex = 0;
+// 			}
+// 			isAnimate = false;
+// 			setBullet();
+// 		});
+// 	}
+// }
+
+// function playPre(idx){
+// 	var idx = idx || 1;
+// 	if(!isAnimate){
+// 		isAnimate = true;
+// 		$ct.animate({left: '+='+(imgWidth*idx)},function(){
+// 			pageIndex = (imgLength + pageIndex - idx)%imgLength;
+// 			if(pageIndex === (imgLength - 1)){
+// 				$ct.css({left: 0-imgWidth*imgLength});;
+// 			}
+// 			isAnimate = false;
+// 			setBullet();
+// 		});
+// 	}
+// }
+
+
+
+
+
+})
+	
+
+
+
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>demo lazy-load</title>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+			text-decoration: none;
+			list-style: none;
+		}
+		.layout {
+			width: 1000px;
+			margin: 0 auto;
+		}
+		.clear:after {
+			content: "";
+			display: block;
+			clear: both;
+		}
+
+		/*lazy-load*/
+		.lazy-load .pic img {
+			width: 300px;
+			height: 500px;
+		}
+		.lazy-load .pic-ct {
+			margin-top: -50px;
+			margin-left: -50px;
+		}
+		.lazy-load .pic {
+			float: left;
+			margin-left: 50px;
+			margin-top: 50px;
+		}
+	</style>
+</head>
+<body>
+<div class="lazy-load">
+	<div class="layout">
+		<ul class="pic-ct clear">
+			<li class="pic"><img data-src="./img/Messi.jpg" src="./img/black.png"></li>
+			<li class="pic"><img data-src="./img/Messi.jpg" src="./img/black.png"></li>
+			<li class="pic"><img data-src="./img/Messi.jpg" src="./img/black.png"></li>
+			<li class="pic"><img data-src="./img/Messi.jpg" src="./img/black.png"></li>
+			<li class="pic"><img data-src="./img/Messi.jpg" src="./img/black.png"></li>
+			<li class="pic"><img data-src="./img/Messi.jpg" src="./img/black.png"></li>
+			<li class="pic"><img data-src="./img/Messi.jpg" src="./img/black.png"></li>
+			<li class="pic"><img data-src="./img/Messi.jpg" src="./img/black.png"></li>
+			<li class="pic"><img data-src="./img/Messi.jpg" src="./img/black.png"></li>
+			<li class="pic"><img data-src="./img/Messi.jpg" src="./img/black.png"></li>
+			<li class="pic"><img data-src="./img/Messi.jpg" src="./img/black.png"></li>
+			<li class="pic"><img data-src="./img/Messi.jpg" src="./img/black.png"></li>
+			<li class="pic"><img data-src="./img/Messi.jpg" src="./img/black.png"></li>
+			<li class="pic"><img data-src="./img/Messi.jpg" src="./img/black.png"></li>
+			<li class="pic"><img data-src="./img/Messi.jpg" src="./img/black.png"></li>
+			<li class="pic"><img data-src="./img/Messi.jpg" src="./img/black.png"></li>
+			<li class="pic"><img data-src="./img/Messi.jpg" src="./img/black.png"></li>
+			<li class="pic"><img data-src="./img/Messi.jpg" src="./img/black.png"></li>
+			<li class="pic"><img data-src="./img/Messi.jpg" src="./img/black.png"></li>
+			<li class="pic"><img data-src="./img/Messi.jpg" src="./img/black.png"></li>
+			<li class="pic"><img data-src="./img/Messi.jpg" src="./img/black.png"></li>
+			<li class="pic"><img data-src="./img/Messi.jpg" src="./img/black.png"></li>
+			<li class="pic"><img data-src="./img/Messi.jpg" src="./img/black.png"></li>
+			<li class="pic"><img data-src="./img/Messi.jpg" src="./img/black.png"></li>
+			<li class="pic"><img data-src="./img/Messi.jpg" src="./img/black.png"></li>
+			<li class="pic"><img data-src="./img/Messi.jpg" src="./img/black.png"></li>
+			<li class="pic"><img data-src="./img/Messi.jpg" src="./img/black.png"></li>
+			<li class="pic"><img data-src="./img/Messi.jpg" src="./img/black.png"></li>
+			<li class="pic"><img data-src="./img/Messi.jpg" src="./img/black.png"></li>
+			<li class="pic"><img data-src="./img/Messi.jpg" src="./img/black.png"></li>
+			<li class="pic"><img data-src="./img/Messi.jpg" src="./img/black.png"></li>
+			<li class="pic"><img data-src="./img/Messi.jpg" src="./img/black.png"></li>
+			<li class="pic"><img data-src="./img/Messi.jpg" src="./img/black.png"></li>
+			<li class="pic"><img data-src="./img/Messi.jpg" src="./img/black.png"></li>
+			<li class="pic"><img data-src="./img/Messi.jpg" src="./img/black.png"></li>
+			<li class="pic"><img data-src="./img/Messi.jpg" src="./img/black.png"></li>
+			<li class="pic"><img data-src="./img/Messi.jpg" src="./img/black.png"></li>
+			<li class="pic"><img data-src="./img/Messi.jpg" src="./img/black.png"></li>
+			<li class="pic"><img data-src="./img/Messi.jpg" src="./img/black.png"></li>
+			<li class="pic"><img data-src="./img/Messi.jpg" src="./img/black.png"></li>
+			<li class="pic"><img data-src="./img/Messi.jpg" src="./img/black.png"></li>
+			<li class="pic"><img data-src="./img/Messi.jpg" src="./img/black.png"></li>
+			<li class="pic"><img data-src="./img/Messi.jpg" src="./img/black.png"></li>
+			<li class="pic"><img data-src="./img/Messi.jpg" src="./img/black.png"></li>
+			<li class="pic"><img data-src="./img/Messi.jpg" src="./img/black.png"></li>
+			<li class="pic"><img data-src="./img/Messi.jpg" src="./img/black.png"></li>
+			<li class="pic"><img data-src="./img/Messi.jpg" src="./img/black.png"></li>
+			<li class="pic"><img data-src="./img/Messi.jpg" src="./img/black.png"></li>
+			<li class="pic"><img data-src="./img/Messi.jpg" src="./img/black.png"></li>
+			<li class="pic"><img data-src="./img/Messi.jpg" src="./img/black.png"></li>
+			<li class="pic"><img data-src="./img/Messi.jpg" src="./img/black.png"></li>
+			<li class="pic"><img data-src="./img/Messi.jpg" src="./img/black.png"></li>
+			<li class="pic"><img data-src="./img/Messi.jpg" src="./img/black.png"></li>
+			<li class="pic"><img data-src="./img/Messi.jpg" src="./img/black.png"></li>
+			<li class="pic"><img data-src="./img/Messi.jpg" src="./img/black.png"></li>
+			<li class="pic"><img data-src="./img/Messi.jpg" src="./img/black.png"></li>
+			<li class="pic"><img data-src="./img/Messi.jpg" src="./img/black.png"></li>
+			<li class="pic"><img data-src="./img/Messi.jpg" src="./img/black.png"></li>
+			<li class="pic"><img data-src="./img/Messi.jpg" src="./img/black.png"></li>
+			<li class="pic"><img data-src="./img/Messi.jpg" src="./img/black.png"></li>
+		</ul>
+	</div>
+</div>
+
+
+<script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript">
+	var lazyLoad = (function(){
+
+		function LazyLoad($node){
+			this.$node = $node;
+			this.init();
+			this.bind();
+			this.checkAndShow($node);
+		}
+
+
+		LazyLoad.prototype.init = function(){
+			this.isShow = false;
+		}
+
+
+		LazyLoad.prototype.bind = function(){
+			var _this = this
+			$(window).on("scroll", function(){
+				if(_this.isShow){
+					return;
+				}
+				_this.checkAndShow(_this.$node)
+			})
+		}
+
+
+		LazyLoad.prototype.checkAndShow = function($node){
+			var winH = $(window).height(),
+				scrollH = $(window).scrollTop(),
+				offsetH = $node.offset().top;
+
+			if(offsetH < winH + scrollH){
+				this.show($node);
+			}
+		}
+
+
+		LazyLoad.prototype.show = function($node){
+			var addr = $node.attr("data-src");			
+			setTimeout(function(){
+				$node.attr("src", addr);
+				this.isShow = true;
+			},500);
+		}
+
+		return {
+			use: function($node){
+				new LazyLoad($node);
+			}
+		}
+	})();
+
+
+	$("img").each(function(){
+		lazyLoad.use($(this));
+	})
+</script>
+</body>
+</html>

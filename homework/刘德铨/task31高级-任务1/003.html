@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Person(name, age){
+            this.nick = name;
+            this.age = age;
+            /*this.printName = function(){
+                console.log(this.nick + ' is ' + this.age + ' years old!');
+            }*/
+        }
+        Person.prototype.printName = function(){
+            console.log(this.nick + ' is ' + this.age + ' years old!');
+        }
+        var perFir = new Person('hunger', 30);
+        console.log("var perFir = new Person('hunger', 30)"); 
+        console.log(perFir); 
+        console.log('perFir.nick: ' + perFir.nick); 
+        console.log('perFir.age: ' + perFir.age); 
+        perFir.printName();
+        console.log('perFir instanceof Person: ', perFir instanceof Person);
+        var perSec = new Person('abc', 20);
+        console.log("var perSec = new Person('abc', 20)");
+        console.log(perSec);
+        console.log('perSec.nick: ' + perSec.nick);
+        console.log('perSec.age: ' + perSec.age);
+        perSec.printName();
+        console.log('perSec instanceof Person: ', perSec instanceof Person);
+        console.log(Person);
+        Person.prototype.sex = '男';
+        console.log(Person);
+        console.log(perFir);
+        console.log('perFir.sex: ' + perFir.sex);
+        console.log('Person.prototype === perFir.__proto__: ', 
+            Person.prototype === perFir.__proto__);
+        
+        function Car(name, color, status){
+            this.name = name;
+            this.color = color;
+            this.status = status;
+        }
+        Car.prototype.run = function(){
+            console.log('run');
+        }
+        Car.prototype.stop = function(){
+            console.log('stop');
+        }
+        Car.prototype.getStatus = function(){
+            console.log('status: ' + this.status);
+        }
+        var abc = new Car('abc', 'white', 0);
+        console.log(abc);
+        console.log('abc.name: ' + abc.name);
+        console.log('abc.color: ' + abc.color);
+        console.log('abc.status: ' + abc.status);
+        abc.run();
+        abc.stop();
+        abc.getStatus();
+    </script>
+</body>
+</html>

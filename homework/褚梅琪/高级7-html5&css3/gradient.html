@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>渐变</title>
+	<style type="text/css">
+		.cover{
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background:url(view.jpg) center center no-repeat ; 
+			background-size: cover;
+		}
+		.cover:before{
+			content: '';
+			display: block;
+			position: absolute;
+			width: 50%;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			background-image: linear-gradient(to bottom right,rgba(84,30,209,0),rgba(84,30,209,0.9));
+		}
+		.cover:after{
+			content: '';
+			display: block;
+			position: absolute;
+			width: 50%;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			background-image: linear-gradient(to bottom left,rgba(20,116,223,0),rgba(20,116,223,1));
+		}
+	</style>
+</head>
+<body>
+	<div class="cover"></div>
+</body>
+</html>

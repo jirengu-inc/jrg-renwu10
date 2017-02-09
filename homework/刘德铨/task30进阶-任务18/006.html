@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        
+#nav{
+  height: 40px;
+  margin-top: 20px;
+  background: blue;
+}
+#header{
+  background: red;
+  height: 80px;
+  line-height: 80px;
+  text-align: center;
+}
+#content{
+  min-height: 800px;
+  background: #ccc;
+  padding: 10px;
+  overflow: auto;
+}
+#content .aside{
+  float: left;
+  width: 100px;
+  min-height: 400px;
+  background: green;
+}
+#content .main{
+  overflow: auto;
+  background: #fff;
+  padding-left: 20px;
+  min-height: 800px;
+}
+#footer{
+  background: #333;
+}
+
+    </style>
+</head>
+<body>
+<div id="header">header</div>
+<div id="nav">nav</div>
+<div id="content">
+  <div class="aside">aside</div>
+  <div class="main">main</div>
+</div>
+<div id="footer">footer</div>
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/main6.0.js"></script>
+</body>
+</html>

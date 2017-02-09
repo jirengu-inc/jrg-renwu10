@@ -233,15 +233,16 @@
                 },
                 success: function(userInfo){
                     dealWidthSub(userInfo);
+                    lock = false;
+                    submitBtn.value = '注册';
                 },
                 error: function(){
                     errSub();
+                    lock = false;
+                    submitBtn.value = '注册';
                 }
-
-
             });
-            lock = false;
-        submitBtn.value = '注册';
+            
         }
      })
 

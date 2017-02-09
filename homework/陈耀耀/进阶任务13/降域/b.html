@@ -1,0 +1,21 @@
+<html>
+<style>
+	html,body{
+		margin: 0;
+	}
+	input{
+		margin: 20px;
+		width: 200px;
+	}
+</style>
+
+	<input id="input" type="text"  placeholder="http://b.yasinchan.com:8080/b.html">
+<script>
+// URL: http://b.jrg.com:8080/b.html
+ 
+document.querySelector('#input').addEventListener('input', function(){
+	window.parent.document.querySelector('input').value = this.value;
+})
+document.domain = 'yasinchan.com';
+</script>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>jQuery任务二</title>
+    <style media="screen">
+    *{
+      margin: 0;
+      padding: 0;
+    }
+      .cot li{
+        border: 1px solid #ccc;
+        height:40px;
+        list-style: none;
+        margin: 10px 0;
+        line-height: 40px;
+        padding-left: 10px;
+      }
+      .btn{
+        display: inline-block;
+        width: 80px;
+        height:30px;
+        border:1px solid red;
+        color:red;
+        text-align: center;
+        line-height: 30px;
+        border-radius: 5px;
+        cursor: pointer;
+        position: absolute;
+        left:50%;
+        margin-left: -40px;
+      }
+      .btn:hover{
+        background: red;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="cot">
+      <li>内容1</li>
+      <li>内容2</li>
+    </ul>
+    <a class="btn">加载更多</a>
+
+    <script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js"></script>
+    <script type="text/javascript">
+    $('.cot').on('mouseenter','li',function(){
+      $(this).css({
+        background: 'green',
+        color: 'white'
+      })
+    });
+    $('.cot').on('mouseleave','li',function(){
+      $(this).css({
+        background: 'white',
+        color: 'black'
+      })
+    });
+
+    var index = 1
+    $('.btn').on('click',function(){
+      $.ajax({
+        url: '/loading',
+        method: 'get',
+        data:{
+          len:3,
+          start:index
+        }
+      }).done(function(result){
+        appendHtml(result);
+        index++;
+
+      }).fail(function(){
+          console.log('error')
+      })
+
+      function appendHtml(info){
+        var html = "";
+        html += '<li>'+"内容"+info.array[0]+'</li>',
+        html += '<li>'+"内容"+info.array[1]+'</li>',
+        html += '<li>'+"内容"+info.array[2]+'</li>',
+        $('.cot').append(html);
+      }
+
+    })
+
+
+
+    </script>
+  </body>
+</html>

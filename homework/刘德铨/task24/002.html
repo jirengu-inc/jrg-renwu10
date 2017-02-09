@@ -130,7 +130,6 @@
             document.querySelector('.pasTip').innerHTML = '密码不能为空';
             return ;
         }
-
              ajax({
                 url:'getData.php',
                 type: document.querySelector('#type').value||'get',
@@ -140,12 +139,13 @@
                 },
                 success: function(user){
                     dealWithBtn(user);
+                    btnActive = false;
                 },
                 error: function(){
                     errInfo();
+                    btnActive = false;
                 }
             });
-            btnActive = false;
         }          
      },false);
     

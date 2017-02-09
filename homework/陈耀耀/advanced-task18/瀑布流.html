@@ -1,0 +1,273 @@
+
+<!DOCTYPE html>
+<html>
+<html lang="en">
+	<meta charset="UTF-8">
+	<title>Document</title>
+<style type="text/css">
+
+.content{
+	position: relative;
+
+}
+.item{
+	position: absolute;
+	width: 200px;
+	margin-right: 10px;
+	margin-top: 10px;
+	transition: all 1s;
+}
+.h1{
+	height: 200px;
+	background-color: blue;
+}
+.h2{
+	height: 300px;
+	background-color: green;
+}
+.h3{
+	height: 400px;
+	background-color: yellow;
+}
+.h4{
+	height: 500px;
+	background-color: red;
+}
+
+</style>
+
+</head>
+<body>
+	<div class="content">
+		<div class="item h1">
+			1
+		</div>
+		<div class="item h3">
+			2
+		</div>
+		<div class="item h2">
+			3
+		</div>
+		<div class="item h1">
+			4
+		</div>
+		<div class="item h5">
+			5
+		</div>
+		<div class="item h3">
+			6
+		</div>
+		<div class="item h2">
+			7
+		</div>
+		<div class="item h4">
+			8
+		</div>
+		<div class="item h1">
+			9
+		</div>
+		<div class="item h4">
+			10
+		</div>
+		<div class="item h3">
+			11
+		</div>
+		<div class="item h4">
+			12
+		</div>
+		<div class="item h1">
+			13
+		</div>
+		<div class="item h2">
+			14
+		</div>
+		<div class="item h3">
+			15
+		</div>
+		<div class="item h4">
+			16
+		</div>
+		<div class="item h2">
+			17
+		</div>
+		<div class="item h4">
+			18
+		</div>
+		<div class="item h1">
+			19
+		</div>
+		<div class="item h2">
+			20
+		</div>
+	</div>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+<script type="text/javascript">
+$(function(){
+
+	function render(){
+
+  	var nodeWidth = $('.item').outerWidth(true),
+ 		colNum = parseInt($(window).width()/nodeWidth),
+ 		colSumHeight = [];
+
+ 	for(var i = 0; i<colNum;i++){
+ 		colSumHeight.push(0);
+ 	}
+
+ 	$('.item').each(function(){
+ 		var $cur = $(this);
+ 		var idx = 0,
+ 			minSumHeight = colSumHeight[0];
+
+ 		for(var i=0;i<colSumHeight.length; i++){
+ 			if(colSumHeight[i] < minSumHeight){
+ 				idx = i;
+ 				minSumHeight = colSumHeight[i];
+ 			}
+ 		}
+
+ 		$cur.css({
+ 			left: nodeWidth*idx,
+ 			top: minSumHeight
+ 		});
+ 		colSumHeight[idx] = $cur.outerHeight(true) + colSumHeight[idx];
+ 	});
+	}
+
+	render();
+
+	$(window).on('resize', function(){
+		render();
+	})
+
+
+
+//以下是另外两种方法：
+
+//方法2， 通过闭包进行私有化封装
+// 	var water = (function($){
+
+//  	function render(){
+
+// 	  	var nodeWidth = $('.item').outerWidth(true),
+// 	 		colNum = parseInt($(window).width()/nodeWidth),
+// 	 		colSumHeight = [];
+
+// 	 	for(var i = 0; i<colNum;i++){
+// 	 		colSumHeight.push(0);
+// 	 	}
+
+// 	 	$('.item').each(function(){
+// 	 		var $cur = $(this);
+// 	 		var idx = 0,
+// 	 			minSumHeight = colSumHeight[0];
+
+// 	 		for(var i=0;i<colSumHeight.length; i++){
+// 	 			if(colSumHeight[i] < minSumHeight){
+// 	 				idx = i;
+// 	 				minSumHeight = colSumHeight[i];
+// 	 			}
+// 	 		}
+
+// 	 		$cur.css({
+// 	 			left: nodeWidth*idx,
+// 	 			top: minSumHeight
+// 	 		});
+// 	 		colSumHeight[idx] = $cur.outerHeight(true) + colSumHeight[idx];
+// 	 	});
+//  	}
+
+//  	render();
+
+//  	$(window).on('resize', function(){
+//  		render();
+//  	})
+
+
+// 		return {
+// 			init: render
+// 		}
+// 	})(jQuery)
+
+// 	//water.init();
+
+
+
+// // 方法3， 把功能都绑定到一个对象上
+
+// var WaterFall = {
+// 	arrColHeight: [],
+
+// 	init: function( $ct ){
+// 		this.$ct = $ct;
+// 		this.$items = $ct.find('.item'),
+// 		this.itemWidth = this.$items.outerWidth(true);
+
+// 		this.bind();
+// 		this.start();
+// 	},
+
+// 	bind: function(){
+// 		var me = this;
+// 		$(window).on('resize', function(){
+// 			me.start();
+// 		});
+// 	},
+
+// 	start: function(){
+// 		var me = this;
+// 		this.colNum = Math.floor( this.$ct.width() / this.itemWidth );
+// 		//this.arrColHeight = [];
+// 		for(var i=0; i<this.colNum; i++){
+// 			this.arrColHeight[i] = 0;
+// 		}
+// 		this.$items.each(function(){
+// 			me.placeItem( $(this) );
+// 		});
+// 	},
+
+// 	placeItem: function( $el ) {
+// 		// 1. 找到arrColHeight的最小值，得到是第几列
+// 		// 2. 元素left的值是 列数*宽度
+// 		// 3. 元素top的值是 最小值
+// 		// 4. 放置元素的位置，把arrColHeight对应的列数的值加上当前元素的高度
+// 		var obj = this.getIndexOfMin(this.arrColHeight),
+// 			idx = obj.idx,
+// 			min = obj.min;
+// 		$el.css({
+// 			left: idx * this.itemWidth,
+// 			top: min
+// 		});
+// 		this.arrColHeight[idx] += $el.outerHeight(true);
+// 	},
+
+// 	getIndexOfMin: function( arr ){
+// 		var min = arr[0],
+// 			idx = 0;
+// 		for(var i = 1; i< arr.length; i++){
+// 			if(min > arr[i]){
+// 				min = arr[i];
+// 				idx = i;
+// 			}
+// 		}
+// 		return {min: min, idx: idx};
+// 	}
+// }
+
+// //WaterFall.init($('.content'));
+
+
+ });
+
+
+</script>
+<!-- <script type="text/javascript">
+
+// 	Exposure.every($('#load-more'), function(){
+// 	  ajaxApend(function($els){
+// 	  	WaterFall.init($els);
+// 	  });
+// 	});
+</script> -->
+</body>
+</html>

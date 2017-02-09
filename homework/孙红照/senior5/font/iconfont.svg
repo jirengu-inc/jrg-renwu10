@@ -1,0 +1,48 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
+<svg xmlns="http://www.w3.org/2000/svg">
+<metadata>
+Created by FontForge 20120731 at Mon Dec 19 23:23:44 2016
+ By admin
+</metadata>
+<defs>
+<font id="iconfont" horiz-adv-x="1024" >
+  <font-face 
+    font-family="iconfont"
+    font-weight="500"
+    font-stretch="normal"
+    units-per-em="1024"
+    panose-1="2 0 6 3 0 0 0 0 0 0"
+    ascent="896"
+    descent="-128"
+    x-height="792"
+    bbox="0 -212 1024 812"
+    underline-thickness="0"
+    underline-position="0"
+    unicode-range="U+0078-E7FD"
+  />
+<missing-glyph 
+ />
+    <glyph glyph-name=".notdef" 
+ />
+    <glyph glyph-name=".notdef" 
+ />
+    <glyph glyph-name=".null" horiz-adv-x="0" 
+ />
+    <glyph glyph-name="nonmarkingreturn" horiz-adv-x="341" 
+ />
+    <glyph glyph-name="x" unicode="x" horiz-adv-x="1001" 
+d="M281 543q-27 -1 -53 -1h-83q-18 0 -36.5 -6t-32.5 -18.5t-23 -32t-9 -45.5v-76h912v41q0 16 -0.5 30t-0.5 18q0 13 -5 29t-17 29.5t-31.5 22.5t-49.5 9h-133v-97h-438v97zM955 310v-52q0 -23 0.5 -52t0.5 -58t-10.5 -47.5t-26 -30t-33 -16t-31.5 -4.5q-14 -1 -29.5 -0.5
+t-29.5 0.5h-32l-45 128h-439l-44 -128h-29h-34q-20 0 -45 1q-25 0 -41 9.5t-25.5 23t-13.5 29.5t-4 30v167h911zM163 247q-12 0 -21 -8.5t-9 -21.5t9 -21.5t21 -8.5q13 0 22 8.5t9 21.5t-9 21.5t-22 8.5zM316 123q-8 -26 -14 -48q-5 -19 -10.5 -37t-7.5 -25t-3 -15t1 -14.5
+t9.5 -10.5t21.5 -4h37h67h81h80h64h36q23 0 34 12t2 38q-5 13 -9.5 30.5t-9.5 34.5q-5 19 -11 39h-368zM336 498v228q0 11 2.5 23t10 21.5t20.5 15.5t34 6h188q31 0 51.5 -14.5t20.5 -52.5v-227h-327z" />
+    <glyph glyph-name="facebook" unicode="&#xe620;" 
+d="M686 198h102t16 13q2 19 7 57t8 58v2.5t-0.5 3.5t-0.5 4h-132q0 103 1 112q3 36 58 38h80v125q-61 4 -65 4q-76 -1 -100 -7q-52 -13 -84 -55t-33 -98v-118q-16 -1 -19 -1h-83q-9 0 -12.5 -3t-3.5 -11v-109q0 -15 16 -15h101v-345h-478v895h896v-895q-13 -1 -14 -1h-109.5
+h-135.5q-9 0 -13 2.5t-4 12.5v323l2 8v0z" />
+    <glyph glyph-name="instagram" unicode="&#xe7fd;" 
+d="M854 812h-684q-70 0 -120 -50t-50 -120v-684q0 -70 50 -120t120 -50h684q70 0 120 50t50 120v684q0 70 -50 120t-120 50zM328 364h368q11 -31 11 -64q0 -81 -57 -138t-138 -57t-138 57t-57 138q0 33 11 64zM896 364v-384q0 -26 -19 -45t-45 -19h-640q-26 0 -45 19t-19 45
+v384h100q-7 -32 -7 -64q0 -120 85.5 -205.5t205.5 -85.5t205.5 85.5t85.5 205.5q0 32 -7 64h100zM896 588q0 -13 -9.5 -22.5t-22.5 -9.5h-64q-13 0 -22.5 9.5t-9.5 22.5v64q0 13 9.5 22.5t22.5 9.5h64q13 0 22.5 -9.5t9.5 -22.5v-64z" />
+    <glyph glyph-name="tuite" unicode="&#xe609;" 
+d="M1024 701q-58 -26 -121 -33q69 41 93 116q-62 -37 -134 -51q-62 67 -153 67q-87 0 -148.5 -61.5t-61.5 -148.5q0 -25 5 -48q-128 6 -240.5 64t-191.5 155q-29 -49 -29 -105q0 -55 23.5 -101t65.5 -74q-32 1 -66 8t-34 18v-3q0 -75 50 -133t123 -73q-27 -7 -53 -7
+q-18 0 -38 4q20 -63 74 -104t123 -42q-115 -90 -261 -90q-24 0 -50 3q147 -94 322 -94q112 0 210 35.5t168 95t120.5 136.5t75 161.5t24.5 168.5q0 15 -1 27q62 45 105 109v0z" />
+  </font>
+</defs></svg>

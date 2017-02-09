@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>打印ture</title>
+	<style>
+		body{
+			font-family: "Microsoft Yahei", "微软雅黑",
+		}
+		.wrap{
+			position: relative;
+			height: 2500px;
+			background-color: pink;
+		}
+		.main{
+			position: absolute;
+			top: 1500px;
+			left: 40%;
+			color: black;
+			font-size: 40px;
+
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<div class="main">
+			I'm here
+		</div>
+	</div>
+	<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script>
+
+
+		var isVis = false;          //设置一个标志位
+		$(window).on("scroll",function(){
+		if(!isVis){
+		    isVisible($(".main")); //不可见才进入isVisible函数
+		}
+		else{
+		    return; //一旦标志位为true，那么就不做任何处理
+		}
+		})
+		function isVisible($node){
+		var winH = $(window).height(),
+		    offsetY = $node.offset().top;
+		if( (scrollY+winH) > offsetY ){
+		    console.log("true");
+		    isVis = true;   //第一次出现，设为true
+		    return true;
+		}
+		else{
+		    // console.log("false");
+		    return false;
+		}
+		}
+
+	</script>
+</body>
+</html>

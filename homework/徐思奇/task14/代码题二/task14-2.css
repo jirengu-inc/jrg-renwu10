@@ -1,0 +1,124 @@
+#layout {
+  width: 900px;
+  margin: 0 auto;
+  font-family: Arial, "Microsoft YaHei", "\5FAE\8F6F\96C5\9ED1", SimSun, sans-serif;
+  background: #eee;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)!important;
+  border-radius: 5px;
+}
+ul, li, a {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+}
+#header:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+#header .image {
+  width: 150px;
+  float: left;
+  padding: 10px;
+  margin-top: 50px;
+  margin-left: 80px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+}
+#header .name {
+  float: left;
+  padding: 10px;
+  margin: 80px 50px 80px 60px;
+}
+#header .contacts {
+  float: left;
+  margin: 30px 20px;
+}
+#header .contacts > h3 {
+  border-bottom: 3px solid;
+}
+#header .contacts > p {
+  line-height: 5px;
+  display: inline-block;
+}
+#content {
+  margin: 10px 30px;
+}
+#content h3 {
+  margin-left: -10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(0,0,0,0.2);
+  display: inline-block;
+  width: 400px;  
+}
+#content strong {
+  margin-left: 30px;
+}
+#content .experience > ul, 
+#content .education > ul {
+  padding-left: 30px;
+  border-left: 1px solid;
+  position: relative;
+}
+#content .experience .title {
+  margin-left: -40.5px;
+  position: absolute;
+  top: -10px;
+}
+#content .first-strong {
+  margin-left: -60.5px;
+}
+#content li {
+  padding-left: 20px;
+  padding-top: -20px
+  margin-left:40px;
+}
+#content .education .second-title {
+  margin-left: -60.5px;
+  position: absolute;
+  top: -10px;
+}
+#footer {
+  margin: 10px 30px;
+}
+#footer:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+#footer .extra {
+  width: 380px;
+  float: left;
+}
+#footer .extra ul {
+  padding-left: 40px;
+}
+#footer .extra i {
+  margin-left: -50px;
+}
+#footer .extra strong {
+  margin-left: 30px;
+}
+#footer .extra p {
+  margin-left: 10px;
+}
+#footer h3 {
+  margin-left: -10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+#footer .skills {
+  width: 400px;
+  float: left;
+  margin-left: 50px;
+}
+#footer .skills li {
+  width: 200px;
+  float: left;
+  margin-bottom: 50px;
+  margin-left: -15px;
+}
+#footer .skills span {
+  font-weight: bold;
+}

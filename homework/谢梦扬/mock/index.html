@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>server-mock使用说明</title>
+<style>
+	body,ul,li{
+		margin: 0;
+		padding: 0;
+	}
+.list li{
+	list-style: none;
+	border:1px solid red;
+	width: 90%;
+	margin: 5px auto;
+	padding: 10px;
+}
+	.load{
+		padding: 10px 10px;
+		border: 1px solid yellow;
+		width: 80px;
+		border-radius:4px;
+	    margin: 0 auto;
+		display:block;
+		text-decoration: none;
+		color: red;
+		text-align: center;
+	}
+	.load:hover{
+		background: yellow;
+	}
+</style>
+</head>
+<body>
+<div class="container">
+  <ul class="list">
+	  <li>内容1</li>
+	  <li>内容2</li>
+  </ul>
+	<a href="#" class="load">加载更多</a>
+</div>
+
+  	<script>
+		var li = $('.list li');
+		var list = $('.list');
+		var btn = $('.load');
+		var count =3;
+		var Ajaxlock = false;
+		btn.addEventListener('click',function(e){
+           btn.innerText = '。。。';
+			e.preventDefault();
+			if(Ajaxlock){
+				return;
+			}
+			Ajaxlock = true;
+			ajax({
+				type:'get',
+				url:'/getContent',
+				date:{
+					start:count,
+			}
+			})
+		}
+		);
+			function ajax(opts) {
+				var type = opts.type || 'get';
+				type = type.toLowerCase() || 'get';
+				var url = opts.url || '';
+				var date = opts.date || null;
+				var success = opts.success || function(){};
+				var error = opts.success || function(){};
+				var xhr = window.XMLHttpRequest? new XMLHttpRequest():new ActiveXObject('microsoft.XMLHTTP');
+				var dateArry = [];
+				for(var key in date){
+					dateArry.push(key + '=' +date[key]);
+				}
+				var dateStr = dateArry.join('&');
+				if(type === 'get'){
+					xhr.open(type,url+'?'+dateStr,true);
+					xhr.send();
+				}else{
+					xhr.open(type,url,true);
+					xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
+					xhr.send(dateStr)
+				}
+				xhr.onreadystatechange = function(){
+					if(xhr.readyState === 4  && xhr.status === 200){
+						success(xhr.responseText);
+						var Json = JSON.parse(xhr.responseText);
+							append(Json);
+							count += 3;
+						Ajaxlock = false;
+						btn.innerText = '加载更多';
+					}else{
+						error();
+					}
+				}
+			}
+function append(arr){
+	var html = '';
+	for(i = 0;i<arr.length;i++){
+		html += '<li>' + arr[i] + '</li>';
+	}
+	list.innerHTML += html;
+}
+function $(id){
+	return document.querySelector(id);
+}
+	</script>
+</body>
+</html>

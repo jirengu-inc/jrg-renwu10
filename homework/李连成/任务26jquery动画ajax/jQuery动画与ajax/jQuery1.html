@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>jQuery任务题一</title>
+    <style media="screen">
+    a{
+      margin: 0;
+      paddding；0;
+    }
+    .test{
+      font-size: 14px;
+      color:#555;
+      font-weight:bold;
+    }
+    .ct{
+      border: 1px solid #ccc;
+      margin-top:10px;
+    }
+    .ct .btn1{
+      border: 1px solid #ccc;
+      width:50px;
+      height:50px;
+      display: inline-block;
+      text-align: center;
+      line-height: 25px;
+      margin: 10px;
+      cursor: pointer;
+    }
+    .win{
+      border:1px solid #ccc;
+
+      width:500px;
+      height:200px;
+      overflow: auto;
+    }
+    .scroll{
+      width:480px;
+      height:1000px;
+      display: inline-block;
+    }
+    .ct .data{
+      font-size: 30px;
+      color: red;
+      font-weight: bold;
+      display: block;
+      width:50px;
+      height: 50px;
+      position: absolute;
+      top:114px;
+      left:300px;
+      text-align: center;
+    }
+    .ct .btn2{
+      border: 1px solid #ccc;
+      width:50px;
+      height:50px;
+      display: inline-block;
+      text-align: center;
+      line-height: 25px;
+      margin: 10px;
+      cursor: pointer;
+    }
+    .inputBox{
+      margin: 10px;
+       width:250px;
+       outline: none;
+    }
+    .select{
+      margin-bottom: 100px;
+      width:200px;
+      height:25px;
+    }
+    .selectWord{
+      font-size: 30px;
+      color: green;
+      font-weight: bold;
+      position: absolute;
+      top:647px;
+      left:400px;
+    }
+    .cars{
+      color: red;
+      font-size: 40px;
+      font-weight: bold;
+      border: 1px solid #ccc;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="ct">
+      <p class="test">练习题1:当点击$btn 时，让 $btn 的背景色变为红色再变为蓝色</p>
+      <a class="btn1">点我变颜色</a>
+    </div>
+
+
+    <div class="ct">
+      <p class="test show">练习题2:当窗口滚动时，获取垂直滚动距离为：<p class="data">0</p></p>
+      <div class="win">
+        <p class="scroll">这里是内容</p>
+      </div>
+    </div>
+
+
+    <div class="ct">
+      <p class="test">练习题3:当鼠标放置到$div 上，把$div 背景色改为红色，移出鼠标背景色变为白色</p>
+      <a class="btn2">碰我变颜色</a>
+    </div>
+
+    <div class="ct">
+      <p class="test">练习题4:当鼠标激活 input 输入框时让输入框边框变为蓝色，当输入框内容改变时把输入框里的文字小写变为大写，当输入框失去焦点时去掉边框蓝色，控制台展示输入框里的文字</p>
+      <input type="text" class="inputBox" value="">
+    </div>
+
+    <div class="ct">
+      <p class="test">练习题5:选择 select 后，获取用户选择的内容</p>
+      <select class="select">
+        <option value="兰博基尼">兰博基尼</option>
+        <option value="保时捷911">保时捷911</option>
+        <option value="GTR">GTR</option>
+      </select>
+      <p class="selectWord">今天我要开:<span class="cars">哪一辆车</span></p>
+    </div>
+
+    <script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js"></script>
+    <script type="text/javascript">
+
+      //练习题一
+      $('.btn1').on('click',function(){
+        $('.btn1').css({background:'red'}),
+        setTimeout(function(){
+          $('.btn1').css({background:'blue'})
+        },1000)
+      });
+      //练习题二
+      $('.win').scroll(function(){
+        $('.data').text($(this).scrollTop()+'px')
+      });
+      //练习题三
+      // $('.btn2').on('mouseenter',function(){
+      //   $('.btn2').css({background:"red"})
+      // })
+      // $('.btn2').on('mouseleave',function(){
+      //   $('.btn2').css({background:"white"})
+      // })
+      $('.btn2').mouseenter(function(){
+        $('.btn2').css({background:"red"})
+      });
+      $('.btn2').mouseleave(function(){
+        $('.btn2').css({background:"white"})
+      });
+      //练习题四
+      $('.inputBox').on('focus',function(){
+        $('.inputBox').css({border:"2px solid blue"});
+      })
+
+      $('.inputBox').keyup(function(){
+        $(this).val(function(index,val){
+          return val.toUpperCase()
+        })
+      })
+      $('.inputBox').blur(function(){
+        $(this).css({border:"1px solid #bbb"})
+        console.log($(this).val())
+      })
+      // $('.inputBox').on('keyup',function(){
+      //   console.log($('.inputBox').val())
+      // })
+      // $('.inputBox').text($('.inputBox').value.toUpperCase())
+
+
+      //练习题五
+      $('.select').on('change',function(){
+        $('.cars').text($(this).val())
+      })
+
+
+
+    </script>
+  </body>
+</html>

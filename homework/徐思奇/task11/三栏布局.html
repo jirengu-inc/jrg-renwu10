@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>三栏布局</title>
+		<style>
+			.content:after {
+		content: '';
+		display: block;
+		clear: both;
+		}
+		.content .left {
+		width: 100px;
+		height: 450px;
+		background: red;
+		float: left;
+		}
+		.content .main {
+		height: 440px;
+		background: yellow;
+		margin-left: 110px;
+		margin-right: 110px;
+		}
+		.content .right {
+		width: 100px;
+		height: 450px;
+		background: orange;
+		float: right;
+		}
+		.footer {
+		height: 20px;
+		background: blue;
+		}
+		</style>
+	</head>
+	<body>
+		<div class="content">
+			<div class="left">aside-left</div>
+			<div class="right">aside-right</div>
+			<div class="main">三栏布局</div>
+		</div>
+		<div class="footer">footer</div>
+	</body>
+</html>

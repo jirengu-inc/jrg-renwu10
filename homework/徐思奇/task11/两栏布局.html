@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>两栏布局</title>
+		<style>
+			.layout {
+		width: 900px;
+		margin: 0 auto;
+		}
+		.content:after {
+		content: '';
+		display: block;
+		clear: both;
+		}
+		.aside {
+		width: 100px;
+		height: 400px;
+		background: red;
+		float: left;
+		}
+		.main {
+		height: 360px;
+		background: yellow;
+		margin-left: 110px
+		}
+		.footer {
+		height: 40px;
+		background: blue;
+		}
+		</style>
+	</head>
+	<body>
+		<div class="layout">
+			<div class="content">
+				<div class="aside">aside</div>
+				<div class="main">main</div>
+			</div>
+			<div class="footer">footer</div>
+		</div>
+	</body>
+</html>

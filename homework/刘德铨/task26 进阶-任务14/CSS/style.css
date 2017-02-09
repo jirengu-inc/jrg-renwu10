@@ -1,0 +1,209 @@
+/* CSS reast */
+ul,li{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+a{
+    text-decoration: none;
+    color: #FFF;
+}
+
+
+
+/* public */
+body{
+    font: 20px/1.5  Helvetica, arial, "Microsoft Yahei", "微软雅黑", STXihei, "华文细黑", sans-serif;
+    background: #FF9279;
+    padding: 50px;
+}
+
+.container {
+    width: 900px;
+    margin: 20px auto;
+    padding: 20px 30px;
+    background: #F6F4EC;
+    border: 2px solid #FFF;
+    box-shadow: 0 0 10px #FF0099;
+}
+
+.clearfix::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+
+/* 1 */
+
+#navigation{
+    /* height: 300px; */
+}
+
+.nav{
+    width: 250px;
+    background: #00BDF1;
+}
+
+.nav .item{
+    padding: 10px 20px;
+    cursor: pointer;
+    position: relative;
+}
+
+.nav .item:not(:last-child){
+    border-bottom: 2px solid #CCC;
+}
+
+.nav .item a:hover{
+    color: #FF3235;
+}
+
+.nav .item>a::after{
+    content: '>';
+    position: absolute;
+    right: 20px;
+}
+
+.nav .sec-level-nav{
+    background: #FFF;
+    width: 160px;
+    padding: 10px 20px;
+    position: absolute;
+    left: 250px;
+    top: 0;
+    display: none;
+}
+
+.nav .sec-level-nav li{
+    width: 80px;
+    font-size: 16px;
+    float: left;
+    text-align: center;
+}
+
+.nav .sec-level-nav li a{
+    color: #000;
+}
+
+
+
+/* 2 */
+.tab{
+    margin: 20px 0;
+}
+
+.tab-title{
+    border: 2px solid #CCC;
+    border-bottom: none;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background: #FFF;
+    display: inline-block;
+    margin-bottom: -8px;
+}
+
+.tab-title li{
+    float: left;
+    cursor: pointer;
+}
+
+.tab-title li a{
+    padding: 0 20px;
+    color: black;
+}
+
+.tab-title li:not(:last-child) a{
+    border-right: 1px solid #CCC;
+}
+
+.tab-commodities{
+    border: 2px solid #CCC;
+    background: #FFF;
+}
+
+.tab-commodities>li{
+    display: none;
+}
+
+.tab-title li.active{
+    background: #CCC;
+}
+
+.tab-title li.active a{
+    color: #FF3235;
+}
+
+
+
+.tab-commodities .com-item{
+    margin-right: -20px ;
+    margin-bottom: -20px ;  
+}
+
+.tab-commodities .com-item li{
+    float: left;
+    width: 285.5px;
+    margin: 0 20px 20px 0;
+    padding: 20px 30px;
+    text-align: center;
+    font-size: 15px;
+    box-sizing: border-box;
+    border: 1px solid #EEE;
+    position: relative;
+    cursor: pointer;
+}
+
+.tab-commodities .com-item .commodities-price {
+    color: #FF3235;
+    text-align: left;
+}
+
+.tab-commodities .com-item .cover{
+    background: #CCC;
+    opacity: 0.8;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+.tab-commodities .com-item .cover a{
+    border: 2px solid #FF3235;
+    border-radius: 5px;
+    padding: 10px 20px;
+    background: #FFF;
+    color: #FF3235;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.tab-commodities .active,
+.com-item .cover.active{
+    display: block;
+}
+
+#more{
+    text-align: center;
+}
+
+.more{
+    outline: none;
+    border: 2px solid #FF3235;
+    border-radius: 5px;
+    padding: 10px 20px;
+    background: #FFF;
+    cursor: pointer;
+    margin: 20px 0;
+    color: #FF3235;
+}
+
+.more:hover{
+    background: #FF989A;
+    color: #FFF;
+}

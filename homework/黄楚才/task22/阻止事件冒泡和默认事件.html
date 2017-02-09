@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>阻止事件冒泡和默认事件</title>
+</head>
+<body>
+<div id="ct">
+    <a href="http://www.baidu.com" alt>点击我</a>
+</div>
+<script>
+var ct=document.getElementById("ct");
+var a=ct.children[0];
+a.addEventListener('click',function (e) {
+    e.stopPropagation();
+    e.preventDefault();
+    console.log(this);
+    console.log(e.target)
+},false)
+ct.addEventListener('click',function (e) {
+    console.log(this)
+    console.log(e.target)
+},false)
+</script>
+</body>
+</html>

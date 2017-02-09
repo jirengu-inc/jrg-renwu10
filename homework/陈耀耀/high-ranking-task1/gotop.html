@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>回到顶部</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.wrap{
+			height: 5000px;
+			background: #ccc;
+		}
+
+
+	</style>
+
+</head>
+<body>
+	<div class="wrap"></div>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+<script>
+
+var Gotop = function(ct, target){
+	this.ct = ct;
+	this.target = $('<div class="gotop">回到顶部</div>');
+	this.target.css({
+		position: 'fixed',
+		right: '100px',
+		bottom: '50px',
+		display: 'none',
+		padding: '10px',
+		cursor: 'pointer',
+		border: '1px solid',
+		borderRadius: '3px'
+	})
+}
+Gotop.prototype.creatNode = function(){
+	this.ct.append(this.target);
+}
+Gotop.prototype.bindEvent = function(){
+	var _this = this;
+	var $window = $(window);
+	$window.on('scroll', function(){
+		var $top = $window.scrollTop();
+		if($top > 100){
+			_this.target.css('display' , 'block');
+		}else{
+			_this.target.css('display' , 'none');
+		}
+	})
+	this.target.on('click', function(){
+		_this.ct.animate({
+			scrollTop: 0
+		})
+	})
+}
+
+var GOTOP = new Gotop($('body'));
+GOTOP.creatNode();
+GOTOP.bindEvent();
+
+
+
+
+
+
+
+
+
+
+	// var $goTop = $('.go-top');
+	// var $window = $(window);
+	// $window.on('scroll', function(){
+	// 	var $top = $window.scrollTop();
+	// 	if($top > 100){
+	// 		$goTop.css('display' , 'block');
+	// 	}else{
+	// 		$goTop.css('display' , 'none');
+	// 	}
+	// })
+	// $goTop.on('click', function(){
+	// 	$window.scrollTop(0);
+	// })
+</script>
+
+
+</body>
+</html>

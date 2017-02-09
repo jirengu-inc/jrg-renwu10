@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tab切换</title>
+    <style>
+        *{
+            margin:0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        .clearfix:after{
+            clear: both;
+            display: block;
+            content: '';
+        }
+        li{
+            list-style: none;
+        }
+        .tab-container{
+            width: 600px;
+            margin: 0 auto;
+        }
+        .tab-ul .active{
+            background: #eee;
+        }
+        .tab-container ul>li{
+            width: 33.3%;
+            padding: 10px 0;
+            float: left;
+            border: 1px solid #ccc;
+            text-align: center;
+            cursor: pointer;
+        }
+        .tab-container .content{
+            border: 1px solid #ccc;
+            padding: 15px;
+            height: 150px;
+            display: none;
+        }
+        .tab-container .active{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div class="tab-container">
+    <ul class="clearfix tab-ul">
+        <li class="active">tab1</li>
+        <li>tab2</li>
+        <li>tab3</li>
+    </ul>
+    <div class="content active">内容1</div>
+    <div class="content">内容2</div>
+    <div class="content">内容3</div>
+</div>
+<script>
+    function hh(n){
+    }
+/*    function $(el){
+        var sub=el.substr(1);
+        if(el.length<1) return
+        if(el[0] === '#'){
+            return document.getElementById(sub);
+        }
+        if(el[0]==='.'){
+            return document.getElementsByClassName(sub)
+        }
+        else{
+            return document.getElementsByTagName(el)
+        }
+    }*/
+/*//    1. 添加相应的类
+   function addClass(ele){
+        var cls=ele.className;
+        var patt=/active/g;
+        if(patt.test(cls)){
+            cls=cls+'active';
+        }
+   }
+//   2. 给有了attr的移除
+   function removeClass(el){
+       var cls=ele.className;
+       var patt=/active/g;
+       if(patt.test(cls)) {
+       cls.replace(/\s*active\s*!/g,'')
+       }
+   }
+//   3.获取对应的index
+    function getIndex(ele){
+       var parent=ele.parentElement;
+       var li=parent.children;
+       for(var i=0;i<li.length;i++){
+            if(li[i]==ele){
+                return i;
+            }
+            return -1;
+       }
+    }
+    var ct=document.querySelector(".tab-container");
+    ct.addEventListener('click',function(e){
+        console.log(1);
+        addClass(e.target)
+        console.log(e.target.className)
+    })*/
+var tab={
+//    1. 判定单个元素是不是有cls这个属性
+    hasClass: function(el,cls){
+        var patt1 = new RegExp('\\b'+cls+'\\b','g');
+        return patt1.test(el.className)
+    },
+//    2. 给单个元素添加属性
+    singleAddClass:function(el,cls){
+        if(tab.hasClass(el,cls)) return
+        el.className=el.className+" "+cls;
+    },
+//    3. 给单个元素移除属性
+    singleRemoveClass:function(el,cls){
+        if(tab.hasClass(el,cls)){
+            el.className=el.className.replace(new RegExp('\\s*'+cls+'\\s*'),"")
+        }
+    },
+//    4.给一个类数组对象添加属性
+    addClass:function(el,cls){
+        //如果不是类数组对象就直接复制
+          if(el.length&&el.length>0){
+              //遍历每一个对象，给没有cls属性添加属性
+              for(var i=0;i<el.length;i++){
+                  tab.singleAddClass(el[i],cls);
+              }
+          }
+          else{
+              tab.singleAddClass(el,cls)
+          }
+    },
+//    5.给类数组对象移除属性
+    removeClass:function(el,cls){
+        if(el.length&&el.length>0){
+            for(var i=0;i<el.length;i++){
+                tab.singleRemoveClass(el[i],cls)
+            }
+        }
+        else{
+            tab.singleRemoveClass(el,cls)
+        }
+    },
+//    6.获取点击单个相应的检索
+    getIndex:function(el){
+        //获取所有的兄弟姐妹
+        var liArray=el.parentElement.children;
+        for(var i=0;i<liArray.length;i++){
+         if(liArray[i]===el){
+             return i;
+         }
+        }
+        return -1;
+    }
+}
+//获取相应的标签
+    var tabUl=document.querySelector(".tab-ul");
+    tabUl.addEventListener('click',function(e){
+        var target= e.target;
+        //console.log(target.parentElement.children)
+        var contentArray=document.querySelectorAll(".content");
+        //1.首先需要获得点击对象的索引
+        var index=tab.getIndex(target);
+        //console.log(index);
+        //判定点击的是不是目标区域
+        if(index>-1){
+            //2.然后把所有的子类的active移除
+            tab.removeClass(tabUl.children,'active')
+            //3.给点击的元素添加active
+            tab.addClass(target,'active')
+            //4.给内容区域添加类
+            tab.removeClass(contentArray,'active')
+            //5.给点击响应的所有添加类
+            tab.addClass(contentArray[index],'active')
+        }
+    },false)
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>demo Car object</title>
+</head>
+<body>
+<script type="text/javascript">
+	// 构建Car对象
+	function Car(name, color, status){
+		this.name = name;
+		this.color = color || "black" ;
+		this.status = status || "stop";
+		this.run = function(){
+			this.status = "run";
+			return this.status;
+		}
+		this.stop = function(){
+			this.status = "stop";
+			return this.status;
+		}
+		this.getStatus = function(){
+			console.log(this.name + " : " + this.status);
+		}
+	}
+</script>
+</body>
+</html>

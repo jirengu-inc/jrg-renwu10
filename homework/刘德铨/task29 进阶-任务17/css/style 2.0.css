@@ -1,0 +1,432 @@
+ul,li{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+a{
+    text-decoration:none;
+}
+
+body{
+    font: 20px/1.5 Helvetica, arial, "Microsoft Yahei", "微软雅黑", STXihei, "华文细黑", sans-serif;
+    background: #FF9279;
+    padding: 50px;
+}
+
+.clearfix::after{
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.carousel {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 420px;
+    height: 324px;
+    overflow: hidden;
+}
+
+.carousel .img-ct {
+    position: absolute;
+}
+
+.carousel .img-ct>li{
+    float: left;
+    cursor: pointer;
+}
+
+.carousel .img-ct img {
+    width: 420px;
+    height: 324px;
+    border-radius: 8px;
+}
+
+
+.carousel .btn{
+    width: 40px;
+    display: block;
+    transition: all 0.8s ease-in-out;
+    position: absolute;
+    top: 50%;
+    margin-top: -25px;
+    padding: 9px 0;
+}
+
+
+.carousel .btn .row {
+    height: 14px;
+    border-radius: 7px;
+    background: #FF3732;
+    
+}
+
+.carousel .btn .lt-top {
+    transform: rotateZ(-35deg);
+    box-shadow: 2px 2px 2px #000;
+}
+
+.carousel .btn .lt-middle {
+    height: 12px;
+    width: 14px;
+    background: #FF3732;
+    transform: rotateZ(55deg);
+    position: absolute;
+    z-index: 1;
+    top: 28%;
+    left: 8.5px;
+}
+
+.carousel .btn .lt-bot {
+    box-shadow: 2px -2px 2px #000;
+    margin-top: 1px;
+    transform: rotateZ(35deg);
+}
+
+.carousel .btn .gt-top {
+    box-shadow: -2px 2px 2px #000;
+    transform: rotateZ(35deg);
+}
+
+.carousel .btn .gt-middle {
+    height: 12px;
+    width: 14px;
+    background: #FF3732;
+    transform: rotateZ(-55deg);
+    position: absolute;
+    z-index: 1;
+    top: 28%;
+    right: 8.5px;
+}
+
+.carousel .btn .gt-bot {
+    box-shadow: -2px -2px 2px #000;
+    margin-top: 1px;
+    transform: rotateZ(-35deg);
+}
+
+.carousel .btn:hover {
+    transform: scale(1.2, 1.2);
+}
+
+
+.carousel .btn-pre {
+    left: -65px;
+}
+
+.carousel .btn-next{
+    right: -65px;
+}
+
+.carousel:hover .btn-pre{
+    left: 15px;
+}
+
+.carousel:hover .btn-next{
+    right: 15px;
+}
+
+.carousel .bullet-ct {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 12px;
+    text-align: center;
+}
+
+.carousel .bullet {
+    display: inline-block;
+}
+
+.carousel .bullet>li {
+   display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin: 0 5px;
+    background: #FFF;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.6s ease-in-out;
+}
+
+.carousel .bullet>li.active {
+    background: #666;
+    width: 30px;
+    border-radius: 6px;
+}
+
+.carousel .bullet>li.active .thumbnail img {
+    left: -13px;
+}
+
+.carousel .bullet>li.active .thumbnail::after {
+    left: 3px;
+}
+
+.carousel .bullet>li .thumbnail {
+    display: none;
+    transition: all 0.6s ease-in-out;
+}
+
+.carousel .bullet>li:hover .thumbnail {
+    display: block;
+}
+
+.carousel .bullet>li .thumbnail img{
+    width: 52px;
+    height: 40px;
+    border: 2px solid #2AA7D6;
+    position: absolute;
+    top: -48px;
+    left: -22px;
+}
+
+.carousel .bullet>li .thumbnail::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    border-top: 6px solid #2AA7D6;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    position: absolute;
+    top: -6px;
+    left: -6px;
+}
+
+.control-interval {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.control-interval .set-interval {
+    display: none;
+    height: 25px;
+}
+
+
+.control-interval .stop {
+    display: inline-block;
+    width: 6px;
+    height: 25px;
+    background: #FFA618;
+}
+
+.control-interval .clear-interval {
+    display: none;
+}
+
+.control-interval .play {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-top: 15px solid transparent;
+    border-left: 20px solid #FFA618;
+    border-bottom: 15px solid transparent;
+}
+
+.control-interval:hover .stop{
+    background: #FF3832;
+}
+
+.control-interval:hover .play {
+    border-left-color: #FF3832;
+}
+
+.control-interval .active {
+    display: inline-block;
+}
+
+
+
+.control-plus {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.control-plus .icon {
+  /* 通过设置 font-size 来改变图标大小 */
+  width: 1em; height: 1em;
+  /* 图标和文字相邻时，垂直对齐 */
+  vertical-align: -0.15em;
+  /* 通过设置 color 来改变 SVG 的颜色/fill */
+  fill: currentColor;
+  /* path 和 stroke 溢出 viewBox 部分在 IE 下会显示
+     normalize.css 中也包含这行 */
+  overflow: hidden;
+  color: #FFA618;
+  font-size: 30px;
+} 
+
+.control-plus .icon:hover {
+    color: #FF3832;
+}
+
+.big-pic .img-ct-plus {
+    display: none;
+}
+
+.big-pic .cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    display: none;
+    background: linear-gradient(135deg, #149DD1, #9D1BB2 100%);
+}
+
+.big-pic .img-ct-plus .close {
+    position: absolute;
+    top: 62px;
+    right: -36px;
+    z-index: 4;
+    width: 40px;
+    height: 40px;
+    border: 10px solid #FFF;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 4px 4px 5px #000;
+} 
+
+.big-pic .img-ct-plus .close-lf {
+    display: inline-block;
+    width: 24px;
+    height: 6px;
+    border-radius: 3px;
+    background: #16B0E8;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) rotateZ(-45deg);
+    box-shadow: 0 -1px 2px #FFF;
+    transition: all 0.8s ease-in-out;
+}
+
+.big-pic .img-ct-plus .close-rg {
+    display: inline-block;
+    width: 24px;
+    height: 6px;
+    border-radius: 3px;
+    background: #16B0E8;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) rotateZ(45deg);
+    box-shadow: 0 -1px 2px #FFF;
+    transition: all 0.8s ease-in-out;
+}
+
+
+.big-pic .img-ct-plus .close:hover .close-lf,
+.big-pic .img-ct-plus .close:hover .close-rg {
+    background: #FF1E18;
+    box-shadow: 0 -1px 2px #FFB9B1;
+   
+}
+
+.big-pic .img-ct-plus .close:hover .close-lf {
+     transform: translate(-50%,-50%) rotate(315deg);
+}
+
+.big-pic .img-ct-plus .close:hover .close-rg {
+     transform: translate(-50%,-50%) rotate(405deg);
+}
+
+.big-pic .img-ct-plus {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    width: 684px;
+    height: 644px;
+    text-align: center;
+    display: none; 
+}
+
+
+.big-pic .img-ct-plus li {
+    position: absolute;
+    display: none;
+    z-index: 3;
+}
+
+.big-pic .img-ct-plus a {
+    display: inline-block;
+    width: 660px;
+    height: 508px;
+    border: 12px solid #FFF;
+    box-shadow: 0 4px 10px #000;
+    overflow: hidden;
+}
+
+.big-pic .img-ct-plus .show {
+    display: block;
+}
+
+.big-pic .img-ct-plus li h3 {
+    font-size: 35px;
+   text-transform: uppercase;
+   color: #16B0E8;
+   font-weight: bold;
+   text-shadow: 0 8px 9px #107BA3,
+                0 -2px 1px #FFF;
+   transition: all 0.8s ease-in-out;
+   margin: 30px 0;
+}
+
+.big-pic .img-ct-plus li h3:hover {
+    transform: scale(1.2);
+}
+
+
+.big-pic .img-ct-plus img {
+    width: 660px;
+    height: 508px;
+    transition: all 1.2s ease-in-out;
+}
+
+.big-pic .img-ct-plus img:hover {
+    transform: scale(1.6,1.6);
+}
+
+.big-pic .img-ct-plus li::before {
+    content: '';
+    display: block;
+    width: 200px;
+    height: 100px;
+    background: #555;
+    position: absolute;
+    bottom: 20px;
+    left: 10px;
+    transform: skew(-10deg, -10deg) ;
+    z-index: -1;
+    box-shadow: 20px 20px 10px #000;
+
+}
+
+.big-pic .img-ct-plus li::after {
+    content: '';
+    display: block;
+    width: 200px;
+    height: 100px;
+    background: #555;
+    position: absolute;
+    bottom: 20px;
+    right: 40px;
+    transform: skew(10deg, 10deg) ;
+    z-index: -1;
+    box-shadow: 20px 20px 10px #000;
+}

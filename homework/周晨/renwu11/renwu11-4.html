@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+</head>
+<style>
+.all:after{
+  content:'';
+  display:block;
+    clear:both;
+}
+.left,.right,.main{float:left;}
+
+.left{width:100px;
+      height:400px;
+      background:blue;
+margin-left:-100%}
+.right{width:150px;
+       height:400px;
+       background:red;
+margin-left:-150px;}
+.main{width:100%;}
+.content{margin-left: 110px;
+         margin-right:160px;
+         height:600px;
+        background:yellow;} 
+
+
+</style>
+<body>
+<div class="all">
+<div class="main">
+<div class="content">
+content
+</div>
+</div>
+  <div class="left">
+left
+</div>
+<div  class="right">
+right
+</div>
+
+
+</div>  
+
+
+
+</body>
+</html>

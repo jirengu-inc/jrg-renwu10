@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>淡入淡出轮播</title>
+    <style media="screen">
+      img,li,a,ul{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        box-sizing: border-box;
+      }
+      .carousel{
+        position: relative;
+        width:300px;
+        height:152px;
+        overflow: hidden;
+      }
+      .box{
+        width: 1250px;
+        position: absolute;
+      }
+      .carousel .box img{
+        width:300px;
+        height:150px;
+        float: left;
+      }
+      .box:after{
+        content: "";
+        display: block;
+        clear: both;
+      }
+
+      .btn{
+        border: 1px solid #ccc;
+        background: #555;
+        color: white;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 30px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+      .advance{
+        position: absolute;
+        top: 50%;
+        margin-top: -15px;
+      }
+      .retreat{
+        position: absolute;
+        top: 50%;
+        margin-top: -15px;
+        right: 0px;
+      }
+      .bullet>li{
+        width: 20px;
+        height:5px;
+        display: inline-block;
+        border-radius: 5px;
+        background: white;
+        cursor: pointer;
+      }
+      .bullet{
+        display: inline-block;
+      }
+      .bullet-ct{
+        position: absolute;
+        bottom: 15px;
+        left: 0;
+        right: 0;
+        text-align: center;
+      }
+      .bullet >li.active{
+        background: #666;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="carousel">
+      <ul class="box">
+        <li data-index=0><a href=""><img src="http://imgsrc.baidu.com/forum/pic/item/4ed91e178a82b9012a3fd5ed738da9773812ef07.jpg" alt=""></a></li>
+        <li data-index=1><a href=""><img src="http://i2.hdslb.com/video/22/2246b5911dc4107e57a06704f1150231.jpg" alt=""></a></li>
+        <li data-index=2><a href=""><img src="http://www.feizl.com/upload2007/2015_04/15040711151602.jpg" alt=""></a></li>
+        <li data-index=3><a href=""><img src="http://game.ahgame.com/uploads/allimg/160107/0914411F3-2.jpg" alt=""></a></li>
+      </ul>
+      <div class="btn advance">&lt;</div>
+      <div class="btn retreat">&gt;</div>
+
+      <div class="bullet-ct">
+        <ul class="bullet">
+          <li class="active"></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
+    </div>
+    <script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js"></script>
+    <script>
+      $(function(){
+        var $btnNext = $('.retreat'),
+            $btnPre = $('.advance'),
+            $bullet = $('.bullet'),
+            $box = $('.box'),
+            $imgCount = $box.children().size(),
+            curIdx = 0,
+            $boxItems = $box.children();
+
+        var isAnimate = false; //状态锁
+        $btnNext.on('click',function(){
+          nextPlay();
+        })
+        $btnPre.on('click',function(){
+          prePlay();
+        })
+        $bullet.find('li').on('click',function(){
+          var idxs = $(this).index();
+          play(idxs);
+        })
+
+
+        function setBullet(){
+          $bullet.children().removeClass('active').eq(curIdx).addClass('active');
+        };
+        play(0);
+        autoPlay();
+
+
+
+        function nextPlay(){
+          play((curIdx+1) % $imgCount)
+        };
+        function prePlay(){
+          play(($imgCount+curIdx-1) % $imgCount)
+        };
+        function play(idx){
+          if(isAnimate) return;
+          isAnimate = true;
+          $boxItems.eq(curIdx).fadeOut(500);
+          $boxItems.eq(idx).fadeIn(500,function(){
+            isAnimate = false;
+          });
+          curIdx = idx;
+          setBullet();
+        };
+
+        function autoPlay(){
+          clock = setInterval(function(){
+            nextPlay();
+          },2000);
+        }
+
+        function stopAuto(){
+  				clearInterval(clock);
+  			};
+
+      });
+
+
+
+    </script>
+  </body>
+</html>
