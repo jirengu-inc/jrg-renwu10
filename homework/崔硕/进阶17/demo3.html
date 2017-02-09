@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>waterfull-lazyload-ajax demo</title>
+</head>
+<style>
+	html,body,ul,li,p,div{
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+
+	ul,li{
+		list-style: none;
+	}
+  .wrap{
+  	width: 900px;
+		margin: 0 auto;
+  }
+
+	.clearfix:after{
+		content: '';
+		display: block;
+		clear: both;
+	}
+	#pic-ct{
+		position: relative;
+	}
+	#pic-ct .item{
+		position: absolute;
+		padding: 0 0 10px 0;
+		width: 280px;
+		margin: 10px;
+		border: 1px solid #DFDFDF;
+		background: #FFF;
+		opacity: 0;
+		transition: all .8s;
+	}
+	#pic-ct .item img{
+	    margin: 10px;
+	    width: 260px;
+	}
+	#pic-ct .item .header{
+		height: 25px;
+	    margin: 0 12px;
+	    border-bottom: 1px solid #DBDBDB;
+	}
+	#pic-ct .desp{
+		font-size: 12px;
+		line-height: 1.8;
+	  margin: 10px 15px 0;
+	  color: #777371;
+	}
+	#load{
+		visibility: hidden;
+		height: 20px;
+	}
+	.hide{
+		display: none;
+	}
+
+
+
+
+
+
+</style>
+
+<body>
+	<div class="wrap">
+		<div class="ct-waterfall">
+			<ul id="pic-ct" class="clearfix">
+				<li class="item hide"></li>
+			</ul>
+			<div id="load">我是看不见的</div>
+		</div>
+	</div>
+	<script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script>
+		var clock;
+		$(window).on('scroll',function(){
+			if(clock){
+				clearTimeout(clock);
+			}
+			clock = setTimeout(function(){
+				checkShow()
+			},100);
+		});
+		checkShow();
+
+		function checkShow(){
+			if(isShow($('#load'))){
+				loadAndPlace();
+			}
+		}
+
+		function isShow($el){
+			var scrollH = $(window).scrollTop(),
+				winH = $(window).height(),
+				top = $el.offset().top;
+
+			if(top < winH + scrollH){
+				return true;
+			}else{
+				return false;
+			}
+		}
+
+		var curPage = 1,
+			perPageCount = 9;
+
+		function loadAndPlace(){
+			$.ajax({
+				url:'http://platform.sina.com.cn/slide/album_tech',
+				dataType:'jsonp',
+				jsonp:'jsoncallback',
+				data: {
+					app_key:'1271687855',
+					num: perPageCount,
+					page: curPage
+				}
+			}).done(function(ret){
+				if(ret && ret.status && ret.status.code === '0'){
+					place(ret.data);
+				}else{
+					console.log('get error data');
+				}
+			})
+		}
+
+
+		function place(nodeList){
+			var $nodes = renderData(nodeList);
+
+			var defereds = [];
+			$nodes.find('img').each(function(){
+				var defer = $.Deferred();
+				$(this).load(function(){
+					defer.resolve();
+				})
+				defereds.push(defer);
+			})
+			$.when.apply(null,defereds).done(function(){
+				waterFallPlace($nodes);
+			});
+		}
+
+		//瀑布流
+
+		var colSumHeight = [],
+			nodeWidth = $('.item').outerWidth(true),
+			colNum = parseInt($('#pic-ct').width()/nodeWidth);
+
+		for(var i=0; i<colNum; i++){
+			colSumHeight.push(0)
+		}
+
+		function waterFallPlace($nodes){
+			$nodes.each(function(){
+				var $cur = $(this);
+
+				var idx = 0,
+					minSumHeight = colSumHeight[0];
+
+				for(var i=0; i<colSumHeight.length; i++){
+					if(colSumHeight[i] < minSumHeight){
+						idx = i;
+						minSumHeight = colSumHeight[i]
+					}
+				}
+
+
+				$cur.css({
+					left: nodeWidth*idx,
+					top: minSumHeight,
+					opacity: 1
+				});
+
+				colSumHeight[idx] = $cur.outerHeight(true) + colSumHeight[idx];
+				$('#pic-ct').height(Math.max.apply(null,colSumHeight));
+
+			});
+		}
+
+
+
+		function renderData(items){
+			var tpl = '',
+				$nodes;
+			for(var i = 0;i<items.length;i++){
+				tpl += '<li class="item">';
+				tpl += ' <a href="'+ items[i].url +'" class="link"><img src="' + items[i].img_url + '" alt=""></a>';
+				tpl += ' <h4 class="header">'+ items[i].short_name +'</h4>';
+				tpl += '<p class="desp">'+items[i].short_intro+'</p>';
+				tpl += '</li>';
+			}
+			$nodes = $(tpl);
+			$('#pic-ct').append($nodes);
+			return $nodes;
+		}
+
+	</script>
+
+</body>
+</html>
