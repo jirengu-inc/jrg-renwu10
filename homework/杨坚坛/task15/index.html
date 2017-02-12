@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+  <style>
+  *{margin: 0;
+    padding: 0;
+    box-sizing: border-box;}
+  ul,li{list-style: none;}
+    @font-face {
+      font-family: 'iconfont';
+      src: url('iconfont-2/iconfont.eot');
+      src: url('iconfont-2/iconfont.eot?#iefix') format('embedded-opentype'),
+      url('iconfont-2/iconfont.woff') format('woff'),
+      url('iconfont-2/iconfont.ttf') format('truetype'),
+      url('iconfont-2/iconfont.svg#iconfont') format('svg');
+    }
+    .iconfont{
+  font-family:"iconfont" !important;
+  font-size:16px;font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+  .big-icon{background: yellow;
+            width: 100px;
+            height: 100px;
+            border-radius: 100%;
+             font-size: 50px;
+            line-height: 100px;
+            text-align: center;
+            margin: 0 auto;
+           color: #fff;}
+
+  body{font-family: "Roboto Slab","Helvetica Neue",Helvetica,Arial,sans-serif;}
+  #nav{background-color: #000;
+      position: fixed;
+      right: 0;
+      left: 0;
+      top: 0;
+      z-index: 999;
+      }
+  #nav:after{content: "";
+             display: block;
+            clear: both;}
+  #nav .nav-title{float: left;
+             margin-left: 30px;
+             margin-bottom: 25px;
+             padding: 15px;
+             line-height: 50px;
+             height: 50px;}
+  #nav .nav-title a{text-decoration: none;
+              color: #fed500;
+              font-size: 3em;
+              font-family: \5FAE\8F6F\96C5\9ED1;
+               }
+  #nav .nav-items{float: right;
+           margin-right: 30px;}
+  #nav .nav-items li{float: left;
+               padding: 15px;
+              height: 50px;
+               line-height: 50px;}
+  #nav .nav-items li a{text-decoration: none;
+                  color: #fff;
+                   font-size: 20px;
+                  font-family: \5FAE\8F6F\96C5\9ED1;
+                  text-transform: uppercase;}
+   #nav .nav-items li a:hover{color: #fed500;}
+
+
+    #header{background-image: url(img/header-bg.jpg);
+          background-size: cover;
+          background-position: center center;
+          background-attachment: scroll;}
+
+    #header .container .intro-words{text-align: center;
+                                   color: #fff;
+                                   padding: 250px 0 130px 0;}
+
+    #header .container .intro-welcome{margin-bottom: 25px;
+                              width: 100%;
+                              font-style: italic;
+                              font-size: 40px;
+                              font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
+                              }
+
+    #header .container .intro-leading{margin-bottom: 50PX;
+                              width: 100%;
+                              font-size: 75px;
+                             font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+                             text-transform: uppercase;
+                            font-weight: bold;
+                            }
+     #header .container .intro-words a{background: #ffd844;
+                  padding: 25px;
+                  text-decoration: none;
+                  border-radius: 3px;
+                  color: #ffffec;
+                  font-size: 24px;
+                   font-family: "微软雅黑";
+                  display: inline-block;
+
+                  }
+
+     #header .container a:hover{background: #fed500;}
+
+
+
+     #service .container{padding: 150px 15px;
+                         width: 1170px;
+                         margin: 0 auto;
+                         text-align: center;}
+
+     #service h2{font-size: 40px;
+                margin-bottom: 15px;
+              font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+             text-transform: uppercase;}
+
+     #service h3{font-style: italic;
+                font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
+                font-size: 16px;
+                font-weight: 400;
+                margin-bottom: 75px;}
+
+    #service .part:after{content: "";
+                        clear: both;
+                         display: block;}
+    #service .part .col-1{float: left;
+                         width: 33.3%;
+                        padding: 0 15px;}
+
+    #service .col-1 p{line-height: 1.5;
+                    font-size: 14px;
+                   margin-bottom: 10px;}
+    #service .col-1 h4{margin-top: 30px;}
+
+    #portfolio{background: #f7f7f7;
+                padding: 130px 0;}
+    #portfolio .heading{
+                       text-align: center;
+                       font-family: \5FAE\8F6F\96C5\9ED1;}
+  #portfolio .ct{margin: 0 auto;
+      width: 1140px;
+      overflow: hidden;
+    }
+
+  #portfolio .ct ul{margin-left: -30px;}
+
+  #portfolio ul:after{content: "";
+          display: block;
+         clear: both;}
+  #portfolio ul li{float: left;
+    margin-left: 30px;
+    width: 360px;
+    height: 360px;
+    margin-top: 30px;
+    position: relative;
+     }
+  #portfolio a .a-hover{position: absolute;;
+              z-index: 99;
+              width: 360px;
+              height: 260px;
+              text-align: center;
+            }
+   #portfolio a .a-hover:hover{background: #fdd048;
+                    opacity: 0.9;
+                   transition: all 0.5s;}
+  #portfolio a .a-hover i{font-size: 60px;
+            display: inline-block;
+             margin-top: 90px;
+            color: rgba(0,0,0,0);}
+  #portfolio a .a-hover:hover i{color: #fff;
+                     transition: all 0.5s;
+                     }
+  #portfolio a img{width: 360px;
+      height:260px;
+      display: block;}
+
+  #portfolio li .project{padding: 25px;
+          text-align: center;
+          background: #fff;}
+
+          #about{padding: 120px 0;
+                position: relative;}
+           #about ul .rowleft{text-align: right;
+                       height: 100%;
+                        line-height: 0.8;
+                        position: relative;
+                        margin-bottom: 70px;
+                        }
+          #about .rowleft .left-words{margin-right: 60%;
+                                      line-height: 20px;}
+           #about .about-imgs{width: 160px;
+                      position: absolute;
+                      left: 50%;
+                      top: 50%;
+                       margin-left: -80px;
+                       margin-top: -80px;
+
+                       }
+            #about .about-imgs img{/*display: block;
+                           border-radius: 50%;
+                            width: 100%;
+                          border: 5px solid #ccc;*/
+                          display: block;
+                           margin:0 auto;
+                          border-radius: 50%;
+                         border: 8px solid #eee;
+                         width: 144px;
+                          height:144px;}
+             #about .timeline{content: "";
+                       width:3px;
+                    height:128px;
+                 background-color: #eee;
+                 position: absolute;
+                 left:50%;
+                margin-left:-1.5px;
+        }
+          #about .line-1{top: 250px;}
+
+          #about ul .rowright{text-align: left;
+                      height: 100%;
+                       line-height: 0.8;
+                       position: relative;
+                         margin-bottom: 70px;}
+          #about .rowright .right-words{margin-left: 60%;
+                                        line-height: 20px;}
+
+          #about .line-2{top: 460px;}
+          #about .line-3{top: 670px;}
+          #about .line-4{top: 880px;}
+
+          #about .about-imgs2{background: yellow;
+                     width: 144px;
+                     height: 144px;
+                      border-radius: 50%;
+                      border: 8px solid #eee;
+                      margin: 0 auto;
+                     text-align: center;
+                      line-height: 20px;}
+          #about .about-imgs2 h4{color: #fff;
+                               font-family:\5FAE\8F6F\96C5\9ED1 ;
+                                margin-top: 12px;}
+  #team{background-color: #f7f7f7;
+padding: 130px 0;}
+#team .heading{text-align: center;
+                                                     margin-bottom: 30px;}
+  #team .heading h1{font-size: 2.5em;}
+  #team .heading:after{
+                    content:"";
+                    display: block;
+                   clear: both;
+                      }
+#team .teammates>li{float: left;
+                   width: 33%;
+                  margin: 0 auto;
+                  text-align: center;
+                  }
+  #team .teammates-imgs img{border-radius: 50%;
+                             border: 8px solid #fff;
+                             margin-bottom: 10px;
+                            display:inline-block;}
+ #team .team-words{text-align: center;}
+
+    #team .media li{ display: inline-block;
+                    width:50px;
+                    height:50px;
+                    border-radius: 50%;
+                    background-color: #333;
+                    margin:10px 6px;
+                      }
+
+
+#team .media .iconfont{color: #fff;
+                        font-size: 36px;}
+
+#team a{text-decoration: none;}
+
+  #team .media li:hover{background: #fed500;}
+
+  #companys{text-align: center;}
+  #companys ul{display: inline-block;}
+  #companys li{float: left;
+     display: inline-block;
+     padding: 0 10px;}
+  #companys li img{margin: 50px;}
+
+  #contact{background-image: url(img/map-image.png);
+           background-size: cover;
+           background-repeat: no-repeat;
+            background-color: #222;
+            width: 100%;
+           padding: 120px 0;}
+  #contact .heading{text-align: center;
+                   color: #fff;
+                   margin-bottom: 60px;}
+  #contact h1{font-size: 4em;}
+  #contact p{font-size: 16px;
+            color: #ccc;}
+  #contact .map-jpg{padding: 0 100px;
+                  }
+  #contact .map-jpg:after{content: "";
+                 display: block;
+                  clear: both;}
+  #contact .form input{width: 90%;
+              padding: 20px 15px;
+              margin-bottom: 20px;
+              border-radius: 4px;
+              border: 1px solid #ccc;
+              font-size: 18px;
+              }
+  #contact .map-jpg .form{float: left;
+                 width: 50%;}
+  #contact .map-jpg .text-area{float: right;
+                     width: 50%;}
+  #contact .map-jpg .text-area textarea{width: 90%;
+                             height: 100%;
+                             padding: 20px 0 165px 15px;
+                             border-radius: 4px;
+                             border: 1px solid #ccc;
+                             font-size: 18px;}
+  #contact .sub-button{text-align: center;
+               margin-top: 30px;}
+
+ #contact .sub-button a{color: #fff;
+              background: #fbe251;
+             font-family: \5FAE\8F6F\96C5\9ED1;
+             text-decoration: none;
+             border-radius: 6px;
+             padding: 25px 30px;
+             font-weight: bold;
+             font-size: 18px;
+             text-transform: uppercase;}
+  #contact .sub-button a:hover{background-color: #fed500;}
+
+  #footer{padding: 25px 0;}
+  #footer:after{content: "";
+              clear: both;
+               display: block;}
+   #footer .copyright{width: 33%;
+             float: left;
+             text-align: center;
+             padding-top: 10px;
+             }
+    #footer .media{width: 33%;
+           float: left;
+           text-align: center;}
+  #footer .media a{
+             display: inline-block;
+             width: 40px;
+             height: 40px;
+              background-color: #000;
+              text-decoration: none;
+              border-radius: 50%;}
+    #footer .media a:hover{background-color: #fed500;}
+    #footer .media a i{font-size: 28px;
+                  color: #fff;}
+   #footer .declare{width: 33%;
+            float: right;
+            text-align: center;
+             padding-top: 10px;}
+    #footer .declare a{color: #fed500;
+               text-decoration: none;}
+    #footer .declare a:hover{text-decoration: underline;}
+  </style>
+</head>
+<body>
+  <div id="nav">
+    <div class="nav-title"><a href="#">start bootstrap</a></div>
+     <div class="nav-items">
+         <ul>
+           <li><a href="#">service</a></li>
+           <li><a href="#">portfolio</a></li>
+           <li><a href="#">about</a></li>
+           <li><a href="#">team</a></li>
+           <li><a href="#">contact</a></li>
+         </ul>
+     </div>
+  </div>
+    <div id="header">
+       <div class="container">
+             <div class="intro-words">
+                 <div class="intro-welcome">Welcome To Our Studio!</div>
+                 <div class="intro-leading">IT'S NICE TO MEET YOU</div>
+                 <a href="#">TELL ME MORE</a>
+             </div>
+       </div>
+    </div>
+    <div id="service">
+       <div class="container">
+              <div class="heading">
+                  <h2>SERVICES</h2>
+                  <h3>Lorem ipsum dolor sit amet consectetur.</h3>
+              </div>
+
+              <div class="part">
+                  <div class="col-1">
+                      <div class="big-icon iconfont">
+                          &#xe6b5;
+                      </div>
+                      <h4>E-Commerce</h4>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                  </div>
+
+                  <div class="col-1">
+                    <div class="big-icon iconfont">
+                        &#xe615;
+                    </div>
+                    <h4>Responsive Design</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                       Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                  </div>
+
+                  <div class="col-1">
+                    <div class="big-icon iconfont">
+                       &#xe6ae;
+                    </div>
+                    <h4>Web Security</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                       Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                  </div>
+              </div>
+       </div>
+    </div>
+
+    <div id="portfolio">
+       <div class="heading">
+           <h2>PORTFOLIO</h2>
+           <h3>Lorem ipsum dolor sit amet consectetur.</h3>
+       </div>
+       <div class="ct">
+           <ul>
+               <li>
+                 <a href="#">
+                    <div class="a-hover">
+                       <i class="iconfont">&#xe601;</i>
+                    </div>
+                    <img src="img/portfolio/roundicons.png" alt="">
+                 </a>
+                 <div class="project">
+                   <h4>Round Icons</h4>
+                   <p>Graphic Design</p>
+                 </div>
+               </li>
+
+               <li>
+                  <a href="#">
+                    <div class="a-hover">
+                       <i class="iconfont">&#xe601;</i>
+                    </div>
+                       <img src="img/portfolio/startup-framework.png" alt="">
+
+                  </a>
+                  <div class="project">
+                      <h4>Startup Framework</h4>
+                      <p>Website Design</p>
+                  </div>
+               </li>
+
+               <li>
+                 <a href="#">
+                   <div class="a-hover">
+                      <i class="iconfont">&#xe601;</i>
+                   </div>
+                 <img src="img/portfolio/treehouse.png" alt="">
+                </a>
+                  <div class="project">
+                    <h4>Treehouse</h4>
+                    <p>Website Design</p>
+                  </div>
+               </li>
+               <li>
+                 <a href="#">
+                   <div class="a-hover">
+                      <i class="iconfont">&#xe601;</i>
+                   </div>
+                 <img src="img/portfolio/golden.png" alt="">
+               </a>
+                 <div class="project">
+                   <h4>Golden</h4>
+                   <p>Website Design</p>
+                 </div>
+               </li>
+               <li>
+                 <a href="#">
+                   <div class="a-hover">
+                      <i class="iconfont">&#xe601;</i>
+                   </div>
+                 <img src="img/portfolio/escape.png" alt="">
+               </a>
+                  <div class="project">
+                    <h4>Escape</h4>
+                    <p>Website Design</p>
+                  </div>
+               </li>
+               <li>
+                 <a href="#">
+                   <div class="a-hover">
+                      <i class="iconfont">&#xe601;</i>
+                   </div>
+                  <img src="img/portfolio/dreams.png" alt="">
+                </a>
+                  <div class="project">
+                    <h4>Dreams</h4>
+                    <p>Website Design</p>
+                  </div>
+
+               </li>
+           </ul>
+       </div>
+    </div>
+    <div id="about">
+       <div class="container">
+           <ul>
+               <li class="rowleft">
+                  <div class="left-words">
+                    <h4>2009-2011</h4>
+                    <h4>Our Humble Beginnings</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing</p>
+                    <p>elit. Sunt ut voluptatum eius sapiente, totam </p>
+                    <p>reiciendis temporibus qui quibusdam, recusandae </p>
+                    <p>sit vero unde, sed, incidunt et ea quo dolore </p>
+                    <p>laudantium consectetur!</p>
+                  </div>
+                  <div class="about-imgs">
+                    <img src="img/about/1.jpg" alt="">
+                  </div>
+               </li>
+               <li class="timeline line-1"></li>
+               <li class="rowright">
+                   <div class="right-words">
+                     <h4>MARCH 2011</h4>
+                     <h4>An Agency is Born</h4>
+                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing</p>
+                     <p>elit. Sunt ut voluptatum eius sapiente, totam </p>
+                     <p>reiciendis temporibus qui quibusdam, recusandae </p>
+                     <p>sit vero unde, sed, incidunt et ea quo dolore </p>
+                     <p>laudantium consectetur!</p>
+                   </div>
+                   <div class="about-imgs">
+                      <img src="img/about/2.jpg" alt="">
+                   </div>
+               </li>
+               <li class="timeline line-2"></li>
+               <li class="rowleft">
+                  <div class="left-words">
+                    <h4>DECEMBER 2012</h4>
+                    <h4>Transition to Full Service</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing</p>
+                    <p>elit. Sunt ut voluptatum eius sapiente, totam </p>
+                    <p>reiciendis temporibus qui quibusdam, recusandae </p>
+                    <p>sit vero unde, sed, incidunt et ea quo dolore </p>
+                    <p>laudantium consectetur!</p>
+                  </div>
+                  <div class="about-imgs">
+                    <img src="img/about/3.jpg" alt="">
+                  </div>
+                </li>
+                  <li class="timeline line-3"></li>
+                  <li class="rowright">
+                      <div class="right-words">
+                        <h4>MARCH 2011</h4>
+                        <h4>An Agency is Born</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing</p>
+                        <p>elit. Sunt ut voluptatum eius sapiente, totam </p>
+                        <p>reiciendis temporibus qui quibusdam, recusandae </p>
+                        <p>sit vero unde, sed, incidunt et ea quo dolore </p>
+                        <p>laudantium consectetur!</p>
+                      </div>
+                      <div class="about-imgs">
+                         <img src="img/about/4.jpg" alt="">
+                      </div>
+                  </li>
+                   <li class="timeline line-4"></li>
+                   <li class="rowleft">
+                     <div class="about-imgs2">
+                       <h4>BE PART</h4>
+                       <h4>OF OUR</h4>
+                       <h4>STORY!</h4>
+                     </div>
+                   </li>
+           </ul>
+       </div>
+     </div>
+     <div id="team">
+        <div class="heading">
+            <h1>OUR AMAZING TEAM</h1>
+            <p>Lorem ipsum dolor sit amet consectetur.</p>
+        </div>
+        <div class="container">
+        <ul class="teammates">
+            <li class="teammates-imgs">
+                <img src="img/team/5.jpg" alt="">
+                <h3>Kay Garland</h3>
+                <p>Lead Designer</p>
+                <div class="icon-box">
+                <ul class="media">
+                   <li>
+                     <a href="#"><i class="iconfont">&#xe634;</i></a>
+                   </li>
+                   <li>
+                     <a href="#"><i class="iconfont">&#xe613;</i></a>
+                   </li>
+                   <li>
+                     <a href="#"><i class="iconfont">&#xe60f;</i></a>
+                   </li>
+                </ul>
+                </div>
+            </li>
+            <li class="teammates-imgs">
+                <img src="img/team/6.jpg" alt="">
+                <h3>Kay Garland</h3>
+                <p>Lead Designer</p>
+                <ul class="media">
+                   <li>
+                     <a href="#"><i class="iconfont">&#xe634;</i></a>
+                   </li>
+                   <li>
+                     <a href="#"><i class="iconfont">&#xe613;</i></a>
+                   </li>
+                   <li>
+                     <a href=""><i class="iconfont">&#xe60f;</i></a>
+                   </li>
+                </ul>
+            </li>
+            <li class="teammates-imgs">
+                <img src="img/team/7.jpg" alt="">
+                <h3>Kay Garland</h3>
+                <p>Lead Designer</p>
+                <ul class="media">
+                   <li>
+                     <a href="#"><i class="iconfont">&#xe634;</i></a>
+                   </li>
+                   <li>
+                     <a href="#"><i class="iconfont">&#xe613;</i></a>
+                   </li>
+                   <li>
+                     <a href=""><i class="iconfont">&#xe60f;</i></a>
+                   </li>
+                </ul>
+            </li>
+        </ul>
+        </div>
+        <div class="team-words">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non </p>
+          <p>quis ad perspiciatis, totam corporis ea, alias ut unde</p>
+        </div>
+     </div>
+     <div id="companys">
+         <ul>
+             <li><a href=""><img src="img/logos/creative-market.jpg" alt=""></a></li>
+             <li><a href=""><img src="img/logos/designmodo.jpg" alt=""></a></li>
+             <li><a href=""><img src="img/logos/envato.jpg" alt=""></a></li>
+             <li><a href=""><img src="img/logos/themeforest.jpg" alt=""></a></li>
+         </ul>
+     </div>
+     <div id="contact">
+       <div class="heading">
+         <h1>CONTACT US</h1>
+         <p>Lorem ipsum dolor sit amet consectetur.</p>
+       </div>
+       <div class="map-jpg">
+           <div class="form">
+               <input type="text" placeholder="YOUR NAME*" name="name">
+               <input type="text" placeholder="YOUR EMAIL*" name="email">
+               <input type="text" placeholder="YOUR PHONE*" name="phone">
+           </div>
+           <div class="text-area">
+              <textarea name="message" placeholder="YOUR MESSAGE*"></textarea>
+           </div>
+         </a>
+       </div>
+       <div class="sub-button"><a href="#">send message</a></div>
+    </div>
+    <div id="footer">
+         <div class="copyright">Copyright © Your Website 2014</div>
+         <div class="media">
+              <a href="#"><i class="iconfont">&#xe634;</i></a>
+              <a href="#"><i class="iconfont">&#xe613;</i></a>
+              <a href="#"><i class="iconfont">&#xe60f;</i></a>
+         </div>
+         <div class="declare">
+           <a href="#">Privacy Policy</a>
+           <a href="#">Terms of Use</a>
+         </div>
+    </div>
+</body>
+</html>
