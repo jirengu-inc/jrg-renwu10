@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>server-mock使用说明</title>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    li{
+        list-style: none;
+    }
+    a{
+        text-decoration: none;
+    }
+    .container li{
+        border: 1px solid #ccc;
+        width: 98%;
+        padding: 10px 10px ;
+        margin: 0 auto;
+        margin-bottom: 15px;
+    }
+    .container li:hover{
+        background: #008000;
+        color: #fff;
+    }
+    .container .btn{
+        width:80px;
+        text-align: center;
+        display: block;
+        color: #E27272;
+        border: 1px solid #E27272;
+        line-height: 40px;
+        height:40px;
+        margin: 0 auto;
+        border-radius: 5px;
+    }
+    .container .btn img{
+        width:40px;
+        height: 40px;
+    }
+</style>
+</head>
+<body>
+  <div class="container">
+      <ul class="list">
+          <li>内容1</li>
+          <li>内容2</li>
+      </ul>
+      <a href="#" class="btn">加载更多</a>
+  </div>
+  <!--<script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js"></script>-->
+  <script>
+      var btn=document.querySelector(".btn");
+      var uList=document.querySelector(".list");
+      //设置一个计次的参数，每次点击后加6
+      var count=3;
+      btn.addEventListener('click',function(e){
+            //阻止默认的行为
+            e.preventDefault();
+            var target=e.target;
+            //target.innerHTML="<img src='loading.gif'>";
+            target.innerHTML="<img src='loading.gif'>";
+            setTimeout(function(){
+                var lockajax='true';
+                if(lockajax){
+                    ajax({
+                        url:'/loading',
+                        type: 'get',
+                        data:{
+                            start:count,
+                            len: 6
+                        },
+                        success:function(res){
+                            var dataArray=JSON.parse(res).data;
+                            var state=JSON.parse(res).status;
+                            //console.log(state)
+                            var liList="";
+                            if(state==1){
+                                count+=6;
+                                for(var i=0;i<dataArray.length;i++){
+                                    liList+='<li>内容'+dataArray[i]+'</li>';
+                                }
+                            }
+                            //console.log(count)
+                            //console.log(liList)
+                            uList.innerHTML+=liList;
+                            btn.innerHTML="加载更多"
+                        },
+                        error: function(){
+                            alert("服务器出错")
+                        }
+                    })
+                    lockajax='false'
+                }
+            },500)
+
+
+      });
+
+      //ajax的封装
+      function ajax(opts){
+          var xhr=new XMLHttpRequest();
+          var tempDataString='';
+          //1.不管是post还是get请求，都会需要发送字符串
+          for(var key in opts.data){
+              tempDataString+=key+'='+opts.data[key]+'&'
+          }
+          var dataString=tempDataString.substr(0,tempDataString.length-1)
+          //console.log(tempDataString)
+          //console.log(dataString)
+          xhr.onreadystatechange=function(){
+              if(xhr.readyState=='4'){
+                  if(xhr.status=='200'||xhr.status=='304'){
+                      return opts.success(xhr.responseText)
+                  }
+                  if(xhr.status=='404'){
+                      return opts.error()
+                  }
+                  else{
+                      return '服务器接收成功，但是没有返回数据'
+                  }
+              }
+          }
+          //2.判定post请求和get请求的区别
+          if(opts.type=='get'){
+              xhr.open(opts.type,opts.url+'?'+dataString,true);
+              xhr.send();
+          }
+          if(opts.type=='post'){
+              xhr.open(opts.type,opts.url,true);
+              xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+              xhr.send(dataString)
+          }
+      }
+  </script>
+</body>
+</html>
