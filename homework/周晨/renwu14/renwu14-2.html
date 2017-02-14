@@ -2,38 +2,51 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>JS Bin</title>
-  <link rel="stylesheet" type="text/css" href="iconfont.css">
+  <title>zhouchen的简历</title>
   <style>
  .all{
- width: 960px;
- margin: 0 auto;
-  border:1px solid;
+width: 960px;
+margin: 0 auto;
+border:1px solid;
+height:1500px;
 }
 
-.name{
+.touxiang{
 float：left;
 position:relative;
-left:100px;
-top:50px;}
+width:108px;
+height:108px;
+border-radius:54px;
+border:1px solid;
+left:70px;
+top:130px;
+}
 
-.contacts{
+.name {
+float：left;
+position:relative;
+left:200px;
+top:50px;
+}
+
+.contacts {
 float:right;
 position:relative;
 top:-30px;
 }
 
-.con{
+.con {
   border-bottom:solid;
   margin:0 0 -20px 0;
   height:25px;
   }
-.but{
+
+.but {
   padding:0 10px 0 0;
   font-weight:bold;
 }
 
-.workexperience{
+.workexperience {
 padding:150px 20px 0 20px;
 left:30px;
 top:200px;
@@ -42,51 +55,51 @@ height:400px;
 word-wrap: break-word;
 }
 
-.workexperience h2
-{
+.workexperience h2 {
 width:400px;
 border-bottom:1px solid #ccc;
 padding:10px 0;
 }
 
-.education{
+.education {
 padding:10px 20px 0 20px;
 width:400px;
 height:300px;
 word-wrap: break-word;}
 
-.education h2{
+.education h2 {
 width:400px;
 border-bottom:1px solid #ccc;
 padding:10px 0;
 }
 
-.time{
- color:#DDE6E3;
-}
-li{  list-style: none;}
+.time {color:#DDE6E3;}
 
-.activitie
-{
+li {  
+list-style: none;
+position:relative;}
+
+.activitie {
 display: inline-block;
-padding:10px 0px 0 50px;
+padding:20px 0px 0 50px;
 width:300px;
 height:200px;
 margin:40px 0 0 0;
 margin-left: -30px;
 }
-.activitie h2
-{
+
+.activitie h2 {
 width:400px;
 border-bottom:1px solid #ccc;
 padding:10px 0;
 }
-.activitie li{
+.activitie li {
   list-style-image: url('http://pic.sucaibar.com/pic/201307/16/311d33c37b_16.png');}
 
 .skills
 { position:relative;
   float:right;
+  padding:20px;
   margin:40px;
   margin-left:200px;
   width:300px;
@@ -105,20 +118,16 @@ width:100px;
 height:50px;
 }
 
-.workexperience li:before
-{ 
+.workexperience li:before{ 
 content:"•";
 font-size: 30px;
-
 }
 
-li{position:relative;}
 
-.workexperience li:after
-{ 
+.workexperience li:after{ 
   content: '';
   width: 0px;
-  height: 100px;
+  height: 120px;
   border-style: solid;
   border-width: 1px;
   position: absolute;
@@ -128,19 +137,19 @@ li{position:relative;}
 
 .workexperience li{
   width:700px;
-  height:100px;
+ height:100%;
 }
 
 p{
   margin-left:20px;
 }
-.education li:before
-{ 
+
+.education li:before{ 
 content:"•";
 font-size: 30px;
 }
-.education li:after
-{ 
+
+.education li:after{ 
   content: '';
   width: 0px;
   height: 100px;
@@ -155,7 +164,9 @@ font-size: 30px;
 </head>
 <body>
   <div class="all">
-<div class="name">
+
+<div class="touxiang">
+</div><div class="name">
   <h1>Zhou Chen</h1></div>
 <div class="contacts">
   <div class="con">
@@ -176,18 +187,15 @@ font-size: 30px;
      </li>
       <li>工作单位1/<span class="time">2010-2016</span>    <p>dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd</p>
      </li></ul>
-   
- 
  </div>
   
   <div class="education">
-     
    <h2 >EDUCATION</h2>
     <ul> <li>EDUCATION1/<span class="time">2010-2016</span>    <p>dddddddddddddddddddddddddddddddddddddddddddddd</p>
      </li>
       <li>EDUCATION2/<span class="time">2010-2016</span>     <p>dddddddddddddddddddddddddddddddddddd</p>
      </li>
-      <li>工作单位1/<span class="time">2010-2016</span>     <p>dddddddddddddddddddddd</p>
+      <li>EDUCATION/<span class="time">2010-2016</span>     <p>dddddddddddddddddddddd</p>
      </li></ul>
   </div>
   
@@ -196,7 +204,6 @@ font-size: 30px;
     <ul><li><p>volunteer</p>ddddddddddddddddddddddddddddddddddddddddd</li>
       <li><p>volunteer</p>dddddddddddddddddddddddddddddddddddddddddddddddddd</li>
       </ul>
-     
   </div>
   <div class="skills">
     <h2>PROFSIONAL SKILLS</h2>
@@ -206,8 +213,6 @@ font-size: 30px;
       <li>JQUFRY</li>
       <li>PHOTOSHOP</li>
       </ul>
-    
-    
     </div>
     </div>
 </body>
