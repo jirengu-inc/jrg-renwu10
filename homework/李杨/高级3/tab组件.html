@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>tab组件</title>
+  <style>
+    body,html,ul,li {
+      margin: 0;
+      padding: 0;
+    }
+    ul,li {
+      list-style-type: none;
+    }
+    .main {
+      margin: 100px;
+    }
+    .tab {
+      overflow: hidden;
+    }
+    .item {
+      float: left;
+      border: 1px solid lightgray;
+      padding: 10px 20px;
+    }
+    .content {
+      border: 1px solid lightgray;
+      width: 400px;
+      height: 200px;
+      display: none;
+    }
+    .active {
+      background-color: lightgray;
+    }
+    .active1{
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="main">
+    <ul class="tab">
+      <li class="item active">选项1</li>
+      <li class="item">选项2</li>
+      <li class="item">选项3</li>
+    </ul>
+    <ul class="content-wrapper">
+      <li class="content active1">内容1</li>
+      <li class="content">内容2</li>
+      <li class="content">内容3</li>
+    </ul>
+  </div>
+  <div class="main">
+    <ul class="tab">
+      <li class="item active">选项1</li>
+      <li class="item">选项2</li>
+      <li class="item">选项3</li>
+    </ul>
+    <ul class="content-wrapper">
+      <li class="content active1">内容1</li>
+      <li class="content">内容2</li>
+      <li class="content">内容3</li>
+    </ul>
+  </div>
+  <script src="jquery-3.1.1.js"></script>
+  <script>
+    function Tab($ct) {
+      this.$ct = $ct;
+      this.init();
+      this.bind();
+    }
+    Tab.prototype.init = function () {
+      this.$item = this.$ct.find('.item');
+      this.$content = this.$ct.find('.content');
+    }
+    Tab.prototype.bind = function () {
+      var _this = this;
+      this.$item.on('click',function () {
+        var idx = $(this).index();
+        $(this).addClass('active');
+        $(this).siblings().removeClass('active');
+        _this.$content.eq(idx).show();
+        _this.$content.eq(idx).siblings().hide();
+      })
+    }
+    new Tab($('.main').eq(0))
+    new Tab($('.main').eq(1))
+  </script>
+</body>
+</html>
