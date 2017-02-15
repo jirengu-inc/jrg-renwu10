@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+<style>
+	
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+a{
+	text-decoration: none;
+	color: #ccc;
+	font-size: 24px;
+}
+a:hover{
+	color: #666;
+}
+button{
+	padding: 10px;
+	margin: 20px;
+	width: 100px;
+	border-radius: 5px;
+	outline: none;
+}
+.modal-main{
+	position: relative;
+	display: none;
+}
+
+.cover{
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: #000;
+	opacity: 0.4;
+	z-index: 1;
+}
+.modal_ct{
+	position: fixed;
+	border-radius: 5px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    width: 600px;
+    background: #fff;
+    z-index: 100;
+}
+.header{
+	position: relative;
+	height: 40px;
+	line-height: 40px;
+	border-bottom: 1px solid #ccc;
+}
+h3{
+	padding-left: 10px;
+}
+.close{
+	position: absolute;
+	right: 10px;
+	top:0;
+}
+.ct{
+	font-size: 18px;
+	padding: 20px 0;
+	padding-left: 10px;
+	border-bottom: 1px solid #ccc;
+}
+.rqcode{
+	text-align: center;
+	padding: 40px;
+}
+
+</style>
+
+</head>
+<body>
+<div class="modal">
+	<div class="btn">
+		<button>github</button>
+	</div>
+	<div class="modal-main">
+
+		<div class="cover"></div>
+
+		<div class="modal_ct">
+			<div class="header">
+				<h3>github</h3>
+				<a class="close" href="#">×</a>
+			</div>
+			<div class="rqcode"><img src="imgs/yasinchan.png" alt=""></div>
+		</div>
+
+	</div>
+</div>
+
+<div class="modal">
+	<div class="btn">
+		<button>个人博客</button>
+	</div>
+	<div class="modal-main">
+
+		<div class="cover"></div>
+
+		<div class="modal_ct">
+			<div class="header">
+				<h3>个人博客</h3>
+				<a class="close" href="#">×</a>
+			</div>
+			<div class="rqcode"><img src="imgs/yasinchan-github.png" alt=""></div>
+		</div>
+
+	</div>
+</div>
+
+
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+<script src="js/Modal组件.js"></script>
+
+</body>
+</html>

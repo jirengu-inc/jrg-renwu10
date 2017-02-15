@@ -1,0 +1,134 @@
+
+<!doctype html>
+<html>
+
+<head>
+    <style>
+        ul,
+        li {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .clearfix:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        .tab {
+            width: 600px;
+            margin: 20px auto;
+            border: 1px solid #ccc;
+            padding: 20px 10px;
+            border-radius: 4px;
+        }
+
+        .tab-header {
+            border-bottom: 1px solid #ccc;
+        }
+
+        .tab-header>li {
+            float: left;
+            color: brown;
+            border-top: 1px solid #fff;
+            border-left: 1px solid #fff;
+            border-right: 1px solid #fff;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .tab-header .active {
+            border: 1px solid #ccc;
+            border-bottom-color: #fff;
+            border-radius: 4px 4px 0 0;
+            color: #333;
+            margin-bottom: -1px;
+        }
+
+        .tab-container {
+            padding: 20px 10px;
+        }
+
+        .tab-container>li {
+            display: none;
+        }
+
+        .tab-container>.active {
+            display: block;
+        }
+
+        .box {
+            height: 1000px;
+        }
+    </style>
+
+</head>
+
+<body>
+<div class="tab">
+    <ul class="tab-header clearfix">
+        <li class="active">选项1</li>
+        <li>选项2</li>
+        <li>选项3</li>
+    </ul>
+    <ul class="tab-container">
+        <li class="active">内容1
+            <ul>
+                <li></li>
+            </ul>
+        </li>
+        <li>内容2</li>
+        <li>内容3</li>
+    </ul>
+</div>
+
+<div class="tab">
+    <ul class="tab-header clearfix">
+        <li class="active">选项1</li>
+        <li>选项2</li>
+        <li>选项3</li>
+        <li>选项4</li>
+    </ul>
+    <ul class="tab-container">
+        <li class="active">内容1
+            <ul>
+                <li></li>
+            </ul>
+        </li>
+        <li>内容2</li>
+        <li>内容3</li>
+        <li>内容4</li>
+    </ul>
+</div>
+
+<div class="tab">
+    <ul class="tab-header clearfix">
+        <li class="active">选项1</li>
+        <li>选项2</li>
+        <li>选项3</li>
+        <li>选项4</li>
+    </ul>
+    <ul class="tab-container">
+        <li class="active">内容1
+            <ul>
+                <li></li>
+            </ul>
+        </li>
+        <li>内容2</li>
+        <li>内容3</li>
+        <li>内容4</li>
+    </ul>
+</div>
+
+
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+<script src="js/Tab组件.js"></script>
+
+</body>
+
+</html>
