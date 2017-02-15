@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>轮播</title>
+    <style media="screen">
+      img,li,a,ul{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        box-sizing: border-box;
+      }
+      .carousel{
+        position: relative;
+        width:300px;
+        height:152px;
+        overflow: hidden;
+      }
+      .box{
+        width: 1250px;
+        position: absolute;
+      }
+      .carousel .box img{
+        width:300px;
+        height:150px;
+        float: left;
+        /*display: none;*/
+      }
+      .box:after{
+        content: "";
+        display: block;
+        clear: both;
+      }
+      /*.carousel .box img .active{
+        display: block;
+      }*/
+      .btn{
+        border: 1px solid #ccc;
+        background: #555;
+        color: white;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 30px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+      .advance{
+        position: absolute;
+        top: 50%;
+        margin-top: -15px;
+      }
+      .retreat{
+        position: absolute;
+        top: 50%;
+        margin-top: -15px;
+        right: 0px;
+      }
+      .bullet>li{
+        width: 20px;
+        height:5px;
+        display: inline-block;
+        border-radius: 5px;
+        background: white;
+        cursor: pointer;
+      }
+      .bullet{
+        /*position: absolute;
+        left: 50%;
+        margin-left: -52px;
+        top:125px;*/
+        display: inline-block;
+      }
+      .bullet-ct{
+        position: absolute;
+        bottom: 15px;
+        left: 0;
+        right: 0;
+        text-align: center;
+      }
+      .bullet >li.active{
+        background: #666;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="carousel">
+      <ul class="box">
+        <li data-index=0><a href=""><img src="http://imgsrc.baidu.com/forum/pic/item/4ed91e178a82b9012a3fd5ed738da9773812ef07.jpg" alt=""></a></li>
+        <li data-index=1><a href=""><img src="http://i2.hdslb.com/video/22/2246b5911dc4107e57a06704f1150231.jpg" alt=""></a></li>
+        <li data-index=2><a href=""><img src="http://www.feizl.com/upload2007/2015_04/15040711151602.jpg" alt=""></a></li>
+        <li data-index=3><a href=""><img src="http://game.ahgame.com/uploads/allimg/160107/0914411F3-2.jpg" alt=""></a></li>
+      </ul>
+      <div class="btn advance">&lt;</div>
+      <div class="btn retreat">&gt;</div>
+
+      <div class="bullet-ct">
+        <ul class="bullet">
+          <li class="active"></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="carousel">
+      <ul class="box">
+        <li data-index=0><a href=""><img src="http://imgsrc.baidu.com/forum/pic/item/4ed91e178a82b9012a3fd5ed738da9773812ef07.jpg" alt=""></a></li>
+        <li data-index=1><a href=""><img src="http://i2.hdslb.com/video/22/2246b5911dc4107e57a06704f1150231.jpg" alt=""></a></li>
+        <li data-index=2><a href=""><img src="http://www.feizl.com/upload2007/2015_04/15040711151602.jpg" alt=""></a></li>
+        <li data-index=3><a href=""><img src="http://game.ahgame.com/uploads/allimg/160107/0914411F3-2.jpg" alt=""></a></li>
+      </ul>
+      <div class="btn advance">&lt;</div>
+      <div class="btn retreat">&gt;</div>
+
+      <div class="bullet-ct">
+        <ul class="bullet">
+          <li class="active"></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
+    </div>
+    <script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js"></script>
+    <script>
+
+
+
+
+      // var Carousel1 = new Carousel($('.carousel').eq(0));
+      // var Carousel1 = new Carousel($('.carousel').eq(1));
+
+
+
+      var Carousel = (function(){
+
+        function _Carousel($ct){
+          this.$ct = $ct;
+          this.init();
+          this.bind();
+        };
+        _Carousel.prototype.init = function(){
+          var $btnPre = this.$btnPre = this.$ct.find('.advance'),
+              $btnNext =this.$btnNext = this.$ct.find('.retreat'),
+              $bulletCt =this.$bulletCt = this.$ct.find('.bullet-ct'),
+              $bullet =this.$bullet = this.$ct.find('.bullet'),
+              $box =this.$box = this.$ct.find('.box');
+
+          this.isClick = false;  //加锁
+
+          this.dataIndex = 0; //第几张图片
+          this.pageLength=$box.children().length;  //没有克隆之前的图片数量
+
+          this.$firstImg = $box.find('img').first(),
+          this.$lastImg = $box.find('img').last();
+
+          $box.prepend(this.$lastImg.clone())
+          $box.append(this.$firstImg.clone())
+          $box.width(this.$firstImg.width() * $box.children().length)//每次增加图片不必更改css
+          $box.css('left','-300px') //让图片原始位置为第一张图片
+        };
+
+
+        _Carousel.prototype.bind = function(){
+          var _this = this
+
+          this.$btnNext.on('click',function(){
+            _this.playNext(1);
+          });
+
+          this.$btnPre.on('click',function(){
+            _this.playPre(1);
+          });
+
+          this.$bullet.find('li').on('click',function(){
+            var idx = $(this).index();
+            if(_this.dataIndex<idx){
+              _this.playNext(idx-_this.dataIndex);
+            }else{
+              _this.playPre(_this.dataIndex-idx)
+            }
+          });
+        };
+
+        _Carousel.prototype.playNext = function(n){
+          var _this = this;
+          if(this.isClick) return;
+          this.isClick = true;
+          this.$box.animate({
+            left: '-='+this.$firstImg.width()*n,
+          },function(){
+            _this.dataIndex+=n;
+            console.log(_this.dataIndex)
+
+            if(_this.dataIndex === _this.pageLength){
+              _this.$box.css({'left':'-300px'});
+              _this.dataIndex = 0;
+            }
+            _this.isClick = false;
+            _this.setBullet();
+          })
+        };
+
+        _Carousel.prototype.playPre = function(n){
+          var _this = this;
+          if(this.isClick) return;
+          this.isClick = true;
+
+          this.$box.animate({
+            left:'+='+this.$firstImg.width()*n,
+          },function(){
+            _this.dataIndex-=n;
+            console.log(_this.dataIndex)
+            if(_this.dataIndex < 0){
+              _this.$box.css('left', 0-(_this.pageLength * _this.$firstImg.width()));
+              _this.dataIndex = _this.pageLength-1;
+            }
+            _this.isClick = false;
+            _this.setBullet();
+          })
+        };
+
+        _Carousel.prototype.setBullet = function(){
+          this.$bullet.children().removeClass('active').eq(this.dataIndex).addClass('active');
+        }
+
+        return {
+          init: function($ct){
+            $ct.each(function(index,node){
+              new _Carousel($(node));
+
+            })
+          }
+        }
+
+      })();
+      Carousel.init($('.carousel'));//立即执行函数，暴露一个接口，其余的都不可见，更具有隐私性
+    </script>
+  </body>
+</html>
