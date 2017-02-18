@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>server-mock使用说明</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0
+        }
+        .container{
+            width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        img{
+            height:300px;
+            width: 300px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <img date-src='http://img5q.duitang.com/uploads/item/201411/28/20141128195318_8JRAB.jpeg'>
+    <img date-src='http://cdn.duitang.com/uploads/item/201509/29/20150929212943_2VyEN.jpeg'>
+    <img date-src='http://img5.duitang.com/uploads/item/201511/18/20151118122007_W2PvK.thumb.700_0.jpeg'>
+    <img date-src='http://img4.duitang.com/uploads/item/201201/03/20120103005126_8E5Me.jpg'>
+    <img date-src='http://img4.duitang.com/uploads/item/201505/29/20150529002854_ZvG5s.jpeg'>
+    <img date-src='http://img4.duitang.com/uploads/item/201510/20/20151020221222_8WdJL.thumb.700_0.jpeg'>
+    <img date-src='http://cdn.duitang.com/uploads/item/201509/26/20150926202903_zvBEC.jpeg'>
+    <img date-src='https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=4226269593,2829780298&fm=23&gp=0.jpg'>
+    <img date-src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1487070958785&di=2b69a61018a968709aeaf9307be3131b&imgtype=0&src=http%3A%2F%2Fimg5q.duitang.com%2Fuploads%2Fitem%2F201501%2F23%2F20150123180954_AdSzs.jpeg'>
+    <img date-src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1487070958781&di=9e4fe3ad4ab88af0e2a64e554cb06804&imgtype=0&src=http%3A%2F%2Fimg5.duitang.com%2Fuploads%2Fitem%2F201603%2F24%2F20160324143744_u8WvV.jpeg'>
+    <img date-src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1487070958780&di=e32471d11147977d45909b6ced9e3ed4&imgtype=0&src=http%3A%2F%2Fimg3.duitang.com%2Fuploads%2Fitem%2F201605%2F16%2F20160516131930_J3dkV.jpeg'>
+    <img date-src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1487070958775&di=e9e1f6ca7fcfd1799fa29e1591c4b42e&imgtype=0&src=http%3A%2F%2Fimg4.duitang.com%2Fuploads%2Fitem%2F201509%2F26%2F20150926200655_ACiVn.jpeg'>
+    <img date-src='http://pic16.nipic.com/20110821/8064486_132403640157_2.jpg'>
+</div>
+
+
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+<script>
+    var img = document.querySelectorAll('img');
+
+    /*  window.addEventListener('scroll',function(){
+     for(i=0;i<img.length;i++) {
+     var windowHeight = window.innerHeight,
+     scrollTop = window.scrollY,
+     nodeHeight = img[i].height,
+     offsetTop = img[i].offsetTop;
+     if(scrollTop + windowHeight > offsetTop && scrollTop < offsetTop + nodeHeight){
+     var url = img[i].getAttribute('date-src');
+     img[i].setAttribute('src',url);
+     }else{
+     console.log('1')
+     }
+     }
+     });
+     */
+    check();
+    $(window).on('scroll',check);
+
+    function check(){
+        $('img').not('.show').each(function(){
+            if(ishow($(this))){
+                showImg($(this));
+            }
+        });
+    }
+    function showImg($imgs){
+        $imgs.each(function(){
+            var imgUrl =$(this).attr('date-src');
+            $(this).attr('src',imgUrl);
+            $(this).addClass('show')
+        })
+    }
+    function ishow($node){
+        var windowHeight = $(window).height(),
+                scrollTop = $(window).scrollTop(),
+                nodeHeight = $node.height(),
+                offsetTop = $node.offset().top;
+        if(scrollTop + windowHeight > offsetTop && scrollTop < offsetTop + nodeHeight){
+            return true
+        }else{
+            return false
+        }
+    }
+</script>
+</body>
+</html>
