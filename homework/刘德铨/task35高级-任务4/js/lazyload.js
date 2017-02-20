@@ -1,8 +1,8 @@
 
 var lazyLoad = (function(){
-    function load($target){
+    function load($target, callback){
         this.$target = $target;
-        /*console.log(this.$target);*/
+        this.callback = callback;
         this.bind();
     }
 
@@ -10,11 +10,8 @@ var lazyLoad = (function(){
         bind: function(){
             var _this = this;
             $(window).on('scroll', function(){
-                if(isShow(_this.$target)){
-                    
-                }
+                _this.check(_this.$target);
             })
-
         },
 
         isShow: function(node){
@@ -28,24 +25,36 @@ var lazyLoad = (function(){
             }else{
                 return false;
             }
+        },
 
+        check: function($target){
+            if(this.isShow(this.$target) && !$target[0].classList.contains('load')){
+                this.callback($target);
+            }     
         }
     }
 
-
-
     return {
-        load: function($target){
+        load: function($target, callback){
             $target.each(function(idx, node){
-                new load($(node));
+                new load($(node), callback);
             })
+            
         }
+
     }
 
 })();
 
-$.fn.lazyload = function(){
-    lazyLoad.load(this);
+$.fn.lazyload = function(callback){
+    lazyLoad.load(this, callback);
 }
 
-$('img').lazyload();
+$('img').lazyload(function($target){ 
+    if($target.attr('data-src')) {
+       console.log($target.attr('data-src'));
+       var imgUrl = $target.attr('data-src');
+       $target.attr('src', imgUrl);
+       $target[0].classList.add('load');
+    }
+});

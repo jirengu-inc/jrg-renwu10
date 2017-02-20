@@ -34,10 +34,16 @@ var goTop = (function GoTop(){
                     scrollHeight = $(document).height();
               /*  console.log('windowHeight + scrollTop: ', windowHeight + scrollTop);
                 console.log('scrollHeight - 300: ' , scrollHeight - 300);*/
-                if(windowHeight + scrollTop >= scrollHeight - 300){
+                if(windowHeight + scrollTop >= scrollHeight - 10000){
                     _this.$target.css({
                         display: 'block',
                         top: windowHeight - _this.$target.outerHeight(true)
+                    })
+                }
+                var bagPos = _this.$target.css('backgroundPosition');
+                if(windowHeight + scrollTop < scrollHeight - 10000 && bagPos === '-50px 0px'){
+                    _this.$target.css({
+                        display: 'none'
                     })
                 }
                 if(scrollTop === 0){
@@ -49,7 +55,6 @@ var goTop = (function GoTop(){
                             display: 'none'
                         })
                     },800);
-
                 }
 
 
