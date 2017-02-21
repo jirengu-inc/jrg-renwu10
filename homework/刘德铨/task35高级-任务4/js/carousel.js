@@ -27,6 +27,7 @@ var carouselView = (function(){
             this.$bag.css({
                 width: this.imgWidth
             });
+            this.setBag(this.curIdx);
             this.$imgCt.prepend(this.$imgCtLi.last().clone());
             this.$imgCt.append(this.$imgCtLi.first().clone());
             this.$imgCt.css({
@@ -34,7 +35,7 @@ var carouselView = (function(){
                 left: - this.imgWidth
             });
 
-            this.setBag(this.curIdx);
+            
 
 
 
