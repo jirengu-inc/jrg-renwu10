@@ -1,6 +1,4 @@
-
-
-
+﻿
 var waterFall = (function(){
 
     function waterFallFlow($target){
@@ -16,21 +14,24 @@ var waterFall = (function(){
     }
 
     waterFallFlow.prototype = {
+
         init: function(){
             this.curPage = 1;
-            this.perPageCount = 5;
+            this.perPageCount = 6;
             this.click = true;
+
+            this.render();
+
+        },
+
+        render: function(){
             this.colSumHeight = [];
             this.nodeWidth = this.$item.outerWidth(true);
             this.colNum = parseInt(this.$Ct.width()/this.nodeWidth);
-
+           
             for(var i = 0; i < this.colNum; i++){
-                this.colSumHeight.push(0)
+                this.colSumHeight.push(0);
             }
-
-            console.log(this.$Ct.width());
-            console.log(this.colSumHeight);
-
         },
 
         bind: function(){
@@ -78,37 +79,75 @@ var waterFall = (function(){
         },
 
         place: function(nodeList){
-            console.log(nodeList);
+            //console.log(nodeList);
             var _this = this;
             //节点生成后添加到页面上
             this.renderData(nodeList);
             //创建存储 defered 对象的数组
-            
+            var defereds = [];
+            console.log(this.$nodes);
+            console.log(this.$nodes.eq(2).height());
+            this.$nodes.find('img').each(function(){
+                var defer = $.Deferred();
+                //当每个图片加载完成后，执行 resolve
+                $(this).on('load', function(){
+                    defer.resolve();
+                });
+                defereds.push(defer);
+            });
+            /*当所有的图片都执行 resolve 后，
+            即全部图片加载后，执行下面的内容*/
+            $.when.apply(null, defereds).done(function(){
+                console.log('new images all loaded ...');
+                /* 
+               当节点里的图片全部加载后再使用瀑布流计算，
+                否则会因为图片未加载 item 高度计算错误导致瀑布流高度计算出问题
+                */
+                _this.waterFallPlace(_this.$nodes);
+
+            })
 
         },
 
         renderData: function(items){
             var _this = this;
             console.log(items.length);
+            var tpl = '';
             for(var i = 0; i < items.length; i++){
-                this.tpl += '<li class="item">'
-                       +        '<a href="' + items[i].url + '" class="link">'
-                       +            '<img src="' + items[i].img_url + '" alt="">'
-                       +        '</a>'
-                       +        '<h4 class="header">' + items[i].short_name + '</h4>'
-                       +        '<p class="desp">' + items[i].short_intro + '</p>'
-                       +    '</li>';
+                tpl += '<li class="item">'
+                       +      '<a href="' + items[i].url + '" class="link">'
+                       +          '<img src="' + items[i].img_url + '" alt="">'
+                       +      '</a>'
+                       +      '<h4 class="header">' + items[i].short_name + '</h4>'
+                       +      '<p class="desp">' + items[i].short_intro + '</p>'
+                       + '</li>';
             }
-            this.$Ct.append(this.tpl);
-            this.$nodes = this.tpl;
+            this.$nodes = $(tpl);
+            this.$Ct.append(this.$nodes);   
         },
 
-        render: function(){
+        waterFallPlace: function($nodes){
+            var _this = this;
+            $nodes.each(function(){
+                var idx = 0,
+                    $cur = $(this),
+                    minSumHeight = _this.colSumHeight[0];
+                for(var i = 0; i < _this.colSumHeight.length; i++){
+                    if(_this.colSumHeight[i] <  minSumHeight){
+                        idx = i;
+                        minSumHeight = _this.colSumHeight[i];
+                    }
+                }
+                
+                $cur.css({
+                    left: idx * _this.nodeWidth,
+                    top: minSumHeight
+                });
+                _this.colSumHeight[idx] += $cur.outerHeight(true);
+                _this.$Ct.height(Math.max.apply(null, _this.colSumHeight));
+                _this.click = true;
 
-        },
-
-        waterFallPlace: function(){
-
+            })
         }
 
 

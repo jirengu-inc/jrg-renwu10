@@ -973,6 +973,10 @@ body {
     color: #1C6885;
 }
 
+.news .hide {
+    display: none;
+}
+
 .news .more {
     border: none;
     outline: none;
