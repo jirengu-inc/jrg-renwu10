@@ -928,6 +928,61 @@ body {
 }
 
 
+
+/* ----------- news ----------- */
+
+.news {
+    padding: 150px 0;
+    background: #83DFB7;
+}
+
+.news .container {
+    border: 2px solid #000;
+}
+
+.news #pic-ct {
+    position: relative;
+}
+
+.news #pic-ct .item {
+    position: absolute;
+    padding: 0 0 10px 0;
+    width: 280px;
+    margin: 10px;
+    border: 1px solid #DFDFDF;
+    background: #DF9583;
+    transition: all .8s;
+}
+
+.news #pic-ct .item img {
+     margin: 10px;
+     width: 260px;
+}
+
+.news #pic-ct .item .header{
+    height: 25px;
+    padding-bottom: 10px;
+    margin: 0 12px;
+    border-bottom: 1px solid #DBDBDB;
+}
+
+.news #pic-ct .desp{
+    font-size: 12px;
+    line-height: 1.8;
+    margin: 10px 15px 0;
+    color: #1C6885;
+}
+
+.news .more {
+    border: none;
+    outline: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background: #FF7E25;
+    cursor: pointer;
+}
+
+
 /* ----------- album ----------- */
 .album {
     /* border-top: 150px solid #FFF;
