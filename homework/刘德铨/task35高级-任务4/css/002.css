@@ -68,7 +68,7 @@ body {
     padding: 10px 0;
     width: 100%;
     position: fixed;
-    display: none;
+    /* display: none; */
     z-index: 10;
 }
 
@@ -121,14 +121,7 @@ body {
     height: 100%;
 }
 
-#header .carousel {
-    position: relative;
-    width: 600px;
-    height: 380px;
-    /* height: 100%;
-    width: 100%; */
-    overflow: hidden;
-}
+
 
 #header .img-ct {
     position: absolute;   
@@ -139,18 +132,13 @@ body {
 #header .img-ct>li {  
     position: relative;
     float: left;
-    /* width: 600px;
-    height: 380px; */
     height: 100%;
-    width: 100%;
 }
 
-#header .img-ct{
-    left: 0%;
-}
+
 
 #header .img-ct>li .bag {
-    background-image: url(../HP/hp-header-bg.jpg);
+    /* background-image: url(../HP/hp-header-bg.jpg); */
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -174,12 +162,9 @@ body {
     bottom: 50px;
     left: 0;
     right: 0;
-    /* z-index: 2; */
 }
 
-/* #header .bullet-ct .bullet {
-    display: inline-block;
-} */
+
 
 #header .bullet-ct .bullet>li {
     display: inline-block;

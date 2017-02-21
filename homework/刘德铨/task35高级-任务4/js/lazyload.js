@@ -52,7 +52,7 @@ $.fn.lazyload = function(callback){
 
 $('img').lazyload(function($target){ 
     if($target.attr('data-src')) {
-       console.log($target.attr('data-src'));
+      // console.log($target.attr('data-src'));
        var imgUrl = $target.attr('data-src');
        $target.attr('src', imgUrl);
        $target[0].classList.add('load');
