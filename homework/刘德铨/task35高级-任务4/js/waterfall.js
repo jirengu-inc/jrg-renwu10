@@ -27,6 +27,8 @@ var waterFall = (function(){
         render: function(){
             this.colSumHeight = [];
             this.nodeWidth = this.$item.outerWidth(true);
+            console.log(this.$Ct.width());
+            console.log(this.nodeWidth);
             this.colNum = parseInt(this.$Ct.width()/this.nodeWidth);
            
             for(var i = 0; i < this.colNum; i++){
