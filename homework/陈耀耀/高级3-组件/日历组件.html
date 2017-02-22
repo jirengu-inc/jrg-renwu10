@@ -1,0 +1,163 @@
+
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>datepicker</title>
+  <style>
+    .ui-date-picker {
+      position: absolute;
+      width: 240px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+      font-family: serif, cursive, fantasy
+    }
+
+    .ui-date-picker > .header {
+      height: 30px;
+      line-height: 30px;
+      text-align: center;
+      background-color: #CA2B2B;
+      color: #fff;
+    }
+
+    .ui-date-picker .caret-left {
+      display: block;
+      float: left;
+      margin-left: 10px;
+      margin-top: 6px;
+      border-right: 7px solid #fff;
+      border-top: 7px solid transparent;
+      border-bottom: 7px solid transparent;
+      width: 0;
+      height: 0;
+      cursor: pointer;
+    }
+
+    .ui-date-picker .caret-right {
+      display: block;
+      float: right;
+      margin-right: 10px;
+      margin-top: 6px;
+      border-left: 7px solid #fff;
+      border-top: 7px solid transparent;
+      border-bottom: 7px solid transparent;
+      width: 0;
+      height: 0;
+      cursor: pointer;
+    }
+
+    .ui-date-picker .panel {
+      width: 100%;
+      text-align: center;
+      background-color: #fff;
+    }
+
+    .ui-date-picker .panel th {
+      line-height: 2;
+    }
+
+    .ui-date-picker .panel td {
+      line-height: 1.2
+    }
+
+    .ui-date-picker .pre-month,
+    .ui-date-picker .next-month {
+      color: #eee;
+    }
+
+    .ui-date-picker .cur-month {
+      cursor: pointer;
+    }
+
+    .ui-date-picker .cur-month:hover {
+      background-color: #ccc;
+      color: #fff;
+    }
+
+    .ui-date-picker .cur-date {
+      color: #CA2B2B;
+    }
+  </style>
+</head>
+
+<body>
+
+  <input class="date-ipt" type="text" placeholder="点击选择日期" readonly />
+  
+
+  <!-- <div class="ui-date-picker">
+    <div class="header">
+      <span class="pre caret-left"></span>
+      <span class="cur">2016年7月</span>
+      <span class="next caret-right"></span>
+    </div>
+    <table class="panel">
+      <thead>
+        <tr>
+          <th>日</th>
+          <th>一</th>
+          <th>二</th>
+          <th>三</th>
+          <th>四</th>
+          <th>五</th>
+          <th>六</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="pre-month">28</td>
+          <td class="pre-month">29</td>
+          <td class="pre-month">30</td>
+          <td class="pre-month">31</td>
+          <td class="cur-month cur-date">01</td>
+          <td class="cur-month">02</td>
+          <td class="cur-month">03</td>
+        </tr>
+        <tr>
+          <td class="cur-month">04</td>
+          <td class="cur-month">05</td>
+          <td class="cur-month">06</td>
+          <td class="cur-month">07</td>
+          <td class="cur-month">08</td>
+          <td class="cur-month">09</td>
+          <td class="cur-month">10</td>
+        </tr>
+        <tr>
+          <td class="cur-month">11</td>
+          <td class="cur-month">12</td>
+          <td class="cur-month">13</td>
+          <td class="cur-month">14</td>
+          <td class="cur-month">15</td>
+          <td class="cur-month">16</td>
+          <td class="cur-month">17</td>
+        </tr>
+        <tr>
+          <td class="cur-month">18</td>
+          <td class="cur-month">19</td>
+          <td class="cur-month">20</td>
+          <td class="cur-month">21</td>
+          <td class="cur-month">22</td>
+          <td class="cur-month">23</td>
+          <td class="cur-month">24</td>
+        </tr>
+        <tr>
+          <td class="cur-month">25</td>
+          <td class="cur-month">26</td>
+          <td class="cur-month">27</td>
+          <td class="cur-month">28</td>
+          <td class="cur-month">29</td>
+          <td class="cur-month">30</td>
+          <td class="next-month">01</td>
+        </tr>
+      </tbody>
+  </div> -->
+
+
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+<script src="js/日历组件.js"></script>
+
+</body>
+
+</html>

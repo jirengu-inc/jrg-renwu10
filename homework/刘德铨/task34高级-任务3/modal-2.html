@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        ul, li{
+            padding: 0;
+            margin: 0;
+        }
+        li {
+            list-style: none;
+        }
+        a {
+            color: #000;
+            text-decoration: none;
+        }
+        .dialog {
+            position: absolute;
+            z-index: 3;
+            left: 50%;
+            top: 30%;
+            transform: translateX(-50%);
+            border-radius: 10px;
+            background: #E59A66;
+            width: 328px;
+            padding-bottom: 20px;
+            opacity: 0.8;
+        }
+        /* .dialog .dialog-box {
+            position: absolute;
+            z-index: 3;
+            left: 50%;
+            top: 30%;
+            transform: translateX(-50%);
+            border-radius: 10px;
+            background: #E59A66;
+            width: 328px;
+            padding-bottom: 20px;
+        } */
+        .dialog .dialog-header {
+            padding: 10px 20px;
+            color: #FFF;
+            background: #5BAECC;
+        }
+        .dialog .dialog-header h3 {
+            margin: 0;
+            font-size: 20px;
+        }
+        .dialog .dialog-header .btn-close {
+            position: absolute;
+            right: 12px;
+            top: 12px;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            transition: all 0.8s ease-in-out;
+        }
+        .dialog .dialog-header .btn-close::before {
+            content: '';
+            display: block;
+            width: 20px;
+            height: 4px;
+            background: #FFF;
+            border-radius: 2px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%) rotateZ(45deg);
+        }
+        .dialog .dialog-header .btn-close::after {
+            content: '';
+            display: block;
+            width: 20px;
+            height: 4px;
+            background: #FFF;
+            border-radius: 2px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%) rotateZ(-45deg);
+        }
+        .dialog .dialog-header .btn-close:hover {
+            transform: rotateZ(360deg);
+        }
+        .dialog .dialog-header .btn-close:hover::before,
+        .dialog .dialog-header .btn-close:hover::after {
+            background: #E56966;
+        }
+
+        .dialog .dialog-content {
+            padding: 10px;
+            margin: 13px;
+            color: #666;
+        }
+        .dialog .dialog-footer {
+            text-align: center;
+        }
+        a.btn {
+          position: relative;
+          text-align: center;
+          background-color: #e33100;
+          display: inline-block;
+          width: 50px;
+          padding: 5px 0 6px;
+          margin: 2px;
+          color: #fff;
+          text-decoration: none;
+          border-radius: 3px;
+        }
+
+        a.btn:hover {
+            background-color: #c33100;
+        }
+
+        .draggable {
+          opacity: 0.6;
+          cursor: move;
+        }
+    </style>
+</head>
+<body>
+    <button id="open1"> 打开1</button>
+    <button id="open2"> 打开2</button>
+    <button id="open3"> 打开3</button>
+    <button id="open4"> 打开4</button>
+    <button id="open5"> 打开5</button>
+    <button id="close">关闭全部</button>
+   <!--  <div class="dialog" >
+       <div class="dialog-box">
+           <div class="dialog-header">
+               <h3>1</h3>
+               <span class="btn-close"></span>
+           </div>
+           <div class="dialog-content">222</div>
+           <div class="dialog-footer">
+               <a href="javascript:;" class="btn btn-close">取消</a>
+               <a href="javascript:;" class="btn btn-confirm">确定</a>
+           </div>
+       </div>
+   </div> -->
+    <script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>
+        
+/*
+  用模块定义的方式封装创建了一个对象，把 new Modal 的过程封装到模块里，这样使用者可以直接通过
+  Dialog.open()去调用即可
+*/
+
+
+    function Dialog(){
+        this.createDialog();
+        this.bindEvent();
+    }
+
+    Dialog.prototype = {
+        defaultOpts: {
+            title: '',
+            message: '',
+            isShowCloseBtn: true,
+            isShowConfirmBtn: false,
+            onClose: function(){},
+            onConfirm: function(){}
+        },
+
+
+        createDialog: function(){
+            var tpl =  '<div class="dialog" style="display:none">'
+                 +         '<div class="dialog-box">'
+                 +              '<div class="dialog-header">'
+                 +                  '<h3></h3>'
+                 +                  '<span class="btn-close"></span>'
+                 +              '</div>'
+                 +              '<div class="dialog-content"></div>'
+                 +              '<div class="dialog-footer">'
+                 +                  '<a href="javascript:;" class="btn btn-close">取消</a>'
+                 +                  '<a href="javascript:;" class="btn btn-confirm">确定</a>'
+                 +              '</div>'
+                 +          '</div>'
+                 +      '</div>';
+
+            this.$dialog = $(tpl);
+            $('body').append(this.$dialog);
+        }, 
+
+
+
+        bindEvent: function() {
+            var _this = this;
+            _this.$dialog.find('.btn-close').on('click', function(e){
+                e.preventDefault();
+                _this.opts.onClose();
+                _this.hideDialog();
+            });
+            _this.$dialog.find('.btn-confirm').on('click', function(e){
+                e.preventDefault();
+                _this.opts.onConfirm();
+                _this.hideDialog();
+            });
+            _this.$dialog.on('mousedown', function(e){
+              var $dialog = $(this),
+                  evtX = e.pageX - $dialog.offset().left,
+                  evtY = e.pageY - $dialog.offset().top;
+              $dialog.addClass('draggable').data('evtPos',{
+                  x: evtX,
+                  y: evtY
+              });
+            });
+            $('body').on('mousemove', function(e){
+              $('.draggable').length && $('.draggable').offset({
+                top: e.pageY - $('.draggable').data('evtPos').y,
+                left: e.pageX - $('.draggable').data('evtPos').x
+              });
+            });
+            $('body').on('mouseup', function(e){
+              $('.draggable').length && $('.draggable').removeClass('draggable').
+              removeData('pos');
+            })
+        },
+
+
+        showDialog: function(){
+            this.$dialog.fadeIn(800);
+        },
+
+        hideDialog: function(){
+            this.$dialog.fadeOut(800);
+        },
+
+        setDialog: function(){
+            var $dialog = this.$dialog;
+            if(!this.opts.title) {
+                $dialog.find('.dialog-header').hide();
+            }
+            else {
+                $dialog.find('.dialog-header').show();
+            }
+
+            if(!this.opts.isShowCloseBtn){
+                $dialog.find('.dialog-footer .btn-close').hide();
+            }
+            else {
+                $dialog.find('.dialog-footer .btn-close').show();
+            }
+
+            if(!this.opts.isShowConfirmBtn){
+                $dialog.find('.btn-confirm').hide();
+            }
+            else {
+                $dialog.find('.btn-confirm').show();
+            }
+
+            $dialog.find('.dialog-header h3').text(this.opts.title);
+            $dialog.find('.dialog-content').html(this.opts.message);
+        },
+
+        open: function(opts){
+            this.setOpts(opts);
+             console.log(this.opts);
+            this.setDialog();
+            this.showDialog();
+        },
+
+        close: function(){
+            this.hideDialog();
+        },
+
+        setOpts: function(opts){
+            if(typeof opts === 'string') {
+                this.opts = $.extend({}, this.defaultOpts, {message: opts} );
+            }
+            else if(typeof opts === 'object'){
+                this.opts = $.extend({}, this.defaultOpts, opts);
+            }
+        }
+    }
+
+   /* return new Modal();
+})();*/
+
+
+
+$('#open1').on('click',function(){
+  var dialogFir = new  Dialog();
+  dialogFir.open('hello,大家好');
+});
+
+$('#open2').on('click',function(){
+  var dialogSec = new  Dialog();
+  dialogSec.open('<a href="http://www.baidu.com" target="_blank">百度</a>');
+});
+
+$('#open3').on('click',function(){
+  var dialogThi = new  Dialog();
+  dialogThi.open({
+    title: '欢迎',
+    message: 'hello',
+    isShowCloseBtn: true,
+    isShowConfirmBtn: true,
+    onClose: function(){
+      alert('close')
+    },
+    onConfirm: function(){
+      alert('确定');
+    }
+  });
+});
+
+var tpl = '<ul><li>列表1</li><li>列表2</li><li>列表3</li><li>列表4</li></ul>';
+$('#open4').on('click',function(){
+  var dialogFou = new  Dialog();
+  dialogFou.open({
+    title: '欢迎',
+    message: tpl,
+    isShowCloseBtn: true,
+    isShowConfirmBtn: true,
+    onClose: function(){
+      alert('close')
+    },
+    onConfirm: function(){
+      alert('确定');
+    }
+  });
+});
+$('#open5').on('click',function(){
+  var dialogFif = new  Dialog();
+  dialogFif.open({
+    title: '欢迎',
+    message: 'hello',
+    isShowCloseBtn: false,
+    isShowConfirmBtn: false
+  });
+});
+
+
+  $('#close').on('click', function(){
+    $('.dialog').fadeOut(600);
+  });
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,1174 @@
+/* ---------- CSS reset ----------- */
+body,ul,h2,h4{
+    margin: 0;
+    padding: 0;
+}
+
+ul,li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+input {
+    outline: none;
+}
+
+textarea {
+    outline: none;
+}
+
+button {
+    outline: none;
+}
+
+/* ----------- 公共  ----------- */
+html {
+    height: 100%;
+}
+
+body {
+    font: 18px/1.5 Helvetica,arial,"Microsoft Yahei", "微软雅黑",
+    STXihei, "华文细黑", sans-serif;
+    position: relative;
+    height: 100%;
+}
+
+.clearfix::after{
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+.container {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+
+/* ----------- back-up-top -----------*/
+#back-up-top {
+    position: fixed;
+    bottom: 0;
+    right: 30px;
+    font-size: 60px;
+     transition: 1s;
+    z-index: 2;
+}
+
+#back-up-top:hover {
+    transform: scale(1.5);
+}
+
+#back-up-top .fa-rocket {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    transform: rotateZ(-45deg);
+    color: rgba(39, 96, 143,0.8);
+}
+
+
+/* ----------- nav ----------- */
+.nav {
+    background: rgba(0,0,0, 0.7);
+    padding: 10px 0;
+    width: 100%;
+    position: fixed;
+    z-index: 2;
+}
+
+.nav .logo {
+    display: inline-block;
+    float: left;
+    font-family: cursive;
+    font-size: 27px;
+    color: #337AB7;
+    height: 50px;
+    line-height: 50px;
+}
+
+.nav .nav-list {
+    float: right;
+}
+
+.nav .nav-list li {
+    float: left;
+    height: 50px;
+    line-height: 50px; 
+   text-align: center;
+    font-size: 14px; 
+    padding: 0 15px;
+    transition: 1s;
+}
+
+.nav .nav-list li:hover {
+    background: #337AB7;
+    border-radius: 5px;
+}
+
+.nav .nav-list li a {
+    display: inline-block;
+    color: #FFF;
+    text-transform: uppercase;
+    width: 100%;
+    height: 100%; 
+}
+
+
+
+/* ----------- header ----------- */
+#header {
+    background:#337AB7 url(../img/header-bg.jpg) 0 0 no-repeat;
+    background-size: cover;
+    text-align: center;
+    color: #FFF;
+    height: 100%;
+    overflow: hidden;
+}
+
+#header .header-title {
+    font-size: 40px;
+    font-style: italic;
+    margin-top: 300px;
+    animation: htitle-move 0.6s ease-in;
+}
+
+@keyframes htitle-move {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+#header .header-des {
+    font-size: 75px;
+    font-weight: bold;
+    text-transform: uppercase;
+    animation: hdes-move 0.6s ease-in;
+}
+
+@keyframes hdes-move {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+} 
+
+
+#header .header-more {
+    color: #FFF;
+    display: inline-block;
+    border-radius: 5px;
+    background: rgba(51, 122, 183,0.8);
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 20px 40px;
+    animation: hmore-move 0.6s ease-in;
+}
+
+@keyframes hmore-move {
+    0% {
+        transform: translateY(600%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+
+#header .header-more:hover {
+    background: rgba(51, 122, 183,1);
+}
+
+/* ----------- content ----------- */
+#content {
+    text-align: center;
+}
+
+
+.content h2 {
+    font-size: 40px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.content h3 {
+    font-size: 16px;
+    font-style: italic;
+    color: #777;
+    margin-bottom: 70px; 
+}
+
+.content h4 {
+    font-weight: bold;
+}
+
+
+.content p {
+    color: #777;  
+}
+
+/* ----------- services ----------- */
+.services {
+    padding: 150px 0;
+    background: rgba(51, 122, 183,1);
+}
+
+.services ul {
+    margin-left: -50px; 
+}
+
+.services ul li {
+    float: left;
+    width: 300px;
+    margin: 20px 0 0 50px;  
+    text-align: center;
+}
+
+.services ul li .fa-icon {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: 20px auto;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    transition: all 0.6s ease-in-out;
+}
+
+.services ul li .fa {
+    display: inline-block;
+    font-size: 70px;
+    color: rgba(51, 122, 183,1);
+    transition: all 0.6s ease-in-out;
+}
+
+.services ul li .fa-circle {
+    font-size: 120px;  
+    color: transparent;
+    transition: all 0.6s ease-in-out;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    transform: scale(0.9);
+    box-shadow: 0 0 0 2px rgba(255,255,255,0.1);
+}
+
+.services ul li .fa-icon:hover {
+   box-shadow: inset 0 0 0 10px rgba(255, 255, 255, 0.4);
+} 
+
+.services ul li .fa-icon:hover .fa{
+    color: #FFF;
+} 
+
+.services ul li .fa-icon:hover .fa-circle{
+    color: rgba(51, 122, 183,1);
+} 
+
+/* 第一个图标 */
+.services ul li .fa-shopping-cart {
+    position: absolute;
+    top: 25px;
+    left: 28px;
+}
+
+/* 第二个图标 */
+.services ul li .fa-laptop {
+    position: absolute;
+    top: 25px;
+    left: 23px;
+}
+
+.services ul li:nth-of-type(2) .fa-icon:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: scale(0.95);
+    box-shadow: none;
+}
+
+.services ul li:nth-of-type(2) .fa-icon:hover .fa-circle{
+    animation: sonarEffect 1.3s ease-out 75ms;
+}
+
+@keyframes sonarEffect {
+    0% {
+        opacity: 0.3;
+    }
+    40% {
+        opacity: 0.5;
+        box-shadow: 0 0 0 2px rgba(255,255,255,0.1), 
+        0 0 8px 8px #3851bc, 0 0 0 8px rgba(255,255,255,0.5);
+    }
+    100% {
+        box-shadow: 0 0 0 2px rgba(255,255,255,0.1), 
+        0 0 8px 8px #3851bc, 0 0 0 8px rgba(255,255,255,0.5);
+        transform: scale(1.3);
+        opacity: 0;
+    }
+}
+
+/* 第三个图标 */
+.services ul li .fa-lock {
+    position: absolute;
+    top: 25px;
+    left: 38px;
+}
+
+.services h3,.services ul li p {
+    color: #FFF;
+}
+
+
+/* ----------- portfolio ----------- */
+.portfolio {
+     padding: 150px 0;
+}
+
+
+.portfolio ul {
+    margin-left: -50px;
+}
+
+.portfolio ul li {
+    float: left;
+    width: 300px;
+    margin: 20px 0 0 50px; 
+    position: relative;
+}
+
+.portfolio ul li a{
+    display: inline-block;
+    width: 300px;
+    height: 200px;
+}
+
+.portfolio ul li .pf-text {
+    width: 300px;
+    height: 90px;
+    padding: 60px 0 50px 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(51, 122, 183,0.6);
+    opacity: 0;
+    transition: all 0.6s ease-in-out;
+}
+
+.portfolio ul li .pf-text .text-title,
+.portfolio ul li .pf-text .text-des{
+    color: #FFF;
+    transition: all 1.2s ease-in-out;
+}
+
+.portfolio ul li .pf-img {
+    width: 300px;
+    height: 200px;
+    transition: all 0.6s ease-in-out;
+}
+
+.portfolio ul li .pf-text:hover {
+    opacity: 1;
+}
+
+.portfolio ul li .pf-des {
+    margin:0;
+    font-style: italic;
+}
+
+
+/* 第一个作品 */
+.portfolio ul li:nth-of-type(1) .pf-text::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 35px;
+    bottom: 35px;
+    left: 25px;
+    right: 25px;
+    border: 1px solid #FFF;
+    border-left: 0;
+    border-right: 0;
+    opacity: 0;
+    transition: all 1.2s ease-in-out;
+    transform: translateY(-50px);
+}
+
+.portfolio ul li:nth-of-type(1) .pf-text::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 25px;
+    bottom: 25px;
+    left: 35px;
+    right: 35px;
+    border: 1px solid #FFF;
+    border-top: 0;
+    border-bottom: 0;
+    opacity: 0;
+    transition: all 0.6s ease-in-out;
+    transform: translateX(-50px);
+}
+
+.portfolio ul li:nth-of-type(1) .pf-text .text-title,
+.portfolio ul li:nth-of-type(1) .pf-text .text-des{
+    transform: translateY(-150px);
+}
+
+.portfolio ul li:nth-of-type(1) .pf-text:hover::before {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.portfolio ul li:nth-of-type(1) .pf-text:hover::after {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.portfolio ul li:nth-of-type(1) .pf-text:hover .text-title,
+.portfolio ul li:nth-of-type(1) .pf-text:hover .text-des{
+    transform: translateY(0);
+}
+
+
+/* 第二个作品 */
+.portfolio ul li:nth-of-type(2) .pf-more {
+    width: 300px;
+    height: 200px;
+    line-height: 200px;
+    color: #FFF;
+    font-size: 60px;
+    font-weight: bold;
+    background: rgba(51, 122, 183,0.8);
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+}
+
+.portfolio ul li:nth-of-type(2) a:hover  .pf-more{
+    display: block;
+}
+
+
+/* 第三个作品 */
+.portfolio ul li:nth-of-type(3) {
+    overflow: hidden;
+}
+
+.portfolio ul li:nth-of-type(3) .pf-text {
+    transform: scale(0);
+}
+
+.portfolio ul li:nth-of-type(3) a:hover .pf-text{
+    transform: scale(1);
+    opacity: 1;
+}
+
+.portfolio ul li:nth-of-type(3) .pf-img {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.portfolio ul li:nth-of-type(3) a:hover .pf-img{
+    transform: scale(5);
+    opacity: 0;
+}
+
+
+/* 第四个作品 */
+.portfolio ul li:nth-of-type(4) .pf-text .text-title,
+.portfolio ul li:nth-of-type(4) .pf-text .text-des{
+    transform: translateY(50px);
+}
+
+.portfolio ul li:nth-of-type(4) .pf-text::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 35px;
+    bottom: 35px;
+    left: 25px;
+    right: 25px;
+    border: 1px solid #FFF;
+    border-left: 0;
+    border-right: 0;
+    opacity: 0;
+    transition: all 1s ease-in-out;
+    transform: scale(0, 1);
+}
+
+.portfolio ul li:nth-of-type(4) .pf-text::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 35px;
+    bottom: 35px;
+    left: 25px;
+    right: 25px;
+    border: 1px solid #FFF;
+    border-top: 0;
+    border-bottom: 0;
+    opacity: 0;
+    transition: all 0.6s ease-in-out;
+    transform: scale(1, 0);
+}
+
+.portfolio ul li:nth-of-type(4) .pf-text:hover::before {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.portfolio ul li:nth-of-type(4) .pf-text:hover::after {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.portfolio ul li:nth-of-type(4) .pf-text:hover .text-title,
+.portfolio ul li:nth-of-type(4) .pf-text:hover .text-des{
+    transform: translateY(0);
+}
+
+
+/* 第五个作品 */
+.portfolio ul li:nth-of-type(5) a{
+    position: relative;
+    overflow: hidden;
+}
+
+.portfolio ul li:nth-of-type(5) .pf-text {
+    background: rgba(12, 34, 52, 0.6);
+    width: 361px;
+    height: 0px;
+    padding: 0;
+    transform-origin: 0% 100%;
+    transform: translate(66px, 180px) rotate(-33.7deg) ;
+    transition: all 0.4s ease-in-out 0.4s;
+    opacity: 0;
+    position: absolute;
+    z-index: 4;
+}
+
+.portfolio ul li:nth-of-type(5) .pf-text .text-title{
+    margin: 10px 0 5px 0;
+    padding: 10px;
+}
+
+.portfolio ul li:nth-of-type(5) .pf-text .text-des{
+    padding: 15px;
+    margin: 0 0 15px 0;
+}
+
+.portfolio ul li:nth-of-type(5) .mark-one {
+    width: 361px;
+    height: 361px;
+    background: rgba(51, 122, 183,0.6);
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    transform-origin: 100% 0;
+    transform:  rotate(56.3deg) translateX(-170px);
+    transition: all 0.4s ease-in-out;
+    z-index: 3;
+}
+
+.portfolio ul li:nth-of-type(5) .mark-two {
+    width: 361px;
+    height: 361px;
+    background: rgba(51, 122, 183,0.6);
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    transform-origin: 0% 100%;
+    transform:  rotate(56.3deg) translateX(170px);
+    transition: all 0.4s ease-in-out;
+    z-index: 3;
+}
+
+.portfolio ul li:nth-of-type(5) a:hover .pf-text {
+    transform:  translate(0px) rotateZ(0deg);
+    width: 300px;
+    height: 120px;
+    top: 40px;
+    opacity: 1;
+}
+
+.portfolio ul li:nth-of-type(5) a:hover .mark-one {
+    transform:  rotate(56.3deg) translateX(0px);
+}
+
+.portfolio ul li:nth-of-type(5) a:hover .mark-two {
+    transform:  rotate(56.3deg) translateX(0px);
+}
+
+
+/* 第六个作品 */
+.portfolio ul li:nth-of-type(6)  {
+    transform-style: preserve-3d;
+}
+
+.portfolio ul li:nth-of-type(6) a {
+    perspective: 1000px;
+    position: relative;
+}
+
+.portfolio ul li:nth-of-type(6) .pf-text { 
+    transform-origin: 50% 0%;
+    transform: translate3d(0, 0, -250px) rotate3d(1, 0, 0, 90deg);
+    opacity: 1;
+}
+
+.portfolio ul li:nth-of-type(6) .pf-img {
+    transform-origin: 0% 0%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.portfolio ul li:nth-of-type(6) a:hover .pf-text {
+    transform: translate3d(0, 0, 0) rotate3d(1, 0, 0, 0deg);
+    opacity: 1;
+}
+
+.portfolio ul li:nth-of-type(6) a:hover .pf-img{
+    transform: translate3d(0, 250px, 0) 
+    rotate3d(1, 0, 0, -90deg);
+    opacity: 0;
+}
+
+
+
+/* ----------- about ----------- */
+.about {
+     padding: 150px 0;
+}
+
+.about ul li {
+    margin: 100px 0;
+}
+
+.about ul li .about-img {
+    width: 150px;
+    height: 150px;
+    line-height: 150px;
+    border: 7px solid rgba(76, 197, 242, 0.5);
+    border-radius: 50%;
+    margin-top: 22px;
+    position: relative;
+    background: rgba(53, 109, 157, 0.8);
+    cursor: pointer;
+    position: relative;
+}
+
+.about ul li .about-img .about-border {
+    border: 7px solid #1ad280;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    transition: all 0.6s ease-in-out;
+    position: absolute;
+    top: -7px;
+    left: -7px;
+}
+
+.about ul li .about-img .about-border-img {
+    transition: all 0.6s ease-in-out;
+}
+
+.about ul li .about-img .about-border{
+    border-right-color: #ecab18;
+    border-bottom-color: #ecab18;
+}
+
+.about ul li .about-img:hover .about-border{
+    transform: rotateZ(180deg);
+}
+
+.about ul li .about-img img {
+    border-radius: 50%;
+    width: 100%;
+}
+
+.about ul li .about-img .about-hid-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(76, 197, 242, 0.6);
+    transition: all 0.6s ease-in-out;
+    border-radius: 50%;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    line-height: 100%;
+    opacity: 0;
+}
+
+.about ul li .about-img .about-hid-text h4 {
+    color: #FFF;
+    text-transform: uppercase;
+    height: 25px;
+    line-height: 25px;
+    padding: 40px 0 5px 0;
+    border-bottom: 1px solid #FFF;
+    font-size: 16px;
+}
+
+.about ul li .about-img .about-hid-text p {
+    font-size: 14px;
+    font-style: italic;
+    margin: 5px 0;
+    color: #FFF;
+}
+
+
+/* 第一个图案 */
+.about ul li:nth-of-type(1) .about-img .about-hid-text:hover {
+    opacity: 1;
+}
+
+
+/* 第二个图案 */
+.about ul li:nth-of-type(2) .about-img .about-hid-text {
+    transform: translateX(-100%);
+}
+
+.about ul li:nth-of-type(2) .about-img:hover .about-hid-text{
+    transform: translateX(0);
+    opacity: 1;
+}
+
+
+/* 第三个图案 */
+.about ul li:nth-of-type(3) .about-img .about-hid-text {
+    transform: translateX(100%);
+    background: rgba(76, 197, 242, 1);
+}
+
+.about ul li:nth-of-type(3) .about-img:hover .about-hid-text{
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.about ul li:nth-of-type(3) .about-img:hover .about-border-img{
+    transform: scale(0.5) translateY(-100%);
+    position: relative;
+    z-index: 10;
+    opacity: 1;
+}
+
+
+/* 第四个图案 */
+.about ul li:nth-of-type(4) .about-img .about-hid-text {
+    transform: scale(0.5);
+    background: rgba(76, 197, 242, 1);
+}
+
+.about ul li:nth-of-type(4) .about-img:hover .about-hid-text {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.about ul li:nth-of-type(4) .about-img:hover .about-border-img{
+    transform: scale(0.5);
+    opacity: 1;
+}
+
+
+.about ul li .about-img h4 {
+    display: inline-block;
+    line-height: 1.4em;
+    vertical-align: middle;
+    color: #FFF;
+}
+
+.about ul li .about-img:not(:last-of-type)::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 122px;
+    border: 2px solid rgba(76, 197, 242, 0.5);
+    position: absolute;
+    top: 157px;
+    left: 74px;
+}
+
+.about ul li .about-text {
+    width: 400px;
+}
+
+.about ul li .about-text .ab-des {
+    margin: 0;
+}
+
+.about ul li:nth-of-type(odd){
+    padding-right: 418px;
+}
+
+.about ul li:nth-of-type(odd) .about-img{
+    float: right;
+}
+
+.about ul li:nth-of-type(odd) .about-text{
+    float: left;
+    text-align: right;
+}
+
+.about ul li:nth-of-type(even){
+    padding-left: 418px;
+}
+
+.about ul li:nth-of-type(even) .about-img{
+     float: left;
+}
+
+.about ul li:nth-of-type(even) .about-text{
+    float: right;
+    text-align: left;
+}
+
+
+/* ----------- team -----------*/
+.team {
+    padding: 150px 0;
+    
+}
+
+.team ul {
+    margin-left: -50px;
+}
+
+.team ul>li {
+    float: left;
+    margin: 20px 0 0 50px;
+    width: 300px;
+}
+
+.team .team-img {
+    margin: 40px auto;
+    width: 200px;
+    height: 200px;
+    background: rgba(53, 109, 157, 0.8);
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+}
+
+.team .team-img img {
+    width: 100%;
+    border-radius: 50%;
+    transition: all 0.6s ease-in-out;
+}
+
+.team .team-img::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 15px rgba(53, 109, 157, 0.3);
+}
+
+.team .team-img .team-hid-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    line-height: 100%;
+    background: rgba(53, 109, 157, 0.6);
+    transition: all 0.6s ease-in-out;
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events:none;
+}
+
+.team .team-img .team-hid-text h4 {
+    color: #FFF;
+    text-transform: uppercase;
+    height: 25px;
+    line-height: 25px;
+    padding: 60px 0 14px 0;
+    border-bottom: 1px solid #FFF;
+    font-size: 16px;
+}
+
+.team .team-img .team-hid-text p {
+    font-size: 14px;
+    font-style: italic;
+    margin: 14px 0; 
+    color: #FFF;
+}
+
+
+/* 第一个头像 */
+.team ul li:nth-of-type(1) .team-img img{
+    transform: translateZ(0) rotateY(0);
+}
+
+.team ul li:nth-of-type(1) .team-img .team-hid-text{
+    transform: translateZ(-1000px) rotateY(-90deg);
+}
+
+.team ul li:nth-of-type(1) .team-img:hover img{
+    transform: translateZ(-1000px) rotateY(90deg);
+}
+
+.team ul li:nth-of-type(1) .team-img:hover .team-hid-text{
+    transform: translateZ(0) rotateY(0);
+    opacity: 1;
+}
+
+
+/* 第二个头像 */
+.team ul li:nth-of-type(2) .team-img img{
+    transform: translateY(0) rotateZ(0);
+}
+
+.team ul li:nth-of-type(2) .team-img .team-hid-text{
+    transform: translateY(-100%) rotateZ(-180deg);
+}
+
+.team ul li:nth-of-type(2) .team-img:hover img{
+    transform: translateY(-100%) rotateZ(180deg);
+    opacity: 0;
+}
+
+.team ul li:nth-of-type(2) .team-img:hover .team-hid-text{
+    transform: translateY(0) rotateZ(0);
+    opacity: 1;
+}
+
+
+/* 第三个头像 */
+.team ul li:nth-of-type(3) .team-img .team-hid-text h4 {
+    transform: translateX(-100%);
+    transition: all 0.6s ease-in-out;
+}
+
+.team ul li:nth-of-type(3) .team-img .team-hid-text p {
+    transform: translateX(100%);
+    transition: all 0.6s ease-in-out;
+}
+
+.team ul li:nth-of-type(3) .team-img:hover .team-hid-text{
+    opacity: 1;
+}
+
+.team ul li:nth-of-type(3) .team-img:hover .team-hid-text h4 {
+    transform: translateX(0);
+}
+
+.team ul li:nth-of-type(3) .team-img:hover .team-hid-text p {
+    transform: translateX(0);
+}
+
+
+.team .team-des {
+    margin: 5px 0 10px 0;
+} 
+
+.team .team-contact {
+   margin: 0;
+   width: 300px;
+   text-align: center;   
+}
+
+.team .team-contact li {
+    float: none;
+    display: inline-block;
+    background: #222;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    margin: 0 10px;   
+}
+
+.team .team-contact li:hover {
+    background: rgba(53, 109, 157, 0.8);
+}
+
+
+.team .team-contact a {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+
+.team .team-contact .fa {
+    color: #FFF;
+}
+
+
+
+/* ----------- clients ----------- */
+
+
+.clients ul li{
+    float: left;
+    width: 25%;
+    padding: 50px 0;
+}
+
+.clients ul li a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+/* ----------- contact ----------- */
+.contact {
+     padding: 150px 0;
+     background: #222 url(../img/map-image.png) 0 0 no-repeat;
+     background-size: cover;
+}
+
+.contact h2 {
+    color: #FFF;
+}
+
+.contact .form-top {
+   margin: 50px 0;
+}
+
+.contact .form-left {
+    float: left;
+    width: 485px;
+}
+
+.contact .form-right {
+    float: right;
+    width: 485px;
+}
+
+.contact .form-left .form-text {
+    width: 440px;
+    height: 40px;
+    margin-bottom: 20px; 
+    border-radius: 5px;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: Helvetica;
+    border: 2px solid #CCC;
+}
+
+.contact .form-right .form-textarea {
+    width: 440px;
+    height: 190px;
+    border-radius: 5px;
+    padding: 20px;
+    resize: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: Helvetica;
+    border: 2px solid #CCC;
+}
+
+.contact .form-bottom .form-btn {
+    background: rgba(51, 122, 183,0.8);
+    border-radius: 5px;
+    color: #FFF;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 20px 40px;
+    border: 0;
+    cursor: pointer;
+    font-family: Helvetica;
+}
+
+.contact .form-bottom .form-btn:hover {
+    background: rgba(51, 122, 183,1);
+}
+
+
+/* ----------- footer ----------- */
+#footer {
+    padding: 50px 0;
+    text-align: center;
+}
+
+.footer-mid {
+    float: left;
+    padding: 0 333px;
+    position: relative;
+}
+.footer-mid .footer-contact {
+    width: 333px;
+
+}
+
+.footer-mid .footer-contact li{
+    display: inline-block;
+    background: #222;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    margin: 0 10px;
+}
+
+.footer-mid .footer-contact li:hover {
+    background: rgba(51, 122, 183,1);
+}
+
+.footer-mid .footer-contact li a{
+    display: inline-block;
+    color: #fff;
+    font-size: 20px;
+    width: 100%;
+    height: 100%;
+}
+
+.footer-left {
+    float: left;
+    margin-left: -100%;
+    width: 333px;
+    line-height: 40px;
+}
+
+.footer-left p {
+    margin: 0;
+}
+
+.footer-right {
+    float: left;
+    width: 333px;
+    line-height: 40px;
+    margin-left: -333px;
+}
+
+
+.footer-right .quicklinks li {
+    display: inline-block;
+    margin: 0 10px;
+    transition: 1s;
+}
+
+.footer-right .quicklinks li a {
+    color: rgba(51, 122, 183,1);
+    position: relative;
+    z-index: 2;
+}
+
+.footer-right .quicklinks li:hover  a{
+    text-decoration: underline;
+}
+

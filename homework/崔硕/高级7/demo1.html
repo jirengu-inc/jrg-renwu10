@@ -1,0 +1,148 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>CSS3</title>
+    <style type="text/css">
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            padding: 100px;
+        }
+.contain{
+  margin: 10px;
+}
+.btn{
+  text-decoration: none;
+  border:1px solid #ccc;
+  padding: 10px;
+  margin: 40px;
+  border-radius:10px;
+  display: block;
+  width: 40px;
+  text-align: center;
+}
+.btn2{
+  text-decoration: none;
+  border:1px solid #ccc;
+  padding: 10px;
+  margin: 40px;
+  border-radius:50%;
+  display: block;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  background: #CCC;
+}
+.ct{
+  width: 100px;
+  height: 100px;
+  border:1px dashed #000;
+  margin: 40px;
+}
+.box-shadow{
+  border: 1px solid #333;
+  width: 100px;
+  height: 100px;
+  box-shadow: 5px 3px 3px 2px #ccc;
+}
+.enlarge{
+  width: 100px;
+  height: 100px;
+  background-color: #ccc;
+  transform: scale(1.5,0.5);
+}
+.move{
+  width: 100px;
+  height: 100px;
+  background-color: #ccc;
+  transform: translate(30px,20px);
+}
+.revolve{
+  width: 100px;
+  height: 100px;
+  background-color: #ccc;
+  transform: rotate(30deg);
+}
+.tran-3d{
+  transform-style: preserve-3d;
+}
+.move-3d{
+  width: 100px;
+  height: 100px;
+  background-color: #ccc;
+  transform: translate(10px,10px) rotateY(60deg);
+  perspective: 300px;
+}
+.grad{
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(to bottom left,#ccc ,#fff, #ccc);
+}
+.transition{
+  margin: 40px;
+  width: 100px;
+  height: 100px;
+  background-color: #ccc;
+  transition: all 1s
+}
+.transition:hover{
+  width: 150px;
+  height: 150px;
+}
+.animate{
+  margin: 40px;
+  width: 60px;
+  height: 60px;
+  border: 20px solid rgba(222,222,222,0.3);
+  border-radius: 50%;
+  border-top: 20px solid #ccc;
+  animation: 1s round infinite linear;
+}
+@keyframes round{
+  from{
+    transform: rotate(0);
+  }
+  to{
+    transform: rotate(360deg);
+  }
+}
+    </style>
+</head>
+<body>
+     <div class="contain">
+    <a href="#" class="btn">点我</a>
+    
+    <a href="#" class="btn2"></a>
+    <div class="ct">
+      <div class="box-shadow"></div>
+    </div>
+    <div class="ct">
+      <div class="enlarge"></div>
+    </div>
+    <div class="ct">
+      <div class="move"></div>
+    </div>
+    <div class="ct">
+      <div class="revolve"></div>
+    </div>
+    <div class="tran-3d">
+      <div class="ct">
+         <div class="move-3d"></div>
+      </div>   
+    </div>
+    <div class="ct">
+      <div class="grad"></div>
+    </div>
+
+    <div class="transition">移入</div>
+    <div class="animate"></div>
+    
+    
+    
+  </div>
+</body>
+</html> 

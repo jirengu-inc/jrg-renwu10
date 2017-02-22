@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="http://cdn.bootcss.com/normalize/5.0.0/normalize.min.css" rel="stylesheet">
+</head>
+<style>
+    a{
+        text-decoration: none;
+    }
+    ul,li{
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .solider{
+        position: relative;
+        height: 280px;
+        width: 350px;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+    .img-ct{
+        width:1400px;
+        position: absolute;
+        left: -350px;
+    }
+    .img-ct:after{
+        display: block;
+        content:'';
+        clear: both;
+    }
+    .img-ct>li{
+        top: 0;
+        left: 0;
+        float: left;
+    }
+    .img-ct img{
+        height: 280px;
+        width: 350px;
+    }
+    .btn{
+        position: absolute;
+        top: 50%;
+        margin-top: -15px;
+        display: block;
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+        background: #333;
+        opacity: 0.6;
+        color: #fff;
+        text-align: center;
+        line-height: 30px;
+    }
+    .btn-pre{
+       left: 10px;
+    }
+    .btn-next{
+        right: 10px;
+    }
+    .bullet{
+        position: absolute;
+        left: 0;
+        right:0;
+        bottom: 20px;
+        text-align: center;
+    }
+
+    .bullet>li{
+        display: inline-block;
+        width: 20px;
+        height: 5px;
+        border-radius: 3px;
+        background: #fff;
+        margin: 0 5px;
+    }
+    .bullet .active{
+        background: yellow;
+    }
+
+</style>
+
+<body>
+<div class="solider">
+    <ul class="img-ct">
+        <li data-index="0"><a href=""><img src="img/1.jpg" alt=""></a></li>
+        <li data-index="1"><a href=""><img src="img/2.jpg" alt=""></a></li>
+        <li data-index="2"><a href=""><img src="img/3.jpg" alt=""></a></li>
+        <li data-index="3"><a href=""><img src="img/4.jpg" alt=""></a></li>
+    </ul>
+    <a class="btn btn-pre" href=""><span>&lt;</span></a>
+    <a class="btn btn-next"href=""><span>&gt;</span></a>
+    <ul class="bullet">
+        <li class="active"></li
+        ><li></li
+        ><li></li
+        ><li></li>
+    </ul>
+</div>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script>
+         var $imgCt = $('.img-ct'),
+              $preBtn = $('.btn-pre'),
+              $nextBtn = $('.btn-next'),
+              $bullet = $('.bullet');
+
+         var $firstImg = $imgCt.find('li').last(),
+              $lastImg = $imgCt.find('li').first();
+
+         var curPageIndex = 0;
+         var imgLength = $imgCt.children().length;
+         var isAnimate = false;
+         $imgCt.prepend($firstImg.clone());
+         $imgCt.append($lastImg.clone());
+
+         $imgCt.width($firstImg.width()*$imgCt.children().length);
+
+         $imgCt .on('click',function(e){
+             e.preventDefault()
+         });
+         $preBtn.on('click',function(e){
+             e.preventDefault();
+             playPre(1);
+         });
+         $nextBtn.on('click',function(e){
+             e.preventDefault();
+             playNext(1);
+         });
+         $bullet.find('li').on('click',function(){
+             var idx = $(this).index();
+                bullet(idx);
+                 play(idx)
+         });
+         function play(n){
+             if(isAnimate) return;
+             isAnimate = true;
+             $imgCt.animate({
+                 left: '+='+350*(curPageIndex-n)
+             },function(){
+                 curPageIndex = n;
+                 isAnimate = false;
+                 bullet(curPageIndex);
+             });
+         }
+
+            function playNext(n){
+                if(isAnimate) return;
+                isAnimate = true;
+                $imgCt.animate({
+                      left: '-='+350*n
+              },function(){
+                    curPageIndex++;
+                    if(curPageIndex === imgLength){
+                        $imgCt.css({left:-350});
+                        curPageIndex = 0;
+                    }
+                isAnimate = false;
+                    bullet(curPageIndex);
+                });
+            }
+
+            function playPre(n){
+                if(isAnimate) return;
+                isAnimate = true;
+                $imgCt.animate({
+                    left:'+='+350*n
+                },function(){
+                    curPageIndex--;
+                    if(curPageIndex<0){
+                        $imgCt.css({left:-(imgLength*$firstImg.width())});
+                        curPageIndex = imgLength-1
+                    }
+                    isAnimate = false;
+                    bullet(curPageIndex);
+                })
+            }
+    function bullet(n){
+          $bullet.children()
+                .removeClass('active')
+                .eq(n)
+                .addClass('active')
+    }
+</script>
+</body>
+</html>
