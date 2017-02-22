@@ -73,7 +73,7 @@ var carouselView = (function(){
             this.setBag(index);
             this.$imgCt.animate({
                 left: '+=' + (this.curIdx - index) * this.imgWidth
-            }, function(){
+            }, 2000, function(){
                 _this.curIdx = index;
                 if(index === _this.imgNum) {
                     console.log(index);

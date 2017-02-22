@@ -993,24 +993,26 @@ body {
     margin-top: -150px; */
     padding: 150px 0;
     background: rgba(211, 190, 234,1);
+    perspective: 1000px;
 }
 
-.album .box {
+/* .album .box {
     overflow: hidden;
     
-}
+} */
 
-.album ul {
+.album .album-photo {
     position: relative;
     width: 980px;
     height: 600px;
     margin: 20px auto;
     box-shadow: 0 0 30px rgba(234, 1, 0,1);
     overflow: hidden;
+    transition: all 0.8s ease-in-out;
 }
 
 
-.album ul>li {
+.album .album-photo>li {
     border-top: 80px solid rgba(211, 190, 234,1);
     margin-top: -80px;
     position: absolute;
