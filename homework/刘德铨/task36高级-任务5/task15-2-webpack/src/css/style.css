@@ -28,11 +28,11 @@ button {
 html {
     height: 100%;
     width: 100%;
-    cursor: url("../IMG/mouse.ico"),auto;
+    cursor: url("../img/mouse.ico"),auto;
 }
 
 a {
-    cursor: url("../IMG/mouse.ico"),auto;
+    cursor: url("../img/mouse.ico"),auto;
 }
 
 body {
@@ -138,7 +138,7 @@ body {
 
 
 #header .img-ct>li .bag {
-    /* background-image: url(../IMG/img-header-bg.jpg); */
+    /* background-image: url(../img/img-header-bg.jpg); */
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -1502,19 +1502,19 @@ body {
 }
 
 .college ul li:nth-of-type(1) .col-quote{
-    background: url(../IMG/404.jpg) 0 -20px no-repeat;
+    background: url(../img/404.jpg) 0 -20px no-repeat;
 }
 
 .college ul li:nth-of-type(2) .col-quote{
-    background: url(../IMG/401.jpg) 0 -20px no-repeat;
+    background: url(../img/401.jpg) 0 -20px no-repeat;
 }
 
 .college ul li:nth-of-type(3) .col-quote{
-    background: url(../IMG/403.jpg) 0 -20px no-repeat;
+    background: url(../img/403.jpg) 0 -20px no-repeat;
 }
 
 .college ul li:nth-of-type(4) .col-quote{
-    background: url(../IMG/402.jpg) 0 -20px no-repeat;
+    background: url(../img/402.jpg) 0 -20px no-repeat;
 }
 
 
@@ -1522,7 +1522,7 @@ body {
 /* ----------- sign-up ----------- */
 .sign-up {
      padding: 150px 0;
-     background: url(../IMG/701.jpg) 0 -100px no-repeat;
+     background: url(../img/701.jpg) 0 -100px no-repeat;
      background-size: cover;
 }
 
@@ -1667,7 +1667,7 @@ body {
     height: 170px;
     display: none;
     z-index: 2;
-    background: url(../IMG/rocket_up.png) no-repeat -50px 0px;
+    background: url(../img/rocket_up.png) no-repeat -50px 0px;
 }
 
 
