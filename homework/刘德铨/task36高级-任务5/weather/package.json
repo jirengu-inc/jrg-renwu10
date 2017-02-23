@@ -1,0 +1,17 @@
+{
+  "name": "weatherfirst-ldq",
+  "version": "1.0.0",
+  "description": "获取天气",
+  "bin": {
+    "weather": "bin.js"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "weather"
+  ],
+  "author": "ldq-first",
+  "license": "ISC"
+}
