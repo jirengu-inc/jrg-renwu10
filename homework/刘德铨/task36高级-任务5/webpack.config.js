@@ -4,21 +4,26 @@ module.exports = {
     entry: './src/js/app/webpack.index.js',
     output: {
         path: './src/js',
-        //filename: "webpack.merge.js"
         filename: "webpack.merge.js"
+        
     },
     /*module: {
         loaders: [
+             {
+                test: require.resolve('jquery'),
+                loader: 'expose?jQuery!expose?$'
+             },
             {
                 test: /\.css$/, loader: "style-loader!css-loader"
             }
         ]
-    }*/
-    resolve: {
+    },*/
+      resolve: {
         alias:{
-            jquery: '../lib/jquery-3.1.1.min'
+            jquery: '../lib/jquery-3.1.1.min',
         }
     },
+    
     plugins: [
         new webpack.ProvidePlugin({
             $: 'jquery',
@@ -26,5 +31,6 @@ module.exports = {
             "window.jquery": 'jquery'
         })
     ]
+    
     
 }
