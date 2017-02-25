@@ -1,0 +1,81 @@
+.carousel {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.carousel .img-ct {
+    position: absolute;
+    width: 400%;
+    height: 100%;
+}
+
+.carousel .img-ct li {
+    float: left;
+    width: 25%;
+    height: 100%;
+}
+
+.carousel .img-ct img {
+    height: 100%;
+    width: 100%;
+}
+
+.carousel .img-ct:after {
+    content: ' ';
+    display: block;
+    clear: both;
+}
+
+.btn {
+    position: absolute;
+    height: 60px;
+    width: 60px;
+    border-radius: 30px;
+    background: #000;
+    opacity: 0.4;
+    text-align: center;
+    line-height: 55px;
+    display: block;
+    color: #fff;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 1s;
+    /*css3效果*/
+}
+
+.btn:hover {
+    opacity: 1
+}
+
+.btn-pre {
+    left: 80px;
+}
+
+.btn-nxt {
+    right: 80px;
+}
+
+.bullet {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.bullet li {
+    height: 15px;
+    width: 20px;
+    background-color: #fff;
+    cursor: pointer;
+    margin: 0 5px;
+    border-radius: 8px;
+    display: inline-block;
+    transition: all 0.5s;
+}
+
+.bullet .active {
+    background-color: #666;
+    width:50px;
+}
