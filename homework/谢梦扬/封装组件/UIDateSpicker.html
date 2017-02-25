@@ -196,7 +196,7 @@
 
                 this.$Datepicker.find('.cur').text(this.watchDate.getFullYear()+'年'+(this.watchDate.getMonth()+1)+'月');
                 var tpl = '';
-                for(let i =0;i<dateArr.length;i++){
+                for(var i =0;i<dateArr.length;i++){
                     if(i%7 === 0){
                         tpl += '<tr>'
                     }
@@ -291,7 +291,7 @@
                     year++;
                 }
                 return new Date(year, month, 1);
-            },
+            }
 
         };
         return {
