@@ -1,0 +1,49 @@
+<html>
+<style>
+    .ct {
+        width: 910px;
+        margin: auto;
+    }
+
+    .main {
+        float: left;
+        width: 450px;
+        height: 300px;
+        border: 1px solid #ccc;
+    }
+
+    .main input {
+        margin: 20px;
+        width: 200px;
+    }
+
+
+    iframe {
+        width: 450px;
+        height: 300px;
+        border: 1px dashed #ccc;
+    }
+</style>
+
+<div class="ct">
+    <h1>使用降域实现跨域</h1>
+
+    <div class="main">
+        <input type="text" placeholder="http://a.jkb.com:8080/a.html">
+    </div>
+
+    <iframe src="http://b.jkb.com:8080/b.html" frameborder="0"></iframe>
+
+</div>
+
+
+<script>
+
+    document.querySelector('.main input').addEventListener('input', function () {
+        console.log(this.value);
+        window.frames[0].document.querySelector('input').value = this.value;
+    });
+    document.domain = "jkb.com"
+
+</script>
+</html>
