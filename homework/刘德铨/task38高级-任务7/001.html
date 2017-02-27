@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body {
+            background: #F3966F;
+        }
+        header {
+            width: 200px;
+            height: 300px;
+            margin: 0 auto;
+            line-height: 300px;
+            border-radius: 50px;
+            background: #639ED9;
+            text-align: center;
+        }
+    </style>
+     <!--  [if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/r29/html5.min.js"></script>
+    <![endif] -->
+    <!-- [if lt IE 9]>
+        <script>
+            (function(){
+                var html5 = ["header", "footer", "nav", "section", "article", "aside", "canvas", "audio", "video", "source", "embed", "track", "datalist", "keygen", "output", "bdi", "command", "details", "dialog", "summary", "figure", "figcaption", "mark", "meter", "progress", "ruby", "rt", "rp", "time", "wbr"];
+                for(var i = 0; i < html5.length; i++){
+                    document.createElement(html5[i]);
+                }
+            })()
+        </script>
+    <![endif] -->
+    <!--[if lt IE 9]>
+        <script>
+            createHtml5("header", "footer", "nav", "section", "article", "aside", "canvas", "audio", "video", "source", "embed", "track", "datalist", "keygen", "output", "bdi", "command", "details", "dialog", "summary", "figure", "figcaption", "mark", "meter", "progress", "ruby", "rt", "rp", "time", "wbr");
+            function createHtml5(){
+                var args = Array.prototype.slice.call(arguments, 0);
+                for(var i = 0; i < args.length; i++){
+                    document.createElement(args[i]);   
+                }
+            };
+        </script>
+    <![endif]-->
+    
+</head>
+<body>
+    <header>
+        <h2>header</h2>
+    </header>
+</body>
+</html>
