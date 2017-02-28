@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>server-mock使用说明</title>
+<style>
+
+  .content-text {
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    padding: 10px;
+    margin: 10px;
+  }
+  .content-text:hover {
+    background-color: #009933;
+  }
+
+  #btn {
+    width: 75px;
+    font-size: 18px;
+    color: red;
+    border: 1px solid red;
+    border-radius: 2px;
+    padding: 10px;
+    margin: 0 auto;
+    cursor: pointer;
+  }
+
+</style>
+</head>
+<body>
+  
+  <div id="content">
+      <p class="content-text">内容1</p>
+      <p class="content-text">内容2</p>
+  </div>
+  <div id="btn">加载更多</div>
+    <script>
+  	 
+     
+     document.querySelector('#btn').addEventListener('click', function(){
+      var sendIndex = document.querySelectorAll('p').length;
+        ajax({
+            url: '/getMore',   //接口地址
+            type: 'get',               // 类型， post 或者 get,
+            data: {
+                index: sendIndex
+            },
+            success: function (ret){
+              var data = JSON.parse(ret);
+              console.log(data);
+              var addArr = [];
+              for(var i = 0; i < data.length; i++){
+                var ptag = document.createElement("p");
+                ptag.innerText = data[i];
+                ptag.classList.add("content-text");
+                document.querySelector("#content").appendChild(ptag);
+              }
+            },
+            error: function(){
+               console.log('出错了');
+            }
+        })
+    });
+
+     
+      function ajax(opts){
+       var sendURL = opts.url + "?";
+       var xhr = new XMLHttpRequest();
+       for(var key in opts.data){
+           sendURL += key + "=" + opts.data[key] + "&";
+         }
+         sendURL = sendURL.slice(0, sendURL.length - 1);
+         console.log(sendURL);
+         //处理服务器响应
+         xhr.onreadystatechange = function(){
+           if (xhr.readyState == 4){
+             if(xhr.status == 200){
+              opts.success(xhr.responseText);
+             }else if(xhr.status == 404){
+               opts.error();
+             }
+            }
+         }
+         //发送
+         if(opts.type === "get"){
+           xhr.open(opts.type, sendURL, true);
+           xhr.send();
+         }
+         else{
+           xhr.open(opts.type, opts.url, true);
+           xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+           xhr.send(sendURL);
+         }
+    }
+
+  	</script>
+</body>
+</html>

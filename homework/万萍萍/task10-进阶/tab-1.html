@@ -27,25 +27,27 @@
 		clear: both;
 	}
 	.header {
-		border: 1px solid #ccc;
+		/*border*/: 1px solid #ccc;
 	}
 	.header>li {
-		border-left: 1px solid #ccc;
-		padding: 5px 83px;
+		border: 1px solid #ccc;
+		border-left: none;
+		padding: 5px 82px;
 		float: left;
 		cursor: pointer;
 	}
-	.header li:first-of-type{
-		border-left: none;
+	.header li:nth-child(1){
+		border-left: 1px solid #ccc;
 	}
 
 	.header .active {
 		background: #eee;
 	}
 	.content {
+		width: 590px;
+		height: 200px;
 		border: 1px solid #ccc;
 		border-top: none;
-		height: 200px;
 	}
 	.content>li{
 		display: none;
