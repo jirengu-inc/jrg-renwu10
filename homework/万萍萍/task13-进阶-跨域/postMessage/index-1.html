@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>postMessage</title>
+<style>
+  .ct{
+    width: 910px;
+    margin: auto;
+  }
+  .main{
+    float: left;
+    width: 450px;
+    height: 300px;
+    border: 1px solid #ccc;
+  }
+  .main input{
+    margin: 20px;
+    width: 200px;
+  }
+  .iframe{
+    float: right;
+  }
+
+  iframe{
+    width: 450px;
+    height: 300px;
+    border: 1px dashed #ccc;
+  }
+</style>
+</head>
+<body>
+
+<div class="ct">
+ 
+  <div class="main">
+    <input type="text" placeholder="postMessage演示1">
+  </div>
+
+  <iframe src="http://b.mywork.com:8080/index-2.html" frameborder="0" ></iframe>
+
+</div>
+  
+<script>
+  	 
+     document.querySelector('.main input').addEventListener('input', function(){
+      // window.frames[0].document.querySelector('input').value = this.value;
+      window.frames[0].postMessage(this.value, "*");
+    })
+
+    window.addEventListener('message',function(e){
+      console.log("收到其他window发来的消息2");
+      document.querySelector('.main input').value = e.data;
+    });
+
+    // document.domain = "mywork.com";
+
+</script>
+</body>
+</html>
