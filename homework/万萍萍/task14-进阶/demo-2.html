@@ -8,9 +8,144 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
     <link href="" rel="stylesheet">
+
+    <style>
+        body {
+            font-size: .8 rem;
+        }
+        
+        a {
+            text-decoration: none
+        }
+        
+        img {
+            margin: 0;
+            padding: 0;
+        }
+        
+        h4 {
+            font-weight: normal;
+        }
+        
+        ul,
+        li {
+            margin: 0;
+            padding: 0;
+        }
+        
+        li {
+            list-style: none;
+        }
+        
+        .clearfix::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+        
+        #tab {
+            border: 1px solid #ccc;
+            border-bottom: none;
+            border-radius: 3px;
+            max-width: 204px;
+        }
+        
+        #tab>li {
+            padding: 10px;
+            float: left;
+            cursor: pointer;
+        }
+        
+        .tab-active {
+            background: #ccc;
+            color: #c81623;
+        }
+        
+        .items-ct {
+            border: 1px solid #ccc;
+        }
+        
+        .item {
+            border: 1px solid #ccc;
+            margin-right: 20px;
+            margin-bottom: 20px;
+            padding: 10px;
+            float: left;
+        }
+        
+        .item>img,
+        .item>a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .mask {
+            background: black;
+            opacity: .5;
+            /*position: absolute;*/
+        }
+    </style>
+
 </head>
 
 <body>
+    <div id="ct-1">
+        <ul id="tab" class="clearfix">
+            <li class="tab-active">热门</li>
+            <li class="tab-active">珠宝首饰</li>
+            <li class="tab-active">奢侈品</li>
+        </ul>
+
+        <div>
+            <ul class="items-ct clearfix">
+                <li class="item">
+                    <img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt="">
+                    <h4>藏美千足金和田玉金镶玉路路通吊坠</h4>
+                    <p>￥1699.00</p>
+                    <div class="mask"></div>
+                    <a href="#">立即抢购</a>
+                </li>
+                <li class="item">
+                    <img src="http://img12.360buyimg.com/N3/jfs/t2302/181/1562193880/220016/88a978ef/56cbbc11Nd6d3b04b.jpg" alt="">
+                    <h4>藏美千足金和田玉金镶玉路路通吊坠</h4>
+                    <p>￥1699.00</p>
+                    <div class="mask"></div>
+                    <a href="#">立即抢购</a>
+                </li>
+                <li class="item">
+                    <img src="http://img13.360buyimg.com/N3/jfs/t2461/336/2166939566/101221/3af27699/56c426a5N9b6673f4.jpg" alt="">
+                    <h4>藏美千足金和田玉金镶玉路路通吊坠</h4>
+                    <p>￥1699.00</p>
+                    <div class="mask"></div>
+                    <a href="#">立即抢购</a>
+                </li>
+                <li class="item">
+                    <img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt="">
+                    <h4>藏美千足金和田玉金镶玉路路通吊坠</h4>
+                    <p>￥1699.00</p>
+                    <div class="mask"></div>
+                    <a href="#">立即抢购</a>
+                </li>
+                <li class="item">
+                    <img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt="">
+                    <h4>藏美千足金和田玉金镶玉路路通吊坠</h4>
+                    <p>￥1699.00</p>
+                    <div class="mask"></div>
+                    <a href="#">立即抢购</a>
+                </li>
+                <li class="item">
+                    <img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt="">
+                    <h4>藏美千足金和田玉金镶玉路路通吊坠</h4>
+                    <p>￥1699.00</p>
+                    <div class="mask"></div>
+                    <a href="#">立即抢购</a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
 
 </body>
 
