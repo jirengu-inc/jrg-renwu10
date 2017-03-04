@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var People = function (name, age) {
+            this.name = name;
+            this.age = age
+        };
+        People.prototype.getName = function () {
+            console.log('name:' + this.name)
+        }
+        var Person = function (name, age, job) {
+            People.call(this, name, age)
+            this.job = job;
+        }
+        Person.prototype = Object.create(People.prototype);
+        Person.prototype.constructor = Person;
+        Person.prototype.getJob = function () {
+            console.log('Job: ' + this.job)
+        };
+        var Jacky = new Person('Jacky', 23, 'engineer')
+    </script>
+</body>
+
+</html>
