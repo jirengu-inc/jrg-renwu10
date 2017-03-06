@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+        ul, li {
+            margin: 0;
+            padding: 0;
+        }
+        li {
+            list-style: none;
+        }
+        #ct > li {
+            border: 1px solid #ccc;
+            padding: 10px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        #more {
+            display: block;
+            margin: 10px auto;
+            text-align: center;
+            cursor: pointer;
+            height: 40px;
+            line-height: 40px;
+            width: 80px;
+            border: 1px solid #E27272;
+            border-radius: 3px;
+            text-decoration: none;
+            color: #E27272;
+        }
+        li:hover{
+            background: green;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+<ul id="ct">
+    <li>内容1</li>
+    <li>内容2</li>
+</ul>
+<!--<a href="#" id="more">加载更多</a>-->
+<p class="scroll-more">滑动获取更多数据</p>
+<script src="jquery-3.1.1.js"></script>
+<script>
+    var $btn = $('#more');
+    var $ul = $('#ct');
+    var isOver = false;
+    getNews();
+    $(window).on('scroll', checkNews);
+    function checkNews(){
+        if( isShow($('.scroll-more')) && !isOver ){
+            getNews()
+        }
+    }
+    function getNews(){
+        isOver = true;
+        var $li = $ul.children('li');
+        var num = $li.length;
+        if (num <= 48) {
+            $.get('/more',{count:num}).done(function(ret){
+                isOver = false;
+                for (var i = 0; i < ret.length; i++) {
+                    var newLi = $('<li>'+ret[i]+'</li>');
+                    newLi.appendTo($ul)
+                }
+                if( isShow($('.scroll-more')) && !isOver ){
+                    getNews()
+                }
+            })
+        }else if(num > 48){
+            $('.scroll-more').text('~~~~~~~~~~~~~~~~没有更多数据啦~~~~~~~~~~~~~~~~~~~~~~~~')
+        }
+
+    }
+    function isShow($node) {
+        var scrollTop = $(window).scrollTop();
+        var windowHeight = $(window).height();
+        var offsetTop = $node.offset().top;
+        if(offsetTop < scrollTop + windowHeight && offsetTop+$node.outerHeight() > scrollTop) {
+            return true
+        }
+        return false
+    }
+    
+</script>
+</body>
+</html>
