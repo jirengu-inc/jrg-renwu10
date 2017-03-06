@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{
+            height: 2000px;
+        }
+        #btn1{
+            padding: 10px;
+        }
+        #box1{
+            width: 100px;
+            height: 200px;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            right: 0;
+            border: 1px solid #ccc;
+        }
+        #box2{
+            width: 100px;
+            height: 100px;
+            border: 1px solid #ccc;
+            background: #fff;
+        }
+    </style>
+</head>
+<body>
+<p>当点击$btn 时，让 $btn 的背景色变为红色再变为蓝色</p>
+<button id="btn1">变色</button>
+<p>当窗口滚动时，获取垂直滚动距离</p>
+<div id="box1"></div>
+<p>当鼠标放置到$div 上，把$div 背景色改为红色，移出鼠标背景色变为白色</p>
+<div id="box2"></div>
+<p>当鼠标激活 input 输入框时让输入框边框变为蓝色，当输入框内容改变时把输入框里的文字小写变为大写，当输入框失去焦点时去掉边框蓝色，控制台展示输入框里的文字</p>
+<input id="txt" type="text" placeholder="请输入">
+<p>当选择 select 后，获取用户选择的内容</p>
+<select name="" id="select">
+    <option value="1">a</option>
+    <option value="2">b</option>
+    <option value="3">c</option>
+</select>
+<p>内容:<span id="text"></span></p>
+
+
+<script src="jquery-3.1.1.js"></script>
+<script>
+    var $btn1 = $('#btn1');
+    var $box2 = $('#box2');
+    var $txt = $('#txt');
+    $btn1.on('click',function(){
+        $btn1.css("background-color","#f00");
+        setTimeout(function(){
+            $btn1.css("background-color","#00f");
+        },500);
+    });
+    $(window).on("scroll",function(){
+        $("#box1").text($(window).scrollTop()+"px");
+    });
+    $box2.on("mouseenter",function(){
+        $(this).css("background-color","#f00");
+    });
+    $box2.on("mouseleave",function(){
+        $(this).css("background","#fff");
+    });
+    $txt.on("focus",function(){
+        $(this).css("outlineColor","blue");
+    });
+    $txt.on("keyup",function(){
+        $(this).val($(this).val().toUpperCase());
+    });
+    $txt.on("blur",function(e){
+        e.stopPropagation();
+        console.log($(this).val());
+    });
+
+    $('#select').on('change',function(){
+        $('#text').text($('#select option:selected').text());
+    })
+
+
+</script>
+</body></html>
