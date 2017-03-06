@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var Event = (function(){
+            var evt = {};
+
+            function on(e,handler){
+                evt[e] = evt[e] || [];
+                evt[e].push({
+                    handler:handler
+                })
+            }
+
+            function off(e){
+                delete evt[e];
+            }
+
+            function fire(e,args){
+                if(!evt[e]){
+                    return 
+                }
+                evt[e].forEach(function(elem,index){
+                    evt[e][index].handler(args)
+                })
+            }
+            return {
+                on:on,
+                off:off,
+                fire:fire
+            }
+        })()
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var People = ((function(){
+            var instance;
+            function init(){
+                var name = '李杨';
+                var age = 23;
+                var getName = function(){
+                    console.log('name:' + this.name)
+                }
+                return{
+                    name:name,
+                    age:age,
+                    getName:getName
+                }
+            }
+            return {
+                createPeople:function(){
+                    if(!instance){
+                        instance = init();
+                    }
+                    return instance;
+                }
+            };
+        })());
+
+        var me1 = People.createPeople();
+        var me2 = People.createPeople();
+    </script>
+</body>
+</html>

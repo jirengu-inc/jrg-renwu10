@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function people(obj){
+            var person = {};
+            person.name = obj.name || '李杨';
+            person.age = obj.age || 23;
+            person.getName = function(){
+                console.log(this.name)
+            }
+            return person;
+        }
+
+        var jack = people({name:'Jack',age:25});
+        var tom = people({name:'Tom',age:30})
+    </script>
+</body>
+</html>
