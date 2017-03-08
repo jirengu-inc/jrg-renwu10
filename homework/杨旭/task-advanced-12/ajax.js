@@ -13,8 +13,8 @@ document.body.addEventListener('click',function(e){
         dataType:'json',
         data:{length:2},
         datastr:{},
-        success:function(){
-            appendData();
+        success:function(data){
+            appendData(data);
             lock = false;
         } ,
         error:function(){
