@@ -10,73 +10,89 @@
     <link href="" rel="stylesheet">
 
     <style>
-        button{
-            background:none;
+        button {
+            background: none;
             border: none;
             outline: none;
         }
-
-        ul, li{
+        
+        ul,
+        li {
             margin: 0;
             padding: 0;
             list-style: none;
         }
-
-        .title-txt{
+        
+        .title-txt {
             color: #666;
-            /*position: relative;*/
-            /*left: 375px;*/
         }
-
-        .ct{
-            display: flex;
-            justify-content: center;
+        
+        .ct {
+            /*display: flex;
+            justify-content: center;*/
+            width: 900px;
+            margin: 0 auto;
         }
-
-
-        .clearfix:after{
+        
+        .clearfix:after {
             content: "";
             display: block;
             clear: both;
         }
-
+        
         .item {
             margin: 20px;
             padding: 10px;
             float: left;
-            border: 1px solid;
+            border: 1px solid #ccc;
             position: relative;
             font-size: 12px;
             color: #666;
             text-align: center;
         }
-
-        .item img{
+        
+        .item img {
             display: inline-block;
-
         }
-
-        .item button{
-
-        }
-
-        .item p:nth-child(3){
+        
+        .item p:nth-child(3) {
             color: red;
             display: block;
         }
-
-        .item:hover{
-
+        
+        .mask {
+            width: 100%;
+            height: 100%;
+            background: black;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, .3);
+            opacity: 0;
         }
-
-        #btn{
+        
+        .mask:hover {
+            opacity: 1;
+        }
+        
+        .mask:before {
+            content: "";
+            height: 100%;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        
+        .buy-btn {
+            vertical-align: middle;
+            background: white;
+        }
+        
+        .btn {
             padding: 10px;
             margin-top: 10px;
             border: 1px solid red;
             border-radius: 3px;
             cursor: pointer;
-            /*position: relative;*/
-            /*left: 375px;*/
         }
     </style>
 
@@ -85,47 +101,65 @@
 </head>
 
 <body>
-<div>
-    <h2 class="title-txt">珠宝首饰</h2>
-    <div class="layout">
-        <ul class="ct clearfix">
-            <li class="item">
-                <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
-                <p>藏美千足金和田玉金镶玉路路通吊坠</p>
-                <p>￥1699</p>
-                <button>立即购买</button>
-            </li>
-            <li class="item">
-                <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
-                <p>藏美千足金和田玉金镶玉路路通吊坠</p>
-                <p>￥1699</p>
-                <button>立即购买</button>
-            </li>
-            <li class="item">
-                <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
-                <p>藏美千足金和田玉金镶玉路路通吊坠</p>
-                <p>￥1699</p>
-                <button>立即购买</button>
-            </li>
+    <div>
+        <h2 class="title-txt">珠宝首饰</h2>
+        <div class="layout">
+            <ul class="ct clearfix">
+                <li class="item">
+                    <img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt="">
+                    <p>藏美千足金和田玉金镶玉路路通吊坠</p>
+                    <p>￥1699</p>
+                    <div class="mask"><button class="btn buy-btn">立即购买</button></div>
+                </li>
+                <li class="item">
+                    <img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt="">
+                    <p>藏美千足金和田玉金镶玉路路通吊坠</p>
+                    <p>￥1699</p>
+                    <div class="mask"><button class="btn buy-btn">立即购买</button></div>
+                </li>
+                <li class="item">
+                    <img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt="">
+                    <p>藏美千足金和田玉金镶玉路路通吊坠</p>
+                    <p>￥1699</p>
+                    <div class="mask"><button class="btn buy-btn">立即购买</button></div>
+                </li>
+            </ul>
 
-        </ul>
-
-        <button id="btn">添加</button>
+            <button id="btn" class="btn">添加</button>
+        </div>
     </div>
-</div>
 
-<script>
+    <script>
+        var nodeStr = '<li class="item">' +
+            '<img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt="">' +
+            '<p>藏美千足金和田玉金镶玉路路通吊坠</p>' +
+            '<p>￥1699</p>' +
+            '<div class="mask"><button class="btn buy-btn">立即购买</button></div>' +
+            '</li>';
+        var $ct = $(".ct");
+        var $btn = $("#btn");
+        $btn.on("click", getMoreHdr);
 
-    var ct = $(".ct");
-    var btn = $("#btn");
-    btn.on("click", getMoreHdr);
+        function getMoreHdr() {
+            $.get("/getMore").done(function(data) {
+                creatElements(data);
+            });
+        }
 
-    function getMoreHdr(){
-        $.get("/getMore").done(function(data){
-            console.log(data)
-        });
-    }
-</script>
+        function creatElements(data) {
+            for (var i = 0; i < data.length; i++) {
+                var $node = $(nodeStr);
+
+                $node.css('width', $ct.children(0).css('width'));
+                $node.children('img').attr('src', data[i].img);
+                $node.children('p:first-of-type').text(data[i].name);
+                $node.children('p:last-of-type').text(data[i].price);
+
+                $ct.append($node);
+            }
+        }
+    </script>
 
 </body>
+
 </html>
