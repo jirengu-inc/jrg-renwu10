@@ -1,0 +1,94 @@
+* {
+    box-sizing: border-box;
+}
+body, ul, li, p{
+    margin: 0;
+    padding: 0;
+}
+ol,ul{
+    list-style: none;
+}
+body {
+    font: 12px/150% Arial,Verdana,"\5b8b\4f53";
+    color: #666;
+}
+a {
+    color: #666;
+    text-decoration: none;
+}
+
+.clearfix:after{
+    content:'';
+    display: block;
+    clear: both;
+}
+.clearfix{
+    *zoom: 1;
+}
+
+.layout{
+    width: 702px;
+    margin: 10px auto;
+}
+
+.btn{
+    display: inline-block;
+    border: 1px solid #c81623;
+    color: #c81623;
+    padding: 10px 15px;
+    border-radius: 3px;
+    text-align: center;
+    background: #fff;
+    cursor: pointer;
+}
+
+
+
+.prod{
+    position: relative;
+    float: left;
+    width: 220px;
+    padding: 10px 20px;
+    margin-left: 20px;
+    margin-top: 20px;
+    text-align: center;
+    border: 1px solid #eee;
+    background: #fff;
+}
+.cover{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0,0,0, 0.3);
+    transition: all 0.3s;
+    opacity: 0;
+}
+.cover .btn{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.prod.hover .cover{
+    opacity: 1;
+}
+.prod-ct{
+    margin-left: -20px;
+    margin-top: -20px;
+}
+.prod-name{
+    height: 36px;
+    text-align: left;
+    font-weight: normal;
+    font-size: 12px;
+    color: #666;
+}
+.prod-price{
+    text-align: left;
+    color: #c81623;
+}
+.btn-add{
+    margin-top: 20px;
+}

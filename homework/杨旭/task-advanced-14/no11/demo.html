@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="demo.css" type="text/css">
+</head>
+<body>
+<div class="layout">
+    <h1>珠宝首饰</h1>
+    <ul class="prod-ct">
+        <li class="prod">
+            <div class="cover"><a class="btn" href="">立即抢购</a></div>
+            <a href="#">
+                <img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt="">
+                <div class="prod-name">藏美千足金和田玉金镶玉路路通吊坠</div>
+                <div class="prod-price">￥1699.00</div>
+            </a>
+        </li>
+        <li class="prod">
+            <div class="cover"><a class="btn" href="">立即抢购</a></div>
+            <a href="#">
+                <img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt="">
+                <div class="prod-name">藏美千足金和田玉金镶玉路路通吊坠</div>
+                <div class="prod-price">￥1699.00</div>
+            </a>
+        </li>
+        <li class="prod">
+            <div class="cover"><a class="btn" href="">立即抢购</a></div>
+            <a href="#">
+                <img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt="">
+                <div class="prod-name">藏美千足金和田玉金镶玉路路通吊坠</div>
+                <div class="prod-price">￥1699.00</div>
+            </a>
+        </li>
+        <li class="prod">
+            <div class="cover"><a class="btn" href="">立即抢购</a></div>
+            <a href="#">
+                <img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt="">
+                <div class="prod-name">藏美千足金和田玉金镶玉路路通吊坠</div>
+                <div class="prod-price">￥1699.00</div>
+            </a>
+        </li>
+        <li class="prod">
+            <div class="cover"><a class="btn" href="">立即抢购</a></div>
+            <a href="#">
+                <img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt="">
+                <div class="prod-name">藏美千足金和田玉金镶玉路路通吊坠</div>
+                <div class="prod-price">￥1699.00</div>
+            </a>
+        </li>
+        <li class="prod">
+            <div class="cover"><a class="btn" href="">立即抢购</a></div>
+            <a href="#">
+                <img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt="">
+                <div class="prod-name">藏美千足金和田玉金镶玉路路通吊坠</div>
+                <div class="prod-price">￥1699.00</div>
+            </a>
+        </li>
+    </ul>
+
+
+    <a href="#" class="btn btn-add">添加</a>
+</div>
+<script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js"></script>
+<script>
+    var products = [
+        {
+            img: 'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+            name: '珂兰 黄金手 猴哥款',
+            price: '￥405.00'
+        },{
+            img: 'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+            name: '珂兰 黄金转运珠 猴哥款',
+            price: '￥100.00'
+        },{
+            img: 'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+            name: '珂兰 黄金手链 3D猴哥款',
+            price: '￥45.00'
+        }
+    ];
+
+    function getProdHtml(prod) {
+        var html = '';
+        html += '<li class="prod">';
+        html +=   '<div class="cover"><a class="btn" href="">立即抢购</a></div>'
+        html +=    '<a href="#">'
+        html +=      '<img src="'+prod.img+'" alt="">'
+        html +=      '<div class="prod-name">'+prod.name+'</div>'
+        html +=      '<div class="prod-price">'+prod.price+'</div>'
+        html +=    '</a>'
+        html += '</li>';
+        return html;
+    }
+
+    $('.btn-add').on('click',function(e){
+        e.preventDefault();
+        $.each(products,function(idx,prod){
+            var html = getProdHtml(prod);
+            $('.prod-ct').append(html);
+        })
+    });
+
+    $('.prod-ct').on('mouseenter','.prod',function(e){
+        $(this).addClass('hover');
+    })
+
+    $('.prod-ct').on('mouseleave','.prod',function (e) {
+        $(this).removeClass('hover');
+    })
+</script>
+</body>
+</html>
