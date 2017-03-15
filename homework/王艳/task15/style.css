@@ -180,8 +180,8 @@ header .btn{
 .category .category-list li img {
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
-  width: 430px;
-  height: 300px;
+  width: 350px;
+  height: 230px;
 }
 
 .category .category-list h4{
@@ -198,12 +198,12 @@ header .btn{
 .category .category-list li {
   	margin-left: 30px;
   	margin-right: 30px;
-	width: 430px;
-	height: 370px;
+	width: 350px;
+	height: 300px;
   	float: left;
   	background: #fff;
   	border-radius: 8px;
-  	margin-bottom: 25px;
+  	margin-bottom: 30px;
   	position: relative;	
 	display: inline-block;
 }
@@ -213,10 +213,10 @@ header .btn{
 	background-color: rgba(153,153,153,.5);
 	left: 0;
 	right: 0;
-	bottom: 26%;
+	bottom: 
+	bottom: 24%;
 	opacity: 0;
 	transition: opacity .75s ease-out;
-	font-size: 150px;
 }
 
 .category .category-list li:hover figcaption{
@@ -224,7 +224,7 @@ header .btn{
 }
 
 .category .category-list li .iconfont{
-	font-size: 220px;
+	font-size: 200px;
 	vertical-align: middle;
 	color: #fff;
 }
