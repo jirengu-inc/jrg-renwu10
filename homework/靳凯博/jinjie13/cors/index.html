@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>news</title>
+    <style>
+        .container {
+            width: 900px;
+            margin: 0 auto;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <p>cors</p>
+    <ul class="news">
+        <li>你好1</li>
+        <li>你好2</li>
+        <li>你好3</li>
+    </ul>
+    <button class="change">换一组</button>
+</div>
+
+<script>
+
+    $('.change').addEventListener('click', function () {
+
+        var xhr = new XMLHttpRequest();
+        xhr.open('get', 'http://b.jkb.com:8080/getNews', true);
+        xhr.send();
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                appendHtml(JSON.parse(xhr.responseText))
+            }
+        }
+        window.xhr = xhr
+
+    })
+
+    function appendHtml(news) {
+        var html = '';
+        for (var i = 0; i < news.length; i++) {
+            html += '<li>' + news[i] + '</li>';
+        }
+//        console.log(html);
+        $('.news').innerHTML = html;
+
+    }
+
+
+    function $(id) {
+        return document.querySelector(id);
+    }
+</script>
+</body>
+</html>

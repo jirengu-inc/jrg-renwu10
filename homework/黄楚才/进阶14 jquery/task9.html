@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>导航栏的切换</title>
+</head>
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-size: 14px;
+    }
+    li{
+        list-style:none;
+    }
+    a{
+        text-decoration: none;
+    }
+    .ct{
+        padding: 10px;
+    }
+    .location{
+        border:  1px solid #ccc;
+        width: 200px;
+        position: absolute;
+        top: 0px;
+        left:100%;
+        display: none;
+    }
+    .show{
+        display: block;
+    }
+    .location>li{
+        width: 89px;
+        float: left;
+        padding: 10px 20px;
+    }
+    .location>li>a{
+        color: #000;
+    }
+    .ctli>li{
+        width: 200px;
+        background: #C7171E;
+        padding:10px 20px;
+        border-bottom: 1px dotted #DE272E;
+        position: relative;
+    }
+    .ctli>li:last-child{
+        border-bottom: none;
+    }
+    .ctli>li>a{
+        color: #fff;
+    }
+    .ctli>li>span{
+        position: absolute;
+        top: 10px;
+        color: #fff;
+        right: 10px;
+    }
+</style>
+<body>
+<div class="ct">
+<ul class="ctli">
+    <li><a href="#">珠光玉器</a><span>></span>
+        <ul class="location top_first">
+            <li><a href="#">翡翠</a></li>
+            <li><a href="#">玉石</a></li>
+            <li><a href="#">宝石</a></li>
+            <li><a href="#">水晶</a></li>
+            <li><a href="#">玛瑙</a></li>
+            <li><a href="#">珍珠</a></li>
+            <li><a href="#">钻石</a></li>
+            <li><a href="#">琥珀</a></li>
+            <li><a href="#">和田</a></li>
+            <li><a href="#">琥珀</a></li>
+        </ul>
+    </li>
+    <li><a href="#">珠光玉器</a><span>></span>
+        <ul class="location top_second">
+            <li><a href="#">翡翠</a></li>
+            <li><a href="#">玉石</a></li>
+            <li><a href="#">宝石</a></li>
+            <li><a href="#">水晶</a></li>
+            <li><a href="#">玛瑙</a></li>
+            <li><a href="#">珍珠</a></li>
+        </ul>
+    </li>
+    <li><a href="#">珠光玉器</a><span>></span>
+        <ul class="location top_three">
+            <li><a href="#">翡翠</a></li>
+            <li><a href="#">玉石</a></li>
+            <li><a href="#">宝石</a></li>
+            <li><a href="#">水晶</a></li>
+        </ul>
+    </li>
+    <li><a href="#">珠光玉器</a><span>></span>
+        <ul class="location top_four">
+            <li><a href="#">翡翠</a></li>
+            <li><a href="#">玉石</a></li>
+            <li><a href="#">宝石</a></li>
+            <li><a href="#">水晶</a></li>
+            <li><a href="#">玛瑙</a></li>
+            <li><a href="#">珍珠</a></li>
+        </ul>
+    </li>
+    <li><a href="#">珠光玉器</a><span>></span>
+        <ul class="location top_five">
+            <li><a href="#">翡翠</a></li>
+            <li><a href="#">玉石</a></li>
+            <li><a href="#">宝石</a></li>
+            <li><a href="#">水晶</a></li>
+        </ul>
+    </li>
+</ul>
+</div>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script>
+var $location=$(".location")
+$(".ctli").on("mouseover",'li',function(){
+   var index=$(this).index()
+   if($location.hasClass('show')){
+       $location.removeClass('show')
+   }
+   $location.eq(index).addClass("show")
+})
+$(".ctli").on("mouseout",function(){
+    $location.removeClass('show')
+})
+</script>
+</body>
+</html>

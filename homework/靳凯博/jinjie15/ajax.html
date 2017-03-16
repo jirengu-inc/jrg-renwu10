@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #btn{
+            background: #fff;
+            padding: 20px;
+            border: 1px solid #ccc;
+        }
+        ul,li{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .ct>li{
+            width: 600px;
+        }
+    </style>
+</head>
+<body>
+<button id="btn">获取天气状况</button>
+<div id="now">
+    <p>当前城市：<span class="city"></span></p>
+    <p>pm2.5指数：<span class="pm"></span></p>
+</div>
+<div id="prompt">
+    <p>小提示</p>
+    <ul class="ct">
+        <li>
+            <p class="title1"></p>
+            <p class="tipt1"></p>
+        </li>
+        <li>
+            <p class="title2"></p>
+            <p class="tipt2"></p>
+        </li>
+        <li>
+            <p class="title3"></p>
+            <p class="tipt3"></p>
+        </li>
+        <li>
+            <p class="title4"></p>
+            <p class="tipt4"></p>
+        </li>
+        <li>
+            <p class="title5"></p>
+            <p class="tipt5"></p>
+        </li>
+        <li>
+            <p class="title6"></p>
+            <p class="tipt6"></p>
+        </li>
+    </ul>
+</div>
+<script src="jquery-3.1.1.js"></script>
+<script>
+    var $btn = $('#btn');
+    $btn.on('click',function(){
+        $.ajax({
+            url: 'http://api.jirengu.com/weather.php',
+            type: 'get',
+            dataType: 'json'
+        }).done(function(ret){
+            var a= ret;
+            $(a).each(function () {
+                var wea = this.results[0];
+                //console.log(this.results[0]);
+                $('.city').text(wea.currentCity);
+                $('.pm').text(wea.pm25);
+                console.log(wea.index)
+                var htmls = '';
+                for(var i=0;i<wea.index.length;i++){
+                    var index = wea.index[i];
+                    $('.title1').text(wea.index[0].title+'：');
+                    $('.title1').append($('<span>'+ wea.index[0].zs+'</span>'));
+                    $('.title2').text(wea.index[1].title+'：');
+                    $('.title2').append($('<span>'+ wea.index[1].zs+'</span>'));
+                    $('.title3').text(wea.index[2].title+'：');
+                    $('.title3').append($('<span>'+ wea.index[2].zs+'</span>'));
+                    $('.title4').text(wea.index[3].title+'：');
+                    $('.title4').append($('<span>'+ wea.index[3].zs+'</span>'));
+                    $('.title5').text(wea.index[4].title+'：');
+                    $('.title5').append($('<span>'+ wea.index[4].zs+'</span>'));
+                    $('.title6').text(wea.index[5].title+'：');
+                    $('.title6').append($('<span>'+ wea.index[5].zs+'</span>'));
+                    $('.tipt1').text(wea.index[0].tipt);
+                    $('.tipt1').append($('<span>'+ wea.index[0].des+'</span>'));
+                    $('.tipt2').text(wea.index[1].tipt);
+                    $('.tipt2').append($('<span>'+ wea.index[1].des+'</span>'));
+                    $('.tipt3').text(wea.index[2].tipt);
+                    $('.tipt3').append($('<span>'+ wea.index[2].des+'</span>'));
+                    $('.tipt4').text(wea.index[3].tipt);
+                    $('.tipt4').append($('<span>'+ wea.index[3].des+'</span>'));
+                    $('.tipt5').text(wea.index[4].tipt);
+                    $('.tipt5').append($('<span>'+ wea.index[4].des+'</span>'));
+                    $('.tipt6').text(wea.index[5].tipt);
+                    $('.tipt6').append($('<span>'+ wea.index[5].des+'</span>'));
+                }
+            });
+        })
+
+        $('.ct>li').css({border:'1px solid #ccc'})
+
+    })
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>进阶10-事件的应用-示例2</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style>
+	.layout {
+		width: 600px;
+		height: 560px;
+		border: 1px solid #ccc;
+		position: relative;
+	}
+	
+	#alert {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		margin-left: -200px;
+  		margin-top: -93px;
+		width: 400px;
+		height: 186px;
+		background: #fff;
+		border-radius: 2px;
+		display: none;
+	}
+
+	.title {
+		margin: 5px 10px;
+	}
+	.title span:nth-child(1){
+		font-weight: bold;
+	}
+	.title span:nth-child(2) {
+		position: relative;
+		left: 280px;
+		font-size: 22px;
+		cursor: pointer;
+	}
+	.content {
+		border-top: 1px solid #ccc;
+		border-bottom: 1px solid #eaeaea;
+		padding: 10px 10px;
+	}
+	
+	.footer {
+		margin: 15px;
+	}
+
+	.footer span {
+		position: relative;
+		left: 280px;
+		cursor: pointer;
+		margin: 10px 5px;
+	}
+
+</style>
+</head>
+<body>
+    <div class="layout">
+        <button id="btn">点我1</button>
+
+        <div id="alert">
+        	<div class="title">
+        		<span>我是标题1</span>
+            	<span>×</span>
+            </div>
+            <div class="content">
+            	<p>我是内容1</p>
+            	<p>我是内容2</p>
+            </div>
+            <div class="footer">
+            	<span>取消</span>
+            	<span>确定</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+		var mainView = document.querySelector(".layout");
+		var alertPanel = document.querySelector("#alert");
+
+		var openBtn = document.querySelector("#btn");
+		var cancleBtn = document.querySelector(".footer span:nth-child(1)");
+		var closeBtn = document.querySelector(".title span:nth-child(2)");
+
+		addEventListener("click", openOrCloseAlertHdr);
+
+		function openOrCloseAlertHdr(e) {
+			if(e.target === mainView || e.target === cancleBtn || e.target === closeBtn){
+				closeAlert();
+			}else if(e.target === openBtn){
+				openAlert();
+			}
+		}
+
+		function openAlert(){
+			alertPanel.style.display = "block";
+			mainView.style.background = "#999";
+		}
+		function closeAlert(){
+			alertPanel.style.display = "none";
+			mainView.style.background = "#fff";
+		}
+
+    </script>
+</body>
+</html>

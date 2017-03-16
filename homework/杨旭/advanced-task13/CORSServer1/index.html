@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let options = {
+        success:function(){
+            alert('success');
+        },
+        error:function(){
+            alert('error');
+        },
+        type:'GET',
+        dataType:'json',
+        url:'http://localhost:3000/access'
+    }
+    ajax(options);
+</script>
+<script src="ajax.js"></script>
+</body>
+</html>

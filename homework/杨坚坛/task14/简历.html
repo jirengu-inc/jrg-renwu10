@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>个人简历页面</title>
+     <style>
+        html,body,h1,h2,h3,h4,h5,h6,p,ul,li,dl,dt,dd{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+          list-style: none;
+        }
+        *{
+          box-sizing: border-box;
+        }
+        body{
+          font:14px/1.8 Arial;
+          background-color: #ccc;
+          color: #333;
+        }
+        #page{
+          max-width: 1000px;
+          margin: 0 auto;
+          background-color: #fff;
+          padding:60px 45px;
+            }
+
+        section{margin-top: 30px;
+        }
+        section::after{
+          content: "";
+          display: block;
+          clear: both;
+        }
+        section>h2{font-size: 18px;
+        border-bottom: 1px solid #ccc;
+         width: 40%;
+         padding-bottom: 5px;
+         margin-bottom: 10px;
+       }
+        section>ul>li{
+          padding-left: 70px;
+          border-left: 2px solid #333;
+          padding-bottom: 10px;
+          position: relative;
+            }
+        section>ul>li:before{
+          content: "";
+          display: block;
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          background-color: #333;
+          position: absolute;
+          left: -6px;
+               }
+         section h3{
+           font-size: 18px;
+           font-weight: normal;
+           line-height: 1;
+           margin-bottom: 10px;
+              }
+         section h3 span{color: #ccc;
+         }
+         section li>.major{
+           color: #ccc;
+           font-weight: bold;
+         }
+         .personal .name{
+           width: 40%;
+           float: left;
+         }
+         .personal .contact{
+           width: 60%;
+           float: left;
+          }
+          .personal .contact p{
+            line-height:2;
+          }
+          .personal .circle{
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: #333;
+            font-size: 30px;
+            color: #fff;
+            position: relative;
+            float: left;
+          }
+          .personal .circle span:nth-child(1){
+            position: absolute;
+            top: 30px;
+            left: 30px;
+          }
+          .personal .circle span:nth-child(2){
+            position: absolute;
+            bottom: 30px;
+            right: 30px;
+          }
+          .personal .circle::before{
+            content: "";
+            position: absolute;
+            top: 72px;
+            left: 22px;
+            display: inline-block;
+            width: 100px;
+            border-top: 2px solid #fff;
+            transform: rotateZ(120deg);
+          }
+          .personal .name h1{
+            margin-left: 160px;
+            font-size: 40px;
+          }
+          .personal .name p{
+            margin-left: 160px;
+            font-size: 20px;
+          }
+          .personal .contact h2{
+            border-bottom: 4px solid #333;
+            width: auto;
+            margin-bottom: 10px;
+          }
+
+
+
+          #page .others{
+            content: "";
+            display: inline-block;
+            clear: both;
+          }
+
+          .activity{
+            width: 45%;
+            float: left;
+          }
+
+          .activity>h2{
+            width: auto;
+          }
+          .activity>ol>li{
+            padding-left: 50px;
+            padding-bottom: 10px;
+            position: relative;
+          }
+          .activity>ol>li::before{
+            content: "";
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            border-radius: 50%;
+            border: 2px solid #333;
+            position: absolute;
+            left: -30px;
+
+          }
+          .activity>ol>li::after{
+            content: "+";
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            position: absolute;
+            left: -22px;
+            top: 0;
+            font-weight: bold;
+          }
+          .skills{
+            width: 50%;
+            float: left;
+            margin-left: 20px;
+          }
+          .skills>h2{
+            width: auto;
+          }
+          .skills h3{
+            float: left;
+            width: 50%;
+            line-height: 3;
+
+          }
+          .skills>ol h3{
+            position: relative;
+
+          }
+          .skills>ol h3::before{
+            content: "";
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            border-radius: 50%;
+            border: 2px solid #333;
+            position: absolute;
+            left: -29px;
+            top: 14px;
+
+          }
+          .skills>ol h3::after{
+            content: "+";
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            position: absolute;
+            left: -22px;
+            top: 0;
+            font-weight: bold;
+          }
+
+     </style>
+</head>
+<body>
+     <div id="page">
+        <section class="personal">
+          <div class="name">
+            <div class="circle">
+              <span>J</span>
+              <span>T</span>
+            </div>
+            <h1>Jeremy</h1>
+            <p>应聘前端工程师</p>
+          </div>
+          <div class="contact">
+            <h2>联系方式</h2>
+            <ul>
+              <li><p><strong>地址</strong> 广州市海珠区</p></li>
+              <li><p><strong>地址</strong> 广州市海珠区</p></li>
+              <li><p><strong>地址</strong> 广州市海珠区</p></li>
+              <li><p><strong>地址</strong> 广州市海珠区</p></li>
+            </ul>
+          </div>
+        </section>
+        <section class="experience">
+          <h2>工作经历</h2>
+          <ul>
+            <li>
+              <h3>Marketplaces/<span>2011 - 2013</span></h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing
+                elit. Amet tempore deleniti dignissimos officiis earum
+                enim natus possimus, error ullam est totam saepe? Mollitia
+                minima provident, eum assumenda aliquid maiores ipsum.
+              </p>
+            </li>
+            <li>
+              <h3>Apple Inc. /<span>2013 - 2014</span></h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing
+                elit. Amet tempore deleniti dignissimos officiis earum
+                enim natus possimus, error ullam est totam saepe? Mollitia
+                minima provident, eum assumenda aliquid maiores ipsum.
+              </p>
+            </li>
+            <li>
+              <h3>Aroma Bar Network/<span>2014 - Now</span></h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing
+                elit. Amet tempore deleniti dignissimos officiis earum
+                enim natus possimus, error ullam est totam saepe? Mollitia
+                minima provident, eum assumenda aliquid maiores ipsum.
+              </p>
+            </li>
+          </ul>
+        </section>
+        <section class="education">
+          <h2>教育经历</h2>
+          <ul>
+            <li>
+              <h3>College / <span>2013 - 2014</span></h3>
+              <p class="major">my major</p>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet tempore deleniti
+                 dignissimos officiis earum enim natus possimus, error ullam est
+                 totam saepe? Mollitia minima provident, eum assumenda aliquid maiores ipsum.
+              </p>
+            </li>
+            <li>
+              <h3>Ubiversity / <span>2013 - 2014</span></h3>
+              <p class="major">my major</p>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing
+                elit. Amet tempore deleniti dignissimos officiis earum
+                enim natus possimus, error ullam est totam saepe? Mollitia
+                minima provident, eum assumenda aliquid maiores ipsum.
+              </p>
+            </li>
+
+          </ul>
+        </section>
+        <div class="others">
+        <section class="activity">
+          <h2>EXTRA CURRICULAR ACTIVITIES</h2>
+          <ol>
+            <li>
+              <h3>Volunteer</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                 Dicta assumenda nesciunt quos ullam sint nisi, suscipit
+                 alias eum, tenetur, commodi natus iusto.
+               </p>
+            </li>
+            <li>
+              <h3>Volunteer</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                 Dicta assumenda nesciunt quos ullam sint nisi, suscipit
+                 alias eum, tenetur, commodi natus iusto.
+               </p>
+            </li>
+          </ol>
+        </section>
+        <section class="skills">
+          <h2>PROFESIONAL SKILLS</h2>
+          <ol>
+            <li><h3>JAVASCRIPT</h3></li>
+            <li><h3>JQUERY</h3></li>
+            <li><h3>ILLUSTRATOR</h3></li>
+            <li><h3>HTML & CSS</h3></li>
+            <li><h3>SLIM</h3></li>
+            <li><h3>PHOTOSHOP</h3></li>
+          </ol>
+        </section>
+        </div>
+     </div>
+</body>
+</html>

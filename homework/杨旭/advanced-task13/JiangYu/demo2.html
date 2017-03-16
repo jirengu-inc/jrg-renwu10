@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="demo2" placeholder="demo2">
+<script>
+    document.querySelector('#demo2').addEventListener('input',function(){
+       window.frames[0].document.querySelector('#demo1').value = this.value;
+    });
+    document.domain = 'localhost:8080';
+</script>
+</body>
+</html>

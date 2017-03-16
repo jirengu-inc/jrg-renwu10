@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>postMessage</title>
+<style>
+ 
+  input{
+		margin: 20px;
+		width: 200px;
+	}
+
+</style>
+</head>
+<body>
+  <input type="text" placeholder="postMessage演示2">
+
+    <script>
+  	 
+     document.querySelector('input').addEventListener('input', function(){
+      console.log(this.value);
+      // window.parent.document.querySelector('input').value = this.value;
+      window.parent.postMessage(this.value, "*");
+    })
+
+    window.addEventListener('message',function(e){
+      console.log("收到其他window发来的消息1");
+      document.querySelector('input').value = e.data;
+    });
+
+    // document.domain = "mywork.com";
+
+  	</script>
+</body>
+</html>

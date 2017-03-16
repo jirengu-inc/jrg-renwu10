@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>test</title>
+
+    <style>
+
+        input,select{outline:none;}
+
+        button {
+            background: none;
+            border: none;
+            outline: none;
+            cursor: pointer;
+        }
+
+        #btn {
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+
+        #box {
+            border: 1px solid #ccc;
+            width: 500px;
+            height: 500px;
+        }
+    </style>
+
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+    <!--需要插件才能使用jquery颜色动画-->
+    <script src="./jquery.color.js"></script>
+
+</head>
+
+<body>
+
+<input id="input-txt" type="text">
+<select id="select-box">
+    <option value="data1" selected="selected">user-choose-1</option>
+    <option value="data2">user-choose-2</option>
+    <option value="data3">user-choose-3</option>
+    <option value="data4">user-choose-4</option>
+</select>
+<button id="btn">点我</button>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div id="box">
+    test
+</div>
+
+<script>
+    var $btn = $("#btn");
+    var $div = $('#box');
+    var $inputTxt = $('#input-txt');
+    var $selectBox = $('#select-box');
+
+    //当点击$btn 时，让 $btn 的背景色变为红色再变为蓝色
+    $btn.on('click', function (){
+        console.log($btn);
+        $btn.animate({backgroundColor: '#ff0000'}, 1000);
+        $btn.animate({backgroundColor: '#0000ff'}, 1000);
+    });
+
+    //当窗口滚动时，获取垂直滚动距离
+    $(window).scroll(function (){
+        console.log($(window).scrollTop());
+    });
+
+    //当鼠标放置到$div 上，把$div 背景色改为红色，移出鼠标背景色变为白色
+    $div.hover(function(){
+        $(this).animate({backgroundColor: '#ff0000'}, 300);
+            },
+            function () {
+                $(this).animate({backgroundColor: '#ffffff'}, 300);
+    });
+
+    //当鼠标激活 input 输入框时让输入框边框变为蓝色，当输入框内容改变时把输入框里的文字小写变为大写，
+    // 当输入框失去焦点时去掉边框蓝色，控制台展示输入框里的文字
+    $inputTxt.focusin(function(){
+        $(this).css({'outline': 'thin solid #0000ff'});
+    });
+    $inputTxt.focusout(function(){
+        $(this).css({'outline': 'none'});
+        console.log($(this).val());
+    });
+    $inputTxt.keyup(function(){
+        var str = $(this).val().toUpperCase();
+        $(this).val(str);
+    });
+
+    //当选择 select 后，获取用户选择的内容
+    $selectBox.change(function(){
+        $("select option:selected").each(function () {
+            console.log($(this).text());
+        });
+    });
+</script>
+</body>
+
+</html>

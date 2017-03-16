@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>新闻懒加载</title>
+
+    <style>
+        ul,
+        li {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .clearfix:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        .item {
+            margin-bottom: 30px;
+        }
+
+        .float-item {
+            float: left;
+            padding-left: 20px;
+        }
+
+        .float-item p {
+            width: 300px;
+        }
+
+        .load-more {
+            padding: 10px;
+            border: 1px solid red;
+            visibility: hidden;
+        }
+
+        img {
+            width: 40%;
+            height: 40%;
+        }
+
+    </style>
+
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+</head>
+<body>
+<div id="ct">
+    <ul id="content">
+
+    </ul>
+
+    <p class="load-more">下拉加载更多</p>
+</div>
+<script>
+    var nodeStr = '<li class="item clearfix">' +
+        '<img src="" alt="" class="float-item">' +
+        '<div class="float-item">' +
+        '<h2>sdfs</h2>' +
+        '<p>asdfsdfsf</p>' +
+        '</div>' +
+        '</li>';
+
+    var hasData = false;
+    var isComplete = false;
+
+    loading();
+
+    $(window).on('scroll', function (){
+        checkLoad();
+    });
+
+    function checkLoad(){
+        if(isVisible($('.load-more')) && hasData && !isComplete)loading();
+    }
+
+    function loading(){
+        hasData = false;
+        console.log('加载...' + $('.item').length);
+        $.get('/getNews', {index: $('.item').length})
+            .done(function (rep) {
+                hasData = true;
+
+                addToDOM(rep);
+
+                checkLoad();
+            });
+    }
+    
+    function addToDOM(rep) {
+//        console.log(rep);
+        if(rep.status === -1){ //到底
+            $('.load-more').css({'visibility': 'visible'});
+            $('.load-more').text('已经到底啦~');
+            isComplete = true;
+        }else{
+            var $node = $(nodeStr);
+            $node.find('img').attr('src', rep.data.img);
+            $node.find('h2').text(rep.data.name);
+            $node.find('p').text(rep.data.desc);
+
+            $('#content').append($node);
+        }
+    }
+
+    function isVisible($node){
+        var windowH = $(window).height();
+        var scrollTop = $(window).scrollTop();
+        var offsetTop = $node.offset().top;
+        var nodeH = $node.width();
+
+        if(windowH + scrollTop > offsetTop && scrollTop < offsetTop + nodeH){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+</script>
+</body>
+</html>

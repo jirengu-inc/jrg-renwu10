@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片懒加载</title>
+
+    <style>
+        ul,
+        li {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        #ct {
+
+            display: flex;
+            justify-content: center;
+        }
+
+    </style>
+
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+</head>
+<body>
+
+<div id="ct">
+    <ul class="clearfix">
+        <li class="item">
+            <img src="http://p1.bpimg.com/567571/2fd9cbb6b9bb0237.gif" data-src='http://fu5.sdo.com/10036/201702/14872391106606.jpg' alt="">
+        </li>
+        <li class="item">
+            <img src="http://p1.bpimg.com/567571/2fd9cbb6b9bb0237.gif" data-src='http://fu5.sdo.com/10036/201702/14861757664378.jpg' alt="">
+        </li>
+        <li class="item">
+            <img src="http://p1.bpimg.com/567571/2fd9cbb6b9bb0237.gif" data-src='http://fu5.sdo.com/10036/201612/14824921723300.jpg' alt="">
+        </li>
+        <li class="item">
+            <img src="http://p1.bpimg.com/567571/2fd9cbb6b9bb0237.gif" data-src='http://fu5.sdo.com/10036/201612/14824920312393.jpg' alt="">
+        </li>
+        <li class="item">
+            <img src="http://p1.bpimg.com/567571/2fd9cbb6b9bb0237.gif" data-src='http://fu5.sdo.com/10036/201609/14751358684688.jpg' alt="">
+        </li>
+        <li class="item">
+            <img src="http://p1.bpimg.com/567571/2fd9cbb6b9bb0237.gif" data-src='http://img.dfs.sdg-china.com/m/M2OfU4NebAf1iZAbX4.JPG' alt="">
+        </li>
+        <li class="item">
+            <img src="http://p1.bpimg.com/567571/2fd9cbb6b9bb0237.gif" data-src='http://img.dfs.sdg-china.com/m/F3FcU4jM2On35C51A4.JPG' alt="">
+        </li>
+        <li class="item">
+            <img src="http://p1.bpimg.com/567571/2fd9cbb6b9bb0237.gif" data-src='http://img.dfs.sdg-china.com/m/Ut5K92ANp4d2XxqAw1.JPG' alt="">
+        </li>
+        <li class="item">
+            <img src="http://p1.bpimg.com/567571/2fd9cbb6b9bb0237.gif" data-src='http://img.dfs.sdg-china.com/m/1w2eU4kn7Yu11ksaE4.JPG' alt="">
+        </li>
+        <li class="item">
+            <img src="http://p1.bpimg.com/567571/2fd9cbb6b9bb0237.gif" data-src='http://img.dfs.sdg-china.com/m/IRlK921oPrI4irafO3.JPG' alt="">
+        </li>
+        <li class="item">
+            <img src="http://p1.bpimg.com/567571/2fd9cbb6b9bb0237.gif" data-src='http://fu5.sdo.com/10036/201511/14483555627469.jpg' alt="">
+        </li>
+        <li class="item">
+            <img src="http://p1.bpimg.com/567571/2fd9cbb6b9bb0237.gif" data-src='http://fu5.sdo.com/10036/201604/14594820783958.png' alt="">
+        </li>
+    </ul>
+</div>
+
+<script>
+    var $curNode;
+
+    updateImg(); //初始化 先加载窗口显示区域的图片
+
+    $(window).on('scroll', function (){
+        updateImg();
+    });
+
+    function updateImg() {
+        $('.item img').each(function (){
+            $curNode = $(this);
+            if(isVisible($curNode) && !$curNode.hasClass('hasShow')){ //判断是否已经在窗口显示过了
+                console.log('加载图片');
+                $curNode.addClass('hasShow');
+                $curNode.attr('src', $curNode.attr("data-src"));
+            }
+        });
+    }
+
+    function isVisible($node){
+        var windowH = $(window).height();
+        var scrollTop = $(window).scrollTop();
+        var offsetTop = $node.offset().top;
+        var nodeH = $node.width();
+
+        if(windowH + scrollTop > offsetTop && scrollTop < offsetTop + nodeH){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+</script>
+
+</body>
+</html>

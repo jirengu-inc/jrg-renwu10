@@ -1,0 +1,419 @@
+ul,li {
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    color: #459EF7;
+    text-decoration: none;
+}
+
+html {
+    font-size: 1.25em;
+}
+
+body {
+    margin: 0;
+    background: #FF9060 
+    url("https://imgsa.baidu.com/baike/c0%3Dbaike116%2C5%2C5%2C116%2C38/sign=4885b4fd6b600c33e474d69a7b253a6a/5243fbf2b21193139398885965380cd790238d7b.jpg") 
+    fixed;
+}
+
+.container {
+    width: 45rem;
+    margin: 0 auto;
+
+}
+
+.clearfix::after {
+    content: '';
+    display: block;
+    clear: both;   
+}
+
+.clearfix {
+    zoom: 1;
+}
+
+.title {
+    display: inline-block;
+    font-size: 24px;
+    color: #16B0E8;
+    text-shadow: 0 0.3rem 0.4rem #107BA3,
+                 0 0.1rem 0.05rem #FFF;
+    margin: 0.5rem 0;
+
+}
+
+.title:hover {
+    color: #007CE8;
+    cursor: pointer;
+}
+
+.title:hover::after {
+    content: '#';
+    display: inline-block;
+    margin: 0 0.5rem;
+}
+
+
+/* header */
+header {
+    padding: 1rem;
+    margin: 1rem 0;
+}
+
+header nav {
+    margin: 0 auto;
+    display: table;
+}
+
+
+header nav .nav-ct .item {
+    font-size: 16px;
+    float: left;  
+    box-shadow: 0 0 2rem #610AD6; 
+}
+
+header nav .nav-ct .item:not(:last-of-type) {
+    border-right: 0.1rem solid rgba(255, 255, 255, 0.4);
+}
+
+header nav .nav-ct .item a {
+    display: block;
+    padding: 0.5rem 0.1rem;
+    box-sizing: border-box;
+    position: relative;
+    /* transform: perspective(50rem); */
+    perspective: 50rem;
+    transition: all .07s linear;
+    border: 1px solid #FFF;
+}
+
+header nav .nav-ct .item span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+header nav .nav-ct .item .revolve { 
+    transform-style: preserve-3d;
+    transition: all .3s ease-out;
+    transform: translateZ(-1.3rem);
+}
+
+header nav .nav-ct .item .revolve span {
+    padding: 0.5rem 0.1rem;
+    box-sizing: border-box;
+}
+
+header nav .nav-ct .item .show-item{
+    background: rgba(122, 29, 245, 1);
+    transform: rotateX(0deg) translateZ(0.95rem);
+}
+
+header nav .nav-ct .item .hide-item {
+    background: rgba(214, 87, 127, 1);
+    transform:  rotateX(-90deg) translateZ(1rem);
+}
+
+header nav .nav-ct .item:hover {
+    box-shadow: 0 0 0.5rem 0.6rem #D6577F; 
+}
+
+header nav .nav-ct .item:hover a {
+    color: #FFF;
+}
+
+header nav .nav-ct .item:hover .revolve{
+    transform: translateZ(-1.3rem) rotateX(90deg);
+}
+
+
+/* main */
+#main section {
+    margin: 1rem 0;
+}
+
+#main section .ct {
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 1rem;
+    background: hsla(0,0%,100%,.5);
+    position: relative;
+    overflow: hidden;
+}
+
+#main section .ct::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    background: #FF9060 
+    url("https://imgsa.baidu.com/baike/c0%3Dbaike116%2C5%2C5%2C116%2C38/sign=4885b4fd6b600c33e474d69a7b253a6a/5243fbf2b21193139398885965380cd790238d7b.jpg") 
+    fixed;
+    filter: blur(0.5rem);
+    margin: -1.5rem;
+
+
+}
+
+
+/* circle */
+.circle>div {
+    width: 5rem;
+    height: 5rem;
+    line-height: 5rem;
+    background: #25C3B7;
+    text-align: center;
+}
+
+.circle .radius{
+    border-radius: 1rem;
+    float: left;
+    margin-left: 15rem;
+}
+
+.circle .round {
+    border-radius: 50%;
+    float: right;
+    margin-right: 15rem;
+}
+
+
+/* shadow */
+.shadow .box-shadow{
+    width: 5rem;
+    height: 5rem;
+    line-height: 5rem;
+    background: #8380E7;
+    text-align: center;
+    position: relative;
+    left: 17rem;
+    box-shadow: 0.5rem 0.5rem 0.25rem 0 #DB2BAD;
+}
+
+
+/* transform2D */
+.transform2D>div{
+    width: 5rem;
+    height: 5rem;
+    line-height: 5rem;
+    background: #E55663;
+    text-align: center;
+    float: left;
+    margin: 1rem 1.5rem;
+}
+
+.transform2D .bigger{
+    transform: scale(1.5);
+}
+
+.transform2D .smaller{
+    transform: scale(0.5);
+}
+
+.transform2D .translate{
+    transform: translate(-2rem, -2rem);
+}
+
+.transform2D .rotate{
+   position: relative;
+   background: none;
+   z-index: 1;
+}
+
+.transform2D .rotate::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    background: #E55663;
+    transform: rotate(45deg);
+}
+
+
+/* transform3D */
+.transform3D .per{
+    perspective: 50rem;
+}
+
+.transform3D .per>div {
+    width: 5rem;
+    height: 5rem;
+    line-height: 5rem;
+    text-align: center;
+    float: left;
+    margin: 1rem 3rem;
+    background: #AFE8A1;
+}
+
+.transform3D .move{
+    transform: translateZ(-30rem);
+}
+
+.transform3D .rotate{
+   transform: rotateX(50deg);
+}
+
+
+/* gradient */
+.gradient>div{
+    width: 10rem;
+    height: 10rem;
+    line-height: 10rem;
+    text-align: center;
+    margin: 1rem 4rem;
+    float: left;
+}
+
+.gradient .linear {
+    background: linear-gradient(135deg, #149DD1, #9D1BB2 100%);
+}
+
+.gradient .radial {
+    background: radial-gradient(circle 10rem at center center, 
+        rgba(79, 79, 207, 1) 20%, 
+        rgba(255, 156, 144, 1) 50%,
+        rgba(255, 142, 245, 1) 100%);
+}
+
+/* transition */
+.transition {
+   cursor: pointer;
+}
+
+.transition .tra {
+    width: 10rem;
+    height: 10rem;
+    line-height: 10rem;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    margin: 2rem 0;
+    transition: all 2.4s ease-in-out;
+}
+
+.transition:hover .tra{
+    transform: translateX(33rem);
+    background: radial-gradient(circle 10rem at center,
+     rgba(255, 255, 255, 0.4),
+     rgba(255, 206, 162, 1));
+}
+
+
+
+/* animation */
+.animation .per {
+    perspective: 100rem;
+}
+
+.animation .ani-ct {
+    width: 10rem;
+    height: 10rem;
+    line-height: 10rem;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    margin: 2rem auto;
+    box-shadow: inset 0 0 1.6rem 0.4rem  #3851bc;
+    position: relative;
+    animation: aniCt 3s infinite ease-out;
+}
+
+@keyframes aniCt {
+    0% {
+        background: rgba(255, 255, 255, 0.6);
+        transform: scale(0.9);
+    }
+    100% {
+        background: rgba(255, 255, 255, 0.8);
+        transform: scale(0.8);
+        box-shadow: none;
+    }
+}
+
+.animation .ani-ct::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: scale(0.8) rotateX(80deg);
+    box-shadow: 0 0 0 0.1rem rgba(255, 255, 255, 0.1);
+    opacity: 0;
+    animation: anib 3s infinite linear;
+}
+
+@keyframes anib {
+    0% {
+        opacity: 0.3;
+    }
+    40% {
+        opacity: 0.5;
+        box-shadow: 0 0 0 0.1rem rgba(255,255,255,0.1), 
+                    0 0 0.3rem 0.3rem #52A0CB, 
+                    0 0 0 0.3rem rgba(255,255,255,0.5);
+        transform: scale(5) rotateX(75deg);
+    }
+    100% {
+        box-shadow: 0 0 0 0.1rem rgba(255,255,255,0.1), 
+                    0 0 0.3rem 0.3rem #52A0CB, 
+                    0 0 0 0.3rem rgba(255,255,255,0.5);
+        transform: scale(10) rotateX(70deg);
+        opacity: 1;
+    }
+}
+
+
+.animation .ani-ct::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: scale(0.8);
+    box-shadow: 0 0 0 0.1rem rgba(255, 255, 255, 0.1);
+    opacity: 0;
+    animation: ania 3s  infinite linear;
+}
+
+
+@keyframes ania {
+    0% {
+        opacity: 0.3;
+    }
+    40% {
+        opacity: 0.5;
+        box-shadow: 0 0 0 0.1rem rgba(255,255,255,0.1), 
+                    0 0 0.3rem 0.3rem #3851bc, 
+                    0 0 0 0.3rem rgba(255,255,255,0.5);
+    }
+    100% {
+        box-shadow: 0 0 0 0.1rem rgba(255,255,255,0.1), 
+                    0 0 0.3rem 0.3rem #3851bc, 
+                    0 0 0 0.3rem rgba(255,255,255,0.5);
+        transform: scale(10);
+        opacity: 1;
+    }
+}

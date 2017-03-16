@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>demo-1</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link href="" rel="stylesheet">
+
+    <style>
+        ul,
+        li {
+            margin: 0;
+            padding: 0;
+        }
+        
+        li {
+            list-style: none;
+        }
+        
+        #ct {
+            background: #c91213;
+            width: 220px;
+            color: white;
+            position: relative;
+        }
+        
+        .item {
+            padding: 10px 20px;
+            border-bottom: 1px dashed #ff2020;
+            cursor: pointer;
+        }
+        
+        .item span {
+            position: relative;
+            left: 110px;
+        }
+        
+        .clearfix::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+        
+        #sub-ct {
+            width: 210px;
+            border: 1px solid #ccc;
+            position: absolute;
+        }
+    </style>
+
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+</head>
+
+<body>
+    <ul id="ct">
+        <li class="item">珠宝玉器<span>></span></li>
+        <li class="item">珠宝玉器<span>></span></li>
+        <li class="item">珠宝玉器<span>></span></li>
+        <li class="item">珠宝玉器<span>></span></li>
+        <li class="item">珠宝玉器<span>></span></li>
+    </ul>
+
+    <div id="sub-ct" class="clearfix">
+
+    </div>
+
+    <script>
+        //每个类别的子类别
+        var subItems = [
+            ["翡翠", "玉石", "宝石", '水晶', '玛瑙', '珍珠', '钻石', '琥珀', '和田', '琥珀'],
+            ["翡翠", "玉石", "宝石", '水晶', '玛瑙', '珍珠'],
+            ['水晶', '玛瑙', '珍珠', '钻石', '琥珀'],
+            ['珍珠', '钻石', '琥珀', '和田', '琥珀'],
+            ['琥珀', '和田', '琥珀', '和田']
+        ];
+
+
+        var subPanel = $("#sub-ct");
+        subPanel.css("left", $("#ct").width() + 8); //坐标在导航右边
+        subPanel.hide(); //默认不显示
+
+        $("#ct").children().hover(onMouseOverHdr, onMouseOutHdr);
+
+        //添加子分类，显示panel
+        function onMouseOverHdr() {
+            var $this = $(this);
+
+            subPanel.show();
+            addSubItems($this.index());
+            subPanel.css("top", $this.offset().top);
+        }
+
+        //清空，隐藏 panel
+        function onMouseOutHdr() {
+            subPanel.empty();
+            subPanel.hide();
+        }
+
+        //动态添加子分类
+        function addSubItems(index) {
+            var tempArr = subItems[index];
+            for (var i = 0; i < tempArr.length; i++) {
+                var item = $("<li>" + tempArr[i] + "</li>");
+                item.css({
+                    "float": "left",
+                    "margin": "10px 30px"
+                });
+                subPanel.append(item);
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>on()事件</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style>
+	*{
+		padding: 0;
+		margin: 0;
+	}
+</style>
+</head>
+<body>
+<ul class="ct">
+	<li>1</li>
+	<li>2</li>
+	<li>3</li>
+	<li>4</li>
+</ul>
+<button type="button" class="btn">添加</button>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script>
+
+	$(".ct").on("click","li",function(e){
+		 //e.stopPropagation()
+		 console.log($(this).html())
+	})
+	$(".ct").on("click",{name:'hcc'},function(e){
+		alert(e.data.name)
+	})
+</script>
+</body>
+</html>
