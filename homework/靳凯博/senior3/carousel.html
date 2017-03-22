@@ -1,0 +1,216 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+            color: inherit;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            position: relative;
+            width: 480px;
+            height: 270px;
+            overflow: hidden;
+        }
+        .box .img-ct{
+            position: absolute;
+        }
+        .box .img-ct img{
+            width: 480px;
+            height: 270px;
+        }
+        .box .img-ct:after{
+            content: ' ';
+            display: block;
+            clear: both;
+        }
+        .box .img-ct li{
+            float: left;
+        }
+        .btn{
+            position: absolute;
+            top: 50%;
+            margin-top: -15px;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            background: #4E443C;
+            color: #fff;
+            border-radius: 30px;
+            box-shadow: 0 0 2px #999;
+            opacity: 0.8
+        }
+        .btn:hover{
+            opacity: 1;
+        }
+        .btn-left{
+            left: 10px;
+        }
+        .btn-right{
+            right: 10px;
+        }
+        .thumbnail {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .thumbnail li {
+            width: 48px;
+            height: 27px;
+            background: #fff;
+            display: inline-block;
+            cursor: pointer;
+            opacity: 0.7;
+            border: 1px solid #ccc;
+        }
+        .thumbnail li.active {
+            opacity: 1;
+            border-color: #000;
+        }
+        .thumbnail li img{
+            width: 48px;
+            height: 27px;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <ul class="img-ct">
+        <li><a href="#"><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1490211212084&di=0fe90abdb0ab91473c7b607f57bdcf79&imgtype=0&src=http%3A%2F%2Fpic1.win4000.com%2Fwallpaper%2F1%2F57ad94463a3aa.jpg"></a></li>
+        <li><a href="#"><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1490211212084&di=e22b39fca85519544e765241874e134c&imgtype=0&src=http%3A%2F%2Fimg17.3lian.com%2Fd%2Ffile%2F201702%2F15%2F4d2c2da5e6f46351cc318d76f94b132d.jpg"></a></li>
+        <li><a href="#"><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1490211242002&di=43300ba31f404c44533eb8848280cf0c&imgtype=0&src=http%3A%2F%2Fimg17.3lian.com%2Fd%2Ffile%2F201702%2F13%2F9ce581200d81363336fea98d6dd9899c.jpg"></a></li>
+        <li><a href="#"><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1490211255627&di=a1b10a44a3da1478d164e83a8588da5d&imgtype=0&src=http%3A%2F%2Fwww.pp3.cn%2Fuploads%2F20120713j%2F946.jpg"></a></li>
+    </ul>
+    <a class="btn btn-left" href="#"><</a>
+    <a class="btn btn-right" href="#">></a>
+    <ul class="thumbnail">
+        <li class="active"><a href="#"><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1490211212084&di=0fe90abdb0ab91473c7b607f57bdcf79&imgtype=0&src=http%3A%2F%2Fpic1.win4000.com%2Fwallpaper%2F1%2F57ad94463a3aa.jpg"></a></li>
+        <li><a href="#"><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1490211212084&di=e22b39fca85519544e765241874e134c&imgtype=0&src=http%3A%2F%2Fimg17.3lian.com%2Fd%2Ffile%2F201702%2F15%2F4d2c2da5e6f46351cc318d76f94b132d.jpg"></a></li>
+        <li><a href="#"><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1490211242002&di=43300ba31f404c44533eb8848280cf0c&imgtype=0&src=http%3A%2F%2Fimg17.3lian.com%2Fd%2Ffile%2F201702%2F13%2F9ce581200d81363336fea98d6dd9899c.jpg"></a></li>
+        <li><a href="#"><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1490211255627&di=a1b10a44a3da1478d164e83a8588da5d&imgtype=0&src=http%3A%2F%2Fwww.pp3.cn%2Fuploads%2F20120713j%2F946.jpg"></a></li>
+    </ul>
+</div>
+<div class="box">
+    <ul class="img-ct">
+        <li><a href="#"><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1490211212084&di=0fe90abdb0ab91473c7b607f57bdcf79&imgtype=0&src=http%3A%2F%2Fpic1.win4000.com%2Fwallpaper%2F1%2F57ad94463a3aa.jpg"></a></li>
+        <li><a href="#"><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1490211212084&di=e22b39fca85519544e765241874e134c&imgtype=0&src=http%3A%2F%2Fimg17.3lian.com%2Fd%2Ffile%2F201702%2F15%2F4d2c2da5e6f46351cc318d76f94b132d.jpg"></a></li>
+        <li><a href="#"><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1490211242002&di=43300ba31f404c44533eb8848280cf0c&imgtype=0&src=http%3A%2F%2Fimg17.3lian.com%2Fd%2Ffile%2F201702%2F13%2F9ce581200d81363336fea98d6dd9899c.jpg"></a></li>
+        <li><a href="#"><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1490211255627&di=a1b10a44a3da1478d164e83a8588da5d&imgtype=0&src=http%3A%2F%2Fwww.pp3.cn%2Fuploads%2F20120713j%2F946.jpg"></a></li>
+    </ul>
+    <a class="btn btn-left" href="#"><</a>
+    <a class="btn btn-right" href="#">></a>
+    <ul class="thumbnail">
+        <li class="active"><a href="#"><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1490211212084&di=0fe90abdb0ab91473c7b607f57bdcf79&imgtype=0&src=http%3A%2F%2Fpic1.win4000.com%2Fwallpaper%2F1%2F57ad94463a3aa.jpg"></a></li>
+        <li><a href="#"><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1490211212084&di=e22b39fca85519544e765241874e134c&imgtype=0&src=http%3A%2F%2Fimg17.3lian.com%2Fd%2Ffile%2F201702%2F15%2F4d2c2da5e6f46351cc318d76f94b132d.jpg"></a></li>
+        <li><a href="#"><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1490211242002&di=43300ba31f404c44533eb8848280cf0c&imgtype=0&src=http%3A%2F%2Fimg17.3lian.com%2Fd%2Ffile%2F201702%2F13%2F9ce581200d81363336fea98d6dd9899c.jpg"></a></li>
+        <li><a href="#"><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1490211255627&di=a1b10a44a3da1478d164e83a8588da5d&imgtype=0&src=http%3A%2F%2Fwww.pp3.cn%2Fuploads%2F20120713j%2F946.jpg"></a></li>
+    </ul>
+</div>
+<script src='jquery-3.1.1.js'></script>
+<script>
+
+    Show = (function () {
+        function Carousel($ct) {
+            this.$ct = $ct
+            this.init()
+            this.bind()
+        }
+        Carousel.prototype.init = function () {
+            var $imgCt = this.$imgCt = this.$ct.find('.img-ct'),
+                    $imgLi = this.$imgLi = this.$ct.find('.img-ct>li'),
+                    $btnL = this.$btnL = this.$ct.find('.btn-left'),
+                    $btnR = this.$btnR = this.$ct.find('.btn-right'),
+                    $thumbnail = this.$thumbnail = this.$ct.find('.thumbnail>li');
+            this.imgWidth = $imgLi.width();
+            this.imgNum = $imgLi.length;
+            $imgCt.append($imgLi.first().clone());
+            $imgCt.prepend($imgLi.last().clone());
+            $imgCt.width((this.imgNum + 2) * this.imgWidth);
+            $imgCt.css({'left': -this.imgWidth});
+            this.page = 0;
+            this.isMove = false;
+        }
+        Carousel.prototype.bind = function () {
+            var _this = this
+            this.$btnL.on('click', function () {
+                _this.playLeft(1)
+            });
+            this.$btnR.on('click', function () {
+                _this.playRight(1);
+            });
+            this.$thumbnail.on('click', function () {
+                var index = $(this).index();
+                if (index > _this.page) {
+                    _this.playRight(index - _this.page)
+                } else if (index < _this.page) {
+                    _this.playLeft(_this.page - index)
+                }
+            });
+        }
+        Carousel.prototype.playLeft = function (num) {
+            var _this = this
+            if (this.isMove)return;
+            this.isMove = true;
+            this.$imgCt.animate({
+                left: '+=' + (num * _this.imgWidth)
+            }, function () {
+                _this.page -= num;
+                if (_this.page < 0) {
+                    _this.page = _this.imgNum - 1;
+                    _this.$imgCt.css({left: -_this.imgNum * _this.imgWidth});
+                }
+                _this.setThumbnail();
+                _this.isMove = false;
+            })
+        }
+        Carousel.prototype.playRight = function (num) {
+            var _this = this
+            if (this.isMove)return;
+            this.isMove = true;
+            this.$imgCt.animate({
+                left: '-=' + (num * _this.imgWidth)
+            }, function () {
+                _this.page += num;
+                if (_this.page === _this.imgNum) {
+                    _this.page = 0;
+                    _this.$imgCt.css({left: 0 - _this.imgWidth});
+                }
+                _this.setThumbnail();
+                _this.isMove = false;
+            })
+        }
+        Carousel.prototype.setThumbnail = function () {
+            this.$thumbnail.removeClass('active')
+                    .eq(this.page)
+                    .addClass('active');
+        }
+        return {
+            init: function ($ct) {
+                $ct.each(function (index, node) {
+                    new Carousel($(node))
+                })
+            }
+        }
+    })()
+    Show.init($('.box'))
+
+    
+</script>
+</body>
+</html>

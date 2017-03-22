@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        ul, li, p, h3 {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+        .main{
+            display: none;
+        }
+        .cover{
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #000;
+            opacity: 0.4;
+            z-index: 99;
+        }
+        .box {
+            width: 400px;
+            background: #fff;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            margin-left: -200px;
+            margin-top: -100px;
+            z-index: 100;
+        }
+        .header {
+            position: relative;
+            border-bottom: 2px solid #ccc;
+        }
+        .header > h3 {
+            padding: 10px;
+        }
+        .header > .close {
+            position: absolute;
+            right: 10px;
+            top: 3px;
+        }
+        .content {
+            margin: 10px;
+        }
+        .footer{
+            border-top:2px solid #ccc;
+        }
+        .footer:after {
+            display: block;
+            content: '';
+            clear: both;
+        }
+        .footer > .btn-ok {
+            padding: 10px;
+            float: right;
+        }
+        .footer > .btn-cancel {
+            padding: 10px;
+            float: right;
+        }
+    </style>
+</head>
+<body>
+<button id="btn1"> 打开1</button>
+<button id="btn2"> 打开2</button>
+<button id="btn3"> 打开3</button>
+<button id="btn4"> 打开4</button>
+<button id="btn5"> 打开5</button>
+<!--<div class="main">-->
+    <!--<div class="cover"></div>-->
+    <!--<div class="box">-->
+        <!--<div class="header">-->
+            <!--<h3>我是标题1</h3>-->
+            <!--<a class="close" href="#">×</a>-->
+        <!--</div>-->
+        <!--<div class="content">-->
+            <!--<p>我是内容1</p>-->
+            <!--<p>我是内容2</p>-->
+        <!--</div>-->
+        <!--<div class="footer">-->
+            <!--<a class="btn-ok" href="#">确定</a>-->
+            <!--<a class="btn-cancel" href="#">取消</a>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+<script src="jquery-3.1.1.js"></script>
+<script>
+
+
+    var Dialog = (function () {
+        function Prompt() {
+            this.createPrompt()
+            this.bind()
+        }
+        Prompt.prototype = {
+            info: {
+                title: '',
+                message: '',
+                closeBtn: true,
+                confirmBtn: true,
+                onClose: function () {
+                },
+                onConfirm: function () {
+                }
+            },
+            bind: function () {
+                var _this = this;
+                _this.$dialog.find('.btn-cancel').on('click', function (e) {
+                    e.preventDefault();
+                    _this.info.onClose();
+                    _this.hideDialog();
+                });
+                _this.$dialog.find('.btn-ok').on('click', function (e) {
+                    e.preventDefault();
+                    _this.info.onConfirm();
+                    _this.hideDialog();
+                });
+                _this.$dialog.find('.close').on('click', function (e) {
+                    e.preventDefault()
+                    _this.info.onClose();
+                    _this.hideDialog();
+                })
+            },
+            open: function (inf) {
+                this.setInfo(inf)
+                //console.log(inf)
+                this.setDialog()
+                this.showDialog()
+            },
+            close: function () {
+                this.hideDialog()
+            },
+            setInfo: function (inf) {
+                if(typeof inf === 'string'){
+                    this.info = $.extend({}, this.info, {message: inf});
+                }else if (typeof inf === 'object'){
+                    this.info = $.extend({}, this.info, inf);
+                }
+            },
+            //根据参数设置Dialog
+            setDialog: function () {
+                var $dialog = this.$dialog;
+                if (this.info.title=='') {
+                    $dialog.find('.header').hide();
+                } else {
+                    $dialog.find('.header').show();
+                }
+                $dialog.find('.header h3').text(this.info.title);
+                $dialog.find('.content').html(this.info.message);
+                if (!this.info.closeBtn) {
+                    $dialog.find('.btn-cancel').hide();
+                } else {
+                    $dialog.find('.btn-cancel').show();
+                }
+                if (!this.info.confirmBtn) {
+                    $dialog.find('.btn-ok').hide();
+                } else {
+                    $dialog.find('.btn-ok').show();
+                }
+            },
+            showDialog: function () {
+                this.$dialog.show();
+            },
+            hideDialog: function () {
+                this.$dialog.hide();
+            },
+            //创建
+            createPrompt: function () {
+                var ct = '<div class="main">'
+                        + '<div class="cover"></div>'
+                        + '<div class="box">'
+                        + '<div class="header">'
+                        + '<h3></h3>'
+                        + '<a class="close" href="#">×</a>'
+                        + '</div>'
+                        + '<div class="content">'
+                        + '</div>'
+                        + '<div class="footer">'
+                        + '<a class="btn-ok" href="#">确定</a>'
+                        + '<a class="btn-cancel" href="#">取消</a>'
+                        + '</div>'
+                        + '</div>'
+                        + '</div>'
+                this.$dialog = $(ct);
+                $('body').append(this.$dialog);
+            }
+        }
+        return new Prompt();
+    })()
+    var tpl = '<ul><li>列表1</li><li>列表2</li><li>列表1</li><li>列表1</li></ul>';
+    $('#btn1').on('click',function(){
+        Dialog.open({
+            title: '按钮1',
+            message: tpl,
+            closeBtn: true,
+            confirmBtn: true,
+            onClose: function(){
+                console.log('取消')
+            },
+            onConfirm: function(){
+                console.log('确定');
+            }
+        });
+    })
+    $('#btn2').on('click',function(){
+        Dialog.open({
+            title: '按钮2',
+            message: 'hello',
+            closeBtn: true,
+            confirmBtn: true,
+            onClose: function(){
+                console.log('取消')
+            },
+            onConfirm: function(){
+                console.log('确定');
+            }
+        });
+    })
+    $('#btn3').on('click',function(){
+        Dialog.open('你好');
+    })
+    $('#btn4').on('click',function(){
+        Dialog.open({
+            title: '你好',
+            message: 'hello',
+            closeBtn: false,
+            confirmBtn: false,
+        });
+    })
+    $('#btn5').on('click',function(){
+        Dialog.open({
+            title: '你好',
+            message: '<a href="http://www.baidu.com">百度</a>',
+            closeBtn: false,
+            confirmBtn: false,
+            onClose: function(){
+                console.log('取消')
+            },
+            onConfirm: function(){
+                console.log('确定');
+            }
+        });
+    })
+</script>
+</body>
+</html>
