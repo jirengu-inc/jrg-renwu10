@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>图片懒加载</title>
+    <style type="text/css">
+    * {
+    padding: 0;
+    margin: 0;
+    }
+    ul, li {
+    list-style: none;
+    }
+    .wrap {
+    background: #eee;
+    width: 700px;
+    margin: 30px auto;
+    box-shadow: 0 0 10px rgba(0,0,0,.5)
+    }
+    .ct:after {
+    content: '';
+    clear: both;
+    display: block;
+    }
+    ul {
+    padding-bottom: 30px;
+    }
+    li {
+    margin-left: 25px;
+    margin-top: 25px;
+    width: 310px;
+    float: left;
+    text-align: center;
+    }
+    li img {
+    width: 300px;
+    cursor: pointer;
+    box-shadow: 0 0 8px rgba(0,0,0,.5)
+    }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <ul class='ct'>
+        <li><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-src="http://cdn.jirengu.com/book.jirengu.com/img/2.jpg" alt="图片"></li>
+        <li><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-src="http://cdn.jirengu.com/book.jirengu.com/img/3.jpg" alt="图片"></li>
+        <li><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-src="http://cdn.jirengu.com/book.jirengu.com/img/4.jpg" alt="图片"></li>
+        <li><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-src="http://cdn.jirengu.com/book.jirengu.com/img/5.jpg" alt="图片"></li>
+        <li><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-src="http://cdn.jirengu.com/book.jirengu.com/img/6.jpg" alt="图片"></li>
+        <li><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-src="http://cdn.jirengu.com/book.jirengu.com/img/7.jpg" alt="图片"></li>
+        <li><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-src="http://cdn.jirengu.com/book.jirengu.com/img/8.jpg" alt="图片"></li>
+        <li><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-src="http://cdn.jirengu.com/book.jirengu.com/img/9.jpg" alt="图片"></li>
+        <li><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-src="http://cdn.jirengu.com/book.jirengu.com/img/10.jpg" alt="图片"></li>
+        <li><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-src="http://cdn.jirengu.com/book.jirengu.com/img/11.jpg" alt="图片"></li>
+        <li><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-src="http://cdn.jirengu.com/book.jirengu.com/img/12.jpg" alt="图片"></li>
+        <li><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-src="http://cdn.jirengu.com/book.jirengu.com/img/13.jpg" alt="图片"></li>
+        <li><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-src="http://cdn.jirengu.com/book.jirengu.com/img/14.jpg" alt="图片"></li>
+        <li><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-src="http://cdn.jirengu.com/book.jirengu.com/img/15.jpg" alt="图片"></li>
+        <li><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-src="http://cdn.jirengu.com/book.jirengu.com/img/16.jpg" alt="图片"></li>
+        <li><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-src="http://cdn.jirengu.com/book.jirengu.com/img/17.jpg" alt="图片"></li>
+        <li><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-src="http://cdn.jirengu.com/book.jirengu.com/img/18.jpg" alt="图片"></li>
+        <li><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-src="http://cdn.jirengu.com/book.jirengu.com/img/19.jpg" alt="图片"></li>
+        <li><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-src="http://cdn.jirengu.com/book.jirengu.com/img/20.jpg" alt="图片"></li>
+        <li><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-src="http://cdn.jirengu.com/book.jirengu.com/img/21.jpg" alt="图片"></li>
+        <li><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-src="http://cdn.jirengu.com/book.jirengu.com/img/22.jpg" alt="图片"></li>
+        <li><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-src="http://cdn.jirengu.com/book.jirengu.com/img/23.jpg" alt="图片"></li>
+        <li><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-src="http://cdn.jirengu.com/book.jirengu.com/img/24.jpg" alt="图片"></li>
+        <li><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-src="http://cdn.jirengu.com/book.jirengu.com/img/25.jpg" alt="图片"></li>
+        <li><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-src="http://cdn.jirengu.com/book.jirengu.com/img/26.jpg" alt="图片"></li>
+        <li><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-src="http://cdn.jirengu.com/book.jirengu.com/img/27.jpg" alt="图片"></li>
+        <li><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-src="http://cdn.jirengu.com/book.jirengu.com/img/28.jpg" alt="图片"></li>
+        <li><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-src="http://cdn.jirengu.com/book.jirengu.com/img/29.jpg" alt="图片"></li>
+        <li><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-src="http://cdn.jirengu.com/book.jirengu.com/img/30.jpg" alt="图片"></li>
+        <li><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-src="http://cdn.jirengu.com/book.jirengu.com/img/31.jpg" alt="图片"></li>
+        <li><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-src="http://cdn.jirengu.com/book.jirengu.com/img/32.jpg" alt="图片"></li>
+        <li><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-src="http://cdn.jirengu.com/book.jirengu.com/img/33.jpg" alt="图片"></li>
+      </ul>
+    </div>
+    <script src="http://kejian.jirengu.com/static/js/jquery-1.11.1.min.js"></script>
+
+    <script type="text/javascript">
+    
+    //在滚动触发之前先检查一遍
+    check()
+
+    var clock
+    $(window).on('scroll', function(){
+    //每触发一次就清除上一次触发时建立的定时器
+      if(clock){
+        clearTimeout(clock)
+      }
+      clock = setTimeout(function(){
+        check()
+      }, 100)//为了控制懒加载图片出现的时间
+    })
+
+    function check(){
+      $('.ct img').each(function(){
+      //对已出现的图片不再遍历
+        if(isVisible($(this)) && !$(this).hasClass('load')){
+          showImg($(this))
+      }
+      })
+    }
+
+    function showImg($imgs){
+      $imgs.each(function(){
+        var imgUrl = $(this).attr('data-src')
+        $(this).attr('src', imgUrl)
+        $(this).addClass('load')
+      })
+    }
+
+
+    function isVisible($node){
+      var windowHeight = $(window).height(),
+      scrollTop = $(window).scrollTop(),
+      offsetTop = $node.offset().top,
+      nodeHeight = $node.outerHeight(true)
+      //图片出现在可视范围的条件
+      if(windowHeight + scrollTop > offsetTop && scrollTop < offsetTop + nodeHeight){
+        return true
+      }else{
+        return false
+      }
+    }
+    </script>
+  </body>
+</html>

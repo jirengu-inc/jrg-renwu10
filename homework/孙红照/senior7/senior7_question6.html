@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>senior7_question6</title>
+	<style>
+		fieldset {
+			height:150px;
+		}
+		.demo {
+			margin: 30px auto;
+		}
+		.demo1 {
+			position: relative;
+			background: rgb(127,255,212);
+			width: 10px;
+			height: 40px;
+			animation: demo1 1.2s .3s infinite ease-in-out;
+		}
+		.demo1:before {
+			content: '';
+			position: absolute;
+			left: -20px;
+			width: 10px;
+			height: 40px;
+			background: rgb(127,255,212);
+			animation: demo1 1.2s infinite ease-in-out;
+		}
+		.demo1:after {
+			content: '';
+			position: absolute;
+			right: -20px;
+			width: 10px;
+			height: 40px;
+			background: rgb(127,255,212);
+			animation: demo1 1.2s 0.6s infinite ease-in-out;
+		}
+		@keyframes demo1 {
+			50% {
+				box-shadow: 0 -20px rgb(127,255,212);
+				height: 60px;
+			}
+			0%, 75%, 100% {
+				box-shadow: 0 0 rgb(127,255,212);
+			}
+		}
+		.demo2 {
+			width: 50px;
+			height:50px;
+			border-radius: 50px;
+			border-top: 10px solid greenyellow;
+			border-right: 10px solid green;
+			border-bottom: 10px solid green;
+			border-left: 10px solid green;
+			animation: 1.2s demo2 linear infinite;
+		}
+		@keyframes demo2 {
+			0%{
+				transform: rotate(0);
+			}
+			100% {
+				transform: rotate(360deg);
+			}
+
+		}
+	</style>
+</head>
+<body>
+<fieldset>
+	<legend>loading动画效果1</legend>
+	<div class="demo demo1"></div>
+</fieldset>
+<fieldset>
+	<legend>loading动画效果2</legend>
+	<div class="demo demo2"></div>
+</fieldset>
+</body>
+</html>

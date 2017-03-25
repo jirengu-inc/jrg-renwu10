@@ -1,7 +1,7 @@
 define(["jquery"], function(){
 	function GoTop($parent){
 		this.ct = $parent || $("body");
-		this.target = $('<div class="go-top">回到顶部</div>');
+		this.target = $('<div id="go-top">回到顶部</div>');
 		this.createNode();
 		this.bindEvent();
 	}

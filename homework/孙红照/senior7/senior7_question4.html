@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>senior7_question4</title>
+	<style>
+		.demo{
+			width: 100px;
+			height: 100px;
+			background: rgb(127,255,212);
+		}
+		li {
+			display: inline-block;
+			margin-right: 60px;
+		}
+		.warp {
+			position: relative;
+		}
+		.reference {
+			position: absolute;
+			box-sizing: border-box;
+			top: 0px;
+			border: 1px dashed rgb(147,112,219 );
+			width: 100px;
+			height: 100px;
+			z-index: 2
+		}
+		.fillet {
+			border-radius: 25px;
+		}
+		.circular {
+			border-radius: 100%;
+		}
+		.shadow {
+			box-shadow: 10px 2px 10px 2px #ccc;
+		}
+		.enlarge {
+			transform: scale(1.2);
+		}
+		.narrow {
+			transform: scale(0.5);
+		}
+		.deviation {
+			transform: translate(20px,0);
+		}
+		.rotate {
+			transform: rotate(30deg);
+		}
+		@keyframes move_3d {
+			0% { transform: perspective(600px) translateZ(0); }
+			50% { transform: perspective(600px) translateZ(-1000px); }
+			100% { transform: perspective(600px) translateZ(-2000px); }
+		}
+		.move_3d {
+			animation: move_3d 3s infinite linear alternate;
+		}
+		@keyframes rotate_3d {
+			0%{ transform: perspective(600px) rotateY(0) }
+			100% { transform: perspective(600px) rotateY(180deg) }
+		}
+		.rotate_3d {
+			animation: rotate_3d 3s infinite linear alternate;
+		}
+		.gradient {
+			background: linear-gradient(to right,rgb(255,165,0),rgb(135,206,235))
+		}
+		.transition {
+			transition: background 1s;
+		}
+		.transition:hover {
+			background: rgb(255,165,0);
+		}
+		@keyframes animation {
+			0% { 
+				transform: rotate(0); 
+			}
+			100% { 
+				transform: rotate(180deg);
+				background: rgb(255,165,0); 
+			}
+		}
+		.animation {
+			animation: animation 3s infinite linear alternate;
+		}
+	</style>
+</head>
+<body>
+<fieldset>
+	<legend>圆角、圆形</legend>
+	<ul>
+		<li>
+			<h3>圆角</h3>
+			<div class="demo fillet"></div>
+			<p>设置25px的圆角</p>
+		</li>
+		<li>
+			<h3>圆形</h3>
+			<div class="demo circular"></div>
+			<p>设置一个半径50px的圆</p>
+		</li>
+	</ul>
+</fieldset>
+<fieldset>
+	<legend>div阴影</legend>
+	<ul>
+		<li>
+			<div class="demo shadow"></div>
+			<p>设置阴影，右侧10px 下侧2px 模糊程度10px 扩散长度2px</p>
+		</li>
+	</ul>
+</fieldset>
+<fieldset>
+	<legend>2D转换：放大、缩小、偏移、旋转</legend>
+	<ul>
+		<li>
+			<h3>放大</h3>
+			<div class="warp">
+				<div class="demo enlarge"></div>
+				<div class="reference"></div>
+			</div>
+			<p>元素放大1.2倍</p>
+		</li>
+		<li>
+			<h3>缩小</h3>
+			<div class="warp">
+				<div class="demo narrow"></div>
+				<div class="reference"></div>
+			</div>
+			<p>元素缩小0.5倍</p>
+		</li>
+		<li>
+			<h3>偏移</h3>
+			<div class="warp">
+				<div class="demo deviation"></div>
+				<div class="reference"></div>
+			</div>
+			<p>元素向右侧偏移20px</p>
+		</li>
+		<li>
+			<h3>旋转</h3>
+			<div class="warp">
+				<div class="demo rotate"></div>
+				<div class="reference"></div>
+			</div>
+			<p>元素顺时针旋转30°</p>
+		</li>
+	</ul>
+</fieldset>
+<fieldset>
+	<legend>3D转换：移动、旋转</legend>
+	<ul>
+		<li>
+			<h3>移动</h3>
+			<div class="warp">
+				<div class="demo move_3d"></div>
+				<div class="reference"></div>
+			</div>
+			<p>元素向屏幕垂直方向移动</p>
+		</li>
+		<li>
+			<h3>旋转</h3>
+			<div class="warp">
+				<div class="demo rotate_3d"></div>
+				<div class="reference"></div>
+			</div>
+			<p>元素垂直于屏幕方向旋转</p>
+		</li>
+	</ul>
+</fieldset>
+<fieldset>
+	<legend>背景色渐变</legend>
+	<ul>
+		<li>
+			<div class="demo gradient"></div>
+			<p>背景色由橙色变为天蓝色</p>
+		</li>
+	</ul>
+</fieldset>
+<fieldset>
+	<legend>过渡效果</legend>
+	<ul>
+		<li>
+			<div class="demo transition"></div>
+			<p>鼠标移入后，背景色由碧绿色变为橙色</p>
+		</li>
+	</ul>
+</fieldset>
+	<fieldset>
+		<legend>动画</legend>
+		<ul>
+			<li>
+				<div class="demo animation"></div>
+				<p>元素旋转180°，同时背景色在碧绿色和橙色之间转换</p>
+			</li>
+		</ul>
+	</fieldset>
+</body>
+</html>
