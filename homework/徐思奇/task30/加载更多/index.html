@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>题目8：加载更多</title>
+		<style>
+			ul, li, a {
+		padding: 0;
+		list-style: none;
+		text-decoration: none;
+		}
+		.load-more {
+		color: #E27272;
+		padding: 10px;
+		border: 1px solid #E27272;
+		border-radius: 3px;
+		}
+		div {
+		text-align: center;
+		}
+		li {
+		border: 1px solid #ccc;
+		padding: 10px;
+		margin-bottom: 10px;
+		cursor: pointer;
+		}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li>内容1</li>
+			<li>内容2</li>
+		</ul>
+		<div><a class='load-more' href="javascript:void(0)">加载更多</a></div>
+
+
+		<script src='https://code.jquery.com/jquery-3.2.0.js'></script>
+
+		<script>
+
+		//'hover'效果
+		$('ul').on('mouseenter', 'li', function(){
+			$(this).css({
+				'background': 'green',
+				'color': '#fff'
+			})
+		})
+		$('ul').on('mouseleave', 'li', function(){
+			$(this).css({
+				'background': '',
+				'color': '#000'
+			})
+		})
+		//load-more
+	
+		var begin = 3
+		var ajaxLock = false //状态锁
+
+		$('.load-more').on('click', function(){
+			if(ajaxLock){
+				return
+			}             //上锁
+			ajaxLock = true
+
+			$.ajax({
+				url: '/getMore',
+				type: 'get',
+				dataType: 'json',
+				data: {
+					start: begin,
+					len: 5
+				},
+				success:function(ret){
+					onSuccess(ret)
+				},
+				error:function(){
+					alert('出错了！')
+				}
+			})
+		})
+
+		function onSuccess(ret){
+			if(ret.status === 1){
+				append(ret.data)
+				begin += 5
+				ajaxLock = false //解锁
+			}else{
+				alert('后端传输失败')
+			}
+		}
+
+		function append(arr){
+			for(var i = 0; i < arr.length; i++ ){
+				$('ul').append('<li>'+ arr[i] + '</li>')
+			}
+		}
+
+		</script>
+
+
+
+	</body>
+</html>

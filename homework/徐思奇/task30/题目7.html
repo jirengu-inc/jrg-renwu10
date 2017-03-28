@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>题目7</title>
+    <style>
+    .ct {
+    padding: 20px;
+    width: 700px;
+    height: 800px;
+    margin: 0 auto;
+    background: #eee;
+    box-shadow: 0 0 8px rgba(0,0,0,0.5)
+    }
+    .div {
+    border: 1px dotted;
+    border-radius: 5px;
+    width: 150px;
+    height: 150px;
+    background: #fff;
+    transition: .5s;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="ct">
+      <!-- 第一步 -->
+      <h4>1.当点击$btn 时，让 $btn 的背景色变为红色再变为蓝色</h4>
+      <button class="btn">点击变色</button>
+      
+      <!-- 第二步 -->
+      <h4>2.当窗口滚动时，获取垂直滚动距离</h4>
+      <p>垂直滚动距离：<span class="scroll">0</span></p>
+      
+      <!-- 第三步 -->
+      <h4>3.当鼠标放置到$div 上，把$div 背景色改为红色，移出鼠标背景色变为白色</h4>
+      <div class="div"></div>
+      
+      <!-- 第四步 -->
+      <h4>4.当鼠标激活 input 输入框时让输入框边框变为蓝色，当输入框内容改变时把输入框里的文字小写变为大写，当输入框失去焦点时去掉边框蓝色，控制台展示输入框里的文字</h4>
+      <input type="text" class='ipt'>
+      
+      <!-- 第五步 -->
+      <h4>5.当选择 select 后，获取用户选择的内容</h4>
+      <select id="sle">
+        <option value="上海">上海</option>
+        <option value="北京">北京</option>
+        <option value="广州">广州</option>
+        <option value="深圳">深圳</option>
+        <option value="杭州">杭州</option>
+      </select>
+      <p>当前选择：<span class='choice'>上海</span></p>
+      
+    </div>
+    
+    <script src='https://code.jquery.com/jquery-3.2.0.js'></script>
+
+    <script>
+    //第一步
+    $('.btn').on('click', function(){
+      $(this).css('background', 'red')
+      
+      setTimeout(function(){
+        $('.btn').css('background', 'blue')
+        console.log(this)//window(setTimeout中的this是window)
+      }, 500)
+    })
+
+    //第二步
+    $(window).on('scroll', function(){
+      $('.scroll').text($(window).scrollTop())
+    })
+
+    //第三步
+    $('.div').on('mouseenter', function(){
+      $(this).css('background', 'red')
+    })
+
+    $('.div').on('mouseleave', function(){
+      $(this).css('background', 'white')
+    })
+
+    //第四步
+    $('.ipt').on('focus', function(){
+      $(this).css('border-color', 'blue')
+    })
+
+    $('.ipt').on('input', function(){
+      $(this).val($(this).val().toUpperCase())
+    })
+
+    $('.ipt').on('blur', function(){
+      $(this).css('border-color', '')
+      console.log($(this).val())
+    })
+
+    //第五步
+    $('#sle').on('change', function(){
+      $('.choice').text($('#sle option:selected').text())
+    })
+    </script>
+    
+  </body>
+</html>

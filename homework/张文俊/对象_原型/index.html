@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .box{
+            background-color:gray;
+        }
+        .content{
+            height:2000px;
+        }
+        .button{
+            position:fixed;
+            right:100px;
+            bottom:100px;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="content"></div>
+</div>
+<script src="jquery-1.12.0.min.js"></script>
+<script>
+    function GoTop($container){
+        this.ct = $container || $('body');
+        this.target = $('<button class="button">go to top</button>');
+        if(typeof this.bindEvent != 'function'){
+            GoTop.prototype.bindEvent = function(){
+                var btn = this.target;
+                btn.on('click',function(){
+                    $(window).scrollTop(0);
+                });
+                $(window).on('scroll',function(){
+                    var _scrollTop = $(this).scrollTop();
+                    if(_scrollTop>100){
+                        btn.show();
+                    }else{
+                        btn.hide();
+                    }
+                });
+            }
+        }
+        if(typeof this.createNode != 'function'){
+            GoTop.prototype.createNode = function(){
+                this.ct.append(this.target);
+                this.target.hide();
+            }
+        }
+        this.createNode();
+        this.bindEvent();
+    }
+    var top = new GoTop();
+</script>
+</body>
+</html>

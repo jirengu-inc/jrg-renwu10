@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        ul,li{
+            list-style-type: none;
+        }
+        .clearfix{
+            content:'';
+            display: block;
+            clear:both;
+        }
+        .container{
+            width:1000px;
+            margin:20px auto;
+            border:2px solid red;
+        }
+        .box li{
+            float:left;
+            padding:10px 15px;
+            margin-left:10px;
+            color: red;
+            cursor:pointer;
+        }
+        .box li.active{
+            color:black;
+            background-color:#eee;
+            border:2px solid #81d8cf;
+            border-bottom:none;
+            border-top-right-radius:10px;
+            border-top-left-radius:10px;
+            position:relative;
+            bottom:-2px;
+        }
+        .panel li{
+            padding:10px 20px;
+            height:100px;
+            background-color:#eee;
+            border-top:none;
+            border-bottom-right-radius: 10px;
+            border-bottom-left-radius: 10px;
+            display:none;
+        }
+        .panel li.active{
+            display:block;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+        <ul class="box clearfix">
+            <li class="active">选项1</li>
+            <li>选项2</li>
+            <li>选项3</li>
+            <li>选项4</li>
+        </ul>
+        <ul class="panel clearfix">
+            <li class="active">内容1</li>
+            <li>内容2</li>
+            <li>内容3</li>
+            <li>内容4</li>
+        </ul>
+</div>
+<div class="container">
+    <ul class="box clearfix">
+        <li class="active">选项1</li>
+        <li>选项2</li>
+        <li>选项3</li>
+        <li>选项4</li>
+    </ul>
+    <ul class="panel clearfix">
+        <li class="active">内容1</li>
+        <li>内容2</li>
+        <li>内容3</li>
+        <li>内容4</li>
+    </ul>
+</div>
+<div class="container">
+    <ul class="box clearfix">
+        <li class="active">选项1</li>
+        <li>选项2</li>
+        <li>选项3</li>
+        <li>选项4</li>
+    </ul>
+    <ul class="panel clearfix">
+        <li class="active">内容1</li>
+        <li>内容2</li>
+        <li>内容3</li>
+        <li>内容4</li>
+    </ul>
+</div>
+<!--<script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script>-->
+<script>
+    /*JQ写法*/
+/*$('.box>li').on('click',function(){
+    var $this = $(this),
+        $panels = $(this).parents('.container').find('.panel>li'),
+        $index = $(this).index();
+
+    $this.siblings().removeClass('active');
+    $this.addClass('active');
+
+    $panels.siblings().removeClass('active');
+    $panels.eq($index).addClass('active')
+})*/
+
+
+    /*原生JS*/
+    /*function Tab(ct){
+        var _this = this;
+        this.tablis = ct.querySelectorAll('.box>li');
+        this.tabpanels = ct.querySelectorAll('.panel>li');
+        this.tablis.forEach(function(tabli){
+                tabli.onclick = function(e){
+                var target = e.target;
+                var index = [].indexOf.call(_this.tablis,target);//_this.tablis不是数组，是类数组，
+                // 因而不能直接使用var index = _this.tablis.indexOf(target);
+                //这里的_this指的是ct这个容器，如果用this，将会是点击的这个li;
+                _this.tablis.forEach(function(li){//遍历_this.tablis中的每一个li，其中的li是任意命名的参数！
+                    li.classList.remove('active');//为li移除active
+                });
+                target.classList.add('active');
+                _this.tabpanels.forEach(function(li){
+                    li.classList.remove('active');
+                });
+                _this.tabpanels[index].classList.add('active')
+        };
+        })
+    }
+     new Tab(document.querySelectorAll('.container')[0]);
+     new Tab(document.querySelectorAll('.container')[1]);
+     new Tab(document.querySelectorAll('.container')[2])*/
+
+
+
+
+    /*函数封装*/
+    function Tab(ct){
+        this.ct = ct;
+        this.init();
+        this.bind();
+    }
+
+    Tab.prototype.init = function(){
+        this.tablis = this.ct.querySelectorAll('.box>li');//注意这里的this.ct,不再是ct
+        this.tabpanels = this.ct.querySelectorAll('.panel>li');
+    };
+    Tab.prototype.bind = function(){
+        var _this = this;
+        this.tablis.forEach(function(tabli){
+            tabli.onclick = function(e){
+                var target = e.target;
+                var index = [].indexOf.call(_this.tablis,target);//_this.tablis不是数组，是类数组，
+                // 因而不能直接使用var index = _this.tablis.indexOf(target);
+                //这里的_this指的是ct这个容器，如果用this，将会是点击的这个li;
+                _this.tablis.forEach(function(li){//遍历_this.tablis中的每一个li，其中的li是任意命名的参数！
+                    li.classList.remove('active');//为li移除active
+                });
+                target.classList.add('active');
+                _this.tabpanels.forEach(function(li){
+                    li.classList.remove('active');
+                });
+                _this.tabpanels[index].classList.add('active')
+            };
+        })
+    };
+
+        new Tab(document.querySelectorAll('.container')[0]);
+        new Tab(document.querySelectorAll('.container')[1]);
+        new Tab(document.querySelectorAll('.container')[2])
+
+</script>
+</body>
+</html>

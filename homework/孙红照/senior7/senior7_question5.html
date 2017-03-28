@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>senior7_question5</title>
+	<style>
+		.demo	{
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			background: url(http://p1.bqimg.com/567571/df98cac7416b1084.jpg);
+			background-size: 100% 100%;
+			background-repeat: no-repeat;
+		}
+		.demo:after {
+			content: "";
+			display: block;
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			width: 50%;
+			background: linear-gradient(to right,rgba(240,255,255,1),rgba(255,228,196,.5))
+		}
+
+		.demo:before {
+			content: "";
+			display: block;
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			right: 0;
+			width: 50%;
+			background: linear-gradient(to left,rgba(240,255,255,1),rgba(255,228,196,.5))
+		}
+	</style>
+</head>
+<body>
+<div class="demo"></div>
+</body>
+</html>
