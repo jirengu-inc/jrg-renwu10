@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>轮播-淡入淡出</title>
+
+    <style>
+        ul,
+        li {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        button {
+            background: none;
+            border: none;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .clearfix:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        .view {
+            width: 474px;
+            overflow: hidden;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .ct {
+            width: 1896px;
+            height: 270px;
+            position: relative;
+        }
+
+        .item {
+            /*float: left;*/
+            margin: 0;
+            padding: 0;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .index-ct {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            margin-left: -50px;
+        }
+        .index-btn {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: #ccc;
+            float: left;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        .choose {
+            background-color: purple;
+        }
+
+        .index-btn:hover {
+            background-color: purple;
+        }
+
+    </style>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+</head>
+<body>
+<div class="view">
+    <ul class="ct">
+        <li class="item"><a href="#"><img src="http://fu5.sdo.com/10036/201703/14901490095663.jpg" alt=""></a></li>
+        <li class="item"><a href="#"><img src="http://fu5.sdo.com/10036/201703/14901602824029.jpg" alt=""></a></li>
+        <li class="item"><a href="#"><img src="http://fu5.sdo.com/10036/201703/14895900033815.jpg" alt=""></a></li>
+        <li class="item"><a href="#"><img src="http://fu5.sdo.com/10036/201703/14895870889942.jpg" alt=""></a></li>
+    </ul>
+
+    <div class="index-ct clearfix">
+        <ul>
+            <li class="index-btn choose"></li>
+            <li class="index-btn"></li>
+            <li class="index-btn"></li>
+            <li class="index-btn"></li>
+        </ul>
+    </div>
+
+</div>
+
+<script>
+    var curIndex = 0;
+    var index = 0;
+    var $imgArr = $('.item');
+//    var $imgW = $imgArr.eq(0).width();
+//    var scrollW = 0; //需滚动的距离
+    var timerId; //定时器id
+
+    $(start()); //加载完全后启动计时器
+
+    function start(){
+        $imgArr.eq(0).siblings().hide(); //绝对定位，图片按先后顺序叠加，所以默认先只显示第一张图
+        addTimer();
+    }
+
+    $('.index-ct').on('click', function(e){
+        if(e.target.tagName === 'LI'){
+            clearInterval(timerId); //点击时清除自动播放
+            timerId = 0;
+            changePage($(e.target).index());
+
+            timerId = setTimeout(addTimer, 3000); //3秒之后启动自动播放
+        }
+    });
+
+    function addTimer(){
+        if(timerId > 0)clearTimeout(timerId);
+        timerId = setInterval(autoPlay, 3000);
+    }
+
+    //自动播放下一页
+    function autoPlay(){
+        playNext();
+    }
+
+    //下一页
+    function playNext(){
+        index ++;
+        if(index > $imgArr.length - 1)index = 0;
+        changePage(index);
+    }
+
+    //上一页
+    function playPre(){
+        index --;
+        if(index < 0)index = $imgArr.length - 1;
+        changePage(index);
+    }
+
+    //跳转到某页
+    function changePage(page){
+        if(page === curIndex)return;
+
+        $('.index-ct ul>li').eq(page).addClass('choose').siblings().removeClass('choose');
+
+        //淡入淡出效果
+        $imgArr.eq(curIndex).fadeOut('slow');
+        $imgArr.eq(page).fadeIn('slow');
+
+
+//        if(page > curIndex) { //往左边滚
+//            scrollW -= $imgW * (page - curIndex);
+//        }else{ //往右边滚
+//            scrollW += $imgW * (curIndex - page);
+//        }
+//        console.log(scrollW);
+//        $('.ct').animate({left: scrollW});
+
+        curIndex = page;
+        index = curIndex;
+    }
+
+
+</script>
+
+</body>
+</html>
