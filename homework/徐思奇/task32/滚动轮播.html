@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>滚动轮播</title>
+    <style>
+    * {
+    padding: 0;
+    margin: 0;
+    }
+    ul, li, a {
+    list-style: none;
+    text-decoration: none;
+    }
+    .wrap {
+    position: relative;
+    width: 300px;
+    height: 240px;
+    overflow: hidden;
+    }
+    /* 图片区 */
+    .img-ct:after {
+    content: '';
+    display: block;
+    clear: both;
+    }
+    .img-ct {
+    position: absolute;
+    width: 1500px;
+    }
+    .img-ct li {
+    float: left;
+    }
+    .img-ct li img {
+    width: 300px;
+    height: 240px;
+    }
+    /* 左右切换键 */
+    .btn {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    color: #fff;
+    background: #666;
+    opacity: .3;
+    border-radius: 25px;
+    line-height: 50px;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    margin-top: -25px;
+    }
+    .btn:hover {
+    opacity: .8;
+    transition: .5s;
+    box-shadow: 0 0 5px rgba(0,0,0,.5)
+    }
+    .btn-pre {
+    left: 5px;
+    }
+    .btn-next {
+    right: 5px;
+    }
+    /* 底部小标签 */
+    .btn-bullet {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translate(-50%);
+    /*第二种方式用text-align:center,即在.btn-bullet外再套一个div,然后dispaly:inline-block,以后li个数增加或减少都会居中*/
+    }
+    .btn-bullet li {
+    float: left;
+    margin-left: 5px;
+    width: 25px;
+    height: 5px;
+    border-radius: 3px;
+    background: #fff;
+    cursor: pointer;
+    }
+    .btn-bullet .active {
+    background: #666;
+    }
+    .btn-bullet li:hover {
+    box-shadow: 0 0 5px rgba(0,0,0,.5);
+    transition: .2s;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <!-- 图片区 -->
+      <ul class='img-ct'>
+        <li data-index=0>
+          <a href="javascript:void(0)">
+            <img src="http://cdn.jirengu.com/book.jirengu.com/img/7.jpg" alt="图片1">
+          </a>
+        </li>
+        <li data-index=1>
+          <a href="javascript:void(0)">
+            <img src="http://cdn.jirengu.com/book.jirengu.com/img/8.jpg" alt="图片2">
+          </a>
+        </li>
+        <li data-index=2>
+          <a href="javascript:void(0)">
+            <img src="http://cdn.jirengu.com/book.jirengu.com/img/11.jpg" alt="图片3">
+          </a>
+        </li>
+        <li data-index=3>
+          <a href="javascript:void(0)">
+            <img src="http://cdn.jirengu.com/book.jirengu.com/img/32.jpg" alt="图片4">
+          </a>
+        </li>
+        <li data-index=4>
+          <a href="javascript:void(0)">
+            <img src="http://cdn.jirengu.com/book.jirengu.com/img/28.jpg" alt="图片5">
+          </a>
+        </li>
+      </ul>
+      
+      <!-- 左右切换键 -->
+      <a class="btn btn-pre" href="javascript:void(0)">&#60;</a>
+      <a class="btn btn-next" href="javascript:void(0)">&#62;</a>
+      
+      <!-- 底部小标签 -->
+      <ul class='btn-bullet'>
+        <li class='active'></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+
+
+
+      <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+      
+      <script>
+
+        var $imgCt = $('.img-ct')
+        var $btnPre = $('.btn-pre')
+        var $btnNext = $('.btn-next')
+        var $bullet = $('.btn-bullet')
+        var $btn = $('.btn')
+        var isAnimate = false//动画状态锁 防止重复连续点击产生动画反应滞后的问题
+
+        var $firstImg = $imgCt.find('li').first()
+        var $lastImg = $imgCt.find('li').last()
+
+        var pageIndex = 0
+        var imgLength = $imgCt.children().length //在克隆之前计数
+
+        //克隆第一个和最后一个li，为了更加明显，在HTML中增加自定义属性data-index
+        $imgCt.prepend($lastImg.clone())
+        $imgCt.append($firstImg.clone())
+
+        //随着li数量的变化，自动更改$imgCt的宽度
+        $imgCt.width($firstImg.width()*$imgCt.children().length)
+
+        //使默认状态下页面显示第一张图片，如果直接在CSS中修改，快速刷新页面就会出现跳动
+        $imgCt.css('left', -$firstImg.width()) 
+
+
+        $btn.on('click', function(){
+          stopPlay()
+          if($(this).hasClass('btn-pre')){
+            playPre()
+          }else if($(this).hasClass('btn-next')){
+            playNext()
+          }
+          autoPlay()
+        })
+
+
+        //右向按钮 传入参数n，表示需要移动的图片的张数，为了配合下面的bullet按钮使用
+        function playNext(n){
+          
+          if(isAnimate) return
+          isAnimate = true//上锁
+          
+          var n = n || 1 //如果n存在直接取n否则取1
+          $imgCt.animate({
+            left: '-='+$firstImg.width()*n
+          },function(){
+            pageIndex = pageIndex + n
+            if(pageIndex === imgLength){
+              $imgCt.css('left', -$firstImg.width())
+              pageIndex = 0
+            }
+            isAnimate = false
+            bullet()
+          })
+        }
+
+        //左向按钮
+        function playPre(n){
+          
+          if(isAnimate) return
+          isAnimate = true
+          var n = n || 1
+          $imgCt.animate({
+            left: '+='+$firstImg.width()*n
+          },function(){
+            pageIndex = pageIndex - n
+            if(pageIndex<0){
+              $imgCt.css('left', -$firstImg.width()*imgLength)
+              pageIndex = imgLength-1
+            }
+            isAnimate = false
+            bullet()
+          })
+        }
+
+        //随着图片变化而变化,同步
+        function bullet(){
+          $bullet.children().removeClass('active').eq(pageIndex).addClass('active')
+        }
+
+        //点击bullet中按钮切换图片
+
+        $('.btn-bullet li').on('click', function(){
+          stopPlay()
+          var curIndex = $(this).index()
+          var step = curIndex - pageIndex
+          if(curIndex>pageIndex){
+            playNext(step)
+          }else if(curIndex<pageIndex){ //若不加else if条件则会出现重复点击同一个按钮产生错位
+            playPre(-step)
+          }
+          autoPlay()
+        })
+
+        //自动播放
+        autoPlay()
+        var clock
+        function autoPlay(){
+          clock = setInterval(function(){
+            playNext()
+          }, 2000)
+        }
+
+        function stopPlay(){//防止自动播放与其他事件产生冲突
+          clearInterval(clock)
+        }
+
+
+
+      </script>
+    </div>
+  </body>
+</html>
