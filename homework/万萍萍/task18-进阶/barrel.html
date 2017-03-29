@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>木桶布局</title>
+
+
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+</head>
+<body>
+<div class="img-ct">
+
+</div>
+
+<script>
+
+   function Barrel($ct){
+       this.$ct = $ct;
+       this.rowList = []; //每行可放的图片列表
+       this.IMG_H = 150; //图片固定高度
+       this.CONTENT_W = this.$ct.width(); //容器宽度
+   }
+   Barrel.prototype = {
+       /**
+        * 加载图片
+        * ***/
+       loadImgs: function(){
+           var _this = this;
+
+           var imgUrls = this.getImgsUrl(23);
+           for(var i = 0; i < imgUrls.length; i++){
+               var img = new Image();
+               img.src = imgUrls[i];
+               img.onload = function () {
+                   _this.layout(this);
+               }
+           }
+       },
+
+       /**
+        * 计算布局
+        * **/
+       layout: function (loadImg){
+           var imgScale = loadImg.width / loadImg.height; //获得图片的宽高比例
+           loadImg.height = this.IMG_H; //设置一个固定高度
+           loadImg.width = loadImg.height * imgScale; //宽度根据高度等比例缩放
+//           console.log(loadImg.width, loadImg.height);
+
+           var totalImgW = 0;
+           for(var i = 0; i < this.rowList.length; i++){
+               totalImgW += this.rowList[i].width;
+           }
+
+           //已有的图片总宽度+新加载的图片宽度 > 容器宽度  则不放进列表，并渲染当前列表内的图片
+            if(totalImgW + loadImg.width > this.CONTENT_W){
+                console.log(this.rowList);
+                this.renderToDOM(totalImgW);
+                this.rowList = [];
+            }
+           this.rowList.push(loadImg);
+       },
+
+       /**
+        * 渲染到DOM
+        * **/
+       renderToDOM: function (totalW){
+            var $imgRow = $('<div class="img-row"></div>');
+            for(var i = 0; i < this.rowList.length; i++){
+                var $imgNode = $(this.rowList[i]);
+                $imgNode.css({'margin': 5});
+                $imgNode.height(this.CONTENT_W * this.IMG_H / totalW); //重新计算高度，使其按比例拉伸至父容器总宽度
+                $imgRow.append($imgNode);
+            }
+           this.$ct.append($imgRow);
+       },
+
+       /**
+        *  获取图片地址
+        * **/
+       getImgsUrl: function(num){
+           var arr = [/*'http://static.sdg-china.com/dn/pic/dn/web10/brand_0227.png',
+               'http://fu5.sdo.com/10036/201605/14629647237521.jpg',
+               'http://static.sdg-china.com/dn/pic/dn/web10/index_media.jpg',
+               'http://fu5.sdo.com/10036/201702/14873220321172.jpg',
+               'http://fu5.sdo.com/10036/201702/14872391106606.jpg',
+               'http://fu5.sdo.com/10036/201701/14847453781098.jpg'*/];
+           for(var i = 0; i < num; i++){
+               var w = 100 + parseInt(Math.random() * 50);
+               var h = 100 + parseInt(Math.random() * 30);
+               var imgUrl = 'http://placehold.it/' + w + 'x' + h;
+
+               arr.push(imgUrl);
+           }
+           return arr;
+       }
+   };
+
+
+   var barrel = new Barrel($('.img-ct'));
+   barrel.loadImgs();
+
+</script>
+</body>
+</html>
