@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+            color: inherit;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            position: relative;
+            margin: 20px auto;
+            width: 800px;
+            height: 450px;
+            overflow: hidden;
+        }
+        .box .img-ct{
+            position: absolute;
+        }
+        .box .img-ct img{
+            width: 800px;
+            height: 450px;
+        }
+        .box .img-ct:after{
+            content: ' ';
+            display: block;
+            clear: both;
+        }
+        .box .img-ct li{
+            float: left;
+        }
+        .btn{
+            position: absolute;
+            top: 50%;
+            margin-top: -15px;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            background: #4E443C;
+            color: #fff;
+            border-radius: 30px;
+            box-shadow: 0 0 2px #999;
+            opacity: 0.8
+        }
+        .btn:hover{
+            opacity: 1;
+        }
+        .btn-left{
+            left: 10px;
+        }
+        .btn-right{
+            right: 10px;
+        }
+        .thumbnail {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .thumbnail li {
+            width: 80px;
+            height: 45px;
+            background: #fff;
+            display: inline-block;
+            cursor: pointer;
+            opacity: 0.7;
+            border: 1px solid #ccc;
+        }
+        .thumbnail li.active {
+            opacity: 1;
+            border-color: #000;
+        }
+        .thumbnail li img{
+            width: 80px;
+            height: 45px;
+        }
+
+
+        /*瀑布流*/
+        .picture {
+            text-align: center;
+            padding: 20px 0;
+            /*width: 1200px;*/
+
+            background-color: #f7f7f7;
+        }
+        .picture .container{
+            margin: 0 auto;
+            width: 1200px;
+        }
+        .picture .waterfall-ct {
+            position: relative;
+        }
+        .picture>.container>h2 {
+            font-size: 40px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        .picture.container>p {
+            font-size: 18px;
+            margin-bottom: 60px;
+        }
+        .picture h4 {
+            color:#616161;
+            font-size: 18px;
+        }
+        .picture .waterfall-ct p {
+            color: #9e9e9e;
+            font-size: 12px;
+        }
+        .picture .waterfall-ct>li{
+            margin: 10px;
+            width: 280px;
+            position: absolute;
+            box-shadow: 1px 1px 12px #bdbdbd;
+            background-color: #fff;
+            opacity: 1;
+            transition: 1s opacity;
+        }
+        .picture .waterfall-ct>li:hover {
+            z-index: 100;
+            transform: scale(1.1);
+        }
+        .picture img {
+            width: 280px;
+        }
+        .picture .loadmore {
+            display: inline-block;
+            width: 130px;
+            height: 50px;
+            line-height: 50px;
+            cursor: pointer;
+            color: white;
+            background-color: #F44336;
+            font-weight: 700;
+            font-size: 18px;
+            transition: 0.5s all;
+            margin-top: 50px;
+        }
+        .picture .loadmore:hover {
+            background-color: #ff7043;;
+        }
+        .go-top {
+            box-shadow: 1px 1px 5px -1px #ccc;
+            width: 60px;
+            line-height: 60px;
+            font-size: 14px;
+            text-align: center;
+            background-color: rgba(0, 255, 255, 0.7);;
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            color: #FFF;
+            z-index: 1000;
+            font-weight: 100;
+            border-radius: 100%;
+            cursor: pointer;
+            opacity: 0.4;
+        }
+    </style>
+
+</head>
+<body>
+<!--<script data-main="js/main" src="js/lib/require.js"></script>-->
+<script data-main="app/merge.js" src="js/lib/require.js"></script>
+<div class="box">
+    <ul class="img-ct">
+        <li><a href="#"><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1490211212084&di=0fe90abdb0ab91473c7b607f57bdcf79&imgtype=0&src=http%3A%2F%2Fpic1.win4000.com%2Fwallpaper%2F1%2F57ad94463a3aa.jpg"></a></li>
+        <li><a href="#"><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1490211212084&di=e22b39fca85519544e765241874e134c&imgtype=0&src=http%3A%2F%2Fimg17.3lian.com%2Fd%2Ffile%2F201702%2F15%2F4d2c2da5e6f46351cc318d76f94b132d.jpg"></a></li>
+        <li><a href="#"><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1490211242002&di=43300ba31f404c44533eb8848280cf0c&imgtype=0&src=http%3A%2F%2Fimg17.3lian.com%2Fd%2Ffile%2F201702%2F13%2F9ce581200d81363336fea98d6dd9899c.jpg"></a></li>
+        <li><a href="#"><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1490211255627&di=a1b10a44a3da1478d164e83a8588da5d&imgtype=0&src=http%3A%2F%2Fwww.pp3.cn%2Fuploads%2F20120713j%2F946.jpg"></a></li>
+    </ul>
+    <a class="btn btn-left" href="#"><</a>
+    <a class="btn btn-right" href="#">></a>
+    <ul class="thumbnail">
+        <li class="active"><a href="#"><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1490211212084&di=0fe90abdb0ab91473c7b607f57bdcf79&imgtype=0&src=http%3A%2F%2Fpic1.win4000.com%2Fwallpaper%2F1%2F57ad94463a3aa.jpg"></a></li>
+        <li><a href="#"><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1490211212084&di=e22b39fca85519544e765241874e134c&imgtype=0&src=http%3A%2F%2Fimg17.3lian.com%2Fd%2Ffile%2F201702%2F15%2F4d2c2da5e6f46351cc318d76f94b132d.jpg"></a></li>
+        <li><a href="#"><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1490211242002&di=43300ba31f404c44533eb8848280cf0c&imgtype=0&src=http%3A%2F%2Fimg17.3lian.com%2Fd%2Ffile%2F201702%2F13%2F9ce581200d81363336fea98d6dd9899c.jpg"></a></li>
+        <li><a href="#"><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1490211255627&di=a1b10a44a3da1478d164e83a8588da5d&imgtype=0&src=http%3A%2F%2Fwww.pp3.cn%2Fuploads%2F20120713j%2F946.jpg"></a></li>
+    </ul>
+</div>
+<div class="picture" id="picture">
+    <div class="container">
+        <ul class="waterfall-ct">
+        </ul>
+        <span class="loadmore">加载更多</span>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+    <meta charset="utf-8">
+    <title>渐变轮播</title>
+    <style>
+    * {
+    padding: 0;
+    margin: 0;
+    }
+    ul, li, a {
+    list-style: none;
+    text-decoration: none;
+    }
+    .wrap {
+    position: relative;
+    width: 300px;
+    height: 240px;
+    }
+    /* 图片区 */
+    .img-ct li {
+    position: absolute;
+    display: none;//核心点
+    }
+    .img-ct li img {
+    width: 300px;
+    height: 240px;
+    }
+    /* 左右切换键 */
+    .btn {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    color: #fff;
+    background: #666;
+    opacity: .3;
+    border-radius: 25px;
+    line-height: 50px;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    margin-top: -25px;
+    }
+    .btn:hover {
+    opacity: .8;
+    transition: .5s;
+    box-shadow: 0 0 5px rgba(0,0,0,.5)
+    }
+    .btn-pre {
+    left: 5px;
+    }
+    .btn-next {
+    right: 5px;
+    }
+    /* 底部小标签 */
+    .btn-bullet {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translate(-50%);
+    /*第二种方式用text-align:center,即在.btn-bullet外再套一个div,然后dispaly:inline-block,以后li个数增加或减少都会居中*/
+    }
+    .btn-bullet li {
+    float: left;
+    margin-left: 5px;
+    width: 25px;
+    height: 5px;
+    border-radius: 3px;
+    background: #fff;
+    cursor: pointer;
+    }
+    .btn-bullet .active {
+    background: #666;
+    }
+    .btn-bullet li:hover {
+    box-shadow: 0 0 5px rgba(0,0,0,.5);
+    transition: .2s;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <!-- 图片区 -->
+      <ul class='img-ct'>
+        <li data-index=0>
+          <a href="javascript:void(0)">
+            <img src="http://cdn.jirengu.com/book.jirengu.com/img/7.jpg" alt="图片1">
+          </a>
+        </li>
+        <li data-index=1>
+          <a href="javascript:void(0)">
+            <img src="http://cdn.jirengu.com/book.jirengu.com/img/8.jpg" alt="图片2">
+          </a>
+        </li>
+        <li data-index=2>
+          <a href="javascript:void(0)">
+            <img src="http://cdn.jirengu.com/book.jirengu.com/img/11.jpg" alt="图片3">
+          </a>
+        </li>
+        <li data-index=3>
+          <a href="javascript:void(0)">
+            <img src="http://cdn.jirengu.com/book.jirengu.com/img/32.jpg" alt="图片4">
+          </a>
+        </li>
+        <li data-index=4>
+          <a href="javascript:void(0)">
+            <img src="http://cdn.jirengu.com/book.jirengu.com/img/28.jpg" alt="图片5">
+          </a>
+        </li>
+      </ul>
+      
+      <!-- 左右切换键 -->
+      <a class="btn btn-pre" href="javascript:void(0)">&#60;</a>
+      <a class="btn btn-next" href="javascript:void(0)">&#62;</a>
+      
+      <!-- 底部小标签 -->
+      <ul class='btn-bullet'>
+        <li class='active'></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script>
+      var $imgCt = $('.img-ct')
+      var $btnPre = $('.btn-pre')
+      var $btnNext = $('.btn-next')
+      var $bullet = $('.btn-bullet')
+      var $imgChild = $imgCt.children()
+      var imgCount = $imgChild.length 
+      var isAnimate = false//动画状态锁 防止重复连续点击产生动画反应滞后的问题
+
+      var pageIndex = 0
+
+
+      $('.btn').on('click', function(){
+        stopPlay()
+        if($(this).hasClass('btn-pre')){
+          playPre()
+        }else if($(this).hasClass('btn-next')){
+          playNext()
+        }
+        autoPlay()
+      })
+
+
+      play(0)//初始显示第一张图片
+      autoPlay()
+
+      function playNext(){
+        play((pageIndex+1)%imgCount)
+      }
+      function playPre(){
+        play((imgCount+pageIndex-1)%imgCount)
+      }
+        
+      function play(n){//通用播放函数
+        
+        if(isAnimate) return
+        isAnimate = true//上锁
+        
+        $imgChild.eq(pageIndex).fadeOut(500)
+        $imgChild.eq(n).fadeIn(500,function(){
+          isAnimate = false//解锁
+        })
+        pageIndex = n
+        bullet()
+      }
+
+      //随着图片变化而变化,同步
+      function bullet(){
+        $bullet.children()
+        .removeClass('active').eq(pageIndex).addClass('active')
+      }
+
+      //点击bullet中按钮切换图片
+
+      $('.btn-bullet li').on('click', function(){
+        stopPlay()
+        var curIndex = $(this).index()
+        play(curIndex)
+        autoPlay()
+      })
+
+      //自动播放
+
+      var clock
+      function autoPlay(){
+        clock = setInterval(function(){
+          playNext()
+        }, 2000)
+      }
+
+      function stopPlay(){//防止自动播放与其他事件产生冲突
+        clearInterval(clock)
+      }
+
+    </script>
+  </body>
+</html>
