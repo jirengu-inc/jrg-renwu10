@@ -1,0 +1,126 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>carousel</title>
+    <style>
+        ul,li{
+            list-style:none;
+        }
+        .container{
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .container:after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .container li{
+            float: left;
+            margin: 10px 10px;
+        }
+        .container li img{
+            width: 380px;
+            height: 380px;
+        }
+        p{
+            float: left;
+        }
+    </style>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+</head>
+<body>
+<ul class="container">
+    <li><a href="#"><img src="http://p1.bpimg.com/567571/2fd9cbb6b9bb0237.gif" data-src="http://fu5.sdo.com/10036/201703/14901490095663.jpg" /></a></li>
+    <li><a href="#"><img src="http://p1.bpimg.com/567571/2fd9cbb6b9bb0237.gif" data-src="http://fu5.sdo.com/10036/201703/14901602824029.jpg" /></a></li>
+    <li><a href="#"><img src="http://p1.bpimg.com/567571/2fd9cbb6b9bb0237.gif" data-src="http://fu5.sdo.com/10036/201703/14895900033815.jpg" /></a></li>
+    <li><a href="#"><img src="http://p1.bpimg.com/567571/2fd9cbb6b9bb0237.gif" data-src="http://fu5.sdo.com/10036/201703/14895870889942.jpg" /></a></li>
+    <li><a href="#"><img src="http://p1.bpimg.com/567571/2fd9cbb6b9bb0237.gif" data-src="http://fu5.sdo.com/10036/201703/14901490095663.jpg" /></a></li>
+    <li><a href="#"><img src="http://p1.bpimg.com/567571/2fd9cbb6b9bb0237.gif" data-src="http://p1.bpimg.com/567571/9100b5daeef35e91.jpg" /></a></li>
+    <li><a href="#"><img src="http://p1.bpimg.com/567571/2fd9cbb6b9bb0237.gif" data-src="http://i1.piimg.com/567571/a1ef474f1f2c3227.jpg" /></a></li>
+    <li><a href="#"><img src="http://p1.bpimg.com/567571/2fd9cbb6b9bb0237.gif" data-src="http://p1.bpimg.com/567571/ab39649b607f4c52.jpg" /></a></li>
+    <li><a href="#"><img src="http://p1.bpimg.com/567571/2fd9cbb6b9bb0237.gif" data-src="http://i1.piimg.com/567571/a27b408df7e6322e.png" /></a></li>
+    <li><a href="#"><img src="http://p1.bpimg.com/567571/2fd9cbb6b9bb0237.gif" data-src="http://fu5.sdo.com/10036/201703/14901602824029.jpg" /></a></li>
+    <li><a href="#"><img src="http://p1.bpimg.com/567571/2fd9cbb6b9bb0237.gif" data-src="http://fu5.sdo.com/10036/201703/14895900033815.jpg" /></a></li>
+    <li><a href="#"><img src="http://p1.bpimg.com/567571/2fd9cbb6b9bb0237.gif" data-src="http://fu5.sdo.com/10036/201703/14895870889942.jpg" /></a></li>
+    <li><a href="#"><img src="http://p1.bpimg.com/567571/2fd9cbb6b9bb0237.gif" data-src="http://fu5.sdo.com/10036/201703/14901490095663.jpg" /></a></li>
+    <li><a href="#"><img src="http://p1.bpimg.com/567571/2fd9cbb6b9bb0237.gif" data-src="http://fu5.sdo.com/10036/201703/14901602824029.jpg" /></a></li>
+    <li><a href="#"><img src="http://p1.bpimg.com/567571/2fd9cbb6b9bb0237.gif" data-src="http://fu5.sdo.com/10036/201703/14895900033815.jpg" /></a></li>
+    <li><a href="#"><img src="http://p1.bpimg.com/567571/2fd9cbb6b9bb0237.gif" data-src="http://fu5.sdo.com/10036/201703/14895870889942.jpg" /></a></li>
+
+    <p id="hello">hello</p>
+    <p id="world">world</p>
+</ul>
+
+<script type="text/javascript">
+
+    function Exposure($target, callback){
+        this.$target = $target;
+        this.callback = callback;
+        this.bind();
+        this.check();
+    }
+
+    Exposure.prototype.bind = function(){
+        var _this = this;
+        $(window).on('scroll', function(){
+            _this.check();
+        })
+    };
+
+    Exposure.prototype.check = function(){
+        if(this.isShow(this.$target)){
+            this.callback(this.$target);
+        }
+    };
+
+    Exposure.prototype.isShow = function(){
+        var windowHeight = $(window).height(),
+            scrollTop = $(window).scrollTop(),
+            offsetTop = this.$target.offset().top,
+            nodeHeight = this.$target.height();
+        if(windowHeight + scrollTop > offsetTop && scrollTop < offsetTop + nodeHeight){
+            return true;
+        }else{
+            return false;
+        }
+    };
+
+    var Lazy = (function(){
+        return {
+            init: function($targets, callback){
+                $targets.each(function(idx, target){
+                    new Exposure($(target), callback);
+                })
+
+            },
+            one: function($targets, callback){
+
+            }
+
+        }
+    })();
+
+    Lazy.init($('#hello'), function($node){
+        $node.text( $node.text() + '到底啦');
+    });
+
+    Lazy.init($('#world'), function($node){
+        $node.text( $node.text() + '到底啦+1');
+    });
+
+    Lazy.init($('.container img'), function($node){
+        showImg($node);
+    });
+
+    function showImg($img){
+        var imgUrl = $img.attr('data-src');
+        $img.attr('src', imgUrl);
+    }
+
+</script>
+
+</body>
+</html>
