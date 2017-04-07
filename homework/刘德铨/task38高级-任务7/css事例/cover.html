@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .cover {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('img/bg.jpg') center center no-repeat;
+            background-size: cover;
+        }
+        .cover::before,
+        .cover::after{
+            content: '';
+            display: block;
+            width: 50%;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+        }
+        .cover::before {
+            left: 0;
+            background: linear-gradient(rgba(214, 87, 127, 0), rgba(82, 203, 128, 1));
+        }
+        .cover::after {
+            right: 0;
+            background: linear-gradient(rgba(160, 203, 227, 0), rgba(222, 160, 227, 1));
+        }
+
+    </style>
+</head>
+<body>
+    <div class="cover"></div>
+</body>
+</html>

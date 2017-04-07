@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .img-preview{
+            width: 1000px;
+            margin: 0 auto;
+        }
+        .img-row {
+            margin-bottom: 8px;
+        }
+        .img-row:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        .img-box {
+            float: left;
+        }
+
+        .img-line .img-box:first-child {
+            padding-left: 0;
+        }
+    </style>
+
+</head>
+<body>
+<div class="img-preview"></div>
+<script src="jquery-3.1.1.js"></script>
+<script>
+
+    function View($ct){
+        this.$ct = $ct;
+        this.rowList = [];
+        this.loadImg();
+    }
+    View.prototype = {
+        loadImg:function () {
+            var _this = this;
+            var imgs = this.getImg(30);
+            $.each(imgs,function(idx,url){
+                var img = new Image();
+                img.src = url;
+                img.onload = function(){
+                    var imgInfo = {
+                        target : $(img),
+                        width: 150*(img.width/img.height),
+                        height: 150
+                    };
+                    _this.show(imgInfo);
+                }
+            });
+        },
+        show:function(imgInfo){
+            var clientWidth = this.$ct.width()
+            var rowWidth = 0
+            var lastImgInfo = imgInfo
+            var newRowheight = 0
+            var _this = this;
+
+            this.rowList.push(lastImgInfo)
+            $.each(this.rowList,function(idx, imgInfo){
+                rowWidth += imgInfo.width;
+                if(rowWidth  > clientWidth ){
+                    _this.rowList.pop();
+                    rowWidth = rowWidth - lastImgInfo.width;
+                    newRowheight = clientWidth * 150 / rowWidth;
+                    _this.putImg(newRowheight);
+                    _this.rowList = [];
+                    _this.rowList.push(lastImgInfo);
+                }
+            });
+        },
+
+        putImg : function (newRowHeight) {
+            var $rowCt = $('<div class="img-row"></div>');
+            $.each(this.rowList, function(idx, imgInfo){
+                var $imgCt = $('<div class="img-box"></div>'),
+                        $img = $(imgInfo.target);
+                        $img.height(newRowHeight);
+                        $imgCt.append($img);
+                        $rowCt.append($imgCt);
+            });
+            this.$ct.append($rowCt)
+        },
+
+        getImg: function (num) {
+            var color, width, height, urls = [];
+            for (var i = 0; i < num; i++) {
+                color = Math.random().toString(16).substring(2, 8);
+                width = Math.floor(Math.random() * 100 + 50);
+                height = Math.floor(Math.random() * 30 + 50);
+                urls.push("http://placehold.it/" + width + "x" + height + "/" + color + "/fff");
+            }
+            return urls;
+        }
+    };
+var view = new View($('.img-preview'));
+
+</script>
+</body>
+</html>

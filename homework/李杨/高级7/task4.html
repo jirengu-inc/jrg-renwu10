@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>task4</title>
+    <style>
+        .box1-1 {
+            width: 50px;
+            height: 50px;
+            border: 1px solid red;
+            border-radius: 10px;
+        }
+        
+        .box1-2 {
+            width: 50px;
+            height: 50px;
+            border: 1px solid red;
+            border-radius: 25px;
+        }
+        
+        .box2-1 {
+            width: 50px;
+            height: 50px;
+            border: 1px solid red;
+            box-shadow: 2px 2px 2px 2px red;
+        }
+        
+        .box2-2 {
+            width: 50px;
+            height: 50px;
+            border: 1px solid red;
+            box-shadow: inset 2px 2px 2px 2px red;
+        }
+        
+        .box3-1,
+        .box3-2,
+        .box3-3,
+        .box3-4 {
+            width: 50px;
+            height: 50px;
+            border: 1px dashed black;
+            margin-left: 100px;
+            margin-top: 100px;
+        }
+        
+        .box3-1-1 {
+            width: 50px;
+            height: 50px;
+            transform: scale(2, 2);
+            background: red;
+            opacity: 0.5;
+        }
+        
+        .box3-2-1 {
+            width: 50px;
+            height: 50px;
+            transform: scale(0.5, 0.5);
+            background: red;
+            opacity: 0.5;
+        }
+        
+        .box3-3-1 {
+            width: 50px;
+            height: 50px;
+            transform: translate(10px, 10px);
+            background: red;
+            opacity: 0.5;
+        }
+        
+        .box3-4-1 {
+            width: 50px;
+            height: 50px;
+            transform: rotate(45deg);
+            background: red;
+            opacity: 0.5;
+        }
+        
+        .box4-1,
+        .box4-2 {
+            width: 50px;
+            height: 50px;
+            border: 1px dashed black;
+            margin-left: 100px;
+            margin-top: 100px;
+            transform: perspective(50px);
+        }
+        
+        .box4-1-1 {
+            width: 50px;
+            height: 50px;
+            background: red;
+            opacity: 0.5;
+            transform: translate3d(25px, 25px, 100px);
+        }
+        
+        .box4-2-1 {
+            width: 50px;
+            height: 50px;
+            background: red;
+            opacity: 0.5;
+            transform: rotateX(45deg) rotateY(45deg) rotateZ(45deg);
+        }
+        
+        .box5 {
+            width: 100px;
+            height: 100px;
+            background-image: linear-gradient(to right, black, blue, pink, white, yellow);
+        }
+        
+        .box6 {
+            width: 100px;
+            height: 100px;
+            background: red;
+            transition: all 1s;
+            margin: 100px;
+        }
+        
+        .box6:hover {
+            width: 200px;
+            height: 200px;
+            background: blue;
+        }
+        
+        .box7 {
+            width: 100px;
+            height: 100px;
+            border-radius: 100px;
+            border: 25px solid pink;
+            border-top: 25px solid deeppink;
+            animation: loading 1s linear infinite;
+        }
+        
+        @keyframes loading {
+            0% {
+                transform: rotate(0)
+            }
+            50% {
+                transform: rotate(180deg)
+            }
+            100% {
+                transform: rotate(360deg)
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1">
+        <div class="box1-1"></div>
+        <div class="box1-2"></div>
+    </div>
+    <div class="box2">
+        <div class="box2-1"></div>
+        <div class="box2-2"></div>
+    </div>
+    <div class="box3">
+        <div class="box3-1">
+            <div class="box3-1-1"></div>
+        </div>
+        <div class="box3-2">
+            <div class="box3-2-1"></div>
+        </div>
+        <div class="box3-3">
+            <div class="box3-3-1"></div>
+        </div>
+        <div class="box3-4">
+            <div class="box3-4-1"></div>
+        </div>
+    </div>
+    <div class="box4">
+        <div class="box4-1">
+            <div class="box4-1-1"></div>
+        </div>
+        <div class="box4-2">
+            <div class="box4-2-1"></div>
+        </div>
+    </div>
+    <div class="box5"></div>
+    <div class="box6"></div>
+    <div class="box7"></div>
+</body>
+
+</html>

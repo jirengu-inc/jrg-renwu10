@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>JSONP</title>
+<style>
+	.ct {
+		width: 900px;
+		margin: 0 auto;
+	}
+</style>
+</head>
+<body>
+    <div class="ct">
+    	<ul class="number">
+    		<li>one</li>
+    		<li>two</li>
+    		<li>three</li>
+    	</ul>
+    	<button class="change">换一组</button>
+    </div>
+
+
+
+    <script>
+    	
+    	$('.change').addEventListener('click', function(){
+    		var script = document.createElement('script')//JSONP原理：添加script标签，实现资源调用
+    		script.src = 'http://qi.winters.com:8080/getNumber?callback=appendHtml';//与后端共同定义：callback=appendHtml
+    		document.head.appendChild(script)
+    		document.head.removeChild(script) //立刻清除所添加的script标签，不影响使用
+    	})
+
+    	function appendHtml(number){ //定义appendHtml方法
+    		var html = ''
+    		for(var i = 0; i < number.length; i++){
+    			html += '<li>' + number[i] + '</li>'
+    		}
+    		console.log(html)
+    		$('.number').innerHTML = html
+    	}
+
+        function $(id){
+            return document.querySelector(id);
+        }
+
+
+    </script>
+</body>
+</html>

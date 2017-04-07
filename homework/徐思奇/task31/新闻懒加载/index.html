@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>新闻懒加载</title>
+    <style>
+    * {
+    margin: 0;
+    padding: 0;
+    }
+    ul, li, a {
+    list-style: none;
+    text-decoration: none;
+    }
+    .wrap {
+    width: 650px;
+    margin: 20px auto;
+    }
+    a:after {
+    content: '';
+    clear: both;
+    display: block;
+    }
+    a {
+    width: 500px;
+    display: block;
+    color: #333;
+    font-size: 14px;
+    }
+    li {
+    margin-bottom: 20px;
+    }
+    img {
+    float: left;
+    width: 50px;
+    height: 50px;
+    }
+    li div {
+    float: left;
+    margin-left: 10px;
+    letter-spacing: 2px;
+    }
+    h4 {
+    margin-bottom: 5px;
+    }
+    p {
+    color: #ccc;
+    }
+    span {
+    display: inline-block;
+    margin: 10px;
+    }
+    .over {
+      color: #333;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <ul class='ct'>
+        <li>
+          <a href="http://view.inews.qq.com/a/20160830A02SEB00">
+            <img src="http://inews.gtimg.com/newsapp_match/0/530686980/0" alt="图片">
+            <div>
+              <h4>中国轰6K研发险些被俄罗斯发动机厂商卡脖子</h4>
+              <p>近日，轰6K＂战神＂轰炸机首次公开亮相。在中国...</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="http://xw.qq.com/mil/20160830028700/MIL2016083002870002">
+            <img src="http://inews.gtimg.com/newsapp_match/0/531338035/0" alt="图片">
+            <div>
+              <h4>外媒称中国已经决心造出世界先进的航空发动机</h4>
+              <p>资料图：2012年11月14日，第九届中国国际...</p>
+            </div>
+          </a>
+        </li>
+      </ul>
+      <span></span>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    
+    <script>
+    //规定： status:1 成功 status:0 失败
+    
+    var index = 0   //每次传递固定条数新闻，从0次开始
+    var isOver = false  //防止后端数据传完后继续请求
+    var isNewsArrive = true // 加锁 防止因滚动或点击过快重复请求
+    var clock 
+
+    <!-- 核心功能-->
+    getNews() //页面展现时立刻请求数据，防止空白
+
+    $(window).on('scroll', function(){
+    //每触发一次就清除上一次触发时建立的定时器
+      if(clock){
+        clearTimeout(clock)
+      }
+      clock = setTimeout(function(){
+        check()
+      }, 200)//为了控制懒加载出现的时间
+    })
+    <!--结束-->
+
+
+
+    
+    function check(){
+      if(isVisible($('span')) && !isOver && isNewsArrive){
+            getNews()
+          }
+    }
+
+    //ajax
+    function getNews(){
+      isNewsArrive = false
+      $.get('/getNews', {idx: index}).done(function(ret){
+        isNewsArrive = true
+        if(ret.status === 1){
+          index++
+          appendHtml(ret.data)
+          check()
+        }else{
+        alert('获取新闻出错。。。')
+        }
+      }).fail(function(){
+        alert('系统异常。。。')
+      })
+    }
+
+
+    //添加li元素
+    function appendHtml(news){
+      if(news.length === 0){
+        isOver = true
+        $('.ct').append('<p class="over">没有新闻了。。。</p>')
+        return
+      }
+      var htmls = ''
+      $.each(news, function(){
+        htmls += '<li>';
+        htmls += '<a href="' +this.link+ '">';
+        htmls += '<img src = "' +this.img+ '">';
+        htmls += '<div>';
+        htmls += '<h4>' + this.title + '</h4>';
+        htmls += '<p>' + this.brif + '</p>';
+        htmls += '</div></a></li>'
+      })
+        $('.ct').append(htmls)
+    }
+
+
+        function isVisible($node){ //判断可视
+          var windowHeight = $(window).height(),
+          scrollTop = $(window).scrollTop(),
+          offsetTop = $node.offset().top,
+          nodeHeight = $node.outerHeight(true)
+          //出现在可视范围的条件
+          if(windowHeight + scrollTop > offsetTop && scrollTop < offsetTop + nodeHeight){
+            return true
+          }else{
+            return false
+          }
+        }
+        </script>
+      </body>
+    </html>

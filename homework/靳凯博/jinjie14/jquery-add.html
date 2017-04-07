@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        ul, li {
+            margin: 0;
+            padding: 0;
+        }
+        li {
+            list-style: none;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .content {
+            border: 1px solid #cccccc;
+            margin-left: 10px;
+            width: 800px;
+        }
+        .tab-content {
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            display: flex;
+        }
+
+        .tab-content > li {
+            display: inline-block;
+            border: 1px solid #ccc;
+            width: 200px;
+            height: 200px;
+            margin: 10px;
+            text-align: center;
+            flex-grow: 1;
+            position: relative;
+        }
+        .tab-content>li>a{
+            position: relative;
+            display: block;
+        }
+        .cover{
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: rgba(0,0,0, 0.3);
+            transition: all 0.3s;
+            opacity: 0;
+            z-index: 1;
+        }
+        .cover .btn{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            background: #fff;
+            width: 70px;
+            padding: 10px;
+            transform: translate(-50%,-50%);
+        }
+        .tab-content>li.hover>.cover{
+            opacity: 1;
+        }
+        #btn{
+            width: 70px;;
+            padding: 10px;
+            margin: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background: #fff;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="content">
+        <ul class="tab-content">
+            <li class="prod">
+                <div class="cover"><a href="#" class="btn">立即抢购</a></div>
+                <a href="#">
+                    <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg"/>
+                </a>
+                <p>珂兰 黄金手 猴哥款</p>
+                <p>￥1699</p>
+            </li>
+            <li class="prod">
+                <div class="cover"><a href="#" class="btn">立即抢购</a></div>
+                <a href="#">
+                    <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg"/>
+                </a>
+                <p>珂兰 黄金手 猴哥款</p>
+                <p>￥1699</p>
+            </li>
+            <li class="prod">
+                <div class="cover"><a href="#" class="btn">立即抢购</a></div>
+                <a href="#">
+                    <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg"/>
+                </a>
+                <p>珂兰 黄金手 猴哥款</p>
+                <p>￥1699</p>
+            </li>
+            <li class="prod">
+                <div class="cover"><a href="#" class="btn">立即抢购</a></div>
+                <a href="#">
+                    <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg"/>
+                </a>
+                <p>珂兰 黄金手 猴哥款</p>
+                <p>￥1699</p>
+            </li>
+            <li class="prod">
+                <div class="cover"><a href="#" class="btn">立即抢购</a></div>
+                <a href="#">
+                    <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg"/>
+                </a>
+                <p>珂兰 黄金手 猴哥款</p>
+                <p>￥1699</p>
+            </li>
+            <li class="prod">
+                <div class="cover"><a href="#" class="btn">立即抢购</a></div>
+                <a href="#">
+                    <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg"/>
+                </a>
+                <p>珂兰 黄金手 猴哥款</p>
+                <p>￥1699</p>
+            </li>
+        </ul>
+    </div>
+<button id="btn">添加</button>
+<script src="jquery-3.1.1.min.js"></script>
+<script>
+    var products = [
+        {
+            img: 'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+            name: '珂兰 黄金手 猴哥款',
+            price: '￥405.00'
+        },{
+            img: 'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+            name: '珂兰 黄金转运珠 猴哥款',
+            price: '￥100.00'
+        },{
+            img: 'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+            name: '珂兰 黄金手链 3D猴哥款',
+            price: '￥45.00'
+        }
+    ];
+
+    function addHtml(products){
+        var html = '';
+        html += '<li class="prod">';
+        html += '<div class="cover"><a href="#" class="btn">立即抢购</a></div>';
+        html += '<a href="#">';
+        html += '<img src="'+products.img+'"/>';
+        html += '</a>';
+        html += '<p>'+products.name+'</p>';
+        html += '<p>'+products.price+'</p>';
+        html += '</li>';
+        return html
+    }
+    $('#btn').on('click', function (e) {
+        e.preventDefault();
+        $.each(products,function(idx,prod){
+            var html = addHtml(prod);
+            $('.tab-content').append(html)
+        })
+    });
+    $('.tab-content').on('mouseenter', '.prod',function (e) {
+        $(this).addClass('hover');
+    });
+    $('.tab-content').on('mouseleave', '.prod',function(e){
+        $(this).removeClass('hover');
+    });
+</script>
+</body>
+</html>

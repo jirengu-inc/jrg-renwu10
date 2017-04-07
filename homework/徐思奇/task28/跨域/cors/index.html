@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>cors</title>
+<style>
+  .ct {
+    width: 900px;
+    margin: 0 auto;
+  }
+</style>
+</head>
+<body>
+    <div class="ct">
+      <ul class="number">
+        <li>one</li>
+        <li>two</li>
+        <li>three</li>
+      </ul>
+      <button class="change">换一组</button>
+    </div>
+  
+<script>
+  
+  $('.change').addEventListener('click', function(){
+
+    var xhr = new XMLHttpRequest()
+    xhr.open('get', 'http://qi.winters.com:8080/getNumber', true)
+    xhr.send()
+    xhr.onreadystatechange = function(){
+      if(xhr.readyState === 4 && xhr.status === 200){
+        appendHtml(JSON.parse(xhr.responseText))
+      }
+    }
+    window.xhr = xhr
+  })
+
+  function appendHtml(number){
+        var html = ''
+        for(var i = 0; i < number.length; i++){
+          html += '<li>' + number[i] + '</li>'
+        }
+        console.log(html)
+        $('.number').innerHTML = html
+      }
+
+  function $(id){
+    return document.querySelector(id);
+  }
+
+</script>
+
+</body>
+</html>

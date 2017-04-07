@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>滚动轮播</title>
+	<link rel="stylesheet" href="css/iconfont.css">
+<style>
+
+html,body,ul,li,p{
+	margin: 0;
+	padding: 0;
+}
+li{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+}
+
+.carousel{
+	position: relative;
+	width: 450px;
+	height: 300px;
+	overflow: hidden;
+}
+.carousel .img-ct{
+	position: absolute;
+}
+.carousel .img-ct img{
+	width: 450px;
+	height: 300px;
+}
+.carousel .img-ct:after{
+	content: ' ';
+	display: block;
+	clear: both;
+}
+.carousel .img-ct li{
+	float: left;
+}
+
+.btn{
+	position: absolute;
+	height: 30px;
+	width: 30px;
+	border-radius: 15px;
+	background: #000;
+	opacity: 0.4;
+	text-align: center;
+	line-height: 27px;
+	display: block;
+	color: #fff;
+	top: 50%;
+	transform: translateY(-50%);
+	transition: all 1s;            /*css3效果*/
+}
+.btn:hover{
+	opacity: 1
+}
+.btn-pre{
+	left: 10px;
+}
+.btn-nxt{
+	right: 10px;
+}
+.bullet{
+	position: absolute;
+	bottom: 40px;
+	left: 50%;
+	transform: translateX(-50%);
+}
+.bullet li{
+	height: 5px;
+	width: 20px;
+	background-color: #fff;
+	cursor: pointer;
+	margin: 0 5px;
+	border-radius: 5px;
+	display: inline-block;
+}
+.bullet .active{
+	background-color: #666;
+}
+
+
+</style>
+</head>
+<body>
+
+<div class="carousel">
+	<ul class="img-ct">
+		<li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/2.jpg" alt=""></a></li>
+		<li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/3.jpg" alt=""></a></li>
+		<li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/4.jpg" alt=""></a></li>
+		<li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/5.jpg" alt=""></a></li>
+	</ul>
+	<a class="btn btn-pre" href="#"><i class="iconfont">&#x343c;</i></a>
+	<a class="btn btn-nxt" href="#"><i class="iconfont">&#x343b;</i></a>
+	<ul class="bullet">
+		<li class="active"></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+</div>
+<div class="carousel">
+	<ul class="img-ct">
+		<li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/2.jpg" alt=""></a></li>
+		<li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/3.jpg" alt=""></a></li>
+		<li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/4.jpg" alt=""></a></li>
+		<li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/5.jpg" alt=""></a></li>
+	</ul>
+	<a class="btn btn-pre" href="#"><i class="iconfont">&#x343c;</i></a>
+	<a class="btn btn-nxt" href="#"><i class="iconfont">&#x343b;</i></a>
+	<ul class="bullet">
+		<li class="active"></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+</div>
+
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+<script src="js/Carousel组件.js"></script>
+
+
+</body>
+</html>

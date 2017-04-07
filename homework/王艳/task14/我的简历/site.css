@@ -1,0 +1,168 @@
+html,body,h1,h2,h3,h4,h5,h6,p,ul,li{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box; 
+}
+
+li{
+	list-style: none;
+}
+
+body{
+	font: 14px/1.8 Arial;
+	background-color: #ccc;
+	color: #333;
+}
+
+#page{
+	max-width: 1000px;
+	margin: 0 auto;
+	padding: 60px 45px;
+	background-color: #fff;
+	/*height: 1000px;*/
+}
+
+section{
+	margin-top: 30px;
+}
+
+section::after{
+	content: "";
+	display: block;
+	clear: both
+}
+
+section h2{
+	font-size: 18px;
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 5px;
+	margin-bottom: 30px;
+	width: 35%;
+}
+
+section>ul>li{
+	position: relative;
+	padding-left: 70px;
+	padding-top: 5px;
+	padding-bottom: 15px;
+	border-left: 2px solid #333;
+}
+
+section>ul>li::before{
+	content:"";
+	position: absolute;
+	left: -6px;
+	top: 0;
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background-color: #333;
+}
+
+section h3{
+	font-size: 18px;
+	font-weight: normal;
+	line-height: 1px;
+	margin-bottom: 15px;
+}
+
+section h3 span{
+	color: #ccc;
+}
+
+.personal .name{
+	float: left;
+	width: 50%;
+}
+
+.personal .contact{
+	float: left;
+	width: 50%;
+}
+
+.personal .circle{
+	width: 160px;
+	height: 160px;
+	border-radius: 50% 50%;
+	background: url(images/萌物.jpg) no-repeat center center;
+}
+
+.personal .name{
+	margin-bottom: 70px;
+}
+
+.personal .name h1{
+	font-size: 40px;
+	margin-left: 220px;
+	margin-top: -120px;
+}
+
+.personal .name p{
+	font-size: 30px;
+	margin-left: 200px;
+}
+
+.personal .contact h2{
+	border-bottom: 4px solid #333;
+	width: 100%;
+}
+
+.personal .contact a{
+	font-size: 16px;
+	color: skyblue;
+	text-decoration: none;
+}
+
+.footer::after{
+	content: "";
+	display: block;
+	clear: both;
+}
+
+.activity{
+	float: left;
+	width: 55%;
+}
+
+.activity .list h2{
+	border-bottom: 2px solid #333;
+	width: 75%;
+}
+
+.activity>.list>ul>li{
+	padding-left: 50px;
+	padding-right: 120px;
+	margin-bottom: 25px;
+}
+
+.activity .icon-plus{
+	position: relative;
+	left: -40px;
+	top: 15px;
+}
+
+.skilly{
+	float: left;
+	width: 45%;
+}
+
+.skilly h2{
+	border-bottom: 2px solid #333;
+	width: 100%;
+}
+
+.skilly>.list{
+	padding-left: 50px;
+}
+
+.skilly .list li {
+	float: left;
+	width: 50%;
+	padding: 20px 15px;
+}
+
+i{
+	margin-right: 20px; 
+}
+

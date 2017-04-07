@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+    <meta charset="utf-8">
+    <title>瀑布流布局</title>
+    <style>
+    * {
+    padding: 0;
+    margin: 0;
+    }
+    .ct {
+    position: relative;
+    }
+    .item {
+    width: 200px;
+    position: absolute; //关键点：绝对定位，方便后期定位
+    padding: 5px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    transition: all 1s; //变化时以渐变的方式
+    }
+    </style>
+  </head>
+  <body>
+    <div class="ct">
+      <div class="item">
+        <img src="https://unsplash.it/200/220" alt="图片">
+      </div>
+      <div class="item">
+        <img src="https://unsplash.it/200/260" alt="图片">
+      </div>
+      <div class="item">
+        <img src="https://unsplash.it/200/200" alt="图片">
+      </div>
+      <div class="item">
+        <img src="https://unsplash.it/200/270" alt="图片">
+      </div>
+      <div class="item">
+        <img src="https://unsplash.it/200/230" alt="图片">
+      </div>
+      <div class="item">
+        <img src="https://unsplash.it/200/210" alt="图片">
+      </div>
+      <div class="item">
+        <img src="https://unsplash.it/200/290" alt="图片">
+      </div>
+      <div class="item">
+        <img src="https://unsplash.it/200/310" alt="图片">
+      </div>
+      <div class="item">
+        <img src="https://unsplash.it/200/330" alt="图片">
+      </div>
+      <div class="item">
+        <img src="https://unsplash.it/200/200" alt="图片">
+      </div>
+      <div class="item">
+        <img src="https://unsplash.it/200/320" alt="图片">
+      </div>
+      <div class="item">
+        <img src="https://unsplash.it/200/210" alt="图片">
+      </div>
+      <div class="item">
+        <img src="https://unsplash.it/200/290" alt="图片">
+      </div>
+      <div class="item">
+        <img src="https://unsplash.it/200/260" alt="图片">
+      </div>
+      <div class="item">
+        <img src="https://unsplash.it/200/310" alt="图片">
+      </div>
+      <div class="item">
+        <img src="https://unsplash.it/200/220" alt="图片">
+      </div>
+      <div class="item">
+        <img src="https://unsplash.it/200/310" alt="图片">
+      </div>
+      <div class="item">
+        <img src="https://unsplash.it/200/240" alt="图片">
+      </div>
+      <div class="item">
+        <img src="https://unsplash.it/200/350" alt="图片">
+      </div>
+      <div class="item">
+        <img src="https://unsplash.it/200/200" alt="图片">
+      </div>
+      <div class="item">
+        <img src="https://unsplash.it/200/190" alt="图片">
+      </div>
+      <div class="item">
+        <img src="https://unsplash.it/200/260" alt="图片">
+      </div>
+      <div class="item">
+        <img src="https://unsplash.it/200/320" alt="图片">
+      </div>
+      <div class="item">
+        <img src="https://unsplash.it/200/270" alt="图片">
+      </div>
+      <div class="item">
+        <img src="https://unsplash.it/200/240" alt="图片">
+      </div>
+      <div class="item">
+        <img src="https://unsplash.it/200/260" alt="图片">
+      </div>
+      <div class="item">
+        <img src="https://unsplash.it/200/280" alt="图片">
+      </div>
+      <div class="item">
+        <img src="https://unsplash.it/200/330" alt="图片">
+      </div>
+      <div class="item">
+        <img src="https://unsplash.it/200/350" alt="图片">
+      </div>
+      <div class="item">
+        <img src="https://unsplash.it/200/290" alt="图片">
+      </div>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+    <script>
+      init()
+
+      function init(){//再封装一层
+        waterFall() //页面初始执行一次
+
+        $(window).resize(function(){ //窗口尺寸变化时再执行一次
+          waterFall()
+        })
+
+        function waterFall (){ //封装成函数
+          var countLen = parseInt($('.ct').width()/$('.item').outerWidth(true))//得出列数
+
+          var itemArr = [] //存储每一列高度
+          for(var i = 0; i < countLen; i++){
+            itemArr[i] = 0 //数组重置，归零
+          }
+
+          $('.item').each(function(){
+            var minItem = Math.min.apply(null, itemArr) //找到最小高度
+            var minIndex = itemArr.indexOf(minItem) //找出高度最小的那一列
+          
+          $(this).css({
+            top: itemArr[minIndex],
+            left: $(this).outerWidth(true)*minIndex
+          })
+          
+          itemArr[minIndex] += $(this).outerHeight(true)//更新数组
+          
+          })
+        }
+      }
+
+
+    </script>
+  </body>
+</html>

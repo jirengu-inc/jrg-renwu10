@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>JSONP</title>
+<style>
+  .content-text {
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    padding: 10px;
+    margin: 10px;
+  }
+  .content-text:hover {
+    background-color: #009933;
+  }
+
+  #btn {
+    width: 75px;
+    font-size: 18px;
+    color: red;
+    border: 1px solid red;
+    border-radius: 2px;
+    padding: 10px;
+    margin: 0 auto;
+    cursor: pointer;
+  }
+
+</style>
+
+</head>
+<body>
+  <div id="content">
+      <!--<p class="content-text">内容1</p>
+      <p class="content-text">内容2</p>-->
+  </div>
+  <div id="btn">获取电台</div>
+
+    <script>
+  	
+		document.querySelector("#btn").addEventListener("click", function(){
+				//创建一条script标签，将服务器返回的数据作为一个js执行，callback后面的就是指定的函数
+				var sc = document.createElement("script");
+				sc.src = "http://api.jirengu.com/fm/getChannels.php?callback=getChannel";
+				document.head.appendChild(sc);
+				document.head.appendChild(sc);
+			});
+
+			//指定的处理服务器数据的回调函数
+			function getChannel(data){
+				//处理服务器传过来的data数据
+				console.log(data);
+				for(var i = 0; i < data.channels.length; i++){
+					var ptag = document.createElement("p");
+					ptag.innerText = data.channels[i].name;
+					ptag.classList.add("content-text");
+					document.querySelector("#content").appendChild(ptag);
+				}
+			}
+
+  	</script>
+</body>
+</html>

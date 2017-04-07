@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>通过jquery代理事件添加元素</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        li{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        body{
+            font: 12px/150% Arial;
+        }
+        .ct{
+            width: 700px;
+            margin: 0 auto;
+        }
+        .ct>h1{
+            margin: 15px 0px;
+            color: #666;
+        }
+        .product{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .product>li{
+            width: 220px;
+            border: 1px solid #eeeeee;
+            padding: 15px 20px;
+            text-align: center;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .product>li p{
+            text-align: left;
+        }
+        .product>li p:last-child{
+            color: #C7171E;
+        }
+        .add_btn{
+            width: 60px;
+            border-radius: 3px;
+            text-align: center;
+            display: block;
+            border:1px solid #C7171E;
+            color: #C7171E;
+            padding: 10px 0px;
+        }
+        .cover{
+            position: absolute;
+            top: 0;
+            left:0;
+            bottom:0;
+            right: 0;
+            background: rgba(0,0,0,0.3);
+            display: flex;
+            justify-content:center;
+            align-items: center;
+            opacity: 0;
+            transition: all 0.3s;
+        }
+        .cover .buy_btn{
+            display: block;
+            width: 80px;
+            color: #C81623;
+            border: 1px solid #C81623;
+            padding: 10px 0px;
+            background: #fff;
+            border-radius: 3px;
+        }
+        .show{
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+<div class="ct">
+    <h1>珠宝首饰</h1>
+    <ul class="product">
+        <li>
+            <div class="cover">
+                <a href="javacript:;" class="buy_btn">立即抢购</a>
+            </div>
+            <img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt="产品展示">
+            <p class="indr">藏美千足金和田玉金镶玉路路通吊坠</p>
+            <p class="money">&yen;1699.00</p>
+        </li>
+        <li>
+            <div class="cover">
+                <a href="javacript:;" class="buy_btn">立即抢购</a>
+            </div>
+            <img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt="产品展示">
+            <p>藏美千足金和田玉金镶玉路路通吊坠</p>
+            <p>&yen;1699.00</p>
+        </li>
+        <li>
+            <div class="cover">
+                <a href="javacript:;" class="buy_btn">立即抢购</a>
+            </div>
+            <img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt="产品展示">
+            <p>藏美千足金和田玉金镶玉路路通吊坠</p>
+            <p>&yen;1699.00</p>
+        </li>
+        <li>
+            <div class="cover">
+                <a href="javacript:;" class="buy_btn">立即抢购</a>
+            </div>
+            <img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt="产品展示">
+            <p>藏美千足金和田玉金镶玉路路通吊坠</p>
+            <p>&yen;1699.00</p>
+        </li>
+        <li>
+            <div class="cover">
+                <a href="javacript:;" class="buy_btn">立即抢购</a>
+            </div>
+            <img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt="产品展示">
+            <p>藏美千足金和田玉金镶玉路路通吊坠</p>
+            <p>&yen;1699.00</p>
+        </li>
+        <li>
+            <div class="cover">
+                <a href="javacript:;" class="buy_btn">立即抢购</a>
+            </div>
+            <img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt="产品展示">
+            <p>藏美千足金和田玉金镶玉路路通吊坠</p>
+            <p>&yen;1699.00</p>
+        </li>
+
+    </ul>
+    <a href="javascript:;" class="add_btn">添加</a>
+</div>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script>
+ $('.ct').on("mouseenter",'.product li',function(){
+     $(this).find(".cover").addClass("show")
+     $(this).siblings().find(".cover").removeClass("show");
+ })
+ $('.ct').on("mouseleave",function(){
+     $("div.cover").removeClass("show")
+ })
+ $(".add_btn").on("click",function(e){
+     e.preventDefault();
+     var str="";
+     for(var i=0;i<products.length;i++){
+         str+=add(i)
+     }
+     console.log(str);
+     $(".product").append(str)
+ })
+ var products = [
+     {
+         img: 'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+         name: '珂兰 黄金手 猴哥款',
+         price: '&yen;405.00'
+     },{
+         img: 'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+         name: '珂兰 黄金转运珠 猴哥款',
+         price: '&yen;100.00'
+     },{
+         img: 'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+         name: '珂兰 黄金手链 3D猴哥款',
+         price: '&yen;45.00'
+     }
+ ];
+ function add(n){
+     var html="";
+     html+="<li>"
+     html+=   "<div class='cover'>"
+     html+=      "<a href='javacript:;' class='buy_btn'>立即抢购</a>"
+     html+=    "</div>"
+     html+=   "<img"+" src="+products[n].img+" alt='产品展示'>"
+     html+=   "<p class='indr'>"+products[n].name+"</p>"
+     html+=   "<p class='money'>"+products[n].price+"</p>"
+     html+="</li>"
+     return html;
+ }
+</script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+require.config({
+    baseUrl: 'src/js',
+    paths: {
+        'jquery': 'lib/jquery-3.1.1.min'
+    }
+});
+
+require(['app/index']);

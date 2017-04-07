@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>代码题二</title>
+  </head>
+  <body>
+    <!-- - 当点击按钮开头添加时在<li>这里是</li>元素前添加一个新元素，内容为用户输入的非空字符串；当点击结尾添加时在最后一个 li 元素后添加用户输入的非空字符串.
+    - 当点击每一个元素li时控制台展示该元素的文本内容。 -->
+    <ul class="ct">
+      <li>这里是</li>
+      <li>饥人谷</li>
+      <li>任务班</li>
+    </ul>
+    <input class="ipt-add-content" placeholder="添加内容"/>
+    <button id="btn-add-start">开头添加</button>
+    <button id="btn-add-end">结尾添加</button>
+    <script>
+    var ipt = $('.ipt-add-content');
+    var addStart = $('#btn-add-start');
+    var endStart = $('#btn-add-end');
+    var ct = $('.ct');
+    ct.addEventListener('click', function(e){
+    console.log(e.target.innerText);
+    })
+    addStart.addEventListener('click', function(){
+    var li = document.createElement('li');
+    li.innerText = ipt.value;
+    ct.insertBefore(li, ct.firstChild);
+    })
+    endStart.addEventListener('click', function(){
+    var li = document.createElement('li');
+    li.innerText = ipt.value;
+    ct.appendChild(li);
+    })
+    function $(id){
+    return document.querySelector(id);
+    }
+    function $$(clas){
+    return document.querySelectorAll(clas);
+    }
+    </script>
+  </body>
+</html>

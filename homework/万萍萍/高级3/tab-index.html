@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>tab组件</title>
+
+    <style>
+        ul,
+        li {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .clearfix:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        .tab {
+            width: 600px;
+            margin: 20px auto;
+            border: 1px solid #ccc;
+            padding: 20px 10px;
+            border-radius: 4px;
+        }
+
+        .tab-header {
+            border-bottom: 1px solid #ccc;
+        }
+
+        .tab-header>li {
+            float: left;
+            color: brown;
+            border-top: 1px solid #fff;
+            border-left: 1px solid #fff;
+            border-right: 1px solid #fff;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .tab-header .active {
+            border: 1px solid #ccc;
+            border-bottom-color: #fff;
+            border-radius: 4px 4px 0 0;
+            color: #333;
+            margin-bottom: -1px;
+        }
+
+        .tab-container {
+            padding: 20px 10px;
+        }
+
+        .tab-container>li {
+            display: none;
+        }
+
+        .tab-container>.active {
+            display: block;
+        }
+
+        .box {
+            height: 1000px;
+        }
+    </style>
+    <!--<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>-->
+</head>
+
+<body>
+<div class="tab">
+    <ul class="tab-header clearfix">
+        <li class="active">选项1</li>
+        <li>选项2</li>
+        <li>选项3</li>
+    </ul>
+    <ul class="tab-container">
+        <li class="active">内容1
+            <ul>
+                <li></li>
+            </ul>
+        </li>
+        <li>内容2</li>
+        <li>内容3</li>
+    </ul>
+</div>
+
+<div class="tab">
+    <ul class="tab-header clearfix">
+        <li class="active">选项1</li>
+        <li>选项2</li>
+        <li>选项3</li>
+        <li>选项4</li>
+    </ul>
+    <ul class="tab-container">
+        <li class="active">内容1
+            <ul>
+                <li></li>
+            </ul>
+        </li>
+        <li>内容2</li>
+        <li>内容3</li>
+        <li>内容4</li>
+    </ul>
+</div>
+
+<div class="tab">
+    <ul class="tab-header clearfix">
+        <li class="active">选项1</li>
+        <li>选项2</li>
+        <li>选项3</li>
+        <li>选项4</li>
+    </ul>
+    <ul class="tab-container">
+        <li class="active">内容1
+            <ul>
+                <li></li>
+            </ul>
+        </li>
+        <li>内容2</li>
+        <li>内容3</li>
+        <li>内容4</li>
+    </ul>
+</div>
+
+<script>
+    function Tab(ct) {
+        this.ct = ct;
+        this.init();
+        this.bind();
+    }
+
+    Tab.prototype.init = function(){
+        this.tabLis = this.ct.querySelectorAll('.tab-header>li');
+        this.tabPanels = this.ct.querySelectorAll('.tab-container>li');
+    }
+    Tab.prototype.bind = function(){
+        var _this = this;
+        this.tabLis.forEach(function(tabli) {
+            tabli.onclick = function(e) {
+                var target = e.target;
+                var index = [].indexOf.call(_this.tabLis, target);
+                _this.tabLis.forEach(function(li) {
+                    li.classList.remove('active');
+                })
+                target.classList.add('active');
+
+                _this.tabPanels.forEach(function(panel) {
+                    panel.classList.remove('active');
+                })
+                _this.tabPanels[index].classList.add('active');
+            }
+        })
+    }
+
+
+    var tab1 = new Tab(document.querySelectorAll('.tab')[0])
+    var tab2 = new Tab(document.querySelectorAll('.tab')[1])
+    new Tab(document.querySelectorAll('.tab')[2])
+
+</script>
+</body>
+
+</html>

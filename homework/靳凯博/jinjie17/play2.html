@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+            color: inherit;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            position: relative;
+            width: 480px;
+            height: 360px;
+            overflow: hidden;
+        }
+        .box .img-ct{
+            position: relative;
+        }
+        .box .img-ct img{
+            width: 480px;
+            height: 360px;
+        }
+        .box .img-ct:after{
+            content: ' ';
+            display: block;
+            clear: both;
+        }
+        .box .img-ct li{
+            float: left;
+            display: none;
+        }
+        .btn{
+            position: absolute;
+            top: 50%;
+            margin-top: -15px;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            background: #4E443C;
+            color: #fff;
+            border-radius: 30px;
+            box-shadow: 0 0 2px #999;
+            opacity: 0.8
+        }
+        .btn:hover{
+            opacity: 1;
+        }
+        .btn-left{
+            left: 10px;
+        }
+        .btn-right{
+            right: 10px;
+        }
+        .thumbnail {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .thumbnail li {
+            width: 48px;
+            height: 36px;
+            background: #fff;
+            display: inline-block;
+            cursor: pointer;
+            opacity: 0.7;
+            border: 1px solid #ccc;
+        }
+        .thumbnail li.active {
+            opacity: 1;
+            border-color: #000;
+        }
+        .thumbnail li img{
+            width: 48px;
+            height: 36px;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <ul class="img-ct">
+        <li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/1.jpg"></a></li>
+        <li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/2.jpg"></a></li>
+        <li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/3.jpg"></a></li>
+        <li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/4.jpg"></a></li>
+    </ul>
+    <a class="btn btn-left" href="#"><</a>
+    <a class="btn btn-right" href="#">></a>
+    <ul class="thumbnail">
+        <li class="active"><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/1.jpg"></a></li>
+        <li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/2.jpg"></a></li>
+        <li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/3.jpg"></a></li>
+        <li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/4.jpg"></a></li>
+    </ul>
+</div>
+<script src='jquery-3.1.1.js'></script>
+<script>
+    var $imgCt = $('.img-ct'),
+            $imgLi = $('.img-ct>li'),
+            $btnL = $('.btn-left'),
+            $btnR = $('.btn-right'),
+            $thumbnail = $('.thumbnail>li');
+
+
+    var imgWidth = $imgLi.width();
+    var imgNum = $imgLi.length;
+    var page = 0;
+    var isMove = false;
+
+    play(0)
+    autoPlay()
+
+    $btnL.on('click', function () {
+        playLeft()
+    });
+
+    $btnR.on('click', function () {
+        play((page+1)%imgNum);
+    });
+    $thumbnail.on('click',function(){
+        var index = $(this).index();
+        console.log(index)
+        play(index);
+    });
+
+    function playLeft(){
+        play((imgNum+page-1)%imgNum)
+    }
+    function playRight(){
+        play((page+1)%imgNum);
+    }
+    function play(num){
+        if(isMove)return;
+        isMove = true;
+        $imgLi.eq(page).fadeOut(500);
+        $imgLi.eq(num).fadeIn(500, function(){
+            isMove = false;
+        });
+        page = num;
+        setThumbnail();
+    }
+    function setThumbnail(){
+        $thumbnail.removeClass('active').eq(page).addClass('active');
+    }
+    function stopAuto(){
+        clearInterval(clock);
+    }
+
+    function autoPlay(){
+        clock = setInterval(function(){
+            playRight();
+        }, 2000);
+    }
+</script>
+</body>
+</html>

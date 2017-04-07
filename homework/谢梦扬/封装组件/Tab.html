@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Event Bubbling Example</title>
+</head>
+<style type="text/css">
+    li,ul,div{
+        margin: 0;
+        padding:0;
+    }
+    li{
+        list-style: none;
+
+    }
+    .tab{
+        border:1px solid #ccc;
+        padding: 10px 10px;
+    }
+    .clearfloat:after{
+        content:'';
+        display:block;
+        clear:both;
+    }
+    .tab-header{
+        border-bottom: 1px solid #ccc;
+    }
+    .tab-header>li{
+        float:left;
+        padding:10px 30px;
+        border-left:1px solid white ;
+        border-top:1px solid white ;
+        border-right:1px solid white;
+        cursor: pointer;
+    }
+    .tab-header .active{
+        border: 1px solid #ccc;
+        border-bottom-color:white;
+        margin-bottom: -0.5px;
+        color: red;
+    }
+    .tab-content>li{
+        display: none;
+        padding: 20px 0;
+    }
+    .tab-content .active1{
+        display: block;
+    }
+
+</style>
+<body>
+<div class="tab">
+    <ul class="tab-header clearfloat">
+        <li class="active">tab1</li>
+        <li>tab2</li>
+        <li>tab3</li>
+    </ul>
+    <ul class="tab-content">
+        <li class="active1">内容1</li>
+        <li>内容2</li>
+        <li>内容3</li>
+    </ul>
+</div>
+<div class="tab">
+    <ul class="tab-header clearfloat">
+        <li class="active">tab1</li>
+        <li>tab2</li>
+        <li>tab3</li>
+    </ul>
+    <ul class="tab-content">
+        <li class="active1">内容1</li>
+        <li>内容2</li>
+        <li>内容3</li>
+    </ul>
+</div>
+<script>
+
+
+    function tab(ct){
+        this.ct = ct;
+        this.init();
+        this.bind()
+
+    }
+    tab.prototype.init = function(){
+        this.headerLi = this.ct.querySelectorAll('.tab-header>li');
+        this.contentLi = this.ct.querySelectorAll('.tab-content>li');
+        this.header = this.ct.querySelector('.tab-header');
+    };
+    tab.prototype.bind = function(){
+        var _this = this;
+        this.header.addEventListener('click',function(e){
+            var target = e.target;
+            if(target.tagName.toLowerCase() === 'li'){
+                for(i = 0;i<_this.headerLi.length;i++){
+                    _this.headerLi[i].classList.remove('active')
+                }
+                target.classList.add('active')
+            }
+            for(i = 0;i<_this.contentLi.length;i++){
+                _this.contentLi[i].classList.remove('active1');
+                if(_this.headerLi[i] === target){
+                    _this.contentLi[i].classList.add('active1')
+                }
+            }
+
+        })
+    }
+
+
+  var tab1 = new tab(document.querySelectorAll('.tab')[0]);
+   var tab2 = new tab(document.querySelectorAll('.tab')[1]);
+
+
+
+
+</script>
+
+</body>
+</html>

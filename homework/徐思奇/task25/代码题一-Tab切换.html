@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Tab切换</title>
+    <style>
+    ul, li {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    
+    }
+    .ct {
+    width: 500px;
+    border: 1px solid;
+    padding: 20px;
+    border-radius: 5px;
+    margin: 30px auto;
+    }
+    .ct .tab {
+    border-bottom: 1px solid #ccc;
+    }
+    .ct .clearfix:after {
+    content: '';
+    display: block;
+    clear: both;
+    }
+    .ct .tab > li {
+    float: left;
+    padding: 15px;
+    border-top: 1px solid #fff;
+    border-left: 1px solid #fff;
+    border-right: 1px solid #fff;
+    color: blue;
+    cursor: pointer;
+    }
+    .ct .tab .active {
+    border: 1px solid #ccc;
+    border-bottom-color: #fff;
+    border-radius: 5px 5px 0 0;
+    color: #000;
+    margin-bottom: -1px;
+    }
+    .ct .content {
+    margin-top: 20px;
+    padding-left: 20px;
+    }
+    .ct .content li {
+    display: none;
+    }
+    .ct .content .active {
+    display: block;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="ct">
+      <ul class='tab clearfix'>
+        <li class='active'>选项一</li>
+        <li>选项二</li>
+        <li>选项三</li>
+      </ul>
+      <ul class='content'>
+        <li class='active'>内容一</li>
+        <li>内容二</li>
+        <li>内容三</li>
+      </ul>
+    </div>
+    <script>
+    var tab = $('.tab');
+    var tabLis = $$('.tab>li');
+    var ctLis = $$('.content>li');
+    //tab区域切换
+    tab.addEventListener('click', function(e){
+    if(e.target.tagName.toLowerCase() === 'li'){
+    for(var i = 0; i < tab.children.length; i++){
+    tab.children[i].classList.remove('active');
+    }
+    e.target.classList.add('active');
+    
+    //内容区域对应切换
+    for(var j = 0; j < ctLis.length; j++){
+    ctLis[j].classList.remove('active');
+    }
+    var index = [].indexOf.call(tabLis, e.target);
+    ctLis[index].classList.add('active');
+    }
+    });
+    function $(id){
+    return document.querySelector(id);
+    }
+    function $$(cls){
+    return document.querySelectorAll(cls);
+    }
+    </script>
+  </body>
+</html>

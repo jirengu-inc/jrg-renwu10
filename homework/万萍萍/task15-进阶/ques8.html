@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>加载更多</title>
+    <style>
+
+        .content-text {
+            border: 1px solid #ccc;
+            border-radius: 2px;
+            padding: 10px;
+            margin: 10px;
+        }
+        .content-text:hover {
+            background-color: #009933;
+        }
+
+        #btn {
+            width: 75px;
+            font-size: 18px;
+            color: red;
+            border: 1px solid red;
+            border-radius: 2px;
+            padding: 10px;
+            margin: 0 auto;
+            cursor: pointer;
+        }
+
+    </style>
+
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+</head>
+<body>
+
+<div id="content">
+    <p class="content-text">内容1</p>
+    <p class="content-text">内容2</p>
+</div>
+<div id="btn">加载更多</div>
+<script>
+
+
+    $('#btn').on('click', function(){
+        var sendIndex = document.querySelectorAll('p').length;
+        console.log(sendIndex);
+        $.get("/getMore", {index: sendIndex}).done(function(ret) {
+            var data = JSON.parse(ret);
+            var addArr = [];
+            for(var i = 0; i < data.length; i++){
+                var $ptag = $("<p></p>");
+                $ptag.text(data[i]);
+                $ptag.addClass("content-text");
+                $("#content").append($ptag);
+            }
+        });
+    });
+
+</script>
+</body>
+</html>

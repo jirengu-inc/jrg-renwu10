@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>代码题三</title>
+	</head>
+	<body>
+		<!-- 补全代码，要求：当鼠标放置在li元素上，会在img-preview里展示当前li元素的data-img对应的图片。 -->
+		<ul class="ct">
+			<li data-img="http://i0.sinaimg.cn/dy/slidenews/21_t500/2011_36/1604_507586_609551.jpg">鼠标放置查看图片1</li>
+			<li data-img="http://img1.gamersky.com/image2015/12/20151209p_16/gamersky_01small_02_20151296194EE.jpg">鼠标放置查看图片2</li>
+			<li data-img="http://images.ali213.net/picfile/pic/2013/11/19/584_20131119093159944.jpg">鼠标放置查看图片3</li>
+		</ul>
+		<div class="img-preview"></div>
+		<script>
+		var preview = document.querySelector('.img-preview');
+		var ct = document.querySelector('.ct');
+		ct.addEventListener('mouseover', function(e){
+		if(e.target.tagName.toLowerCase() === 'li'){
+		var img = document.createElement('img');
+		img.src = e.target.getAttribute('data-img');
+		preview.appendChild(img);
+		}
+		})
+		ct.addEventListener('mouseout', function(e){
+		if(e.target.tagName.toLowerCase() === 'li'){
+		preview.innerHTML = '';
+		}
+		});
+		</script>
+	</body>
+</html>

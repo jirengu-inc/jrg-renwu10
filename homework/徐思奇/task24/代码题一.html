@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>代码题一</title>
+	</head>
+	<body>
+		<!-- 有如下代码，要求当点击每一个元素li时控制台展示该元素的文本内容。不考虑兼容 -->
+		<ul class="ct">
+			<li>这里是</li>
+			<li>饥人谷</li>
+			<li>前端6班</li>
+		</ul>
+		<script>
+		var lis = document.querySelectorAll('.ct li');
+		for(var i = 0; i < lis.length; i++){
+		lis[i].addEventListener('click', function(){
+		console.log(this.innerText);
+		})
+		}
+		</script>
+	</body>
+</html>

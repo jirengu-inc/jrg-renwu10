@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>瀑布流布局</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        .ct {
+            position: relative;
+        }
+
+        .item {
+            width: 100px;
+            margin: 10px;
+            position: absolute;
+            transition: all 1s;
+        }
+    </style>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+</head>
+<body>
+<div class="ct">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+    <div class="item">5</div>
+    <div class="item">6</div>
+    <div class="item">7</div>
+    <div class="item">8</div>
+    <div class="item">9</div>
+    <div class="item">10</div>
+    <div class="item">11</div>
+    <div class="item">12</div>
+    <div class="item">13</div>
+    <div class="item">14</div>
+    <div class="item">15</div>
+    <div class="item">16</div>
+    <div class="item">17</div>
+    <div class="item">18</div>
+    <div class="item">19</div>
+    <div class="item">20</div>
+    <div class="item">21</div>
+    <div class="item">22</div>
+</div>
+
+<script>
+    itemInit(); //给每个元素创建随机背景色和高度
+
+    function itemInit(){
+        var colorArr = ['#00cc00', '#CCAC7A', '#6163CC', '#CC8774', '#BFAACC'];
+        $('.item').each(function(){
+            var colorIndex = parseInt(Math.random() * colorArr.length);
+             $(this).css({'height': parseInt(60 + Math.random() * 250),
+             'background-color': colorArr[colorIndex]});
+        });
+    }
+
+    init();
+
+    function init(){
+        layout();
+        $(window).resize(layout);
+
+        function layout(){
+            var colArr = [];
+            var len = $('.ct').outerWidth(true) / $('.item').eq(0).outerWidth(true); //计算能放多少列
+            //初始化每列的高度
+            for(var i = 0; i < len; i++){
+                colArr[i] = 0;
+            }
+
+            //算出最小高度的列，并把元素添加进去
+            $('.item').each(function(){
+                var minH = Math.min.apply(null, colArr);
+                var index = colArr.indexOf(minH);
+
+                $(this).css({'top': colArr[index],
+                    'left': $(this).outerWidth(true) * index
+                });
+
+                colArr[index] += $(this).outerHeight(true); //更新列高度
+            });
+        }
+    }
+
+</script>
+
+</body>
+</html>

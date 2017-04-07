@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>木桶布局</title>
+		<style>
+			* {
+		padding: 0;
+		margin: 0;
+		}
+		.container {
+		width: 1200px;
+		margin: 0 auto;
+		}
+		.img-row:after {
+		content: '';
+		display: block;
+		clear: both;
+		}
+		.img-row {
+		margin-bottom: 5px;
+		}
+		.img-box {
+		float: left;
+		}
+		</style>
+	</head>
+	<body>
+		<div class='container'>
+		
+		</div>
+	</body>
+
+	<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+	<script>
+
+		function barrel($ct){
+		  this.$ct = $ct 
+		  this.imgNum = 50 //传入图片数量
+		  this.baseHeight = 150
+		  this.imgList = [] //定义数组，图片存放在里面和总宽度比较
+		  
+		  this.loadImg()
+		}
+
+
+
+		barrel.prototype = {//设置原型，即设置公用的方法
+		  
+		  loadImg: function(){
+		    
+		//     console.log(this)//barrel
+		    
+		    var _this = this //在这里保存(接下面)
+		    var imgUrls = this.getImgUrls(this.imgNum)//获得了num张图片的链接，但不知道图片的大小(在正常情况下)
+		    
+		    //渲染每张图片
+		    $.each(imgUrls, function(idx, url){
+		      var img = new Image()
+		      img.src = url
+		      img.onload = function(){
+		//         console.log(this)//表示img本身，所以this不能使用，要在前面保存一下
+		        
+		        var imgInfo = {
+		          target: $(img),//为了确定是哪张图片
+		          width: _this.baseHeight*(img.width/img.height),//宽度值自适应
+		          height: _this.baseHeight//高度固定值
+		        }
+		        _this.render(imgInfo)
+		      }
+		    })
+		  },
+		  
+		  //处理图片的方法
+		  render: function(imgInfo){
+		    var _this = this
+		    var containerWidth = this.$ct.width()//容器宽度
+		    var imgWidthSum = 0 // 图片宽度之和
+		    var rowHeight = 0
+		    var lastImgInfo = imgInfo
+		    var imgList = this.imgList
+		    imgList.push(imgInfo)//把图片放到数组里
+		    
+		    $.each(imgList, function(idx, imgInfo){
+		      imgWidthSum += imgInfo.width
+		      if(imgWidthSum > containerWidth){
+		      imgList.pop()//拿出最后一张图片
+		      
+		      imgWidthSum = imgWidthSum - lastImgInfo.width
+		      rowHeight = containerWidth*_this.baseHeight/imgWidthSum//拉伸图片
+		      
+		      _this.layout(rowHeight)//把合适的一行图片展现出来
+		      _this.imgList = []//数组清空
+		      _this.imgList.push(imgInfo)
+		      
+		    }
+		   }) 
+		  },
+		  
+		  layout: function(rowHeight){//渲染图片
+		    var $rowCt = $('<div class="img-row"></div>')
+		    $.each(this.imgList, function(idx, imgInfo){
+		      var $imgCt = $('<div class="img-box"></div>')
+		      var $img = imgInfo.target
+		      $img.height(rowHeight)
+		      $imgCt.append($img)
+		      $rowCt.append($imgCt)
+		    })
+		    this.$ct.append($rowCt)
+		  },
+		  
+		  getImgUrls: function(num){//获取随机图片url
+		    var color, width, height, urls = []
+		    for(var i = 0; i < num; i++){
+		      width = Math.floor(Math.random()*100+100)
+		      height = Math.floor(Math.random()*100+100)
+		      urls.push('http://unsplash.it/'+width+'/'+height)
+		    }
+		    return urls
+		  }
+		 
+		}
+
+		new barrel($('.container'))
+
+	</script>
+</html>

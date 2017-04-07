@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    window.addEventListener('message',function(e){
+        if(e.origin !=='http://localhost:3000/demo1.html'){
+            console.log(e);
+            e.source.postMessage('Hello',e.origin);
+        }
+    })
+</script>
+</body>
+</html>

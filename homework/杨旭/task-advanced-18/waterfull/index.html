@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>waterfull</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .content {
+            position:relative
+        }
+
+        .item {
+            position:absolute;
+            width:200px;
+            margin-right:10px;
+            margin-top:10px;
+            transition: all 1s;
+        }
+
+        .h1 {
+            height:100px;
+            background-color:lightcoral;
+        }
+
+        .h2 {
+            height:200px;
+            background-color:lightcyan;
+        }
+
+        .h3 {
+            height:300px;
+            background-color:lightpink;
+        }
+        
+        .h4 {
+            height:250px;
+            background-color:lightgreen;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <div class="item h1"></div>
+        <div class="item h2"></div>
+        <div class="item h3"></div>
+        <div class="item h2"></div>
+        <div class="item h1"></div>
+        <div class="item h3"></div>
+        <div class="item h4"></div>
+        <div class="item h1"></div>
+        <div class="item h2"></div>
+        <div class="item h3"></div>
+        <div class="item h4"></div>
+        <div class="item h1"></div>
+        <div class="item h2"></div>
+        <div class="item h1"></div>
+        <div class="item h2"></div>
+        <div class="item h3"></div>
+        <div class="item h3"></div>
+        <div class="item h4"></div>
+        <div class="item h1"></div>
+        <div class="item h2"></div>
+    </div>
+
+<script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+    var waterfull = (function(){
+        function waterfull () {
+            var colNums = parseInt($('.content').width()/$('.item').width())
+            var itemArr = []
+            for(var i = 0; i < colNums; i++){
+                itemArr[i] = 0
+            }
+            $('.item').each(function(){
+                var minHeight = Math.min.apply(null,itemArr)
+                var minIndex = itemArr.indexOf(minHeight)
+                $(this).css({
+                    top:itemArr[minIndex],
+                    left:$(this).outerWidth(true) * minIndex
+                })
+                itemArr[minIndex] += $(this).outerHeight(true)
+            })
+        }
+
+        function init(){
+            waterfull()
+            $(window).resize(function(){
+                waterfull()
+            })
+        }
+
+        return {
+            init:init
+        }
+    })()
+
+    waterfull.init()
+</script>
+</body>
+</html>

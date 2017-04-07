@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>轮播</title>
+    <style>
+        ul,li{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        a{
+            text-decoration:none;
+        }
+
+        body{
+            font: 20px/1.5 Helvetica, arial, "Microsoft Yahei", STXihei,  sans-serif;
+            background: #FF9279;
+            padding: 50px;
+        }
+
+        .clearfix:after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        .carousel {
+            position: relative;
+            width: 420px;
+            height: 324px;
+            overflow: hidden;
+        }
+
+        .carousel .img-ct {
+            /* position: relative; */
+            /* width: 1680px; */
+            /* left: -420px; */
+            position: absolute;
+        }
+
+        .carousel .img-ct>li{
+            /* position: absolute; */
+            float: left;
+        }
+
+
+        .carousel .img-ct img {
+            width: 420px;
+            height: 324px;
+        }
+
+        .carousel .btn{
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            color: #FFF;
+            background: #000;
+            opacity: 0.6;
+            display: block;
+            text-align: center;
+            line-height: 50px;
+            transition: all 0.8s ease-in-out;
+            position: absolute;
+            top: 50%;
+            margin-top: -25px;
+        }
+
+        .carousel .btn:hover{
+            color: #FF0500;
+            opacity: 0.8;
+            /* font-size: 120%; */
+            transform: scale(1.2);
+        }
+
+        .carousel .btn-pre {
+            left: 15px;
+        }
+
+        .carousel .btn-next{
+            right: 15px;
+        }
+
+        .carousel .bullet-ct {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 15px;
+            text-align: center;
+        }
+
+        .carousel .bullet {
+            display: inline-block;
+        }
+
+        .carousel .bullet>li {
+            display: inline-block;
+            width: 20px;
+            height: 6px;
+            border-radius: 3px;
+            margin: 0 5px;
+            background: #FFF;
+            cursor: pointer;
+        }
+
+        .carousel .bullet .active {
+            background: #666;
+        }
+    </style>
+</head>
+<body>
+<div class="carousel">
+    <ul class="img-ct clearfix">
+        <li data-index="0"><a href="javascript:"><img src="http://book.jirengu.com/jirengu-inc/jrg-renwu10/homework/%E5%88%98%E5%BE%B7%E9%93%A8/task29%20%E8%BF%9B%E9%98%B6-%E4%BB%BB%E5%8A%A117/img/354.jpg" alt="354.jpg"></a></li>
+        <li data-index="1"><a href="javascript:"><img src="http://book.jirengu.com/jirengu-inc/jrg-renwu10/homework/%E5%88%98%E5%BE%B7%E9%93%A8/task29%20%E8%BF%9B%E9%98%B6-%E4%BB%BB%E5%8A%A117/img/355.jpg" alt="355.jpg"></a></li>
+        <li data-index="2"><a href="javascript:"><img src="http://book.jirengu.com/jirengu-inc/jrg-renwu10/homework/%E5%88%98%E5%BE%B7%E9%93%A8/task29%20%E8%BF%9B%E9%98%B6-%E4%BB%BB%E5%8A%A117/img/356.jpg"></a></li>
+        <li data-index="3"><a href="javascript:"><img src="http://book.jirengu.com/jirengu-inc/jrg-renwu10/homework/%E5%88%98%E5%BE%B7%E9%93%A8/task29%20%E8%BF%9B%E9%98%B6-%E4%BB%BB%E5%8A%A117/img/357.jpg" alt="357.jpg"></a></li>
+    </ul>
+    <a href="javascript:" class="btn btn-pre">&lt;</a>
+    <a href="javascript:" class="btn btn-next">&gt;</a>
+    <div class="bullet-ct">
+        <ul class="bullet">
+            <li class="active"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+</div>
+<div class="carousel">
+    <ul class="img-ct clearfix">
+        <li data-index="0"><a href="javascript:"><img src="http://book.jirengu.com/jirengu-inc/jrg-renwu10/homework/%E5%88%98%E5%BE%B7%E9%93%A8/task29%20%E8%BF%9B%E9%98%B6-%E4%BB%BB%E5%8A%A117/img/354.jpg" alt="354.jpg"></a></li>
+        <li data-index="1"><a href="javascript:"><img src="http://book.jirengu.com/jirengu-inc/jrg-renwu10/homework/%E5%88%98%E5%BE%B7%E9%93%A8/task29%20%E8%BF%9B%E9%98%B6-%E4%BB%BB%E5%8A%A117/img/355.jpg" alt="355.jpg"></a></li>
+        <li data-index="2"><a href="javascript:"><img src="http://book.jirengu.com/jirengu-inc/jrg-renwu10/homework/%E5%88%98%E5%BE%B7%E9%93%A8/task29%20%E8%BF%9B%E9%98%B6-%E4%BB%BB%E5%8A%A117/img/356.jpg"></a></li>
+        <li data-index="3"><a href="javascript:"><img src="http://book.jirengu.com/jirengu-inc/jrg-renwu10/homework/%E5%88%98%E5%BE%B7%E9%93%A8/task29%20%E8%BF%9B%E9%98%B6-%E4%BB%BB%E5%8A%A117/img/357.jpg" alt="357.jpg"></a></li>
+    </ul>
+    <a href="javascript:" class="btn btn-pre">&lt;</a>
+    <a href="javascript:" class="btn btn-next">&gt;</a>
+    <div class="bullet-ct">
+        <ul class="bullet">
+            <li class="active"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+</div>
+<script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+    function Carousel($ct){
+        this.$ct = $ct;
+        this.init();
+        this.bind();
+    }
+    Carousel.prototype.init = function(){
+        var $imgCt = this.$imgCt = this.$ct.find('.img-ct'),
+                $preBtn = this.$preBtn = this.$ct.find('.btn-pre'),
+                $nextBtn = this.$nextBtn = this.$ct.find('.btn-next'),
+                $bullet = this.$bullet = this.$ct.find('.bullet'),
+                $firstImg = $imgCt.find('li').first(),
+                $lastImg = $imgCt.find('li').last();
+
+        this.curPageIndex = 0;
+        this.imgLength = $imgCt.children().length;
+        this.isAnimate = false;
+
+        $imgCt.prepend($lastImg.clone());
+        $imgCt.append($firstImg.clone());
+        $imgCt.width($firstImg.width() * $imgCt.children().length);
+        $imgCt.css('left','-420px');
+    };
+    Carousel.prototype.bind = function(){
+        var _this = this;
+        this.$preBtn.on('click', function(e){
+            e.preventDefault();
+            _this.playPre();
+        });
+        this.$nextBtn.on('click', function(e){
+            e.preventDefault();
+            _this.playNext();
+        });
+
+    };
+    Carousel.prototype.playPre = function(){
+        var _this = this;//this指向这个对象，即Carousel
+        if(this.isAnimate) return;
+        this.isAnimate = true;
+        this.$imgCt.animate({
+            left: '+=420px'
+        }, function(){
+            _this.curPageIndex--;
+            if(_this.curPageIndex === -1){
+                _this.$imgCt.css({
+                    'left': - (_this.imgLength * $firstImg.width())
+                });
+                _this.curPageIndex = _this.imgLength - 1;
+            }
+            _this.isAnimate = false;
+            _this.setBullet();
+        })
+    };
+    Carousel.prototype.playNext = function(){
+        var _this = this;
+        if(this.isAnimate) return;
+        this.isAnimate = true;
+        this.$imgCt.animate({
+            left: '-=420px'
+        }, function(){
+            _this.curPageIndex++;
+            if(_this.curPageIndex === _this.imgLength){
+                _this.$imgCt.css({
+                    'left':'-420px'
+                });
+                _this.curPageIndex = 0;
+            }
+            _this.isAnimate = false;
+            _this.setBullet();
+        })
+    };
+    Carousel.prototype.setBullet = function(){
+        this.$bullet.children()
+                .removeClass('active')
+                .eq(this.curPageIndex)
+                .addClass('active');
+    };
+    new Carousel($('.carousel').eq(0));
+    new Carousel($('.carousel').eq(1));
+
+    /*Carousel2.init($('.carousel'));
+
+    Carousel2 = (function(){
+        return {
+            init:function($ct){
+                $ct.each(function(index,node){
+                    new _Carousel($(node))
+                })
+            }
+        }
+
+    })();*/
+    /*var $imgCt = $('.img-ct'),
+            $preBtn = $('.btn-pre'),
+            $nextBtn = $('.btn-next'),
+            $bullet = $('.bullet'),
+            $firstImg = $imgCt.find('li').first(),
+            $lastImg = $imgCt.find('li').last();
+
+    var curPageIndex = 0;
+    var imgLength = $imgCt.children().length;
+    var isAnimate = false;
+
+    $imgCt.prepend($lastImg.clone());
+    $imgCt.append($firstImg.clone());
+    $imgCt.width($firstImg.width() * $imgCt.children().length);
+    $imgCt.css('left','-420px');*/
+
+    /*$preBtn.on('click', playPre);
+     $nextBtn.on('click', playNext);*/
+
+    /*$preBtn.on('click', function(){
+        play(curPageIndex - 1)
+    });
+    $nextBtn.on('click', function(){
+        play(curPageIndex + 1)
+    });
+
+    $bullet.on('click', 'li', function(){
+        play($(this).index());
+    });*/
+
+    /*function play(index){
+        if(curPageIndex === index){
+            return;
+        }
+        if(isAnimate) return;
+        isAnimate = true;
+        $imgCt.animate({
+            left: '+=' + (curPageIndex - index) * $firstImg.width()
+        }, function(){
+            curPageIndex = index;
+            if(curPageIndex === imgLength){
+                $imgCt.css({
+                    left: - $firstImg.width()
+                });
+                curPageIndex = 0;
+            }
+            else if(curPageIndex === -1){
+                $imgCt.css({
+                    left: - $firstImg.width() * imgLength
+                });
+                curPageIndex = imgLength -1 ;
+            }
+            isAnimate = false;
+            setBullet();
+            console.log('index: ' + index);
+            console.log('curPageIndex: ' + curPageIndex);
+        })
+    }*/
+
+
+    /*function playNext(){
+     if(isAnimate) return;
+     isAnimate = true;
+     $imgCt.animate({
+     left: '-=420'
+     }, function(){
+     curPageIndex++;
+     if(curPageIndex === imgLength){
+     $imgCt.css({
+     'left':'-420px'
+     });
+     curPageIndex = 0;
+     }
+     isAnimate = false;
+     setBullet();
+     })
+     }
+
+
+     function playPre(){
+     if(isAnimate) return;
+     isAnimate = true;
+     $imgCt.animate({
+     left: '+=420'
+     }, function(){
+     curPageIndex--;
+     if(curPageIndex === -1){
+     $imgCt.css({
+     'left': - imgLength * $firstImg.width()
+     });
+     curPageIndex = imgLength - 1;
+     }
+     isAnimate = false;
+     setBullet();
+     })
+     }
+
+
+    function setBullet(){
+        $bullet.children()
+                .removeClass('active')
+                .eq(curPageIndex)
+                .addClass('active');
+    }*/
+
+</script>
+</body>
+</html>

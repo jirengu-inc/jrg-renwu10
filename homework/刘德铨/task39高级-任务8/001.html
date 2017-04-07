@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        html {
+            font-size: 1.25em;
+        }
+        body {
+            margin: 0;
+        }
+        .box{
+            width: 10rem;
+            height: 10rem;
+            text-align: center;
+            line-height: 10rem;
+            color: #FFF;
+            background: #0071A8;
+        }
+
+        @media (min-width: 600px) {
+            .box {
+                background: #FF5195;
+            }
+        }
+        @media (min-width: 900px) {
+            .box {
+                background: #4DF179;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <span class="browserWidth"></span>
+    </div>
+    <script>
+        var calWid = (function(){  
+            function cal(target){
+                var boxSpan = document.querySelector(target);
+                boxSpan.innerText = document.body.offsetWidth + 'px';
+            }
+            return {
+                cal: function(target){
+                    cal(target);
+                }    
+            }
+        })();
+        calWid.cal('.browserWidth');
+        window.addEventListener('resize', function(){
+            calWid.cal('.browserWidth');
+        })
+    </script>
+</body>
+</html>

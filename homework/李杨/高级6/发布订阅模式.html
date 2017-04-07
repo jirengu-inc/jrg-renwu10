@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var eventCenter = (function(){
+            var event = {};
+
+            function on(e,handler){
+                if(!event[e]){
+                    event[e] = [];
+                }
+                event[e].push({
+                    handler:handler
+                })
+            }
+
+            function trigger(e,args){
+                if(!event[e]){
+                    return 
+                }
+                event[e].forEach(function(elem,index){
+                    event[e][index].handler(args)
+                })
+            }
+            
+            function off(e){
+                delete event[e];
+            }
+
+            return {
+                on:on,
+                trigger:trigger,
+                off:off
+            }
+        })();
+    </script>
+</body>
+</html>

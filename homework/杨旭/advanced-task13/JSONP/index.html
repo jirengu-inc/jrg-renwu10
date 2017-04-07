@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    打开控制台
+</body>
+<script>
+    let url = 'http://localhost:8080/JSONP?callback=getMessage';
+    requestByJSONP(url,getMessage);
+
+    function requestByJSONP(url,callback){
+        let script = document.createElement('script');
+        script.src = url;
+        document.body.appendChild(script);
+    }
+
+    function getMessage(data){
+        console.log(data);
+    }
+</script>
+</html>
