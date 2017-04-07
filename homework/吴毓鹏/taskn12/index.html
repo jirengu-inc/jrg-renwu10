@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<script src="./jquery.min.js"></script>-->
+    <script src="http://mockjs.com/dist/mock.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        
+        ul{
+            list-style: none;
+            margin: 0 auto;
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        li {
+            border:1px solid #ddd;
+            border-radius: 5px;
+            line-height: 40px;
+            margin: 5px 0;
+            text-align: center;
+        }
+        li:hover{
+            background: green;
+        }
+        button{
+            display: block;
+            margin:0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <ul id='list'>
+
+    </ul>
+    <button type="">加载更多</button>
+</body>
+<script src="mock.js"></script>
+<script src="ajax.js"></script>
+<script>
+    
+
+    var btn = document.querySelector('button')
+    btn.addEventListener('click', function () {
+        var index = document.getElementsByTagName('li').length;
+        ajax({
+            url: '/test.php/', //接口地址
+            type: 'get', // 类型， post 或者 get,
+            data: {
+                index: index,
+            },
+            success: function (data) {
+                var nli = ''
+
+                for (var key in data) {
+                    console.log(data[key][0]['id'])
+                    for (var i = 0; i < data[key].length; i++) {
+                        nli += '<li>内容' + data[key][i]['id'] + '</li>'
+                    }
+                }
+                console.log(nli)
+                var nul = document.querySelector('#list').innerHTML;
+                nul += nli;
+                document.querySelector('#list').innerHTML = nul;
+            },
+            error: function () {
+                console.log('出错了')
+            }
+        })
+    });
+</script>
+
+</html>
