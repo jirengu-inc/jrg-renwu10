@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>组件—tab切换</title>
+	</head>
+	<style>
+		ul, li {
+			padding: 0;
+			margin: 0;
+			list-style: none;
+		}
+		.clearfix:after {
+			content: '';
+			display: block;
+			clear: both;
+		}
+		.tab {
+			width: 600px;
+			margin: 20px auto;
+			border: 1px solid #ccc;
+			padding: 20px 10px;
+			border-radius: 5px;
+		}
+		.tab-header {
+			border-bottom: 1px solid #ccc;
+		}
+		.tab-header li {
+			float: left;
+			color: brown;
+			border-top: 1px solid #fff;
+			border-left: 1px solid #fff;
+			border-right: 1px solid #fff;
+			padding: 10px 20px;
+			cursor: pointer;
+		}
+		.tab-header .active {
+			border: 1px solid #ccc;
+			border-bottom: 1px solid #fff;
+			border-radius: 3px 3px 0 0;
+			color: #333;
+			margin-bottom: -1px;
+		}
+		.tab-container {
+			padding: 20px 10px;
+		}
+		.tab-container li {
+			display: none;
+		}
+		.tab-container .active {
+			display: block;
+		}
+	</style>
+	<body>
+		<div class="tab">
+			<ul class="tab-header clearfix">
+				<li class='active'>选项1</li>
+				<li>选项2</li>
+				<li>选项3</li>
+			</ul>
+			<ul class='tab-container'>
+				<li class='active'>内容1</li>
+				<li>内容2</li>
+				<li>内容3</li>
+			</ul>
+		</div>
+		<div class="tab">
+			<ul class="tab-header clearfix">
+				<li class='active'>选项1</li>
+				<li>选项2</li>
+				<li>选项3</li>
+				<li>选项4</li>
+			</ul>
+			<ul class='tab-container'>
+				<li class='active'>内容1</li>
+				<li>内容2</li>
+				<li>内容3</li>
+				<li>内容4</li>
+			</ul>
+		</div>
+		<div class="tab">
+			<ul class="tab-header clearfix">
+				<li class='active'>选项1</li>
+				<li>选项2</li>
+				<li>选项3</li>
+				<li>选项4</li>
+			</ul>
+			<ul class='tab-container'>
+				<li class='active'>内容1</li>
+				<li>内容2</li>
+				<li>内容3</li>
+				<li>内容4</li>
+			</ul>
+		</div>
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<script>
+			//组件化封装
+			function Tab(ct){
+				this.ct = ct
+				this.init()
+				this.bind()
+			}
+			Tab.prototype.init = function(){
+				this.tabLists = this.ct.querySelectorAll('.tab-header>li')
+				this.tabPanels = this.ct.querySelectorAll('.tab-container>li')
+			}
+			Tab.prototype.bind = function(){
+				var _this = this
+				this.tabLists.forEach(function(tabli){
+					tabli.onclick = function(e){
+						var target = e.target
+						//当前的元素加上active，由于tabLists是类数组对象，没有indexOf方法，所以需要借用数组方法indexOf
+						var idx = [].indexOf.call(_this.tabLists, target)
+						_this.tabLists.forEach(function(li){
+							li.classList.remove('active')
+						})
+						target.classList.add('active')
+						_this.tabPanels.forEach(function(panel){
+							panel.classList.remove('active')
+						})
+						_this.tabPanels[idx].classList.add('active')
+					}
+				})
+			}
+			new Tab(document.querySelectorAll('.tab')[0])
+			new Tab(document.querySelectorAll('.tab')[1])
+			new Tab(document.querySelectorAll('.tab')[2])
+			
+			//jq实现方式
+			/*
+			$('.tab-header>li').on('click', function(){
+				var $this = $(this),
+				idx = $this.index(),
+				$contents = $this.parents('.tab').find('.tab-container li')
+				$this.siblings().removeClass('active')
+				$this.addClass('active')
+				$contents.removeClass('active')
+				$contents.eq(idx).addClass('active')
+			})
+			*/
+		</script>
+	</body>
+</html>
