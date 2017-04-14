@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>组件-瀑布流布局</title>
+    <style>
+    * {
+    padding: 0;
+    margin: 0;
+    }
+    ul, li {
+      list-style: none;
+    }
+    .ct {
+      position: relative;
+      top: 20px;
+      left: 40px;
+    }
+    .item {
+      width: 200px;
+      position: absolute; //关键点：绝对定位，方便后期定位
+      padding: 5px;
+      margin-bottom: 10px;
+      margin-left: 10px;
+      transition: all 1s; //变化时以渐变的方式
+    }
+    </style>
+  </head>
+  <body>
+    <ul class="ct">
+      <li class="item">
+        <img src="https://unsplash.it/200/220" alt="图片">
+      </li>
+      <li class="item">
+        <img src="https://unsplash.it/200/260" alt="图片">
+      </li>
+      <li class="item">
+        <img src="https://unsplash.it/200/200" alt="图片">
+      </li>
+      <li class="item">
+        <img src="https://unsplash.it/200/270" alt="图片">
+      </li>
+      <li class="item">
+        <img src="https://unsplash.it/200/230" alt="图片">
+      </li>
+      <li class="item">
+        <img src="https://unsplash.it/200/210" alt="图片">
+      </li>
+      <li class="item">
+        <img src="https://unsplash.it/200/290" alt="图片">
+      </li>
+      <li class="item">
+        <img src="https://unsplash.it/200/310" alt="图片">
+      </li>
+      <li class="item">
+        <img src="https://unsplash.it/200/330" alt="图片">
+      </li>
+      <li class="item">
+        <img src="https://unsplash.it/200/200" alt="图片">
+      </li>
+      <li class="item">
+        <img src="https://unsplash.it/200/320" alt="图片">
+      </li>
+      <li class="item">
+        <img src="https://unsplash.it/200/210" alt="图片">
+      </li>
+      <li class="item">
+        <img src="https://unsplash.it/200/290" alt="图片">
+      </li>
+      <li class="item">
+        <img src="https://unsplash.it/200/260" alt="图片">
+      </li>
+      <li class="item">
+        <img src="https://unsplash.it/200/310" alt="图片">
+      </li>
+      <li class="item">
+        <img src="https://unsplash.it/200/220" alt="图片">
+      </li>
+      <li class="item">
+        <img src="https://unsplash.it/200/310" alt="图片">
+      </li>
+      <li class="item">
+        <img src="https://unsplash.it/200/240" alt="图片">
+      </li>
+      <li class="item">
+        <img src="https://unsplash.it/200/350" alt="图片">
+      </li>
+      <li class="item">
+        <img src="https://unsplash.it/200/200" alt="图片">
+      </li>
+      <li class="item">
+        <img src="https://unsplash.it/200/190" alt="图片">
+      </li>
+      <li class="item">
+        <img src="https://unsplash.it/200/260" alt="图片">
+      </li>
+      <li class="item">
+        <img src="https://unsplash.it/200/320" alt="图片">
+      </li>
+      <li class="item">
+        <img src="https://unsplash.it/200/270" alt="图片">
+      </li>
+      <li class="item">
+        <img src="https://unsplash.it/200/240" alt="图片">
+      </li>
+      <li class="item">
+        <img src="https://unsplash.it/200/260" alt="图片">
+      </li>
+      <li class="item">
+        <img src="https://unsplash.it/200/280" alt="图片">
+      </li>
+      <li class="item">
+        <img src="https://unsplash.it/200/330" alt="图片">
+      </li>
+      <li class="item">
+        <img src="https://unsplash.it/200/350" alt="图片">
+      </li>
+      <li class="item">
+        <img src="https://unsplash.it/200/290" alt="图片">
+      </li>
+    </ul>
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+    <script>
+    var Waterfall =(function(){
+      function _Waterfall($ct){
+        this.$ct = $ct
+        this.init()
+        this.bind()
+        this.render()
+      }
+
+      _Waterfall.prototype.init = function(){
+        this.$item = this.$ct.find('li')
+        //得出一个li的宽度
+        this.itemWidth = this.$item.outerWidth(true)
+        //得出列数
+        this.columns = parseInt(this.$ct.width()/this.itemWidth)
+        //存储每一列高度
+        this.itemArr = []
+        for(var i = 0; i < this.columns; i++){
+          this.itemArr[i] = 0//数组重置，归零
+        }
+      }
+      _Waterfall.prototype.bind = function(){
+        var _this = this
+        $(window).resize(function(){
+          _this.init()
+          _this.render()
+        })
+      }
+      _Waterfall.prototype.render = function(){
+        var _this = this
+        this.$item.each(function(){
+          var minItem = Math.min.apply(null, _this.itemArr)//找到最小高度
+          var minIndex = _this.itemArr.indexOf(minItem)//找出高度最小的那一列
+          $(this).css({
+            top: _this.itemArr[minIndex],
+            left: $(this).outerWidth(true)*minIndex
+          })
+          
+          _this.itemArr[minIndex] += $(this).outerHeight(true)//更新数组
+          _this.$ct.height(Math.max.apply(null, _this.itemArr))
+        })
+      }
+
+      return {
+        init: function($ct){
+          new _Waterfall($ct)
+        }
+      }
+    })()
+    
+    var waterfall = Waterfall.init($('.ct'))
+
+
+    </script>
+  </body>
+</html>

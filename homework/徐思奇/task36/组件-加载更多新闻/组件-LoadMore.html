@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>组件-LoadMore</title>
+<style>
+	* {
+		padding: 0;
+		margin: 0;
+	}
+	ul, li, a {
+		text-decoration: none;
+		list-style: none;
+	}
+	.waterfall-ct {
+		margin-left: 20px;
+		position: relative;
+	}
+  .waterfall-ct li{
+		width: 280px;
+		margin: 10px;
+		box-shadow: 0 0 8px 4px rgba(0,0,0,.5);
+		position: absolute;
+		padding: 2px;
+		transition: .1s all;
+	}
+  .waterfall-ct li:hover {
+   	transform: scale(1.03);
+  }
+	.waterfall-ct a {
+		width: 100%;
+		display: block;
+	}
+  .waterfall-ct img {
+  	width: 100%;
+	}
+	.waterfall-ct h4 {
+		color: #333;
+		margin: 10px;
+		text-align: center;
+	}
+  .waterfall-ct p {
+    color: #9e9e9e;
+    font-size: 12px;
+    text-align: left;
+    line-height: 1.5em;
+    margin: 10px;
+  }
+  .loadmore {
+    display: inline-block;
+    width: 100px;
+    height: 50px;
+    line-height: 50px;
+    cursor: pointer;
+    color: white;
+    background: #777;
+    font-weight: bold;
+    font-size: 24px;
+    text-align: center;
+    border-radius: 10px;
+    letter-spacing: 2px;
+    transition: .3s;
+    margin-top: 20px;
+
+    /* 以下定位适用于本demo */
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+  }
+  .loadmore:hover {
+    background-color: #333;
+    box-shadow: 0 0 4px 2px rgba(0,0,0,.5);
+  }
+</style>
+</head>
+<body>
+<ul class="waterfall-ct">
+<!-- 	<li>
+		<a href="javascript:;">
+			<img src="http://n.sinaimg.cn/tech/transform/20170413/PYtu-fyecrxv5759997.jpg" alt="图片">
+			<h4>这是标题</h4>
+			<p>这是段落这是段落这是段落这是段落这是段落这是段落这是段落这是段落这是段落这是段落这是段落</p>
+		</a>
+	</li> -->
+</ul>
+<span class='loadmore'>MORE</span>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src='waterfall.js'></script>
+  <script>
+
+		var LoadMore = (function(){
+			/*数据接口：
+			https://platform.sina.com.cn/slide/album_tech?jsoncallback=func&app_key=1271687855&num=3&page=4 
+			*/
+			function _LoadMore($ct, $btn){
+				this.$ct = $ct
+				this.$btn = $btn
+				this.curPage = 1
+				this.pageCount = 8
+				this.ajaxLock = false
+				this.getData()
+				this.bind()
+			}
+			_LoadMore.prototype.bind = function(){
+				var _this = this
+					this.$btn.on('click', function(){
+						_this.getData()
+					})	
+			}
+
+			_LoadMore.prototype.getData = function(){
+				var _this = this
+				//ajax请求
+				if(this.ajaxLock)return
+				this.ajaxLock = true
+				$.ajax({
+					url: 'https://platform.sina.com.cn/slide/album_tech',
+					type: 'get',
+					dataType: 'jsonp',
+					//设置url参数
+					jsonp: 'jsoncallback',
+					data:{
+						app_key: '1271687855',
+						num: _this.pageCount,
+						page: _this.curPage
+					}
+				}).done(function(ret){
+					if(ret && ret.status.code === '0'){//如果数据获取成功则渲染页面
+						_this.renderData(ret.data)
+						//更新curPage
+						_this.curPage++
+						_this.ajaxLock = false
+					}else{
+						alert('获取数据失败！')
+					}
+				})
+			}
+
+			_LoadMore.prototype.renderData = function(data){
+				var _this = this
+				var html = ''
+				for(var i = 0; i < data.length; i++){
+					html += '<li>'
+							 + '<a href="' + data[i].url + '">'
+							 + '<img src="' + data[i].img_url +'" alt="图片"' + '>'
+							 + '<h4>' + data[i].short_name + '</h4>'
+							 + '<p>' + data[i].short_intro + '</p>'
+							 + '</a>'
+							 + '</li>'
+				}
+				_this.$ct.append($(html))
+				//所有图片加载完成执行瀑布流布局
+				_this.$ct.find('img').on('load', function(){
+					Waterfall.init($('.waterfall-ct'))
+				})
+			}
+			return {
+				init: function($ct, $btn){
+					new _LoadMore($ct, $btn)
+				}
+			}
+		})()
+		
+		var loadmore = LoadMore.init($('.waterfall-ct'), $('.loadmore'))
+
+  </script>
+</body>
+</html>
+
+
+
+
+
+

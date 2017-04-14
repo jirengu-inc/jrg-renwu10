@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>组件-gotop</title>
+<style>
+  body {
+  	height: 2000px;
+  }
+	.gotop {
+		position: fixed;
+		bottom: 20px;
+		right: 40px;
+		text-decoration: none;
+		display: block;
+		width: 50px;
+		height: 50px;
+		border-radius: 25px;
+		line-height: 50px;
+		color: #aaa;
+		background: #666;
+		text-align: center;
+		font-weight: bold;
+		box-shadow: 0 0 10px 4px rgba(0,0,0,.5);
+		opacity: .5;
+	}
+	.gotop:hover {
+		color: #fff;
+		opacity: 1;
+		transition: .5s;
+	}
+</style>
+</head>
+<body>
+    <!-- <a class='gotop' href="javascipt:;">GoTop</a> -->
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script>
+
+			var goTop = (function(){
+				function _goTop($ele, top){
+					this.$ele = $ele
+					this.top = top
+					this.$btn = $("<a class='gotop' href='javascipt:;' style='display: none'>GoTop</a>")
+					this.$ele.append(this.$btn)
+					this.bind()
+				}
+				_goTop.prototype.bind = function(){
+					var _this = this
+					$(window).on('scroll', function(){
+						if($(window).scrollTop() > _this.top){
+							_this.$btn.fadeIn('slow')
+						}else{
+							_this.$btn.fadeOut('slow')
+						}
+					})
+
+					this.$btn.on('click', function(){
+						_this.$ele.animate({
+							scrollTop: 0
+						}, 500)
+					})
+				}
+
+				return {
+					init: function($ele, top){
+						new _goTop($ele, top)
+					}
+				}
+			})()
+			
+			var GoTop = goTop.init($('body'), 300)
+
+	</script>
+</body>
+
+</html>
+
+
+
+
+
