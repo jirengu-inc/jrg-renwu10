@@ -30,6 +30,24 @@
 	<!-- 头部主界面 -->
 	<div id="header-ct">
 		<div class="layout">
+			<div class="view">
+				<ul class="carousel-ct clearfix">
+					<li class="item"><a href="#"><img src="http://upload.youzu.com/mm_m/2014/0306/184959114.jpg" alt=""></a></li>
+					<li class="item"><a href="#"><img src="http://upload.youzu.com/mm_m/2013/1210/140814158.jpg" alt=""></a></li>
+					<li class="item"><a href="#"><img src="http://upload.youzu.com/mm_m/2014/0306/182458982.jpg" alt=""></a></li>
+					<li class="item"><a href="#"><img src="http://upload.youzu.com/mm_m/2015/0304/154036429.jpg" alt=""></a></li>
+				</ul>
+
+				<div class="index-ct clearfix">
+					<ul>
+						<li class="index-btn choose"></li>
+						<li class="index-btn"></li>
+						<li class="index-btn"></li>
+						<li class="index-btn"></li>
+					</ul>
+				</div>
+			</div>
+
 			<div class="ct">
 				<h2>封印千年的力量即将苏醒</h2>
 				<h1>使徒觉醒</h1>
@@ -203,5 +221,54 @@
 			<i class="iconfont icon-linkedin float-l hover-col"></i>
 		</div>
 	</div>
+
+	<div id="toTop">
+		<p>回到</p>
+		<p>顶部</p>
+	</div>
+
+	<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+	<script src="./js/Utils.js"></script>
+	<script>
+
+        addToTOP.call(addToTOP.prototype, $('#toTop'));
+		//轮播
+        Carousel.call(Carousel.prototype, $('.carousel-ct'), $('.item'), $('.index-ct'), $('.index-ct ul>li'), 'choose');
+
+        $(window).on('scroll', function (){
+            checkLoad();
+        });
+
+        function checkLoad(){
+            if(isVisible($('#intro-ct')) && hasData && !isComplete)loading();
+        }
+        showImgs();
+        var nodeStr = '<li class="item clearfix">' +
+            '<img src="" alt="" class="float-item">' +
+            '<div class="float-item">' +
+            '<h2>sdfs</h2>' +
+            '<p>asdfsdfsf</p>' +
+            '</div>' +
+            '</li>';
+        function showImgs() {
+            sendServicer('/getImgs', null, onDataCallBack, this, 'post');
+        }
+
+        function onDataCallBack(rep) {
+            console.log(this);
+            console.log(rep);
+
+        }
+
+        $(window).on('scroll', function () {
+            if($(window).scrollTop() <= 70){
+                $('#nav-ct').css({'opacity': 1});
+            }else{
+                $('#nav-ct').css({'opacity': .7});
+            }
+            //检查图片加载
+            checkLoad();
+        });
+	</script>
 </body>
 </html>

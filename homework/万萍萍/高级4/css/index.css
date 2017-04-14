@@ -36,6 +36,22 @@ body {
 	box-sizing: border-box;
 }
 
+/*回到顶部*/
+#toTop {
+	width: 60px;
+	height: 40px;
+	border-radius: 3px;
+	background-color: #000000;
+	opacity: .5;
+	position: fixed;
+	right: 20px;
+	bottom: 50px;
+	color: #ffffff;
+	text-align: center;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	cursor: pointer;
+}
 
 /*页面水平居中*/
 .layout {
@@ -59,7 +75,7 @@ body {
 	margin-bottom: 20px;
 }
 /*设置每个项目容器水平居中*/
-#header-ct>.layout, #intro-ct, #products-ct>.layout, #timeline-ct, #team-ct, #contact-ct {
+/*#header-ct>.layout,*/ #intro-ct, #products-ct>.layout, #timeline-ct, #team-ct, #contact-ct {
 	padding-top: 150px;
 	padding-bottom: 180px;
 	text-align: center;
@@ -74,13 +90,12 @@ body {
 	margin-top: 80px;
 }
 
-/*设置背景*/
-#header-ct {
-	/*../images/hd.jpg*/
-	background: url(http://i1.piimg.com/567571/1765b666942eb308.jpg) no-repeat center;
-	background-size: cover;
-	color: white;
+
+
+.index-btn:hover {
+	background-color: purple;
 }
+
 #products-ct{
 	width: 100%;
 	/*../images/bg2.jpg*/ 
@@ -172,10 +187,26 @@ body {
 }
 
 /*头部栏*/
+/*设置背景*/
 #header-ct {
-	padding-top: 80px;
-	padding-bottom: 50px;
+	/*background: url(http://i1.piimg.com/567571/1765b666942eb308.jpg) no-repeat center;*/
+	/*background-size: cover;*/
+	color: white;
+	text-align: center;
+	margin-top: 70px;
+	margin-bottom: 60px;
 }
+
+#header-ct .layout {
+	position: relative;
+}
+#header-ct .ct {
+	position: absolute;
+	top: 300px;
+	left: 50%;
+	/*transform: translate(50%);*/
+}
+
 #header-ct .ct>h2 {
 	font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
 	font-size: 45px;
@@ -185,12 +216,48 @@ body {
 }
 #header-ct .ct>h1 {
 	font-size: 80px;
-	margin-bottom: 80px;
+	margin-bottom: 60px;
 }
 .gobtn {
 	background-color: #BA9A47;
 	font-size: 34px;
 }
+/*头部图片轮播*/
+.view {
+	width: 1000px; /*单个图片大小*/
+	overflow: hidden;
+	margin: 0 auto;
+	position: relative;
+}
+.carousel-ct {
+	width: 4000px; /*图片容器大小 单个 * 个数 */
+	position: relative;
+}
+.item {
+	float: left;
+	margin: 0;
+	padding: 0;
+}
+.index-ct {
+	position: absolute;
+	bottom: 10px;
+	left: 50%;
+	margin-left: -50px;
+}
+.index-btn {
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	background-color: #ccc;
+	float: left;
+	margin-left: 10px;
+	cursor: pointer;
+}
+.choose {
+	background-color: purple;
+}
+/**************************************/
+
 /*介绍栏*/
 .item-intro>i {
 	font-size: 85px;

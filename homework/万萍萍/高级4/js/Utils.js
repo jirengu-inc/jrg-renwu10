@@ -80,8 +80,42 @@ Carousel.prototype.bind = function () {
     });
 }
 
+//-------------- 瀑布流 ------------------------------------------------
+/**
+ * @$ct  放置items的容器
+ * @$itemList 需要排版的items(类数组对象)
+ * */
+function WaterFall($ct, $itemList){
+    this.$ct = $ct;
+    this.$itemList = $itemList;
+    this.layout();
+    $(window).resize(this.layout);
+}
+WaterFall.prototype.layout = function () {
+    var _this = this;
 
-//--------------   瀑布流 --------------------------------------------------
+    var colArr = [];
+    var len = this.$ct.outerWidth(true) / this.$itemList.eq(0).outerWidth(true); //计算能放多少列（宽度一样）
+    //初始化每列的高度
+    for(var i = 0; i < len; i++){
+        colArr[i] = 0;
+    }
+
+    //算出最小高度的列，并把元素添加进去
+    this.$itemList.each(function(){
+        var minH = Math.min.apply(null, colArr);
+        var index = colArr.indexOf(minH);
+
+        $(_this).css({'top': colArr[index],
+            'left': $(_this).outerWidth(true) * index
+        });
+
+        colArr[index] += $(_this).outerHeight(true); //更新列高度
+    });
+}
+
+
+//--------------  曝光加载（懒加载）  --------------------------------------------------
 function Exposure($target, callback){
     this.$target = $target;
     this.callback = callback;
@@ -127,6 +161,43 @@ var Lazy = (function(){
         }
     }
 })();
+
+//--------------- 检测懒加载，并发送接口返回数据 ------------------------------------------------
+/**
+ * @$target 要
+ * */
+function checkLoad($target, serUrl){
+
+}
+
+//--------------- 与服务器交互，发送接口 ------------------------------------------------
+/**
+ * @url 接口地址
+ * @data 数据
+ * @callBack 回调
+ * @thisObj 调用者this
+ * @type  请求方式（'get'/'post'）
+ * */
+function sendServicer(url, data, callBack, thisObj, type) {
+    console.log('发送接口===' + url, '发送数据===');
+    console.log(data);
+    if(type === 'get'){
+        $.get(url, data)
+            .done(function (rep) {
+                callBack.call(thisObj, rep);
+            }).fail(function () {
+            console.log('出错了=====');
+        });
+    }else{
+        $.post(url, data)
+            .done(function (rep) {
+                callBack.call(thisObj, rep);
+            }).fail(function () {
+            console.log('出错了=====');
+        });
+    }
+
+}
 
 //---------------回到顶部------------------------------------------------
 function addToTOP($target){
