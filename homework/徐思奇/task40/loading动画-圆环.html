@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>loading动画2-圆环</title>
+	<style>
+		body {
+			background: rgb(13, 206, 203);
+		}
+		.loading {
+			margin: 50px auto;
+			width: 100px;
+			height: 100px;
+			border-radius: 50%;
+			border: 15px solid rgba(255,255,255,.2);
+			border-bottom: 15px solid #fff;
+			animation: 1s load infinite linear;
+		}
+		@keyframes load {
+			0%{
+				transform: rotate(0)    
+			}
+			100%{
+				transform: rotate(360deg)  
+			}
+		}
+	</style>
+</head>
+<body>
+  <div class="loading"></div>    
+</body>
+</html>

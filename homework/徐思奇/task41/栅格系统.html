@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>栅格系统</title>
+</head>
+<style>
+	h3 {
+		text-align: center;
+	}	
+	.container {
+		margin: 50px auto;
+	}
+	.container:after {
+		content: '';
+		display: block;
+		clear: both;
+	}
+	.container>div {
+		box-sizing: border-box;
+		text-align: center;
+		line-height: 40px;
+		margin-bottom: 10px;
+		height: 40px;
+		border: 1px solid;
+		float: left;
+		transition: all 1s;
+		border-radius: 5px;
+	}
+	.container>div:nth-child(1) {
+		background: rgba(255, 0, 0, .3);
+	}
+	.container>div:nth-child(2) {
+		background: rgba(0, 255, 255, .3);
+	}	
+	.container>div:nth-child(3) {
+		background: rgba(0, 255, 0, .3);
+	}	
+	.container>div:nth-child(4) {
+		background: rgba(0, 0, 255, .3);
+	}	
+	.container>div:nth-child(5) {
+		background: rgba(255, 255, 0, .3);
+	}	
+	.container>div:nth-child(6) {
+		background: rgba(255, 0, 255, .3);
+	}
+	.col-xs-1 {
+		width: 8.3333333%;
+	}	
+	.col-xs-2 {
+		width: 16.6666667%;
+	}	
+	.col-xs-3 {
+		width: 25%;
+	}	
+	.col-xs-4 {
+		width: 33.3333333%;
+	}	
+	.col-xs-5 {
+		width: 41.6666667%;
+	}
+	.col-xs-6 {
+		width: 50%;
+	}
+	.col-xs-7 {
+		width: 58.3333333%;
+	}	
+	.col-xs-8 {
+		width: 66.6666667%;
+	}	
+	.col-xs-9 {
+		width: 75%;
+	}
+	.col-xs-10 {
+		width: 83.3333333%;
+	}	
+	.col-xs-11 {
+		width: 91.6666667%;
+	}	
+	.col-xs-12 {
+		width: 100%;
+	}
+	
+	@media (min-width: 600px) {
+		.container {
+			width: 550px;
+		}
+		.col-sm-1 {
+			width: 8.3333333%;
+		}
+		.col-sm-2 {
+			width: 16.6666667%;
+		}
+		.col-sm-3 {
+			width: 25%;
+		}
+		.col-sm-4 {
+			width: 33.3333333%;
+		}
+		.col-sm-5 {
+			width: 41.6666667%;
+		}
+		.col-sm-6 {
+			width: 50%;
+		}
+		.col-sm-7 {
+			width: 58.3333333%;
+		}
+		.col-sm-8 {
+			width: 66.6666667%;
+		}
+		.col-sm-9 {
+			width: 75%;
+		}
+		.col-sm-10 {
+			width: 83.3333333%;
+		}
+		.col-sm-11 {
+			width: 91.6666667%;
+		}
+		.col-sm-12 {
+			width: 100%;
+		}
+	}
+	
+	@media (min-width: 900px) {
+		.container {
+			width: 850px;
+		}
+		.col-md-1 {
+			width: 8.3333333%;
+		}
+		.col-md-2 {
+			width: 16.6666667%;
+		}
+		.col-md-3 {
+			width: 25%;
+		}
+		.col-md-4 {
+			width: 33.3333333%;
+		}
+		.col-md-5 {
+			width: 41.6666667%;
+		}
+		.col-md-6 {
+			width: 50%;
+		}
+		.col-md-7 {
+			width: 58.3333333%;
+		}
+		.col-md-8 {
+			width: 66.6666667%;
+		}
+		.col-md-9 {
+			width: 75%;
+		}
+		.col-md-10 {
+			width: 83.3333333%;
+		}
+		.col-md-11 {
+			width: 91.6666667%;
+		}
+		.col-md-12 {
+			width: 100%;
+		}
+	}
+	
+	@media (min-width: 1200px) {
+		.container {
+			width: 1100px;
+		}
+		.col-lg-1 {
+			width: 8.3333333%;
+		}
+		.col-lg-2 {
+			width: 16.6666667%;
+		}
+		.col-lg-3 {
+			width: 25%;
+		}
+		.col-lg-4 {
+			width: 33.3333333%;
+		}
+		.col-lg-5 {
+			width: 41.6666667%;
+		}
+		.col-lg-6 {
+			width: 50%;
+		}
+		.col-lg-7 {
+			width: 58.3333333%;
+		}
+		.col-lg-8 {
+			width: 66.6666667%;
+		}
+		.col-lg-9 {
+			width: 75%;
+		}
+		.col-lg-10 {
+			width: 83.3333333%;
+		}
+		.col-lg-11 {
+			width: 91.6666667%;
+		}
+		.col-lg-12 {
+			width: 100%;
+		}
+	}
+</style>
+<body>
+	<h3>改变屏幕大小</h3>
+	<div class="container">
+		<div class='col-lg-2 col-md-4 col-sm-6 col-xs-12'>1</div>
+		<div class='col-lg-2 col-md-4 col-sm-6 col-xs-12'>2</div>
+		<div class='col-lg-2 col-md-4 col-sm-6 col-xs-12'>3</div>
+		<div class='col-lg-2 col-md-4 col-sm-6 col-xs-12'>4</div>
+		<div class='col-lg-2 col-md-4 col-sm-6 col-xs-12'>5</div>
+		<div class='col-lg-2 col-md-4 col-sm-6 col-xs-12'>6</div>
+	</div>
+</body>
+</html>

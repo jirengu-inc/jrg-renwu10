@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>CSS3效果简单事例</title>
+</head>
+<style>
+	div {
+		display: inline-block;
+	}
+	h4 {
+		margin-top: 40px;
+		margin-bottom: 40px;
+	}
+	.wrap {
+		width: 1200px;
+		text-align: center;
+	}
+	.border-radius {
+		width: 100px;
+		height: 60px;
+		border-radius: 10px;
+		background: red;
+	}
+	.circle {
+		margin-left: 80px;
+		margin-right: 80px;
+		margin-bottom: -15px;
+		width: 100px;
+		height: 100px;
+		border-radius: 50px;
+		background: red;  
+	}
+	.semicircle {
+		margin-bottom: 15px;
+		width: 100px;
+		height: 50px;
+		border-radius: 50px 50px 0 0;
+		background: red;  
+	}
+	.div-shadow {
+		width: 100px;
+		height: 60px;
+		border: 1px solid;
+		box-shadow: 3px 3px 3px rgba(0,0,0,.5)
+	}
+	.ct {
+		width: 100px;
+		height: 60px;
+		border: 1px dashed;
+		margin-right: 60px;
+	}
+	.change {
+		width: 100px;
+		height: 60px;
+		border: 1px solid;
+		transform: scale(1.2, .6)
+	}
+	.move {
+		width: 100px;
+		height: 60px;
+		border: 1px solid;
+		transform: translate(20px, -20px)
+	}
+	.rotate {
+		width: 100px;
+		height: 60px;
+		border: 1px solid;
+		transform: rotate(20deg)
+	}
+	.change-3D {
+		width: 100px;
+		height: 60px;
+		border: 1px solid;
+		transform: perspective(200px) rotateY(60deg) translateX(-10px)
+	}
+	.color-change {
+		width: 120px;
+		height: 120px;
+		border-radius: 100%;
+		background: radial-gradient(rgb(0,0,255),rgb(0,255,0),rgb(255,255,0),rgb(255,165,0),rgb(255,0,0));
+	}
+	.transit {
+		width: 120px;
+		height: 120px;
+		border-radius: 100%;
+		background: linear-gradient(to bottom, red,orange,yellow,green,blue,indigo,violet);
+		transition: all .5s;
+	}
+	.transit:hover {
+		width: 150px;
+		height: 150px;
+		background: linear-gradient(to top, red,orange,yellow,green,blue,indigo,violet);
+	}
+	.animate {
+		width: 120px;
+		height: 120px;
+		border-radius: 100%;
+		animation: 5s rainbow infinite;
+	}
+	@keyframes rainbow {
+		0%{
+		background: rgb(255,0,0)
+		}
+		16%{
+		background: rgb(255,165,0)
+		}
+		32%{
+		background: rgb(255,255,0)
+		}
+		48%{
+		background: rgb(0,255,0)
+		}
+		64%{
+		background: rgb(0,127,255)
+		}
+		80%{
+		background: rgb(0,0,255)
+		}
+		100%{
+		background: rgb(139,0,255)
+		}
+	}
+</style>
+<body>
+  <div class="wrap">
+    <h4>圆角，圆形</h4>
+    <div class="border-radius"></div>
+    <div class="circle"></div>
+    <div class="semicircle"></div>
+    <h4>div 阴影</h4>
+    <div class="div-shadow"></div>
+    <h4>2D 转换：放大、缩小、偏移、旋转</h4>
+    <div class="ct">
+      <div class="change"></div>
+    </div>
+    <div class="ct">
+      <div class="move"></div>
+    </div>
+    <div class="ct">
+      <div class="rotate"></div>
+    </div>    
+    <h4>3D 转换：移动、旋转</h4>
+    <div class="ct">
+      <div class="change-3D"></div>
+    </div>
+    <h4>背景色渐变</h4>
+    <div class="color-change"></div>
+    <h4>过渡效果</h4>
+    <div class="transit"></div>
+    <h4>动画</h4>
+    <div class="animate"></div>  
+  </div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>loading动画-进度条</title>
+</head>
+<style>
+	body {
+		background: rgb(13, 206, 203);
+	}
+	.loading {
+		width: 10px;
+		height: 40px;
+		background: #fff;
+		position: relative;
+		margin: 50px auto;
+		animation: 1s .16s load infinite;
+	}
+	.loading:before {
+		content: '';
+		/* display: block; */
+		width: 10px;
+		height: 40px;
+		background: #fff; 
+		position: absolute;
+		left: -15px;
+		animation: 1s load infinite;
+	}
+	.loading:after {
+		content: '';
+		/* display: block; */
+		width: 10px;
+		height: 40px;
+		background: #fff;
+		position: absolute;
+		left: 15px;
+		animation: 1s .32s load infinite;
+	}
+	@keyframes load {
+		0%{
+			box-shadow: 0 0 rgb(255,255,255)
+		}
+		30%{
+			height: 50px;
+			box-shadow: 0 -20px rgb(255,255,255)  
+		}
+		80%{
+			box-shadow: 0 0 rgb(255,255,255)
+		}
+		100%{
+			box-shadow: 0 0 rgb(255,255,255)
+		}
+	}
+</style>
+<body>
+  <div class="loading"></div>    
+</body>
+</html>

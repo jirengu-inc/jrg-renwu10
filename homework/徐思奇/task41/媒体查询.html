@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>媒体查询</title>
+  <style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		html, body, .ct {
+			height: 100%;
+		}
+		h3 {
+			color: #fff;
+			position: absolute;
+			top: 10%;
+			left: 10%;
+		}
+		.ct {
+			background: url(http://book.jirengu.com/jirengu-inc/js-works/css3/bg.jpg) center center no-repeat;
+			background-size: cover;
+		}
+		.ct:before {
+			display: block;
+			content: '';
+			width: 50%;
+			height: 100%;
+			position: absolute;
+			left: 0;
+		}
+		.ct:after {
+			display: block;
+			content: '';
+			width: 50%;
+			height: 100%;
+			position: absolute;
+			right: 0;
+		}
+
+		@media (min-width: 600px) {
+			.ct:before {
+					background: linear-gradient(to right bottom, rgba(255,0,0,0), rgba(135,168,173,1));
+			}
+			.ct:after {
+					background: linear-gradient(to bottom left, rgba(255,0,0,0), rgba(229, 175, 163, 1));
+			}
+		}
+
+		@media (min-width: 900px) {
+			.ct:before {
+					background: linear-gradient(to right bottom, rgba(255,0,0,0), rgba(146,122,144,1));
+			}
+			.ct:after {
+					background: linear-gradient(to bottom left, rgba(255,0,0,0), rgba(145,161,125,1));
+			}
+		}
+
+		@media (min-width: 1200px) {
+			.ct:before {
+					background: linear-gradient(to right bottom, rgba(255,0,0,0), rgba(0,0,0,1));
+			}
+			.ct:after {
+					background: linear-gradient(to bottom left, rgba(255,0,0,0), rgba(100, 100, 100, 1));
+			}
+		}
+  </style>
+</head>
+<body>
+  <h3>改变屏幕大小</h3>
+  <div class="ct"></div>
+</body>
+</html>
