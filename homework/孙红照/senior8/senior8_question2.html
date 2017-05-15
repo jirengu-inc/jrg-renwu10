@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>senior8 - question2</title>
+	<style>
+    .clear:after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+    .container {
+      margin: 0 auto;
+    }
+		.container>div {
+      box-sizing: border-box;
+			color: rgb(250,235,215);
+      background: rgb(210,105,30);
+      height: 40px;
+      line-height: 40px;
+      text-align: center;
+      border: 1px solid #ccc;
+		}
+    @media (min-width: 768px) {
+      .container {
+        width: 750px;
+      }
+    }
+    @media (min-width: 992px) {
+      .container {
+        width: 970px;
+      }
+    }
+    @media (min-width: 1200px) {
+      .container {
+        width: 1200px;
+      }
+    }
+    .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
+      float: left;
+    }
+    .col-xs-1 {
+      width: 8.3333333333333333%;
+    }
+    .col-xs-2 {
+      width: 16.666666666666667%;
+    }
+    .col-xs-3 {
+      width: 25%;
+    }
+    .col-xs-4 {
+      width: 33.333333333333333%;
+    }
+    .col-xs-5 {
+      width: 41.666666666666667%;
+    }
+    .col-xs-6 {
+      width: 50%;
+    }
+    .col-xs-7 {
+      width: 58.333333333333333%;
+    }
+    .col-xs-8 {
+      width: 66.666666666666667%;
+    }
+    .col-xs-9 {
+      width: 75%;
+    }
+    .col-xs-10 {
+      width: 83.333333333333333%;
+    }
+    .col-xs-11 {
+      width: 91.666666666666667%;
+    }
+    .col-xs-12 {
+      width: 100%;
+    }
+    @media (min-width: 768px) {
+      .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {
+        float: left;
+      }
+      .col-sm-1 {
+        width: 8.3333333333333333%;
+      }
+      .col-sm-2 {
+        width: 16.666666666666667%;
+      }
+      .col-sm-3 {
+        width: 25%;
+      }
+      .col-sm-4 {
+        width: 33.333333333333333%;
+      }
+      .col-sm-5 {
+        width: 41.666666666666667%;
+      }
+      .col-sm-6 {
+        width: 50%;
+      }
+      .col-sm-7 {
+        width: 58.333333333333333%;
+      }
+      .col-sm-8 {
+        width: 66.666666666666667%;
+      }
+      .col-sm-9 {
+        width: 75%;
+      }
+      .col-sm-10 {
+        width: 83.333333333333333%;
+      }
+      .col-sm-11 {
+        width: 91.666666666666667%;
+      }
+      .col-sm-12 {
+        width: 100%;
+      }      
+    }
+    @media (min-width: 992px) {
+      .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
+        float: left;
+      }
+      .col-md-1 {
+        width: 8.3333333333333333%;
+      }
+      .col-md-2 {
+        width: 16.666666666666667%;
+      }
+      .col-md-3 {
+        width: 25%;
+      }
+      .col-md-4 {
+        width: 33.333333333333333%;
+      }
+      .col-md-5 {
+        width: 41.666666666666667%;
+      }
+      .col-md-6 {
+        width: 50%;
+      }
+      .col-md-7 {
+        width: 58.333333333333333%;
+      }
+      .col-md-8 {
+        width: 66.666666666666667%;
+      }
+      .col-md-9 {
+        width: 75%;
+      }
+      .col-md-10 {
+        width: 83.333333333333333%;
+      }
+      .col-md-11 {
+        width: 91.666666666666667%;
+      }
+      .col-md-12 {
+        width: 100%;
+      }      
+    }
+    @media (min-width: 1200px) {
+      .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12 {
+        float: left;
+      }
+      .col-lg-1 {
+        width: 8.3333333333333333%;
+      }
+      .col-lg-2 {
+        width: 16.666666666666667%;
+      }
+      .col-lg-3 {
+        width: 25%;
+      }
+      .col-lg-4 {
+        width: 33.333333333333333%;
+      }
+      .col-lg-5 {
+        width: 41.666666666666667%;
+      }
+      .col-lg-6 {
+        width: 50%;
+      }
+      .col-lg-7 {
+        width: 58.333333333333333%;
+      }
+      .col-lg-8 {
+        width: 66.666666666666667%;
+      }
+      .col-lg-9 {
+        width: 75%;
+      }
+      .col-lg-10 {
+        width: 83.333333333333333%;
+      }
+      .col-lg-11 {
+        width: 91.666666666666667%;
+      }
+      .col-lg-12 {
+        width: 100%;
+      }           
+    }
+	</style>
+</head>
+<body>
+  <header>
+    <h1>栅格系统</h1>
+    <ul>
+      <li>页面宽度小于768px时，每个元素占据整行</li>
+      <li>页面宽度大于768px，小于992px时，每个元素占据半行</li>
+      <li>页面宽度大于992px，小于1200px时，每个元素占据三分之一行</li>
+      <li>页面宽度大于1200px时，每个元素占据四分之一行</li>
+    </ul>
+  </header>
+  <div class="container">
+    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">1</div>
+    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">2</div>
+    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">3</div>
+    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">4</div>
+  </div>
+</body>
+</html>

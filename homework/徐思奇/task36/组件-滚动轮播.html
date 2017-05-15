@@ -202,6 +202,8 @@
           this.isAnimate = false//动画状态锁 防止重复连续点击产生动画反应滞后的问题
           this.pageIndex = 0
           this.imgWidth = $firstImg.width()
+          // this.imgWidth = $('body').width()//适用于大尺寸图片的全屏轮播(1)
+          // this.$imgCt.find('li').width(this.imgWidth)//适用于大尺寸图片的全屏轮播(2)
           this.imgLength = $imgCt.children().length //在克隆之前计数
 
           //克隆第一个和最后一个li，为了更加明显，在HTML中增加自定义属性data-index
