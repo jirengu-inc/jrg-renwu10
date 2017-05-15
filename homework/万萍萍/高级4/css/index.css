@@ -17,7 +17,7 @@ th, td /* table elements 表格元素 */ {
   padding: 0;
 }
 /** 重置列表元素 **/
-ul, ol { list-style: none; }
+ul, ol, li { list-style: none; }
 /** 重置文本格式元素 **/
 a { text-decoration: none; outline: none;}
 a:active {color:white;}
@@ -89,8 +89,6 @@ body {
 #timeline-ct>.ct, #team-ct>.ct, #contact-ct .ct {
 	margin-top: 80px;
 }
-
-
 
 .index-btn:hover {
 	background-color: purple;
@@ -203,8 +201,7 @@ body {
 #header-ct .ct {
 	position: absolute;
 	top: 300px;
-	left: 50%;
-	/*transform: translate(50%);*/
+	transform: translate(70%);
 }
 
 #header-ct .ct>h2 {
@@ -222,6 +219,7 @@ body {
 	background-color: #BA9A47;
 	font-size: 34px;
 }
+
 /*头部图片轮播*/
 .view {
 	width: 1000px; /*单个图片大小*/
@@ -266,10 +264,14 @@ body {
 	margin-top: 25px;
 	margin-bottom: 25px;
 }
+.water-fall-item {
+	width: 300px;
+}
 
 /*产品栏*/
 #products-ct .ct {
 	max-width: 1000px;
+	text-align: center;
 }
 .item-pro {
 	background: white;
